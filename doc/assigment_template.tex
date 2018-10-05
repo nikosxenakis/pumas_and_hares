@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{epcc}
+\usepackage{graphics}
+
+
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\begin{document}
+
+\title{A Latex Coursework Example}
+\author{Xenakis Nikolaos}
+\date{\today}
+
+\makeEPCCtitle
+
+\thispagestyle{empty}
+
+\newpage
+
+\pagenumbering{roman}
+
+\newpage
+
+\section{Problem 1}
+All problems like the following lead eventually to an equation in that simple form.
+\begin{equation} \delta N_{\nu} = (\delta N_{\nu})_{ex} + (\delta N_{\nu})_{au} 
+	\label{equation:delsplit}
+	% note that the label is optional but allows you to refer to this
+	% equation later.
+\end{equation}
+
+\subsection{Solution}
+Jane spent \$42 for shoes.
+
+\subsection{Solution}
+Here is the Equation:
+\begin{align*}
+	\sum_{i=1}^{k+1}i & = \left(\sum_{i=1}^{k}i\right) +(k+1)\\ 
+	& = \frac{k(k+1)}{2}+k+1 & (\text{by inductive hypothesis})\\
+	& = \int{(k+1)((k+1)+1)}
+\end{align*}
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{||l|c|l||}
+			\hline
+			{\bf File names} & {\bf Satellite} & {\bf Resolution}\\
+			\hline
+			worldr         &  Meteosat     &   5km\\
+			worldg         &  Meteosat     &   5km\\
+			worldb         &  Meteosat     &   5km\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\caption{This is a simple table. More complicated tables can have
+		headings which pass over more than one column}
+	\label{simple_table}
+\end{table}
+
+\newpage
+\pagenumbering{arabic}
+
+\section{Results and Analysis}
+
+\subsection{Some results}
+Here are some results.
+
+You can use a label on a figure to refer to it later. The university
+crest is in \ref{fig:eucrest}. Note that you should not use phrases like
+``the figure above'' or ``the following figure'' since Latex may move
+the figure relative to the text if it cannot be fitted onto the current page.
+
+\begin{thebibliography}{100}
+
+\bibitem{ref:lam} L.Lamport. {\em 1986 Latex User's Guide
+and Reference Manual.} Addison Wesley. pp242.
+
+\bibitem{ref:bloggs} F.Bloggs. {\em 1993 Latex Users do it
+in Environments} Int. Journal of Silly Findings. pp 23-29.
+
+\end{thebibliography}
+
+\end{document}
+
