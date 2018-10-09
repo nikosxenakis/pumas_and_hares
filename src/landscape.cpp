@@ -4,12 +4,12 @@ Landscape* Landscape::instance = NULL;
 
 Landscape::Landscape(vector< vector<int> > tilesVector) {
 
-	for (auto &tilesList : tilesVector) {
+	for (auto tilesList : tilesVector) {
 		LandscapeTileRow tilesRow;
-		this->tiles.push_back(tilesRow);
-		for (auto &tile : tilesList) {  
-			tilesRow.push_back(new Tile(tile));
+		for (auto tile : tilesList) {  
+			tilesRow.push_back(Tile(tile));
 		}
+		this->tiles.push_back(tilesRow);
 	}
 
 }
@@ -19,12 +19,19 @@ void Landscape::init(vector< vector<int> > tilesVector) {
 }
 
 void Landscape::print() {
-	for(LandscapeTileVector::iterator it = Landscape::instance->tiles.begin(); it != Landscape::instance->tiles.end(); ++it) {
-		for(LandscapeTileRow::iterator it2 = (*it).begin(); it2 != (*it).end(); ++it2) {
-			(*it2).print();
+	for (auto tilesList : Landscape::instance->tiles) {
+		for (auto tile : tilesList) {  
+			tile.print();
 		}
 		cout << endl;
 	}
+	cout << endl;
 }
 
-void Landscape::update() {}
+void Landscape::update() {
+	for (auto tilesList : Landscape::instance->tiles) {
+		for (auto tile : tilesList) {  
+			tile.update();
+		}
+	}
+}
