@@ -11,7 +11,7 @@ What things you need to install the software and how to install them
 
 ```
 gcc
-c make
+make
 ```
 
 ### Installing
@@ -43,7 +43,11 @@ Give an example
 ### Coding style
 
 ```
-	int my_func(int my_var) { //whitespace between ) and {
+	class MyClass {
+
+	}
+
+	int myFunc(int my_var) { //whitespace between ) and {
 	    return my_var; //var name words seperated by _
 	}
 ```
