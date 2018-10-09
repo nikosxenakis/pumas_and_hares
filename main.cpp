@@ -14,11 +14,14 @@ public:
 	static void simulationLoop() {
 
 		int dt = 10;
+    	
+    	Landscape::print();
 
-		for (int t = 0; t <= 500; t+=dt)
-		{
+		for (int t = 0; t <= 500; t+=dt) {
 			Landscape::update();
 		}
+		
+	    Landscape::print();
 	}
 
 	static vector< vector<int> > initTilesVector() {
@@ -27,11 +30,11 @@ public:
 		for (int i = 0; i < 10; ++i)
 		{
 			vector<int> tilesLine;
-			tilesVector.push_back(tilesLine);
 			for (int j = 0; j < 10; ++j)
 			{
 				tilesLine.push_back(1);
 			}
+			tilesVector.push_back(tilesLine);
 		}
 
 	    return tilesVector;
@@ -48,7 +51,6 @@ int main() {
     vector< vector<int> > tilesVector = TestClass::initTilesVector();
 
     Landscape::init(tilesVector);
-    Landscape::print();
     
     TestClass::simulationLoop();
 
