@@ -2,34 +2,29 @@
 
 Landscape* Landscape::instance = NULL;
 
-Landscape::Landscape(int rows, int columns) {
-	
-	assert(rows>0 && columns>0 && rows<= 2000 && columns<=2000);
+Landscape::Landscape(vector< vector<int> > tilesVector) {
 
-	this->rows = rows;
-	this->columns = columns;
-
-	for (int i = 0; i < this->rows; ++i)
-	{
-		this->grids.push_back(std::vector<Grid>());
-
-		for (int j = 0; j < this->columns; ++j)
-		{
-			this->grids[i].push_back(new Grid(false));
-			//water on the edges
+	for (auto &tilesList : tilesVector) {
+		LandscapeTileRow tilesRow;
+		this->tiles.push_back(tilesRow);
+		for (auto &tile : tilesList) {  
+			tilesRow.push_back(new Tile(tile));
 		}
 	}
+
 }
 
-void Landscape::Init(int rows, int columns) {
-	Landscape::instance = new Landscape(rows, columns);
+void Landscape::init(vector< vector<int> > tilesVector) {
+	Landscape::instance = new Landscape(tilesVector);
 }
 
-void Landscape::Print() {
-	for(LandscapeGridVector::iterator it = Landscape::instance->grids.begin(); it != Landscape::instance->grids.end(); ++it) {
-		for(LandscapeGridLine::iterator it2 = (*it).begin(); it2 != (*it).end(); ++it2) {
+void Landscape::print() {
+	for(LandscapeTileVector::iterator it = Landscape::instance->tiles.begin(); it != Landscape::instance->tiles.end(); ++it) {
+		for(LandscapeTileRow::iterator it2 = (*it).begin(); it2 != (*it).end(); ++it2) {
 			(*it2).print();
 		}
 		cout << endl;
 	}
 }
+
+void Landscape::update() {}

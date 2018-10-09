@@ -1,28 +1,27 @@
 #ifndef LANDSCAPE_HPP
 #define LANDSCAPE_HPP
 
-#include <vector>
 #include <iostream>
-#include <string>
-#include "grid.hpp"
+#include <vector>
+#include "tile.hpp"
 
 using namespace std;
 
-typedef vector<Grid> LandscapeGridLine;
-typedef vector<LandscapeGridLine> LandscapeGridVector;
+typedef vector<Tile> LandscapeTileRow;
+typedef vector<LandscapeTileRow> LandscapeTileVector;
 
 class Landscape {
 
 	private :
 		static Landscape* instance;
-		Landscape(int rows, int columns);
-		int rows;
-		int columns;
-		LandscapeGridVector grids;
+		Landscape(vector< vector<int> > tilesVector);
+		LandscapeTileVector tiles;
 
 	public :
-		static void Init(int rows, int columns);
-		static void Print();
+		static void init(vector< vector<int> > tilesVector);
+		static void update();
+		static void print();
+		static Tile getTile(int row, int column);
 };
 
 #endif
