@@ -1,5 +1,11 @@
 #include "../include/grid.hpp"
 
+/**
+ * @brief [brief description]
+ * @details [long description]
+ * 
+ * @param water [description]
+ */
 Grid::Grid(bool water) {
 	this->water = water;
 
