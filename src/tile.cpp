@@ -14,3 +14,7 @@ void Tile::print() {
 	else
 		cout << "0" << "H" << this->oldHares << "P" << this->oldPumas << " ";
 }
+
+void Tile::update() {
+//    this->oldHares = this->oldHares + 1;
+}
