@@ -1,5 +1,5 @@
 #COMPILER OPTIONS
-CFLAGS := -g -Wall
+CFLAGS := -g -Wall -std=c++11
 
 CC := g++ $(CFLAGS)
 
