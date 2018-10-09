@@ -1,4 +1,5 @@
 #include "../include/landscape.hpp"
+#include <cassert>
 
 Landscape* Landscape::instance = NULL;
 

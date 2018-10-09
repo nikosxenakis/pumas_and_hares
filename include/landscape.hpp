@@ -12,7 +12,7 @@ typedef vector<Grid> LandscapeGridLine;
 typedef vector<LandscapeGridLine> LandscapeGridVector;
 
 class Landscape {
-
+    
 	private :
 		static Landscape* instance;
 		Landscape(int rows, int columns);

@@ -31,3 +31,7 @@
 *.out
 *.app
 /test/test
+
+# IDE Plugin files
+.ycm_extra_conf.py
+*.swp
