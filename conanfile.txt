@@ -1,5 +1,0 @@
-[requires]
-catchorg/catch2
-
-[generators]
-cmake
