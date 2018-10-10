@@ -7,6 +7,8 @@
 #include "include/landscapeParser.hpp"
 #include "include/helpers.hpp"
 
+#define RESOURCES_PATH "./resources"
+
 //write the parameters in a json configuration file
 
 
@@ -16,7 +18,8 @@ int main() {
     time_t t = time(NULL);
     srand (t);
     ifstream landFile;
-    landFile.open("../resources/small10x10.dat");
+
+    landFile.open(string(RESOURCES_PATH) + "/small10x10.dat");
     
     vector< vector<int> > tilesVector;
     
