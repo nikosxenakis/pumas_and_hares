@@ -36,6 +36,6 @@ int main() {
     
     Helpers::simulationLoop();
 
-    cout << (Landscape::getNeighbours("Hares", 2, 2)) << endl;
+    cout << (Landscape::getSumDensityNeighbours("Hares", 2, 2)) << endl;
     return 0;
 }
