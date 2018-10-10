@@ -24,7 +24,7 @@ public:
 		
 	}
 
-	static vector< vector<int> > initTilesVector(ifstream landFile) {
+	static vector< vector<int> > initTilesVector(ifstream &landFile) {
 	    vector< vector<int> > tilesVector;
 
 		int NY, NX, val;
@@ -46,7 +46,7 @@ public:
 			{
 				landFile >> val;
 
-				if (val != 0 || val != 1) {
+				if (val != 0 && val != 1) {
 					cout << "tile must be 1 or 0" << endl;
 					exit(1);
 				}
@@ -70,8 +70,10 @@ int main() {
     ifstream landFile;
     landFile.open("./resouces/small.dat");
     
+    vector< vector<int> > tilesVector;
+    
     if (landFile.is_open()) {
-        vector< vector<int> > tilesVector = TestClass::initTilesVector(&landFile);
+        tilesVector = TestClass::initTilesVector(landFile);
     }
     else {
         cout << "File is not open" << endl;
