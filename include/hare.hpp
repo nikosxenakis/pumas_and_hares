@@ -28,6 +28,9 @@ private:
 public:
     Hare();
     static string getName();
+    static float getR();
+    static float getA();
+    static float getK();
     /**
      * @description Calculate new Hare density
      * @param H_old

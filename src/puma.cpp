@@ -7,6 +7,18 @@ string Puma::getName() {
     return name;
 }
 
+string Puma::getB() {
+    return b;
+}
+
+string Puma::getM() {
+    return m;
+}
+
+string Puma::getL() {
+    return l;
+}
+
 // todo: interface for parameters / array
 float Puma::calculateNewDensity(float P_old, float H_old) {
     int dt = 1;

@@ -7,6 +7,18 @@ string Hare::getName() {
     return name;
 }
 
+string Puma::getR() {
+    return r;
+}
+
+string Puma::getA() {
+    return a;
+}
+
+string Puma::getK() {
+    return k;
+}
+
 // todo: interface for parameters / array
 float Hare::calculateNewDensity(float H_old, float P_old) {
     int dt = 1;

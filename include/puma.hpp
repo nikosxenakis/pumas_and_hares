@@ -28,6 +28,9 @@ private:
 public:
     Puma();
     static string getName();
+    static float getB();
+    static float getM();
+    static float getL();
     /**
      * @description Calculate new Puma density
      * @param P_old
