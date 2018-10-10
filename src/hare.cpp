@@ -14,5 +14,5 @@ float HARE::calculateNewDensity(float H_old, float sum_density_neighbours) {
 
     return H_old
         + dt * (this->getR() * H_old
-        - this->getA() * H_old * P_old + k * (sum_density_neighbours - land_neighbours * H_old));
+        - this->getA() * H_old * P_old + this->getK() * (sum_density_neighbours - land_neighbours * H_old));
 }
