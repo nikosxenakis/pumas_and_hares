@@ -23,17 +23,14 @@ class HARE {
     public:
         HARE();
         /**
-         * @description Calculation new Hare density
+         * @description Calculate new Hare density
          * @param H_old
-         * @param H_old_left
-         * @param H_old_right
-         * @param H_old_top
-         * @param H_old_bottom
+         * @param sum_density_neighbours
          *
          * @return float
          */
          // todo: return typedef Density (in tile.hpp)
-        float calculateNewDensity(float H_old, float H_old_left, float H_old_right, float H_old_top, float H_old_bottom);
+        float calculateNewDensity(float H_old, float sum_density_neighbours);
 };
 
 #endif
