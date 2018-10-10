@@ -24,15 +24,15 @@ public:
 		
 	}
 
-	static vector< vector<int> > initTilesVector() {
 	    vector< vector<int> > tilesVector;
 
-		for (int i = 0; i < 10; ++i)
 		{
 			vector<int> tilesLine;
-			for (int j = 0; j < 10; ++j)
 			{
+<<<<<<< HEAD
 				tilesLine.push_back((i*j)%2);
+=======
+>>>>>>> 1de39b49e0082516be268b7d56c1bc6ac93597d4
 			}
 			tilesVector.push_back(tilesLine);
 		}
@@ -48,7 +48,6 @@ int main() {
     time_t t = time(NULL);
     srand (t);
     
-    vector< vector<int> > tilesVector = TestClass::initTilesVector();
 
     Landscape::init(tilesVector);
     

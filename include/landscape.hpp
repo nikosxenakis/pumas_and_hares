@@ -11,7 +11,7 @@ typedef vector<Tile*> LandscapeTileRow;
 typedef vector<LandscapeTileRow> LandscapeTileVector;
 
 class Landscape {
-
+    
 	private :
 		static Landscape* instance;
 		Landscape(vector< vector<int> > tilesVector);
