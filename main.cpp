@@ -44,9 +44,6 @@ public:
 			vector<int> tilesLine;
 			for (int j = 0; j < NY; ++j)
 			{
-<<<<<<< HEAD
-				tilesLine.push_back((i*j)%2);
-=======
 				landFile >> val;
 
 				if (val != 0 || val != 1) {
@@ -56,7 +53,6 @@ public:
 				else {
 					tilesLine.push_back(val);
 				}
->>>>>>> 1de39b49e0082516be268b7d56c1bc6ac93597d4
 			}
 			tilesVector.push_back(tilesLine);
 		}
