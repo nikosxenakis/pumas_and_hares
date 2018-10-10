@@ -15,22 +15,25 @@ private:
     /**
      * @description birth rate of pumas per one heare eaten
      */
-    static float b;
+    static float birth_rate;
     /**
      * @description mortality rate
      */
-    static float m;
+    static float mortality_rate;
     /**
      * @description diffusion rates for pumas
      */
-    static float l;
+    static float diffusion_rate;
 
 public:
     Puma();
     static string getName();
-    static float getB();
-    static float getM();
-    static float getL();
+    static float getBirthRate();
+    static void setBirthRate(float birth_rate);
+    static float getMortalityRate();
+    static void setMortalityRate(float mortality_rate);
+    static float getDiffusionRate();
+    static void setDiffusionRate(float diffusion_rate);
     /**
      * @description Calculate new Puma density
      * @param P_old

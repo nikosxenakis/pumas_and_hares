@@ -15,22 +15,25 @@ private:
     /**
      * @description birth rate of hares
      */
-    static float r;
+    static float birth_rate;
     /**
      * @description predation rate at which pumas eat hares
      */
-    static float a;
+    static float predation_rate;
     /**
      * @description diffusion rates for hares
      */
-    static float k;
+    static float diffusion_rate;
 
 public:
     Hare();
     static string getName();
-    static float getR();
-    static float getA();
-    static float getK();
+    static float getBirthRate();
+    static void setBirthRate(float birth_rate);
+    static float getPredationRate();
+    static void setPredationRate(float predation_rate);
+    static float getDiffusionRate();
+    static void setDiffusionRate(float diffusion_rate);
     /**
      * @description Calculate new Hare density
      * @param H_old
