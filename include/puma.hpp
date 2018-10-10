@@ -1,8 +1,13 @@
 #ifndef PUMA_HPP
 #define PUMA_HPP
+#include "../include/landscape.hpp"
+#include <string>
 
-class PUMA {
+using namespace std;
+
+class Puma {
 private:
+    static string name;
     /**
      * @description density of pumas (predators)
      */
@@ -21,7 +26,11 @@ private:
     static float l;
 
 public:
-    PUMA();
+    Puma();
+    static string getName();
+    static float getB();
+    static float getM();
+    static float getL();
     /**
      * @description Calculate new Puma density
      * @param P_old
@@ -30,7 +39,7 @@ public:
      * @return float
      */
     // todo: return typedef Density (in tile.hpp)
-    float calculateNewDensity(float P_old, float sum_density_neighbours);
+    float calculateNewDensity(float P_old, float H_old);
 };
 
 #endif

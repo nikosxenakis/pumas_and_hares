@@ -1,10 +1,13 @@
 #ifndef HARE_HPP
 #define HARE_HPP
+#include "../include/landscape.hpp"
+#include <string>
 
-#endif
+using namespace std;
 
-class HARE {
+class Hare {
 private:
+    static string name;
     /**
      * @description density of hares (preys)
      */
@@ -23,7 +26,11 @@ private:
     static float k;
 
 public:
-    HARE();
+    Hare();
+    static string getName();
+    static float getR();
+    static float getA();
+    static float getK();
     /**
      * @description Calculate new Hare density
      * @param H_old
@@ -32,5 +39,7 @@ public:
      * @return float
      */
     // todo: return typedef Density (in tile.hpp)
-    float calculateNewDensity(float H_old, float sum_density_neighbours);
+    float calculateNewDensity(float H_old, float P_old);
 };
+
+#endif
