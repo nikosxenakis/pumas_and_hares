@@ -10,10 +10,12 @@ unsigned int Factorial( unsigned int number){
 
 TEST_CASE( "factorials are computed", "[factorial]" ){
 
+    vector<vector <int>> tV;
     
-    Landscape::Init(10,10);
-    Landscape::Print();
+    Landscape::init(tV);
+    Landscape::print();
 
+    
 
 
     REQUIRE( Factorial(1) == 1 );
