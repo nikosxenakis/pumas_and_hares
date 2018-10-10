@@ -49,7 +49,7 @@ Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col)
     LandscapeTileVector tiles = Landscape::instance->tiles;
     Density sum = 0;
 
-    if(row < 0 || row > tiles.size() || col < 0 || col < tiles[row].size()) {
+    if(row < 0 || row > tiles.size() || col < 0 || col > tiles[row].size()) {
         cout << "wrong input in getNeighbours" << endl;
         return 0;
     }
