@@ -7,7 +7,8 @@
 #include "include/landscapeParser.hpp"
 #include "include/helpers.hpp"
 
-#define RESOURCES_PATH "./resources"
+#define RESOURCES_PATH "./pumas_and_hares/resources"
+//#define RESOURCES_PATH "/Users/xenis656/Desktop/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
 
 //write the parameters in a json configuration file
 
@@ -35,6 +36,6 @@ int main() {
     
     Helpers::simulationLoop();
 
-//    (Landscape::getTile(0, 0))->print();
+    cout << (Landscape::getNeighbours("Hares", 2, 2)) << endl;
     return 0;
 }
