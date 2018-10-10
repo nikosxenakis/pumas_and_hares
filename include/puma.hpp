@@ -27,6 +27,7 @@ private:
 
 public:
     Puma();
+    static string getName();
     /**
      * @description Calculate new Puma density
      * @param P_old

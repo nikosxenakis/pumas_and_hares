@@ -68,9 +68,9 @@ Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col)
     }
 
     for(auto tile: tilesVector) {
-        if(animal == "Pumas")
+        if(animal == Puma::getName())
             sum += tile->getOldPumas();
-        else if(animal == "Hares")
+        else if(animal == Hare::getName())
             sum += tile->getOldHares();
         else
             cout << "error in getNeighbours";

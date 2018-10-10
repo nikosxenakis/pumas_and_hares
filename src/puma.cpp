@@ -3,6 +3,10 @@
 
 using namespace std;
 
+string Puma::getName() {
+    return name;
+}
+
 // todo: interface for parameters / array
 float Puma::calculateNewDensity(float P_old, float H_old) {
     int dt = 1;

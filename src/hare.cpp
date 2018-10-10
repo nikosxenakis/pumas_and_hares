@@ -3,6 +3,10 @@
 
 using namespace std;
 
+string Hare::getName() {
+    return name;
+}
+
 // todo: interface for parameters / array
 float Hare::calculateNewDensity(float H_old, float P_old) {
     int dt = 1;

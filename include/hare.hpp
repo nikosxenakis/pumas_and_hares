@@ -27,6 +27,7 @@ private:
 
 public:
     Hare();
+    static string getName();
     /**
      * @description Calculate new Hare density
      * @param H_old
