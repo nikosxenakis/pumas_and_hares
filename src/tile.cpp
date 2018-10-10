@@ -9,12 +9,16 @@ Tile::Tile(bool land) {
 }
 
 void Tile::print() {
-	if(this->land)
-		cout << "1" << "H" << this->oldHares << "P" << this->oldPumas << " ";
-	else
-		cout << "0" << "H" << this->oldHares << "P" << this->oldPumas << " ";
+    cout << this->land << "H" << this->oldHares << "P" << this->oldPumas << " ";
 }
 
 void Tile::update() {
-//    this->oldHares = this->oldHares + 1;
+    this->oldHares = this->oldHares + 1;
+}
+
+Density Tile::getOldHares() {
+    return this->oldHares;
+}
+Density Tile::getOldPumas() {
+    return this->oldPumas;
 }

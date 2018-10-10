@@ -7,7 +7,7 @@
 
 using namespace std;
 
-typedef vector<Tile> LandscapeTileRow;
+typedef vector<Tile*> LandscapeTileRow;
 typedef vector<LandscapeTileRow> LandscapeTileVector;
 
 class Landscape {
@@ -21,7 +21,7 @@ class Landscape {
 		static void init(vector< vector<int> > tilesVector);
 		static void update();
 		static void print();
-		static Tile getTile(int row, int column);
+        static Density getNeighbours(std::string animal, int row, int col);
 };
 
 #endif
