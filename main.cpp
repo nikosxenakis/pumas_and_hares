@@ -13,15 +13,15 @@ class TestClass {
 public:
 	static void simulationLoop() {
 
-		int dt = 10;
+		int dt = 251;
     	
     	Landscape::print();
 
 		for (int t = 0; t <= 500; t+=dt) {
 			Landscape::update();
+            Landscape::print();
 		}
 		
-	    Landscape::print();
 	}
 
 	static vector< vector<int> > initTilesVector() {
@@ -32,7 +32,7 @@ public:
 			vector<int> tilesLine;
 			for (int j = 0; j < 10; ++j)
 			{
-				tilesLine.push_back(1);
+				tilesLine.push_back((i*j)%2);
 			}
 			tilesVector.push_back(tilesLine);
 		}
@@ -54,5 +54,6 @@ int main() {
     
     TestClass::simulationLoop();
 
+//    (Landscape::getTile(0, 0))->print();
     return 0;
 }
