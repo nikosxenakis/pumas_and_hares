@@ -68,7 +68,7 @@ int main() {
     time_t t = time(NULL);
     srand (t);
     ifstream landFile;
-    landFile.open("./resouces/small.dat");
+    landFile.open("../resources/small10x10.dat");
     
     vector< vector<int> > tilesVector;
     
