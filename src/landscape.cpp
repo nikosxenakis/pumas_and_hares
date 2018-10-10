@@ -37,7 +37,14 @@ void Landscape::print() {
 	cout << endl;
 }
 
-Density Landscape::getNeighbours(std::string animal, int row, int col) {
+int Landscape::getNumberOfLandNeighbours(int row, int col) {
+    // todo: get Number of neighbouring squares that are land ("dry")
+    // todo: by looking into parsed input => vector tiles
+    int i = 4;
+    return i;
+}
+
+Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col) {
     vector<Tile*> tilesVector;
     LandscapeTileVector tiles = Landscape::instance->tiles;
     Density sum = 0;
