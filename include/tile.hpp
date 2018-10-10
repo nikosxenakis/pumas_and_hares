@@ -22,6 +22,8 @@ class Tile {
 		void print();
 		void update();
 		Density getNeighbours();
+        Density getOldHares();
+        Density getOldPumas();
 };
 
 #endif

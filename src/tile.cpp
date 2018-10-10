@@ -15,3 +15,10 @@ void Tile::print() {
 void Tile::update() {
     this->oldHares = this->oldHares + 1;
 }
+
+Density Tile::getOldHares() {
+    return this->oldHares;
+}
+Density Tile::getOldPumas() {
+    return this->oldPumas;
+}

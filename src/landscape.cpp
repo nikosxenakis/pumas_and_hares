@@ -37,7 +37,37 @@ void Landscape::print() {
 	cout << endl;
 }
 
-//Tile* Landscape::getTile(int row, int column)() {
-//    
-//    return Landscape::instance->tiles;
-//}
+Density Landscape::getNeighbours(std::string animal, int row, int col) {
+    vector<Tile*> tilesVector;
+    LandscapeTileVector tiles = Landscape::instance->tiles;
+    Density sum = 0;
+
+    if(row < 0 || row > tiles.size() || col < 0 || col < tiles[row].size()) {
+        cout << "wrong input in getNeighbours" << endl;
+        return 0;
+    }
+
+    if(row - 1 >= 0) {
+        tilesVector.push_back(tiles[row-1][col]);
+    }
+    if(row + 1 < tiles.size()) {
+        tilesVector.push_back(tiles[row+1][col]);
+    }
+    if(col - 1 >= 0) {
+        tilesVector.push_back(tiles[row][col-1]);
+    }
+    if(col + 1 < tiles[row].size()) {
+        tilesVector.push_back(tiles[row][col+1]);
+    }
+
+    for(auto tile: tilesVector) {
+        if(animal == "Pumas")
+            sum += tile->getOldPumas();
+        else if(animal == "Hares")
+            sum += tile->getOldHares();
+        else
+            cout << "error in getNeighbours";
+    }
+    
+    return sum;
+}
