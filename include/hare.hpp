@@ -1,48 +1,48 @@
-#ifndef PUMA_HPP
-#define PUMA_HPP
+#ifndef HARE_HPP
+#define HARE_HPP
 #include "../include/landscape.hpp"
 #include <string>
 
 using namespace std;
 
-class Puma {
+class Hare {
 private:
     static string name;
     /**
-     * @description density of pumas (predators)
+     * @description density of hares (preys)
      */
-    float P;
+    float H;
     /**
-     * @description birth rate of pumas per one heare eaten
+     * @description birth rate of hares
      */
     static float birth_rate;
     /**
-     * @description mortality rate
+     * @description predation rate at which pumas eat hares
      */
-    static float mortality_rate;
+    static float predation_rate;
     /**
-     * @description diffusion rates for pumas
+     * @description diffusion rates for hares
      */
     static float diffusion_rate;
 
 public:
-    Puma();
+    Hare();
     static string getName();
     static float getBirthRate();
     static void setBirthRate(float birth_rate);
-    static float getMortalityRate();
-    static void setMortalityRate(float mortality_rate);
+    static float getPredationRate();
+    static void setPredationRate(float predation_rate);
     static float getDiffusionRate();
     static void setDiffusionRate(float diffusion_rate);
     /**
-     * @description Calculate new Puma density
-     * @param P_old
+     * @description Calculate new Hare density
+     * @param H_old
      * @param sum_density_neighbours
      *
      * @return float
      */
     // todo: return typedef Density (in tile.hpp)
-    float calculateNewDensity(float P_old, float H_old);
+    float calculateNewDensity(float H_old, float P_old);
 };
 
 #endif

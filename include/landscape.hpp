@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 #include "tile.hpp"
+#include "hare.hpp"
+#include "puma.hpp"
 
 using namespace std;
 
@@ -21,7 +23,8 @@ class Landscape {
 		static void init(vector< vector<int> > tilesVector);
 		static void update();
 		static void print();
-        static Density getNeighbours(std::string animal, int row, int col);
+		static int getNumberOfLandNeighbours(int row, int col);
+        static Density getSumDensityNeighbours(std::string animal, int row, int col);
 };
 
 #endif
