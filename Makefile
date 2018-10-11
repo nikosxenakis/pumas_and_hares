@@ -18,6 +18,7 @@ TEST_DIR := $(BASE_DIR)/test
 
 #FILES
 BIN := $(BIN_DIR)/pumas_and_hares
+LAND_GEN_BIN := $(BIN_DIR)/land_generator
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) $(BASE_DIR)/main.cpp
 
@@ -40,10 +41,17 @@ all: $(BIN)
 test:
 	make -C ./test test
 
+land: land_generator.cpp
+	@mkdir -p $(BIN_DIR)
+	$(CC) -o $(BIN_DIR)/land_generator $(BASE_DIR)/land_generator.cpp
+
 run: $(BIN)
 	$(BIN)
 
-clean: $(BIN)
+run_land: land
+	$(LAND_GEN_BIN)
+
+clean:
 	@echo " Cleaning..."
 	rm -rf $(BIN_DIR) $(BUILD_DIR)
 
