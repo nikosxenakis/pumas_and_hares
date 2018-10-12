@@ -1,7 +1,6 @@
 #COMPILER OPTIONS
-CFLAGS := -g -Wall -std=c++11
-
-CC := g++ $(CFLAGS)
+CXX := g++
+CXXFLAGS := -g -Wall -std=c++11
 
 #DIRECTORIES
 BASE_DIR := .
@@ -16,9 +15,16 @@ BIN_DIR := $(BASE_DIR)/bin
 
 TEST_DIR := $(BASE_DIR)/test
 
+LAND_DIR := $(BASE_DIR)/land_generator
+
 #FILES
-BIN := $(BIN_DIR)/pumas_and_hares
-LAND_GEN_BIN := $(BIN_DIR)/land_generator
+TARGET := pumas_and_hares
+
+LAND_TARGET := land_generator
+
+BIN := $(BIN_DIR)/$(TARGET)
+
+LAND_GEN_BIN := $(BIN_DIR)/$(LAND_TARGET)
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) $(BASE_DIR)/main.cpp
 
@@ -28,31 +34,32 @@ TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 	@mkdir -p $(BUILD_DIR)
-	$(CC) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(BIN): $(OBJ_FILES)
 	@echo " Linking..."
 	@mkdir -p $(BIN_DIR)
-	$(CC) $^ -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-all: $(BIN)
+all: $(BIN) land
 	@echo " $(BIN) ready."
 
 test:
 	make -C ./test test
 
-land: land_generator.cpp
+land: $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
-	$(CC) -o $(BIN_DIR)/land_generator $(BASE_DIR)/land_generator.cpp
+	$(CXX) $(CXXFLAGS) -o $(LAND_GEN_BIN) $(LAND_DIR)/$(LAND_TARGET).cpp
 
 run: $(BIN)
 	$(BIN)
 
-run_land: land
+run_land: $(LAND_GEN_BIN)
 	$(LAND_GEN_BIN)
 
 clean:
 	@echo " Cleaning..."
-	rm -rf $(BIN_DIR) $(BUILD_DIR)
+	rm -r $(BIN_DIR)/*
+	rm -r $(BUILD_DIR)/*
 
 .PHONY: test clean
