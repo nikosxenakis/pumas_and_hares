@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <time.h>
 
+#include <stdint.h>
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #define RESOURCES_PATH "./resources/"
 
 #define LANDPERCENTAGE 0.6
@@ -191,6 +195,30 @@ void createLandFile(vector< vector<LandFile*> > landFileVector, ofstream &landFi
     }
 }
 
+void land_generator(ofstream &landFile) {
+    vector< vector<LandFile*> > landFileVector = createLandVector();
+    distributeLand(landFileVector);
+    createLandFile(landFileVector, landFile);
+}
+
+void land_generator_image(ofstream &landFile) {
+    int width, height, bpp;
+
+    uint8_t* rgb_image = stbi_load("landscape.png", &width, &height, &bpp, 3);
+
+    // for (int i = 0; i < height; ++i)
+    // {
+    //     for (int i = 0; i < count; ++i)
+    //     {
+    //         cout << rgb_image << " ";
+    //     }
+    // }
+            // cout << rgb_image << " ";
+
+    stbi_image_free(rgb_image);
+
+}
+
 int main() {
 
     ofstream landFile;
@@ -200,9 +228,8 @@ int main() {
     srand (t);
 
     if (landFile.is_open()) {
-        vector< vector<LandFile*> > landFileVector = createLandVector();
-        distributeLand(landFileVector);
-        createLandFile(landFileVector, landFile);
+        land_generator(landFile);
+        //land_generator_image(landFile);
         landFile.close();
     }
     else {

@@ -37,12 +37,12 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(BIN): $(OBJ_FILES)
-	@echo " Linking..."
+	@echo "\tLinking..."
 	@mkdir -p $(BIN_DIR)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
 all: $(BIN) land
-	@echo " $(BIN) ready."
+	@echo "\t$(BIN) ready."
 
 test:
 	make -C ./test test
@@ -62,4 +62,4 @@ clean:
 	rm -r $(BIN_DIR)/*
 	rm -r $(BUILD_DIR)/*
 
-.PHONY: test clean
+.PHONY: test clean all land run run_land
