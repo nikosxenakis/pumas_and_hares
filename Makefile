@@ -45,7 +45,7 @@ all: $(BIN) land
 	@echo "\t$(BIN) ready."
 
 test:
-	make -C ./test test
+	make -C ./test run
 
 land: $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
