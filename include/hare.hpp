@@ -21,7 +21,6 @@ private:
     static float predation_rate;
 
 public:
-    Hare();
     static float getPredationRate();
     static void setPredationRate(float predation_rate);
     /**

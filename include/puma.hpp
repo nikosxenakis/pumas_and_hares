@@ -18,7 +18,6 @@ private:
     static float mortality_rate;
 
 public:
-    Puma();
     static float getMortalityRate();
     static void setMortalityRate(float mortality_rate);
     /**
