@@ -12,8 +12,9 @@
 using namespace std;
 
 TEST_CASE( "Hare Test", "[Testing the hares]" ){
-   Hare* h = new Hare;
-   float b = h->getBirthRate();
+   Hare h;
+   h.setBirthRate(0.01);
+   float b = h.getBirthRate();
 
    REQUIRE(b == 0.01);
 }
