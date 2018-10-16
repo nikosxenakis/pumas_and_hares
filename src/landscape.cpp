@@ -72,17 +72,21 @@ Tile* Landscape::getTile(size_t row, size_t col) {
     return Landscape::instance->tiles[row][col];
 }
 
-vector<Tile*> Landscape::getNeighbours(int row, int col) {
+vector<Tile*> Landscape::getNeighbours(int row, int col) throw (out_of_range) {
     vector<Tile*> tilesVector;
     Tile*** tiles = Landscape::instance->tiles;
     size_t rows = Landscape::instance->rows;
     size_t cols = Landscape::instance->cols;
     
     // TODO: throw exception
-//    if(row < 0 || row > rows || col < 0 || col > cols) {
-//        cout << "wrong input in getNeighbours" << endl;
-//        return 0;
-//    }
+    if(row < 0 || row > rows) {
+        string err = "row = " + std::to_string(row) + " is out of range";
+        throw out_of_range(err);
+    }
+    if(col < 0 || col > cols) {
+        string err = "col = " + std::to_string(col) + " is out of range";
+        throw out_of_range(err);
+    }
     
     if(row - 1 >= 0) {
         tilesVector.push_back(tiles[row-1][col]);
@@ -102,13 +106,21 @@ vector<Tile*> Landscape::getNeighbours(int row, int col) {
 int Landscape::getNumberOfLandNeighbours(int row, int col) {
     // todo: get Number of neighbouring squares that are land ("dry")
     // todo: by looking into parsed input => vector tiles
-    vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
 
     int i = 0;
 
-    for(auto tile: tilesVector) {
-        if(tile->isLand())
-            ++i;
+    try {
+        vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
+        
+        for(auto tile: tilesVector) {
+            if(tile->isLand())
+                ++i;
+        }
+    }
+    catch(out_of_range& e)
+    {
+        cerr << e.what() << endl;
+        return 0;
     }
     
     return i;
@@ -116,16 +128,24 @@ int Landscape::getNumberOfLandNeighbours(int row, int col) {
 
 Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col) {
 
-    vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
     Density sum = 0;
 
-    for(auto tile: tilesVector) {
-        if(animal == Puma::getName())
-            sum += tile->getOldPumas();
-        else if(animal == Hare::getName())
-            sum += tile->getOldHares();
-        else
-            cout << "error in getNeighbours";
+    try
+    {
+        vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
+        for(auto tile: tilesVector) {
+            if(animal == Puma::getName())
+                sum += tile->getOldPumas();
+            else if(animal == Hare::getName())
+                sum += tile->getOldHares();
+            else
+                cout << "error in getNeighbours";
+        }
+    }
+    catch(out_of_range& e)
+    {
+        cerr << e.what() << endl;
+        return 0;
     }
 
     return sum;

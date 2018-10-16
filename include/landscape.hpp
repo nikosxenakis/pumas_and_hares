@@ -17,7 +17,7 @@ private :
     static Landscape* instance;
     Landscape(vector< vector<int> > tilesVector);
     ~Landscape();
-    static vector<Tile*> getNeighbours(int row, int col);
+    static vector<Tile*> getNeighbours(int row, int col) throw (out_of_range);
     TilesArray tiles;
     size_t rows;
     size_t cols;
