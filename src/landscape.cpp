@@ -109,7 +109,7 @@ int Landscape::getNumberOfLandNeighbours(int row, int col) {
     return i;
 }
 
-Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col) {
+Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
 
     Density sum = 0;
 
