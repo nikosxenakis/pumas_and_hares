@@ -9,7 +9,7 @@ Landscape::Landscape(vector< vector<int> > tilesVector) {
 
     this->rows = tilesVector.size();
     this->cols = tilesVector[0].size();
-
+    
     this->tiles = new Tile**[this->rows];
     
 	for (auto tilesList : tilesVector) {
@@ -47,6 +47,7 @@ Landscape::~Landscape() {
 }
 
 void Landscape::update() {
+
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
             Landscape::instance->tiles[i][j]->update();
@@ -55,12 +56,10 @@ void Landscape::update() {
 }
 
 void Landscape::print() {
-    Landscape* landscape = Landscape::instance;
-    int i = 0, j = 0;
     
-    for (i = 0; i < landscape->rows; ++i) {
-        for (j = 0; j < landscape->cols; ++j) {
-            Tile* tile = landscape->tiles[i][j];
+    for (int i = 0; i < Landscape::instance->rows; ++i) {
+        for (int j = 0; j < Landscape::instance->cols; ++j) {
+            Tile* tile = Landscape::instance->tiles[i][j];
             tile->print();
         }
         cout << endl;

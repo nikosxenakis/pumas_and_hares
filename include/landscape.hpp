@@ -9,8 +9,7 @@
 
 using namespace std;
 
-//typedef vector<Tile*> LandscapeTileRow;
-//typedef vector<LandscapeTileRow> LandscapeTileVector;
+typedef Tile*** TilesArray;
 
 class Landscape {
     
@@ -18,10 +17,9 @@ class Landscape {
 		static Landscape* instance;
 		Landscape(vector< vector<int> > tilesVector);
         ~Landscape();
-        Tile*** tiles;
-        int rows;
-        int cols;
-//        LandscapeTileVector tiles;
+        TilesArray tiles;
+        size_t rows;
+        size_t cols;
 
 	public :
 		static void init(vector< vector<int> > tilesVector);
