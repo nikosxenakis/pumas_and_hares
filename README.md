@@ -1,6 +1,7 @@
 # Pumas and Hares
-One Paragraph of project description goes here
-
+This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
+practice” scientific code within a full development framework (i.e. revision control, build tools, unit test 
+framework etc.). 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -30,15 +31,12 @@ Give the example
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+To build and run these tests, simply use the command `make test`
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+Each test file examines the methods of its parent class
 
-```
-Give an example
-```
 
 ### Coding style
 
@@ -62,6 +60,7 @@ We use [GitHub](http://github.com/) for versioning. For the versions available, 
 ## Authors
 
 * **Xenakis Nikolaos** - *Initial work* - [nikosxenakis](https://github.com/nikosxenakis)
+* **Jim Walker** - *Building tests*
 
 
 ## License
@@ -70,6 +69,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
+* Thanks to [Catch](https://catch-lib.net) for the test library
 * Hat tip to anyone whose code was used
 * Inspiration
 * etc
