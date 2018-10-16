@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include "hare.hpp"
+#include "puma.hpp"
 
 typedef float Density;
 
@@ -20,6 +22,8 @@ private :
      * @description a boolean variable which indicates if this tile contains land or not
      */
     bool land;
+    int row;
+    int col;
     Density oldHares;
     Density oldPumas;
     Density newHares;
@@ -31,7 +35,7 @@ public :
      * @param land is a boolean variable which indicates if this tile contains land or not
      * @return None
      */
-    Tile(bool land);
+    Tile(bool land, int row, int col);
     ~Tile();
     void const print();
     void update();
@@ -39,6 +43,7 @@ public :
     bool const isLand();
     Density const getOldHares();
     Density const getOldPumas();
+    Density const getDensity(string animal);
 };
 
 #endif

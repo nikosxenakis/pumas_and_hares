@@ -16,7 +16,7 @@ Landscape::Landscape(vector< vector<int> > tilesVector) {
         this->tiles[i] = new Tile*[this->cols];
         j = 0;
 		for (auto tile : tilesList) {
-            this->tiles[i][j] = new Tile(tile);
+            this->tiles[i][j] = new Tile(tile, i, j);
             ++j;
 		}
         ++i;
@@ -118,12 +118,7 @@ Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
         vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
         for(auto tile: tilesVector) {
             if(tile)
-                if(animal == Puma::getName())
-                    sum += tile->getOldPumas();
-                else if(animal == Hare::getName())
-                    sum += tile->getOldHares();
-                else
-                    cout << "error in getNeighbours";
+                sum += tile->getDensity(animal);
         }
     }
     catch(out_of_range& e)

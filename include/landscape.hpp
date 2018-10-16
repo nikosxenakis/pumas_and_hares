@@ -4,8 +4,6 @@
 #include <iostream>
 #include <vector>
 #include "tile.hpp"
-#include "hare.hpp"
-#include "puma.hpp"
 
 using namespace std;
 
