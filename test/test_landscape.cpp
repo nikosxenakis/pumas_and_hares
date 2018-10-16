@@ -12,35 +12,36 @@
 
 using namespace std;
 
-unsigned int Factorial( unsigned int number){
-    return number <= 1 ? number : Factorial(number - 1)*number;
-}
-
 
 
 TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
-    ifstream landFile;
-    landFile.open("../resources/small10x10.dat");
-    
-    vector< vector<int> > tilesVector;
+    GIVEN("A landscape vector of size 10x10"){
 
-    if (landFile.is_open()) {
-        tilesVector = Helpers::initTilesVector(landFile);
-    }
-    else {
-        cout << "ERROR OPENING LANDSCAPE FILE" << endl;
-        exit(1);
-    }
-    
+       ifstream landFile;
+       landFile.open("../resources/small10x10.dat");
+       vector< vector<int> > tilesVector;
 
-    Landscape::init(tilesVector);
-    
-    SECTION("Landscape generation"){
-        SECTION("check that land is generated as an island"){
-            REQUIRE( Landscape::getSumDensityNeighbours("Puma", 0,0) == 1);
-            REQUIRE( Landscape::getNumberOfLandNeighbours(0,0) == 1);
-        }
-            REQUIRE( Factorial(4) == 2);
+       if (landFile.is_open()) {
+           tilesVector = Helpers::initTilesVector(landFile);
+       }
+       else {
+           cout << "ERROR OPENING LANDSCAPE FILE" << endl;
+           exit(1);
+       }
+      
+       WHEN(" the Landscape is initilised" ){ 
+          Landscape::init(tilesVector);
+
+          int max_index =  tilesVector.size()-1;
+
+          THEN(" the landscape is an island"){
+               REQUIRE( Landscape::getNumberOfLandNeighbours(0,0) == 0);
+               REQUIRE( Landscape::getNumberOfLandNeighbours(max_index,0) == 0);
+               REQUIRE( Landscape::getNumberOfLandNeighbours(0,max_index) == 0);
+               REQUIRE( Landscape::getNumberOfLandNeighbours(max_index,max_index) == 0);
+          }
+          
+       }
     }
 }

@@ -3,15 +3,33 @@
 
 using namespace std;
 
+string Puma::getName() {
+    return Puma::name;
+}
+
+float Puma::getBirthRate() {
+    return Puma::birth_rate;
+}
+
+void Puma::setBirthRate(float birth_rate) {
+    Puma::birth_rate = birth_rate;
+}
 
 float Puma::getMortalityRate() {
-    return mortality_rate;
+    return Puma::mortality_rate;
 }
 
-void Puma::setMortalityRate(float mrate) {
-    mortality_rate = mrate;
+void Puma::setMortalityRate(float mortality_rate) {
+    Puma::mortality_rate = mortality_rate;
 }
 
+float Puma::getDiffusionRate() {
+    return Puma::diffusion_rate;
+}
+
+void Puma::setDiffusionRate(float diffusion_rate) {
+    Puma::diffusion_rate = diffusion_rate;
+}
 
 // todo: interface for parameters / array
 float Puma::calculateNewDensity(float P_old, float H_old) {
@@ -19,7 +37,7 @@ float Puma::calculateNewDensity(float P_old, float H_old) {
     int row = 1;
     int col = 1;
 
-    float sum_density_neighbours = Landscape::getSumDensityNeighbours(this->getName(), row, col);
+    float sum_density_neighbours = Landscape::getSumDensityNeighbours(Puma::name, row, col);
     int land_neighbours = Landscape::getNumberOfLandNeighbours(row, col);
 
     return P_old
@@ -27,4 +45,7 @@ float Puma::calculateNewDensity(float P_old, float H_old) {
             - Puma::mortality_rate * P_old + Puma::diffusion_rate * (sum_density_neighbours - land_neighbours * P_old));
 }
 
-float Puma::mortality_rate = 2;
+string Puma::name = "Puma";
+float Puma::birth_rate = 0.01;
+float Puma::mortality_rate = 0.02;
+float Puma::diffusion_rate = 0.04;
