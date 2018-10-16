@@ -29,7 +29,7 @@ public :
     static void print();
     static Tile* getTile(size_t row, size_t col);
     static int getNumberOfLandNeighbours(int row, int col);
-    static Density getSumDensityNeighbours(std::string animal, int row, int col);
+    static Density getSumDensityNeighbours(string animal, int row, int col);
 };
 
 #endif
