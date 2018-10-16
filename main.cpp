@@ -44,6 +44,8 @@ int main() {
 
     cout << (Landscape::getSumDensityNeighbours("Hare", 2, 2)) << endl;
     
+    cout << Landscape::getNumberOfLandNeighbours(2, 3);
+    
     Landscape::destroy();
     
     return 0;
