@@ -6,6 +6,7 @@
 #include "include/landscape.hpp"
 #include "include/landscapeParser.hpp"
 #include "include/helpers.hpp"
+#include "include/parser.hpp"
 
 #define RESOURCES_PATH "./resources"
 //#define RESOURCES_PATH "/Users/xenis656/Desktop/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
@@ -18,6 +19,8 @@ int main() {
     //LandscapeParser::parseFile(".resources/small.dat");
     time_t t = time(NULL);
     srand (t);
+
+/*
     ifstream landFile;
 
     landFile.open(string(RESOURCES_PATH) + "/small10x10.dat");
@@ -33,7 +36,10 @@ int main() {
     }
 
     Landscape::init(tilesVector);
-    
+*/
+
+    parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
+
     Helpers::simulationLoop();
 
     cout << (Landscape::getSumDensityNeighbours("Hare", 2, 2)) << endl;
