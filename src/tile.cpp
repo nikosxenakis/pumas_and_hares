@@ -8,6 +8,14 @@ Tile::Tile(bool land) {
 	this->newPumas = 0;
 }
 
+Tile::~Tile() {
+//    this->land = 0;
+//    this->oldHares = 0;
+//    this->oldPumas = 0;
+//    this->newHares = 0;
+//    this->newPumas = 0;
+}
+
 void Tile::print() {
     cout << this->land << "H" << this->oldHares << "P" << this->oldPumas << " ";
 }

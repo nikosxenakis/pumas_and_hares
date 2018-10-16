@@ -19,6 +19,7 @@ class Tile {
 
 	public :
 		Tile(bool land);
+        ~Tile();
 		void print();
 		void update();
 		Density getNeighbours();
