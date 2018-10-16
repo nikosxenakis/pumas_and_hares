@@ -72,7 +72,7 @@ Tile* Landscape::getTile(size_t row, size_t col) {
     return Landscape::instance->tiles[row][col];
 }
 
-vector<Tile*> Landscape::getNeighbours(size_t row, size_t col) {
+vector<Tile*> Landscape::getNeighbours(int row, int col) {
     vector<Tile*> tilesVector;
     Tile*** tiles = Landscape::instance->tiles;
     size_t rows = Landscape::instance->rows;
@@ -99,7 +99,7 @@ vector<Tile*> Landscape::getNeighbours(size_t row, size_t col) {
     return tilesVector;
 }
 
-int Landscape::getNumberOfLandNeighbours(size_t row, size_t col) {
+int Landscape::getNumberOfLandNeighbours(int row, int col) {
     // todo: get Number of neighbouring squares that are land ("dry")
     // todo: by looking into parsed input => vector tiles
     vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
@@ -114,7 +114,7 @@ int Landscape::getNumberOfLandNeighbours(size_t row, size_t col) {
     return i;
 }
 
-Density Landscape::getSumDensityNeighbours(std::string animal, size_t row, size_t col) {
+Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col) {
 
     vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
     Density sum = 0;

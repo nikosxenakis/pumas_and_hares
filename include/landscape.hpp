@@ -17,7 +17,7 @@ private :
     static Landscape* instance;
     Landscape(vector< vector<int> > tilesVector);
     ~Landscape();
-    static vector<Tile*> getNeighbours(size_t row, size_t col);
+    static vector<Tile*> getNeighbours(int row, int col);
     TilesArray tiles;
     size_t rows;
     size_t cols;
@@ -28,8 +28,8 @@ public :
     static void update();
     static void print();
     static Tile* getTile(size_t row, size_t col);
-    static int getNumberOfLandNeighbours(size_t row, size_t col);
-    static Density getSumDensityNeighbours(std::string animal, size_t row, size_t col);
+    static int getNumberOfLandNeighbours(int row, int col);
+    static Density getSumDensityNeighbours(std::string animal, int row, int col);
 };
 
 #endif
