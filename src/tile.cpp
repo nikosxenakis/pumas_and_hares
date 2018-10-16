@@ -1,9 +1,7 @@
 #include "../include/tile.hpp"
 
-Tile::Tile(bool land, int row, int col) {
+Tile::Tile(bool land) {
 	this->land = land;
-    this->row = row;
-    this->col = col;
 	this->oldHares = rand() % 5;
 	this->oldPumas = rand() % 5;
 	this->newHares = 0;
@@ -22,18 +20,9 @@ void const Tile::print() {
     cout << this->land << "H" << this->oldHares << "P" << this->oldPumas << " ";
 }
 
-void Tile::update() {
-    
-//    int land_neighbours = Landscape::getNumberOfLandNeighbours(row, col);
-//
-//    float hare_sum = Landscape::getSumDensityNeighbours(Hare::getName(), this->row, this->col);
-//    float puma_sum = Landscape::getSumDensityNeighbours(Puma::getName(), this->row, this->col);
-    int land_neighbours = 2;
-    float hare_sum = 1.3;
-    float puma_sum = 1.2;
-    
-    this->newHares = Hare::calculateNewDensity(this->oldHares, this->oldPumas, land_neighbours, hare_sum);
-    this->newPumas = Puma::calculateNewDensity(this->oldPumas, this->oldHares, land_neighbours, puma_sum);
+void Tile::update(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume) {
+    this->newHares = Hare::calculateNewDensity(this->oldHares, this->oldPumas, tile_neighbours, hare_neighbour_sume);
+    this->newPumas = Puma::calculateNewDensity(this->oldPumas, this->oldHares, tile_neighbours, puma_neighbour_sume);
 }
 
 bool const Tile::isLand() {

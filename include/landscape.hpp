@@ -15,17 +15,17 @@ private :
     static Landscape* instance;
     Landscape(vector< vector<int> > tilesVector);
     ~Landscape();
-    static vector<Tile*> getNeighbours(int row, int col) throw (out_of_range);
+    static Tile** getNeighbours(int row, int col);
     TilesArray tiles;
-    size_t rows;
-    size_t cols;
+    int rows;
+    int cols;
 
 public :
     static void init(vector< vector<int> > tilesVector);
     static void destroy();
     static void update();
     static void print();
-    static Tile* getTile(size_t row, size_t col);
+    static Tile* getTile(int row, int col);
     static int getNumberOfLandNeighbours(int row, int col);
     static Density getSumDensityNeighbours(string animal, int row, int col);
 };

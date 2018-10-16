@@ -16,7 +16,7 @@ Landscape::Landscape(vector< vector<int> > tilesVector) {
         this->tiles[i] = new Tile*[this->cols];
         j = 0;
 		for (auto tile : tilesList) {
-            this->tiles[i][j] = new Tile(tile, i, j);
+            this->tiles[i][j] = new Tile(tile);
             ++j;
 		}
         ++i;
@@ -50,7 +50,10 @@ void Landscape::update() {
 
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
-            Landscape::instance->tiles[i][j]->update();
+            int tile_neighbours = Landscape::getNumberOfLandNeighbours(i, j);
+            Density hare_neighbour_sum = Landscape::getSumDensityNeighbours(Hare::getName(), i, j);
+            Density puma_neighbour_sum = Landscape::getSumDensityNeighbours(Puma::getName(), i, j);
+            Landscape::instance->tiles[i][j]->update(tile_neighbours, hare_neighbour_sum, puma_neighbour_sum);
         }
     }
 }
@@ -68,64 +71,51 @@ void Landscape::print() {
     cout << endl;
 }
 
-Tile* Landscape::getTile(size_t row, size_t col) {
-    size_t rows = Landscape::instance->rows;
-    size_t cols = Landscape::instance->cols;
+Tile* Landscape::getTile(int row, int col) {
+    int rows = Landscape::instance->rows;
+    int cols = Landscape::instance->cols;
     
-    if(row < 0 || row > rows || col < 0 || col > cols) {
-        return nullptr;
+    if(row > 0 && row < rows && col > 0 && col < cols) {
+        return Landscape::instance->tiles[row][col];
     }
-    
-    return Landscape::instance->tiles[row][col];
+    return nullptr;
 }
 
-vector<Tile*> Landscape::getNeighbours(int row, int col) throw (out_of_range) {
-    vector<Tile*> tilesVector;
-    tilesVector.push_back(getTile(row-1, col));
-    tilesVector.push_back(getTile(row+1, col));
-    tilesVector.push_back(getTile(row, col-1));
-    tilesVector.push_back(getTile(row, col+1));
+Tile** Landscape::getNeighbours(int row, int col) {
+    Tile** tilesVector = new Tile*[4];
+    
+    tilesVector[0] = getTile(row-1, col);
+    tilesVector[1] = getTile(row+1, col);
+    tilesVector[2] = getTile(row, col-1);
+    tilesVector[3] = getTile(row, col+1);
+
     return tilesVector;
 }
 
 int Landscape::getNumberOfLandNeighbours(int row, int col) {
 
-    int i = 0;
+    int land_neighbours = 0;
 
-    try {
-        vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
-        
-        for(auto tile: tilesVector) {
-            if(tile && tile->isLand())
-                ++i;
-        }
-    }
-    catch(out_of_range& e)
-    {
-        cerr << e.what() << endl;
-        return 0;
-    }
+    Tile** tilesVector = Landscape::getNeighbours(row, col);
     
-    return i;
+    for (int i = 0; i < 4; ++i) {
+        if(tilesVector[i])
+            land_neighbours += tilesVector[i]->isLand();
+    }
+    delete[] tilesVector;
+    return land_neighbours;
 }
 
 Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
 
     Density sum = 0;
 
-    try
-    {
-        vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
-        for(auto tile: tilesVector) {
-            if(tile)
-                sum += tile->getDensity(animal);
-        }
+    Tile** tilesVector = Landscape::getNeighbours(row, col);
+    
+    for (int i = 0; i < 4; ++i) {
+        if(tilesVector[i])
+            sum += tilesVector[i]->getDensity(animal);
     }
-    catch(out_of_range& e)
-    {
-        cerr << e.what() << endl;
-        return 0;
-    }
-
+    delete[] tilesVector;
     return sum;
 }
