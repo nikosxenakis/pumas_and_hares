@@ -67,13 +67,10 @@ Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col)
         tilesVector.push_back(tiles[row][col+1]);
     }
 
-    // TODO: Potentially optimise this by moving if check out of for loop so it only
-    //       happens once? Also error message here seems misleading, and should maybe
-    //       go to cerr
     for(auto tile: tilesVector) {
-        if(animal == "Puma")
+        if(animal == Puma::getName())
             sum += tile->getOldPumas();
-        else if(animal == "Hare")
+        else if(animal == Hare::getName())
             sum += tile->getOldHares();
         else
             cout << "error in getNeighbours";
