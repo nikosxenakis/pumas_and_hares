@@ -9,7 +9,7 @@ Landscape::Landscape(vector< vector<int> > tilesVector) {
 
     this->rows = tilesVector.size();
     this->cols = tilesVector[0].size();
-
+    
     this->tiles = new Tile**[this->rows];
     
 	for (auto tilesList : tilesVector) {
@@ -47,6 +47,7 @@ Landscape::~Landscape() {
 }
 
 void Landscape::update() {
+
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
             Landscape::instance->tiles[i][j]->update();
@@ -55,12 +56,10 @@ void Landscape::update() {
 }
 
 void Landscape::print() {
-    Landscape* landscape = Landscape::instance;
-    int i = 0, j = 0;
     
-    for (i = 0; i < landscape->rows; ++i) {
-        for (j = 0; j < landscape->cols; ++j) {
-            Tile* tile = landscape->tiles[i][j];
+    for (int i = 0; i < Landscape::instance->rows; ++i) {
+        for (int j = 0; j < Landscape::instance->cols; ++j) {
+            Tile* tile = Landscape::instance->tiles[i][j];
             tile->print();
         }
         cout << endl;
@@ -69,31 +68,22 @@ void Landscape::print() {
     cout << endl;
 }
 
-Tile* Landscape::getTile(int row, int col) {
+Tile* Landscape::getTile(size_t row, size_t col) {
     return Landscape::instance->tiles[row][col];
 }
 
-int Landscape::getNumberOfLandNeighbours(int row, int col) {
-    // todo: get Number of neighbouring squares that are land ("dry")
-    // todo: by looking into parsed input => vector tiles
-    int i = 4;
-    return i;
-}
-
-Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col) {
-
+vector<Tile*> Landscape::getNeighbours(size_t row, size_t col) {
     vector<Tile*> tilesVector;
     Tile*** tiles = Landscape::instance->tiles;
-    int rows = Landscape::instance->rows;
-    int cols = Landscape::instance->cols;
-
-    Density sum = 0;
-
-    if(row < 0 || row > rows || col < 0 || col > cols) {
-        cout << "wrong input in getNeighbours" << endl;
-        return 0;
-    }
-
+    size_t rows = Landscape::instance->rows;
+    size_t cols = Landscape::instance->cols;
+    
+    // TODO: throw exception
+//    if(row < 0 || row > rows || col < 0 || col > cols) {
+//        cout << "wrong input in getNeighbours" << endl;
+//        return 0;
+//    }
+    
     if(row - 1 >= 0) {
         tilesVector.push_back(tiles[row-1][col]);
     }
@@ -106,6 +96,28 @@ Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col)
     if(col + 1 < cols) {
         tilesVector.push_back(tiles[row][col+1]);
     }
+    return tilesVector;
+}
+
+int Landscape::getNumberOfLandNeighbours(size_t row, size_t col) {
+    // todo: get Number of neighbouring squares that are land ("dry")
+    // todo: by looking into parsed input => vector tiles
+    vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
+
+    int i = 0;
+
+    for(auto tile: tilesVector) {
+        if(tile->isLand())
+            ++i;
+    }
+    
+    return i;
+}
+
+Density Landscape::getSumDensityNeighbours(std::string animal, size_t row, size_t col) {
+
+    vector<Tile*> tilesVector = Landscape::getNeighbours(row, col);
+    Density sum = 0;
 
     for(auto tile: tilesVector) {
         if(animal == Puma::getName())

@@ -9,28 +9,27 @@
 
 using namespace std;
 
-//typedef vector<Tile*> LandscapeTileRow;
-//typedef vector<LandscapeTileRow> LandscapeTileVector;
+typedef Tile*** TilesArray;
 
 class Landscape {
     
-	private :
-		static Landscape* instance;
-		Landscape(vector< vector<int> > tilesVector);
-        ~Landscape();
-        Tile*** tiles;
-        int rows;
-        int cols;
-//        LandscapeTileVector tiles;
+private :
+    static Landscape* instance;
+    Landscape(vector< vector<int> > tilesVector);
+    ~Landscape();
+    static vector<Tile*> getNeighbours(size_t row, size_t col);
+    TilesArray tiles;
+    size_t rows;
+    size_t cols;
 
-	public :
-		static void init(vector< vector<int> > tilesVector);
-        static void destroy();
-		static void update();
-		static void print();
-        static Tile* getTile(int row, int col);
-		static int getNumberOfLandNeighbours(int row, int col);
-        static Density getSumDensityNeighbours(std::string animal, int row, int col);
+public :
+    static void init(vector< vector<int> > tilesVector);
+    static void destroy();
+    static void update();
+    static void print();
+    static Tile* getTile(size_t row, size_t col);
+    static int getNumberOfLandNeighbours(size_t row, size_t col);
+    static Density getSumDensityNeighbours(std::string animal, size_t row, size_t col);
 };
 
 #endif

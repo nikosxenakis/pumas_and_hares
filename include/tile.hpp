@@ -10,21 +10,22 @@ using namespace std;
 
 class Tile {
 
-	private :
-		bool land;
-		Density oldHares;
-		Density oldPumas;
-		Density newHares;
-		Density newPumas;
+private :
+    bool land;
+    Density oldHares;
+    Density oldPumas;
+    Density newHares;
+    Density newPumas;
 
-	public :
-		Tile(bool land);
-        ~Tile();
-		void print();
-		void update();
-		Density getNeighbours();
-        Density getOldHares();
-        Density getOldPumas();
+public :
+    Tile(bool land);
+    ~Tile();
+    void const print();
+    void update();
+    Density const getNeighbours();
+    bool const isLand();
+    Density const getOldHares();
+    Density const getOldPumas();
 };
 
 #endif

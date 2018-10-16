@@ -16,7 +16,7 @@ Tile::~Tile() {
 //    this->newPumas = 0;
 }
 
-void Tile::print() {
+void const Tile::print() {
     cout << this->land << "H" << this->oldHares << "P" << this->oldPumas << " ";
 }
 
@@ -24,9 +24,13 @@ void Tile::update() {
     this->oldHares = this->oldHares + 1;
 }
 
-Density Tile::getOldHares() {
+bool const Tile::isLand() {
+    return this->land;
+}
+
+Density const Tile::getOldHares() {
     return this->oldHares;
 }
-Density Tile::getOldPumas() {
+Density const Tile::getOldPumas() {
     return this->oldPumas;
 }
