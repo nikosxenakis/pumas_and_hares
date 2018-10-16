@@ -24,9 +24,16 @@ void const Tile::print() {
     cout << this->land << ", H" << std::fixed << setprecision(1) << this->oldHares << ", P" << this->oldPumas << "\t";
 }
 
-void Tile::update(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume) {
+void Tile::calculate(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume) {
     this->newHares = Hare::calculateNewDensity(this->oldHares, this->oldPumas, tile_neighbours, hare_neighbour_sume);
     this->newPumas = Puma::calculateNewDensity(this->oldPumas, this->oldHares, tile_neighbours, puma_neighbour_sume);
+}
+
+void Tile::update() {
+    this->oldHares = this->newHares;
+    this->oldPumas = this->newPumas;
+    this->newHares = 0;
+    this->newPumas = 0;
 }
 
 bool const Tile::isLand() {

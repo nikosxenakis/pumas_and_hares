@@ -23,6 +23,7 @@ private :
 public :
     static void init(vector< vector<int> > tilesVector);
     static void destroy();
+    static void calculate();
     static void update();
     static void print();
     static Tile* getTile(int row, int col);

@@ -37,7 +37,8 @@ public :
     Tile(bool land, Density hares, Density pumas);
     ~Tile();
     void const print();
-    void update(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume);
+    void calculate(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume);
+    void update();
     Density const getNeighbours();
     bool const isLand();
     Density const getOldHares();

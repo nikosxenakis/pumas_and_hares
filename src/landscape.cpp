@@ -47,14 +47,23 @@ Landscape::~Landscape() {
     this->cols = 0;
 }
 
-void Landscape::update() {
-
+void Landscape::calculate() {
+    
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
             int tile_neighbours = Landscape::getNumberOfLandNeighbours(i, j);
             Density hare_neighbour_sum = Landscape::getSumDensityNeighbours(Hare::getName(), i, j);
             Density puma_neighbour_sum = Landscape::getSumDensityNeighbours(Puma::getName(), i, j);
-            Landscape::instance->tiles[i][j]->update(tile_neighbours, hare_neighbour_sum, puma_neighbour_sum);
+            Landscape::instance->tiles[i][j]->calculate(tile_neighbours, hare_neighbour_sum, puma_neighbour_sum);
+        }
+    }
+}
+
+void Landscape::update() {
+
+    for (int i = 0; i < Landscape::instance->rows; ++i) {
+        for (int j = 0; j < Landscape::instance->cols; ++j) {
+            Landscape::instance->tiles[i][j]->update();
         }
     }
 }

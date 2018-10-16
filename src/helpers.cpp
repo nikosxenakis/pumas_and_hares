@@ -6,11 +6,12 @@
 
 void Helpers::simulationLoop() {
 
-    int dt = 5;
+    int dt = 251;
      
     Landscape::print();
 
     for (int t = 0; t <= 500; t+=dt) {
+        Landscape::calculate();
         Landscape::update();
         Landscape::print();
     }
