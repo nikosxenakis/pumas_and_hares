@@ -3,6 +3,7 @@
 
 Landscape* Landscape::instance = NULL;
 
+// TODO: Landscape::Landscape(vector< vector<YourClass> > tilesVector, int rows, int cols)
 Landscape::Landscape(vector< vector<int> > tilesVector) {
 
     int i = 0, j = 0;
