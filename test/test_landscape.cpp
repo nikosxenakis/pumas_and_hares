@@ -42,6 +42,10 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
                REQUIRE( Landscape::getNumberOfLandNeighbours(max_index,max_index) == 0);
           }
           
+          THEN(" the Density of it's neighbours is 0 "){
+               REQUIRE( Landscape::getSumDensityNeighbours(Puma::getName(), 1,1) == Approx(0.0) );
+               REQUIRE( Landscape::getSumDensityNeighbours(Hare::getName(), 1,1) == Approx(0.0) );
+          }
        }
     }
 }
