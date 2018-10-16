@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "tile.hpp"
+#define MAX_NEIGHBOURS 4
 
 using namespace std;
 

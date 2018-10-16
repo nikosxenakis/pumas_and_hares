@@ -1,27 +1,21 @@
 #include "../include/landscape.hpp"
-#include <cassert>
 
 Landscape* Landscape::instance = NULL;
 
 // TODO: Landscape::Landscape(vector< vector<YourClass> > tilesVector, int rows, int cols)
 Landscape::Landscape(vector< vector<int> > tilesVector) {
 
-    int i = 0, j = 0;
-
     this->rows = tilesVector.size();
     this->cols = tilesVector[0].size();
     
     this->tiles = new Tile**[this->rows];
     
-	for (auto tilesList : tilesVector) {
+    for (int i = 0; i < this->rows; ++i) {
         this->tiles[i] = new Tile*[this->cols];
-        j = 0;
-		for (auto tile : tilesList) {
-            this->tiles[i][j] = new Tile(tile);
-            ++j;
-		}
-        ++i;
-	}
+        for (int j = 0; j < this->cols; ++j) {
+            this->tiles[i][j] = new Tile(tilesVector[i][j]);
+        }
+    }
 
 }
 
@@ -108,7 +102,7 @@ int Landscape::getNumberOfLandNeighbours(int row, int col) {
 
     Tile** tilesVector = Landscape::getNeighbours(row, col);
     
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
         if(tilesVector[i])
             land_neighbours += tilesVector[i]->isLand();
     }
@@ -122,7 +116,7 @@ Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
 
     Tile** tilesVector = Landscape::getNeighbours(row, col);
     
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
         if(tilesVector[i])
             sum += tilesVector[i]->getDensity(animal);
     }
