@@ -16,10 +16,10 @@ using namespace std;
 
 TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
-    GIVEN("A landscape vector of size 10x10"){
+    GIVEN("A landscape vector of size 3x3"){
 
        ifstream landFile;
-       landFile.open("../resources/small10x10.dat");
+       landFile.open("../resources/small3x3.dat");
        vector< vector<int> > tilesVector;
 
        if (landFile.is_open()) {
