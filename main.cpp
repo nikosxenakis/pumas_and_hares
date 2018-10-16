@@ -8,7 +8,7 @@
 #include "include/helpers.hpp"
 
 #define RESOURCES_PATH "./resources"
-//#define RESOURCES_PATH "/Users/xenis656/Desktop/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
+//#define RESOURCES_PATH "/Users/xenis656/Desktop/cirrus/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
 
 //write the parameters in a json configuration file
 
