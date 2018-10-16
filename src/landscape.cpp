@@ -5,36 +5,72 @@ Landscape* Landscape::instance = NULL;
 
 Landscape::Landscape(vector< vector<int> > tilesVector) {
 
+    int i = 0, j = 0;
+
+    this->rows = tilesVector.size();
+    this->cols = tilesVector[0].size();
+
+    this->tiles = new Tile**[this->rows];
+    
 	for (auto tilesList : tilesVector) {
-		LandscapeTileRow tilesRow;
-		for (auto tile : tilesList) {  
-			tilesRow.push_back(new Tile(tile));
+        this->tiles[i] = new Tile*[this->cols];
+        j = 0;
+		for (auto tile : tilesList) {
+            this->tiles[i][j] = new Tile(tile);
+            ++j;
 		}
-		this->tiles.push_back(tilesRow);
+        ++i;
 	}
 
 }
 
 void Landscape::init(vector< vector<int> > tilesVector) {
-	Landscape::instance = new Landscape(tilesVector);
+    Landscape::instance = new Landscape(tilesVector);
+}
+
+void Landscape::destroy() {
+    delete (Landscape::instance);
+}
+
+Landscape::~Landscape() {
+
+    for (int i = 0; i < this->rows; ++i) {
+        for (int j = 0; j < this->cols; ++j) {
+            delete this->tiles[i][j];
+        }
+        delete this->tiles[i];
+    }
+    delete this->tiles;
+    
+    this->rows = 0;
+    this->cols = 0;
 }
 
 void Landscape::update() {
-    for (auto tilesList : Landscape::instance->tiles) {
-        for (auto tile : tilesList) {
-            tile->update();
+    for (int i = 0; i < Landscape::instance->rows; ++i) {
+        for (int j = 0; j < Landscape::instance->cols; ++j) {
+            Landscape::instance->tiles[i][j]->update();
         }
     }
 }
 
 void Landscape::print() {
-	for (auto tilesList : Landscape::instance->tiles) {
-		for (auto tile : tilesList) {  
-			tile->print();
-		}
-		cout << endl;
-	}
-	cout << endl;
+    Landscape* landscape = Landscape::instance;
+    int i = 0, j = 0;
+    
+    for (i = 0; i < landscape->rows; ++i) {
+        for (j = 0; j < landscape->cols; ++j) {
+            Tile* tile = landscape->tiles[i][j];
+            tile->print();
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+}
+
+Tile* Landscape::getTile(int row, int col) {
+    return Landscape::instance->tiles[row][col];
 }
 
 int Landscape::getNumberOfLandNeighbours(int row, int col) {
@@ -45,11 +81,15 @@ int Landscape::getNumberOfLandNeighbours(int row, int col) {
 }
 
 Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col) {
+
     vector<Tile*> tilesVector;
-    LandscapeTileVector tiles = Landscape::instance->tiles;
+    Tile*** tiles = Landscape::instance->tiles;
+    int rows = Landscape::instance->rows;
+    int cols = Landscape::instance->cols;
+
     Density sum = 0;
 
-    if(row < 0 || row > tiles.size() || col < 0 || col > tiles[row].size()) {
+    if(row < 0 || row > rows || col < 0 || col > cols) {
         cout << "wrong input in getNeighbours" << endl;
         return 0;
     }
@@ -57,13 +97,13 @@ Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col)
     if(row - 1 >= 0) {
         tilesVector.push_back(tiles[row-1][col]);
     }
-    if(row + 1 < tiles.size()) {
+    if(row + 1 < rows) {
         tilesVector.push_back(tiles[row+1][col]);
     }
     if(col - 1 >= 0) {
         tilesVector.push_back(tiles[row][col-1]);
     }
-    if(col + 1 < tiles[row].size()) {
+    if(col + 1 < cols) {
         tilesVector.push_back(tiles[row][col+1]);
     }
 
@@ -78,6 +118,6 @@ Density Landscape::getSumDensityNeighbours(std::string animal, int row, int col)
         else
             cout << "error in getNeighbours";
     }
-    
+
     return sum;
 }
