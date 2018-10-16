@@ -6,7 +6,7 @@
 
 void Helpers::simulationLoop() {
 
-    int dt = 251;
+    int dt = 5;
      
     Landscape::print();
 
@@ -15,7 +15,12 @@ void Helpers::simulationLoop() {
         Landscape::print();
     }
 }
-        
+
+void Helpers::initRandomGenerator() {
+    time_t t = time(NULL);
+    srand ((unsigned int)t);
+}
+
 vector< vector<int> > Helpers::initTilesVector(ifstream &landFile) {
     vector< vector<int> > tilesVector;
 

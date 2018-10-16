@@ -1,6 +1,6 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
-
+#include <stdlib.h>
 #include <iostream>
 #include <vector>
 #include <fstream>
