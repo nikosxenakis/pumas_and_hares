@@ -1,8 +1,6 @@
 #include "../include/puma.hpp"
 #include "../include/landscape.hpp"
-#include "../include/landscapeParser.hpp"
 #include "../include/helpers.hpp"
-
 
 void Helpers::simulationLoop() {
 
@@ -59,4 +57,23 @@ vector< vector<int> > Helpers::initTilesVector(ifstream &landFile) {
      return tilesVector;
  }
 
+void Helpers::setCapitalT(float capitalT) {
+    Helpers::capitalT = capitalT;
+}
+
+float Helpers::getCapitalT() {
+    return Helpers::capitalT;
+}
+
+void Helpers::setDeltaT(float deltaT) {
+    Helpers::deltaT = deltaT;
+}
+
+float Helpers::getDeltaT() {
+    return Helpers::deltaT;
+}
+
+// init
+float Helpers::deltaT = 0.0;
+float Helpers::capitalT = 0.0;
 
