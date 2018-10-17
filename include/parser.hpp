@@ -9,6 +9,8 @@
 #include "hare.hpp"
 #include "puma.hpp"
 #include "landscape.hpp"
+#include "pixel.hpp"
+#include "image.hpp"
 
 using namespace std;
 

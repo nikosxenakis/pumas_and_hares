@@ -40,3 +40,6 @@
 *.aux
 *.log
 *.gz
+
+# Outputs
+*.ppm

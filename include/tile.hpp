@@ -3,10 +3,9 @@
 
 #include <stdlib.h>
 #include <iostream>
-#include <iomanip>
 #include "hare.hpp"
 #include "puma.hpp"
-
+#include "inputTile.hpp"
 typedef float Density;
 
 using namespace std;
@@ -33,8 +32,7 @@ public :
      * @description Creates a new object Tile initializing the land value
      * @param land is a boolean variable which indicates if this tile contains land or not
      */
-    Tile(bool land);
-    Tile(bool land, Density hares, Density pumas);
+    Tile(InputTile* inputTile);
     ~Tile();
     void const print();
     void calculate(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume);

@@ -2,11 +2,8 @@
 
 Landscape* Landscape::instance = NULL;
 
-// TODO: Landscape::Landscape(vector< vector<YourClass> > tilesVector, int rows, int cols)
-Landscape::Landscape(vector< vector<int> > tilesVector) {
-
-    this->rows = tilesVector.size();
-    this->cols = tilesVector[0].size();
+Landscape::Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols):
+rows(rows), cols(cols), maxPumas(0), maxHares(0) {
     
     this->tiles = new Tile**[this->rows];
     
@@ -14,12 +11,16 @@ Landscape::Landscape(vector< vector<int> > tilesVector) {
         this->tiles[i] = new Tile*[this->cols];
         for (int j = 0; j < this->cols; ++j) {
             this->tiles[i][j] = new Tile(tilesVector[i][j]);
+            Density pumas = this->tiles[i][j]->getOldPumas();
+            Density hares = this->tiles[i][j]->getOldHares();
+            if(this->maxPumas < pumas) this->maxPumas = pumas;
+            if(this->maxHares < hares) this->maxHares = hares;
         }
     }
 }
 
-void Landscape::init(vector< vector<int> > tilesVector) {
-    Landscape::instance = new Landscape(tilesVector);
+void Landscape::init(vector< vector<InputTile*> > tilesVector, int rows, int cols)  {
+    Landscape::instance = new Landscape(tilesVector, rows, cols);
 }
 
 void Landscape::destroy() {
@@ -57,11 +58,16 @@ void Landscape::calculate() {
 }
 
 void Landscape::update() {
+    Landscape* landscape = Landscape::instance;
     Tile* tile = nullptr;
-    for (int i = 0; i < Landscape::instance->rows; ++i) {
-        for (int j = 0; j < Landscape::instance->cols; ++j) {
-            tile = Landscape::instance->tiles[i][j];
+    for (int i = 0; i < landscape->rows; ++i) {
+        for (int j = 0; j < landscape->cols; ++j) {
+            tile = landscape->tiles[i][j];
             if(tile->isLand())  tile->update();
+            Density pumas = tile->getOldPumas();
+            Density hares = tile->getOldHares();
+            if(getMaxPumas() < pumas) setMaxPumas(pumas);
+            if(getMaxHares() < hares) setMaxHares(hares);
         }
     }
 }
@@ -134,4 +140,20 @@ int const Landscape::getRows() {
 
 int const Landscape::getCols() {
     return Landscape::instance->cols;
+}
+
+Density const Landscape::getMaxPumas() {
+    return Landscape::instance->maxPumas;
+}
+
+Density const Landscape::getMaxHares() {
+    return Landscape::instance->maxHares;
+}
+
+void Landscape::setMaxPumas(Density pumas) {
+    Landscape::instance->maxPumas = pumas;
+}
+
+void Landscape::setMaxHares(Density hares) {
+    Landscape::instance->maxHares = hares;
 }
