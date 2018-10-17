@@ -83,7 +83,6 @@ void parser::parseInput(const string& landFileName) {
          
          for (int j=0; j<NX; j++) {
                 split(vInputLine[j], vInputTile, ',');
-                cout << vInputTile.size() << endl;
                 if (vInputTile.size()==3) {
                     LandTile = new InputTile(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2]));
                 }
