@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 
+enum Color { sea, pumas, hares };
+
 using namespace std;
 
 class pixel {
@@ -14,9 +16,10 @@ class pixel {
 		int blue;
 	public:
 		void set_colour(string type, double density);
-		int get_green();
-		int get_red();
-		int get_blue();
+		void set_rgb(Color c, float opacity);
+		int const get_green();
+		int const get_red();
+		int const get_blue();
 		pixel();
 		void write(ofstream &file);
 };

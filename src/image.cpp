@@ -100,10 +100,10 @@ void Image::setGrid() {
                     for (int jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
 
                         if (it-origin_i < Image::getTileSize() - (jt - origin_j)) {
-                            Image::instance->pixels[it][jt].set_colour("Puma", tile->getOldPumas());
+                            Image::instance->pixels[it][jt].set_colour(Puma::getName(), tile->getOldPumas());
                         }
                         else {
-                            Image::instance->pixels[it][jt].set_colour("Hare", tile->getOldHares());
+                            Image::instance->pixels[it][jt].set_colour(Hare::getName(), tile->getOldHares());
                         }
                     }
                 }
