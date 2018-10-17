@@ -1,18 +1,10 @@
 #include "../include/tile.hpp"
 
-Tile::Tile(bool land): Tile(
-    land,
-    static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5)),
-    static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5))
-){}
-
-Tile::Tile(bool land, Density hares, Density pumas): land(land) {
+Tile::Tile(InputTile* inputTile) {
 	this->clear();
-    
-    if(this->isLand()) {
-        this->oldHares = hares;
-        this->oldPumas = pumas;
-    }
+    this->land = inputTile->land;
+    this->oldPumas = inputTile->pumas;
+    this->oldHares = inputTile->hares;
 }
 
 Tile::~Tile() {

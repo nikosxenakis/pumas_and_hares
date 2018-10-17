@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "tile.hpp"
+#include "inputTile.hpp"
 #define MAX_NEIGHBOURS 4
 
 using namespace std;
@@ -14,7 +15,7 @@ class Landscape {
     
 private :
     static Landscape* instance;
-    Landscape(vector< vector<int> > tilesVector);
+    Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols);
     ~Landscape();
     static Tile** getNeighbours(int row, int col);
     TilesArray tiles;
@@ -22,7 +23,7 @@ private :
     int cols;
 
 public :
-    static void init(vector< vector<int> > tilesVector);
+    static void init(vector< vector<InputTile*> > tilesVector, int rows, int cols) ;
     static void destroy();
     static void calculate();
     static void update();
