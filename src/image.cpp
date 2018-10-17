@@ -116,7 +116,7 @@ void Image::write(double t) {
 
     ostringstream FileName;
     ofstream ppmOut;
-    FileName << "Density_" << setw(3) << setfill('0') << t << ".ppm"; 
+    FileName << "./output/" << "Density_" << setw(3) << setfill('0') << t << ".ppm"; 
     ppmOut.open(FileName.str());
     int ySize;
     int xSize;
