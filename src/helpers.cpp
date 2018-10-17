@@ -5,6 +5,11 @@ void Helpers::init() {
     parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
 }
 
+void Helpers::init(string file) {
+    Helpers::initRandomGenerator();
+    parser::parse(file);
+}
+
 void Helpers::close() {
     Landscape::destroy();
 }
@@ -27,3 +32,23 @@ void Helpers::initRandomGenerator() {
     time_t t = time(NULL);
     srand ((unsigned int)t);
 }
+
+void Helpers::setCapitalT(float capitalT) {
+    Helpers::capitalT = capitalT;
+}
+
+float Helpers::getCapitalT() {
+    return Helpers::capitalT;
+}
+
+void Helpers::setDeltaT(float deltaT) {
+    Helpers::deltaT = deltaT;
+}
+
+float Helpers::getDeltaT() {
+    return Helpers::deltaT;
+}
+
+// init
+float Helpers::deltaT = 0.4;
+float Helpers::capitalT = 0.0;

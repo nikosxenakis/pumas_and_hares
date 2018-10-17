@@ -1,5 +1,8 @@
 #include "../include/parser.hpp"
 #include "../resources/json.hpp"
+#include "../include/helpers.hpp"
+#include "../include/hare.hpp"
+#include "../include/puma.hpp"
 
 using json = nlohmann::json;
 
@@ -99,6 +102,18 @@ void parser::parseConfig(const string& configFileName) {
     float P_diffusion_rate = jsonConfig.at("l");
     float capital_t = jsonConfig.at("T");
     float delta_t = jsonConfig.at("delta_t");
+
+    // todo
+    Helpers::setDeltaT(jsonConfig.at("delta_t"));
+    Helpers::setCapitalT(0.01);
+
+    Hare::setBirthRate(0.01);
+    Hare::setDiffusionRate(0.01);
+    Hare::setPredationRate(0.01);
+
+    Puma::setBirthRate(0.01);
+    Puma::setDiffusionRate(0.01);
+    Puma::setMortalityRate(0.01);
 
 }
 
