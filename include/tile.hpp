@@ -27,7 +27,7 @@ private :
     Density oldPumas;
     Density newHares;
     Density newPumas;
-
+    void clear();
 public :
     /**
      * @description Creates a new object Tile initializing the land value
@@ -39,7 +39,6 @@ public :
     void const print();
     void calculate(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume);
     void update();
-    Density const getNeighbours();
     bool const isLand();
     Density const getOldHares();
     Density const getOldPumas();

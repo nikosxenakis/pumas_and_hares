@@ -16,7 +16,6 @@ Landscape::Landscape(vector< vector<int> > tilesVector) {
             this->tiles[i][j] = new Tile(tilesVector[i][j]);
         }
     }
-
 }
 
 void Landscape::init(vector< vector<int> > tilesVector) {
@@ -42,22 +41,27 @@ Landscape::~Landscape() {
 }
 
 void Landscape::calculate() {
-    
+    Tile* tile = nullptr;
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
-            int tile_neighbours = Landscape::getNumberOfLandNeighbours(i, j);
-            Density hare_neighbour_sum = Landscape::getSumDensityNeighbours(Hare::getName(), i, j);
-            Density puma_neighbour_sum = Landscape::getSumDensityNeighbours(Puma::getName(), i, j);
-            Landscape::instance->tiles[i][j]->calculate(tile_neighbours, hare_neighbour_sum, puma_neighbour_sum);
+            tile = Landscape::instance->tiles[i][j];
+            if(tile->isLand()) {
+                tile->calculate(
+                    getNumberOfLandNeighbours(i, j), 
+                    getSumDensityNeighbours(Hare::getName(), i, j), 
+                    getSumDensityNeighbours(Puma::getName(), i, j)
+                );
+            }
         }
     }
 }
 
 void Landscape::update() {
-
+    Tile* tile = nullptr;
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
-            Landscape::instance->tiles[i][j]->update();
+            tile = Landscape::instance->tiles[i][j];
+            if(tile->isLand())  tile->update();
         }
     }
 }
