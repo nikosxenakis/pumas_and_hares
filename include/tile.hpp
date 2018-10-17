@@ -6,7 +6,6 @@
 #include "hare.hpp"
 #include "puma.hpp"
 #include "inputTile.hpp"
-
 typedef float Density;
 
 using namespace std;
