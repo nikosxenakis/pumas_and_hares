@@ -28,8 +28,8 @@ void Tile::calculate(int tile_neighbours, float hare_neighbour_sume, float puma_
 }
 
 void Tile::update() {
-    this->oldHares = this->newHares;
-    this->oldPumas = this->newPumas;
+    this->oldHares = this->newHares >= 0 ? this->newHares : 0;
+    this->oldPumas = this->newPumas >= 0 ? this->newPumas : 0;
     this->newHares = 0;
     this->newPumas = 0;
 }

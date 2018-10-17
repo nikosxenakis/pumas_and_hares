@@ -21,6 +21,8 @@ private :
     TilesArray tiles;
     int rows;
     int cols;
+    Density maxPumas;
+    Density maxHares;
 
 public :
     static void init(vector< vector<InputTile*> > tilesVector, int rows, int cols) ;
@@ -33,6 +35,10 @@ public :
     static Density getSumDensityNeighbours(string animal, int row, int col);
     static int const getRows();
     static int const getCols();
+    static Density const getMaxPumas();
+    static Density const getMaxHares();
+    static void setMaxPumas(Density pumas);
+    static void setMaxHares(Density hares);
 };
 
 #endif
