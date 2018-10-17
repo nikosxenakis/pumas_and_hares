@@ -11,11 +11,17 @@ void Helpers::simulationLoop() {
     Landscape::print();
 
     for (int t = 0; t <= 500; t+=dt) {
+        Landscape::calculate();
         Landscape::update();
         Landscape::print();
     }
 }
-        
+
+void Helpers::initRandomGenerator() {
+    time_t t = time(NULL);
+    srand ((unsigned int)t);
+}
+
 vector< vector<int> > Helpers::initTilesVector(ifstream &landFile) {
     vector< vector<int> > tilesVector;
 

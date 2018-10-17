@@ -1,27 +1,39 @@
 #include "../include/tile.hpp"
 
-Tile::Tile(bool land) {
-	this->land = land;
-	this->oldHares = rand() % 5;
-	this->oldPumas = rand() % 5;
-	this->newHares = 0;
-	this->newPumas = 0;
+Tile::Tile(bool land): Tile(
+    land,
+    static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5)),
+    static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5))
+){}
+
+Tile::Tile(bool land, Density hares, Density pumas): land(land) {
+    this->oldHares = 0;
+    this->oldPumas = 0;
+    this->newHares = 0;
+    this->newPumas = 0;
+    
+    if(this->isLand()) {
+        this->oldHares = hares;
+        this->oldPumas = pumas;
+    }
 }
 
-Tile::~Tile() {
-//    this->land = 0;
-//    this->oldHares = 0;
-//    this->oldPumas = 0;
-//    this->newHares = 0;
-//    this->newPumas = 0;
-}
+Tile::~Tile() {}
 
 void const Tile::print() {
-    cout << this->land << "H" << this->oldHares << "P" << this->oldPumas << " ";
+    cout << this->land << ", H" << std::fixed << setprecision(1) << this->oldHares << ", P" << this->oldPumas << "\t";
+}
+
+void Tile::calculate(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume) {
+    this->newHares = Hare::calculateNewDensity(this->oldHares, this->oldPumas, tile_neighbours, hare_neighbour_sume);
+    this->newPumas = Puma::calculateNewDensity(this->oldPumas, this->oldHares, tile_neighbours, puma_neighbour_sume);
 }
 
 void Tile::update() {
-    this->oldHares = this->oldHares + 1;
+    this->oldHares = this->newHares;
+    this->oldPumas = this->newPumas;
+    this->newHares = 0;
+    this->newPumas = 0;
 }
 
 bool const Tile::isLand() {
@@ -31,6 +43,15 @@ bool const Tile::isLand() {
 Density const Tile::getOldHares() {
     return this->oldHares;
 }
+
 Density const Tile::getOldPumas() {
     return this->oldPumas;
+}
+
+Density const Tile::getDensity(string animal) {
+    if(animal == Puma::getName())
+        return getOldPumas();
+    else if(animal == Hare::getName())
+        return getOldHares();
+    return 0;
 }

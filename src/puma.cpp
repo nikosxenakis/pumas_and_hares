@@ -32,13 +32,8 @@ void Puma::setDiffusionRate(float diffusion_rate) {
 }
 
 // todo: interface for parameters / array
-float Puma::calculateNewDensity(float P_old, float H_old) {
+float Puma::calculateNewDensity(float P_old, float H_old, int land_neighbours, float sum_density_neighbours) {
     int dt = 1;
-    int row = 1;
-    int col = 1;
-
-    float sum_density_neighbours = Landscape::getSumDensityNeighbours(Puma::name, row, col);
-    int land_neighbours = Landscape::getNumberOfLandNeighbours(row, col);
 
     return P_old
             + dt * (Puma::birth_rate * H_old * P_old

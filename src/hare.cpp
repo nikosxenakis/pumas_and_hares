@@ -32,13 +32,8 @@ void Hare::setDiffusionRate(float diffusion_rate) {
 }
 
 // todo: interface for parameters / array
-float Hare::calculateNewDensity(float H_old, float P_old) {
+float Hare::calculateNewDensity(float H_old, float P_old, int land_neighbours, float sum_density_neighbours) {
     int dt = 1;
-    int row = 1;
-    int col = 1;
-
-    float sum_density_neighbours = Landscape::getSumDensityNeighbours(Hare::name, row, col);
-    int land_neighbours = Landscape::getNumberOfLandNeighbours(row, col);
 
     return H_old
             + dt * (birth_rate * H_old

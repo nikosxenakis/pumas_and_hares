@@ -16,10 +16,10 @@ using namespace std;
 
 TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
-    GIVEN("A landscape vector of size 10x10"){
+    GIVEN("A landscape vector of size 3x3"){
 
        ifstream landFile;
-       landFile.open("../resources/small10x10.dat");
+       landFile.open("../resources/small3x3.dat");
        vector< vector<int> > tilesVector;
 
        if (landFile.is_open()) {
@@ -42,6 +42,10 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
                REQUIRE( Landscape::getNumberOfLandNeighbours(max_index,max_index) == 0);
           }
           
+          THEN(" the Density of it's neighbours is 0 "){
+               REQUIRE( Landscape::getSumDensityNeighbours(Puma::getName(), 1,1) == Approx(0.0) );
+               REQUIRE( Landscape::getSumDensityNeighbours(Hare::getName(), 1,1) == Approx(0.0) );
+          }
        }
     }
 }
