@@ -1,5 +1,4 @@
 #include "../include/pixel.hpp"
-#include "../include/landscape.hpp"
 
 pixel::pixel() {
 	this->set_rgb(Color::sea,1);
@@ -17,23 +16,27 @@ int const pixel::get_green() {
 	return this->green;
 }
 
-void pixel::write(ofstream &ppmFile) {
+void const pixel::write(ofstream &ppmFile) {
 	ppmFile << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
 }
 
-void pixel::set_colour(string type, double density) {
-	if (type == "Hare") {
-		this->set_rgb(Color::hares, density/Landscape::getMaxHares());
+void pixel::set_colour(Color c, double density) {
+	float opacity = 0.0;
+
+	if (c == Color::hares) {
+		opacity = density/Landscape::getMaxHares();
 	}
-	else if (type == "Puma") {
-		this->set_rgb(Color::pumas, density/Landscape::getMaxPumas());
+	else if (c == Color::pumas) {
+		opacity = density/Landscape::getMaxPumas();
 	}
+
+	this->set_rgb(c, opacity);
 }
 
 void pixel::set_rgb(Color c, float opacity) {
 
-	int nutral_color = 254;
-	int max_color = int(opacity*(1-nutral_color) + nutral_color);
+	int max_color = 254;
+	int others_color = int(opacity*(1-max_color) + max_color);
 
 	switch(c) {
 		case sea: {
@@ -43,15 +46,15 @@ void pixel::set_rgb(Color c, float opacity) {
 			break;
 		}
 		case pumas: {
-			this->red = 254;
-			this->green = max_color;
-			this->blue = max_color;
+			this->red = max_color;
+			this->green = others_color;
+			this->blue = others_color;
 			break;
 		}
 		case hares: {
-			this->red = max_color;
-			this->green = 254;
-			this->blue = max_color;
+			this->red = others_color;
+			this->green = max_color;
+			this->blue = others_color;
 			break;
 		}
 	}
