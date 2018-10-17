@@ -61,6 +61,8 @@ We use [GitHub](http://github.com/) for versioning. For the versions available, 
 
 * **Xenakis Nikolaos** - *Initial work* - [nikosxenakis](https://github.com/nikosxenakis)
 * **Jim Walker** - *Building tests*
+* **Holly Judge**
+* **Mark Klaisoongnoen**
 
 
 ## License
