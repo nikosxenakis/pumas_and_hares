@@ -5,6 +5,8 @@ Image* Image::instance = NULL;
 int Image::tilePixels;
 int Image::imageSizeX;
 int Image::imageSizeY;
+int Image::landSizeX;
+int Image::landSizeY;
 
 // create new image
 //
@@ -16,7 +18,6 @@ Image::Image(int NX, int NY) {
 
 	SizeX = this->getImageSizeX();
 	SizeY = this->getImageSizeY();
-    cout << SizeX << " " << SizeY << endl;
 
     pixels = new pixel* [SizeX];
     for (int i=0; i < SizeX; i++) {
@@ -32,6 +33,9 @@ void Image::init(int NX, int NY) {
 }
 
 void Image::setImageSize(int NX, int NY) {
+
+    landSizeX = NX;
+    landSizeY = NY;
 
     if (NX > NY) {
         tilePixels = maxPixels / NX;
@@ -60,6 +64,13 @@ int Image::getImageSizeY() {
     return Image::imageSizeY;
 }
 
+int Image::getLandSizeX() {
+    return Image::landSizeX;
+}
+int Image::getLandSizeY() {
+    return Image::landSizeY;
+}
+
 
 void Image::setGrid() {
 
@@ -67,9 +78,8 @@ void Image::setGrid() {
     int origin_j;
 	int NY, NX;
 
-    // TODO: update these
-    NY = 3;
-	NX = 3;
+    NY = Image::getLandSizeX();
+	NX = Image::getLandSizeY();
 
     cout << NX << " " << NY << endl;
 
