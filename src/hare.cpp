@@ -43,6 +43,6 @@ float Hare::calculateNewDensity(float H_old, float P_old, int land_neighbours, f
 }
 
 string Hare::name = "Hare";
-float Hare::birth_rate = 0.01;
-float Hare::predation_rate = 0.02;
-float Hare::diffusion_rate = 0.03;
+float Hare::birth_rate = 0.08;
+float Hare::predation_rate = 0.04;
+float Hare::diffusion_rate = 0.2;

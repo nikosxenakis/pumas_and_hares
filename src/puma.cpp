@@ -44,6 +44,6 @@ float Puma::calculateNewDensity(float P_old, float H_old, int land_neighbours, f
 
 // init
 string Puma::name = "Puma";
-float Puma::birth_rate = 0.01;
-float Puma::mortality_rate = 0.02;
-float Puma::diffusion_rate = 0.04;
+float Puma::birth_rate = 0.02;
+float Puma::mortality_rate = 0.06;
+float Puma::diffusion_rate = 0.2;

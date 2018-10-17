@@ -74,6 +74,5 @@ float Helpers::getDeltaT() {
 }
 
 // init
-float Helpers::deltaT = 0.0;
+float Helpers::deltaT = 0.4;
 float Helpers::capitalT = 0.0;
-
