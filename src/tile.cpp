@@ -7,10 +7,7 @@ Tile::Tile(bool land): Tile(
 ){}
 
 Tile::Tile(bool land, Density hares, Density pumas): land(land) {
-    this->oldHares = 0;
-    this->oldPumas = 0;
-    this->newHares = 0;
-    this->newPumas = 0;
+	this->clear();
     
     if(this->isLand()) {
         this->oldHares = hares;
@@ -18,7 +15,16 @@ Tile::Tile(bool land, Density hares, Density pumas): land(land) {
     }
 }
 
-Tile::~Tile() {}
+Tile::~Tile() {
+	this->clear();
+}
+
+void Tile::clear() {
+    this->oldHares = 0;
+    this->oldPumas = 0;
+    this->newHares = 0;
+    this->newPumas = 0;
+}
 
 void const Tile::print() {
     cout << this->land << ", H" << std::fixed << setprecision(1) << this->oldHares << ", P" << this->oldPumas << "\t";

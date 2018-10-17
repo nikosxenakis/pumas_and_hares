@@ -30,6 +30,8 @@ public :
     static Tile* getTile(int row, int col);
     static int getNumberOfLandNeighbours(int row, int col);
     static Density getSumDensityNeighbours(string animal, int row, int col);
+    static int const getRows();
+    static int const getCols();
 };
 
 #endif
