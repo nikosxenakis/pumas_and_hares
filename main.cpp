@@ -1,13 +1,7 @@
 #include "include/helpers.hpp"
-#include "include/parser.hpp"
 #include <string>
 #include <time.h>
 #include <chrono>
-
-#define RESOURCES_PATH "./resources"
-//#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
-
-//write the parameters in a json configuration file
 
 int main(int argc, char* argv[]) {
     
@@ -19,10 +13,7 @@ int main(int argc, char* argv[]) {
 
     // If no file specified from the command line, open small10x10 by default
     if(argc == 1){
-
-    Helpers::init();
-
-
+        Helpers::init();
     } else {
         
         std::string arg = string(argv[1]);
@@ -30,15 +21,17 @@ int main(int argc, char* argv[]) {
             printf("Usage: ./pumas_and_hares path/to/file.dat\n");
             return 0;
         } else{ 
-        Helpers::init(arg);
+            Helpers::init(arg);
         }
-
     }
-        Helpers::simulationLoop();
-        Helpers::close();
+
+    Helpers::simulationLoop();
+    Helpers::close();
+    
     float end = chrono::duration_cast< chrono::milliseconds >(
         chrono::system_clock::now().time_since_epoch()
     ).count();
+
     printf("Program finished. Ellapsed time (ms): %f\n", (end -start));
 
     return 0;
