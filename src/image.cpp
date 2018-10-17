@@ -16,6 +16,7 @@ Image::Image(int NX, int NY) {
 
 	SizeX = this->getImageSizeX();
 	SizeY = this->getImageSizeY();
+    cout << SizeX << " " << SizeY << endl;
 
     pixels = new pixel* [SizeX];
     for (int i=0; i < SizeX; i++) {
@@ -67,14 +68,14 @@ void Image::setGrid() {
 	int NY, NX;
 
     // TODO: update these
-    NY = 10;
-	NX = 10;
+    NY = 3;
+	NX = 3;
 
     cout << NX << " " << NY << endl;
 
     // skips over halo cells
-    for (int i=1; i<NY; i++) {
-        for (int j=1; j< NX; j++) {
+    for (int i=1; i<NY+1; i++) {
+        for (int j=1; j< NX+1; j++) {
 
             Tile* tile = Landscape::getTile(i, j);
 
