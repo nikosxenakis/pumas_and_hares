@@ -35,6 +35,7 @@
 *.swp
 .idea
 **/*.dSYM
+.vscode/*
 
 # LaTex obj files
 *.aux
