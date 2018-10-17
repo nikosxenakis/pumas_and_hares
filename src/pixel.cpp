@@ -1,49 +1,58 @@
 #include "../include/pixel.hpp"
-
+#include "../include/landscape.hpp"
 
 pixel::pixel() {
-
-	this->red = 0;
-	this->green = 0;
-	this->blue = 255;
+	this->set_rgb(Color::sea,1);
 }
 
-int pixel::get_red() {
-
+int const pixel::get_red() {
 	return this->red;
 }
 
-int pixel::get_blue() {
-
+int const pixel::get_blue() {
 	return this->blue;
 }
 
-int pixel::get_green() {
-
+int const pixel::get_green() {
 	return this->green;
 }
 
 void pixel::write(ofstream &ppmFile) {
-
 	ppmFile << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
-
 }
 
 void pixel::set_colour(string type, double density) {
-
-	int MAX = 5;
-	int colourScale;
-
-	colourScale = (density * 255) / MAX;
-
 	if (type == "Hare") {
-		this->red = 255 - colourScale;
-		this->green = 255;
-		this->blue = 255 - colourScale;
+		this->set_rgb(Color::hares, density/Landscape::getMaxHares());
 	}
 	else if (type == "Puma") {
-		this->red = 255;
-		this->green = 255 - colourScale;
-		this->blue = 255 - colourScale;
+		this->set_rgb(Color::pumas, density/Landscape::getMaxPumas());
+	}
+}
+
+void pixel::set_rgb(Color c, float opacity) {
+
+	int nutral_color = 254;
+	int max_color = int(opacity*(1-nutral_color) + nutral_color);
+
+	switch(c) {
+		case sea: {
+			this->red = 64;
+			this->green = 164;
+			this->blue = 223;
+			break;
+		}
+		case pumas: {
+			this->red = 254;
+			this->green = max_color;
+			this->blue = max_color;
+			break;
+		}
+		case hares: {
+			this->red = max_color;
+			this->green = 254;
+			this->blue = max_color;
+			break;
+		}
 	}
 }

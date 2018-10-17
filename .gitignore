@@ -35,6 +35,7 @@
 *.swp
 .idea
 **/*.dSYM
+.vscode/*
 
 # LaTex obj files
 *.aux
@@ -43,3 +44,4 @@
 
 # Outputs
 *.ppm
+/output/*
