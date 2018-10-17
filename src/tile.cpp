@@ -1,10 +1,12 @@
 #include "../include/tile.hpp"
 
 Tile::Tile(InputTile* inputTile) {
-	this->clear();
+    this->clear();
     this->land = inputTile->land;
-    this->oldPumas = inputTile->pumas;
-    this->oldHares = inputTile->hares;
+    if(this->isLand()) {
+        this->oldPumas = inputTile->pumas;
+        this->oldHares = inputTile->hares;
+    }
 }
 
 Tile::~Tile() {
