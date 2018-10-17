@@ -1,4 +1,5 @@
 #include "../include/hare.hpp"
+#include "../include/helpers.hpp"
 #include <string>
 
 using namespace std;
@@ -33,15 +34,15 @@ void Hare::setDiffusionRate(float diffusion_rate) {
 
 // todo: interface for parameters / array
 float Hare::calculateNewDensity(float H_old, float P_old, int land_neighbours, float sum_density_neighbours) {
-    int dt = 1;
+    float dt = Helpers::getDeltaT();
 
     return H_old
             + dt * (birth_rate * H_old
             - predation_rate * H_old * P_old
-            + diffusion_rate * (sum_density_neighbours - land_neighbours * H_old));
+            + diffusion_rate * (sum_density_neighbours - (float) land_neighbours * H_old));
 }
 
 string Hare::name = "Hare";
-float Hare::birth_rate = 0.01;
-float Hare::predation_rate = 0.02;
-float Hare::diffusion_rate = 0.03;
+float Hare::birth_rate = 0.08;
+float Hare::predation_rate = 0.04;
+float Hare::diffusion_rate = 0.2;
