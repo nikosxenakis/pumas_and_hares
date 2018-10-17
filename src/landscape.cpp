@@ -127,3 +127,11 @@ Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
     delete[] tilesVector;
     return sum;
 }
+
+int const Landscape::getRows() {
+    return Landscape::instance->rows;
+}
+
+int const Landscape::getCols() {
+    return Landscape::instance->cols;
+}
