@@ -43,3 +43,4 @@
 
 # Outputs
 *.ppm
+/output/*
