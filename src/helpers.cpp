@@ -2,6 +2,15 @@
 #include "../include/landscape.hpp"
 #include "../include/helpers.hpp"
 
+void Helpers::init() {
+    Helpers::initRandomGenerator();
+    parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
+}
+
+void Helpers::close() {
+    Landscape::destroy();
+}
+
 void Helpers::simulationLoop() {
 
     int dt = 251;

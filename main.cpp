@@ -1,4 +1,3 @@
-#include "include/landscape.hpp"
 #include "include/helpers.hpp"
 #include "include/parser.hpp"
 #include <string>
@@ -21,8 +20,8 @@ int main(int argc, char* argv[]) {
     // If no file specified from the command line, open small10x10 by default
     if(argc == 1){
 
-        Helpers::initRandomGenerator();
-        parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
+    Helpers::init();
+
 
     } else {
         
@@ -31,14 +30,12 @@ int main(int argc, char* argv[]) {
             printf("Usage: ./pumas_and_hares path/to/file.dat\n");
             return 0;
         } else{ 
-
-        Helpers::initRandomGenerator();
-        parser::parse(arg);
+        Helpers::init(arg);
         }
 
     }
         Helpers::simulationLoop();
-        Landscape::destroy();
+        Helpers::close();
     float end = chrono::duration_cast< chrono::milliseconds >(
         chrono::system_clock::now().time_since_epoch()
     ).count();
