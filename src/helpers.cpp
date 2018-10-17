@@ -14,7 +14,7 @@ void Helpers::simulationLoop() {
         Landscape::calculate();
         Landscape::update();
         Landscape::print();
-//        Output::print_output(t);
+        Output::print_output(t);
     }
 }
 
