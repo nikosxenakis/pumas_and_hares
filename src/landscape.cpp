@@ -2,7 +2,7 @@
 
 Landscape* Landscape::instance = NULL;
 
-Landscape::Landscape(vector< vector<InputTile> > tilesVector, int rows, int cols):
+Landscape::Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols):
 rows(rows), cols(cols) {
     
     this->tiles = new Tile**[this->rows];
@@ -10,13 +10,12 @@ rows(rows), cols(cols) {
     for (int i = 0; i < this->rows; ++i) {
         this->tiles[i] = new Tile*[this->cols];
         for (int j = 0; j < this->cols; ++j) {
-            InputTile inputTile = tilesVector[i][j];
-            this->tiles[i][j] = new Tile(inputTile);
+            this->tiles[i][j] = new Tile(tilesVector[i][j]);
         }
     }
 }
 
-void Landscape::init(vector< vector<InputTile> > tilesVector, int rows, int cols)  {
+void Landscape::init(vector< vector<InputTile*> > tilesVector, int rows, int cols)  {
     Landscape::instance = new Landscape(tilesVector, rows, cols);
 }
 

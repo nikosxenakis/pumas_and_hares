@@ -33,7 +33,7 @@ public :
      * @description Creates a new object Tile initializing the land value
      * @param land is a boolean variable which indicates if this tile contains land or not
      */
-    Tile(InputTile inputTile);
+    Tile(InputTile* inputTile);
     ~Tile();
     void const print();
     void calculate(int tile_neighbours, float hare_neighbour_sume, float puma_neighbour_sume);
