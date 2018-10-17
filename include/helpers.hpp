@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <time.h>
+#include "output.hpp"
 
 using namespace std;
 
