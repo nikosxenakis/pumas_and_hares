@@ -2,24 +2,22 @@
 
 Landscape* Landscape::instance = NULL;
 
-// TODO: Landscape::Landscape(vector< vector<YourClass> > tilesVector, int rows, int cols)
-Landscape::Landscape(vector< vector<int> > tilesVector) {
-
-    this->rows = tilesVector.size();
-    this->cols = tilesVector[0].size();
+Landscape::Landscape(vector< vector<InputTile> > tilesVector, int rows, int cols):
+rows(rows), cols(cols) {
     
     this->tiles = new Tile**[this->rows];
     
     for (int i = 0; i < this->rows; ++i) {
         this->tiles[i] = new Tile*[this->cols];
         for (int j = 0; j < this->cols; ++j) {
-            this->tiles[i][j] = new Tile(tilesVector[i][j]);
+            InputTile inputTile = tilesVector[i][j];
+            this->tiles[i][j] = new Tile(inputTile);
         }
     }
 }
 
-void Landscape::init(vector< vector<int> > tilesVector) {
-    Landscape::instance = new Landscape(tilesVector);
+void Landscape::init(vector< vector<InputTile> > tilesVector, int rows, int cols)  {
+    Landscape::instance = new Landscape(tilesVector, rows, cols);
 }
 
 void Landscape::destroy() {
