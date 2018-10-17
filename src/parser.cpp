@@ -1,5 +1,6 @@
 #include "../include/parser.hpp"
 
+
 // todo: add parse to config file
 void parser::parse(const string& landFileName) {
 
@@ -31,26 +32,29 @@ void parser::parseInput(const string& landFileName) {
       fill (zerosLine.begin(), zerosLine.end(), 0);
       tilesVector.push_back(zerosLine);
 
-    for (int i = 0; i < NX; ++i) {
+      for (int i = 0; i < NX; ++i) {
 
-        vector<int> tilesLine;
-        tilesLine.push_back(0);
+         vector<int> tilesLine;
+         tilesLine.push_back(0);
 
-        for (int j = 0; j < NY; ++j) {
-            landFile >> val;
-            if (val != 0 && val != 1) {
-                cout << "tile must be 1 or 0" << endl;
-                exit(1);
-            }
-            else {
+         for (int j = 0; j < NY; ++j) {
+             landFile >> val;
+             if (val != 0 && val != 1) {
+                 cout << "tile must be 1 or 0" << endl;
+                 exit(1);
+             }
+             else {
                 tilesLine.push_back(val);
-            }
-        }
-        tilesLine.push_back(0);
-        tilesVector.push_back(tilesLine);
-    }
-    tilesVector.push_back(zerosLine);
-    Landscape::init(tilesVector);
+             }
+          }
+          tilesLine.push_back(0);
+          tilesVector.push_back(tilesLine);
+      }
+      tilesVector.push_back(zerosLine);
+      Landscape::init(tilesVector);
+
+      // initalise image for ppm
+      Image::init(NX, NY);
    }
    else {
      cout << "file not open" << endl;
@@ -62,7 +66,9 @@ void parser::parseInput(const string& landFileName) {
 
 void parser::parseConfig(const string& configFileName) {
 
-//   ifstream configFile;
+//    ifstream configFile;
+//    configFile.open(configFileName);
+//    json jConfig;
    // read json file
    // pass values to set.hares and set.pumas
 
