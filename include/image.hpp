@@ -7,6 +7,7 @@
 #include "pixel.hpp"
 #include <string>
 #include <sstream>
+#include <cmath>
 #include <iomanip>
 #include "tile.hpp"
 #include "landscape.hpp"
@@ -21,19 +22,21 @@ class Image {
 		static Image* instance;
 		Image(int NX, int NY);
 		ImagePixelVector pixels;
-		static int tilePixels;
+		static int tilePixelsX;
+        static int tilePixelsY;
         static int imageSizeX;
         static int imageSizeY;
         static int landSizeY;
         static int landSizeX;
-        static const int maxPixels = 500;
+        static const int maxPixels = 300*300;
 
 
 	public :
 		static void init(int NX, int NY);
 		static void setGrid();
 		static void write(double t);
-        static int getTileSize();
+        static int getTileSizeX();
+        static int getTileSizeY();
         static int getImageSizeX();
         static int getImageSizeY();
         static int getLandSizeX();
