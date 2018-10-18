@@ -2,7 +2,8 @@
 
 Image* Image::instance = NULL;
 
-int Image::tilePixels;
+int Image::tilePixelsX;
+int Image::tilePixelsY;
 int Image::imageSizeX;
 int Image::imageSizeY;
 int Image::landSizeX;
@@ -37,21 +38,38 @@ void Image::setImageSize(int NX, int NY) {
     landSizeX = NX;
     landSizeY = NY;
 
-    if (NX > NY) {
-        tilePixels = maxPixels / NX;
-        imageSizeX = tilePixels * NX;
-        imageSizeY = (NY * tilePixels * NX) / NX;
-    }
-    else {
-        tilePixels = maxPixels / NY;
-        imageSizeY = tilePixels * NY;
-        imageSizeX = (NX * tilePixels * NY) / NY;
-    }
+    float tmp2 = float(landSizeY)/float(landSizeX);
+    float tmp = float(maxPixels/tmp2);
+    imageSizeX = int(sqrt(tmp));
+    imageSizeY = int(maxPixels/imageSizeX);
+
+    tilePixelsX = int(imageSizeX / NX);
+    tilePixelsY = int(imageSizeY / NY);
+
+    // if (NX > NY) {
+    //     tilePixels = maxPixels / NX;
+    //     imageSizeX = tilePixels * NX;
+    //     imageSizeY = (NY * tilePixels * NX) / NX;
+    // }
+    // else {
+    //     tilePixels = maxPixels / NY;
+    //     imageSizeY = tilePixels * NY;
+    //     imageSizeX = (NX * tilePixels * NY) / NY;
+    // }
+
+    cout << "land size: " << landSizeX << " x " << landSizeY << endl;
+    cout << "image size(pixels): " << imageSizeX << " x " << imageSizeY << endl;
+    cout << "tile size: " << tilePixelsX << " x " << tilePixelsY << endl;
+
+
 }
 
-int Image::getTileSize() {
+int Image::getTileSizeX() {
+    return Image::tilePixelsX;
+}
 
-    return Image::tilePixels;
+int Image::getTileSizeY() {
+    return Image::tilePixelsY;
 }
 
 int Image::getImageSizeX() {
@@ -78,8 +96,8 @@ void Image::setGrid() {
     int origin_j;
 	int NY, NX;
 
-    NY = Image::getLandSizeX();
-	NX = Image::getLandSizeY();
+    NY = Image::getLandSizeY();
+	NX = Image::getLandSizeX();
 
     cout << NX << " " << NY << endl;
 
@@ -93,17 +111,17 @@ void Image::setGrid() {
                 continue;
             }
             else {
-                origin_i = Image::getTileSize() * (i-1);
-                origin_j = Image::getTileSize() * (j-1);
+                origin_i = Image::getTileSizeY() * (i-1);
+                origin_j = Image::getTileSizeX() * (j-1);
 
-                for (int it = origin_i; it < origin_i + Image::getTileSize(); it++) {
-                    for (int jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
+                for (int it = origin_i; it < origin_i + Image::getTileSizeY(); it++) {
+                    for (int jt = origin_j; jt < origin_j + Image::getTileSizeX(); jt++) {
 
-                        if (it-origin_i < Image::getTileSize() - (jt - origin_j)) {
-                            Image::instance->pixels[it][jt].set_colour(Puma::getName(), tile->getOldPumas());
+                        if (it-origin_i < Image::getTileSizeY() - (jt - origin_j)) {
+                            Image::instance->pixels[it][jt].set_colour(Color::pumas, tile->getOldPumas());
                         }
                         else {
-                            Image::instance->pixels[it][jt].set_colour(Hare::getName(), tile->getOldHares());
+                            Image::instance->pixels[it][jt].set_colour(Color::hares, tile->getOldHares());
                         }
                     }
                 }

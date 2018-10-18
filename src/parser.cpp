@@ -98,7 +98,7 @@ void parser::parseInput(const string& landFileName) {
           tilesVector.push_back(tilesLine);
       }
       tilesVector.push_back(zerosLine);
-      Landscape::init(tilesVector, NX+2, NY+2);
+      Landscape::init(tilesVector, NY+2, NX+2);
 
       // initalise image for ppm
       Image::init(NX, NY);

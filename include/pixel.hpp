@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include "landscape.hpp"
 
 enum Color { sea, pumas, hares };
 
@@ -14,14 +15,14 @@ class pixel {
 		int red;
 		int green;
 		int blue;
-	public:
-		void set_colour(string type, double density);
 		void set_rgb(Color c, float opacity);
+	public:
+		pixel();
+		void set_colour(Color c, double density);
 		int const get_green();
 		int const get_red();
 		int const get_blue();
-		pixel();
-		void write(ofstream &file);
+		void const write(ofstream &file);
 };
 
 #endif
