@@ -13,31 +13,22 @@
 
 TEST_CASE( "Tile test", "[testing the tiles]"){
     REQUIRE( 1 == 1 );
-    GIVEN("A landscape vector of size 3x3"){
+    GIVEN("A landscape of size 3x3"){
 
-       ifstream landFile;
-       landFile.open("../resources/small3x3.dat");
-       vector< vector<int> > tilesVector;
-
-       if (landFile.is_open()) {
-           tilesVector = Helpers::initTilesVector(landFile);
-       }
-       else {
-           cout << "ERROR OPENING LANDSCAPE FILE" << endl;
-           exit(1);
-       }
+       string land_file = "../resources/small3x3.dat";
+       Helpers::init(land_file);
       
        WHEN(" the Landscape is initilised and one time step occurs" ){ 
-
-          Landscape::init(tilesVector);
+           
+          Landscape::calculate();
           Landscape::update();
 
 
           THEN(" Values of old hares and pumas are as expexted "){
 
-               Tile t = Landscape::getTile(1,1);
-               REQUIRE( t.getOldHares() == Approx(1.016) );
-               REQUIRE( t.getOldPumas() == Approx(0.984) );
+               Tile* t = Landscape::getTile(2,2);
+               REQUIRE( t->getOldHares() == Approx(1.016) );
+               REQUIRE( t->getOldPumas() == Approx(0.984) );
 
           }
        }

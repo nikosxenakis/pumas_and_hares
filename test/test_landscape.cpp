@@ -16,24 +16,15 @@ using namespace std;
 
 TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
-    GIVEN("A landscape vector of size 3x3"){
+    GIVEN("A landscape file of size 3x3"){
 
-       ifstream landFile;
-       landFile.open("../resources/small3x3.dat");
-       vector< vector<int> > tilesVector;
-
-       if (landFile.is_open()) {
-           tilesVector = Helpers::initTilesVector(landFile);
-       }
-       else {
-           cout << "ERROR OPENING LANDSCAPE FILE" << endl;
-           exit(1);
-       }
+       string land_file = ("../resources/small3x3.dat");
       
        WHEN(" the Landscape is initilised" ){ 
-          Landscape::init(tilesVector);
+          Helpers::init(land_file);
 
-          int max_index =  tilesVector.size()-1;
+          int max_index = Landscape::getRows(); // This works because this particular land
+                                                // file is a square
 
           THEN(" the landscape is an island"){
                REQUIRE( Landscape::getNumberOfLandNeighbours(0,0) == 0);
