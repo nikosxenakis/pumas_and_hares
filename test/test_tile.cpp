@@ -1,6 +1,6 @@
 /* test_tile.cpp
  *
- * Tests landscape class and its functions
+ * Tests tile class and its functions
  *
  */
 
