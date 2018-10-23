@@ -27,6 +27,9 @@ void Helpers::simulationLoop() {
             Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
     }
+    
+    InputTile it = Landscape::getRegion(0, 0, 10, 10);
+    cout << it.land;
 }
 
 void Helpers::initRandomGenerator() {

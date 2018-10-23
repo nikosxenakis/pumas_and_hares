@@ -193,3 +193,26 @@ Density const Landscape::getAveragePumas() {
 Density const Landscape::getAverageHares() {
     return Landscape::instance->averageHares;
 }
+
+InputTile const Landscape::getRegion(int row, int col, int m, int n) {
+    Landscape* landscape = Landscape::instance;
+    int lastRow = (row + m < landscape->rows ? row + m : landscape->rows) ;
+    int lastCol = (col + n < landscape->cols ? col + n : landscape->cols) ;
+    Tile* tile = nullptr;
+    int maxTiles = m*n;
+    int landTiles = 0, pumas = 0, hares = 0;
+    for (int i = row; i < lastRow; ++i) {
+        for (int j = col; j < lastCol; ++j) {
+            tile = landscape->tiles[i][j];
+            if(tile->isLand()) {
+                landTiles++;
+                pumas+=tile->getOldPumas();
+                hares+=tile->getOldHares();
+            }
+        }
+    }
+    
+    int land = ((float(landTiles) / float(maxTiles)) > float(maxTiles) / 2 ? 1 : 0);
+    return InputTile(land, pumas, hares);
+
+}

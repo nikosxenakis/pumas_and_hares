@@ -42,6 +42,7 @@ public :
     static void setMaxHares(Density hares);
     static Density const getAveragePumas();
     static Density const getAverageHares();
+    static InputTile const getRegion(int row, int col, int m, int n);
 };
 
 #endif
