@@ -3,12 +3,7 @@
 
 void Helpers::init(string file) {
     Helpers::initRandomGenerator();
-    if(!file.empty()) {
-        parser::parse(file);
-    }
-    else {
-        parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
-    }
+    parser::parse(file);
     Output::initOutputFile();
 }
 

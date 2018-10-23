@@ -2,18 +2,17 @@
 #include <string>
 #include <time.h>
 #include <chrono>
+typedef std::chrono::high_resolution_clock Clock;
+
+using namespace std;
 
 int main(int argc, char* argv[]) {
     
-    using namespace std;
-   
-    float start = chrono::duration_cast< chrono::milliseconds >(
-        chrono::system_clock::now().time_since_epoch()
-    ).count();
+    auto start = Clock::now();
 
     // If no file specified from the command line, open small10x10 by default
     if(argc == 1){
-        Helpers::init("");
+        Helpers::init(string(RESOURCES_PATH) + "/small10x10.dat");
     } else {
         
         std::string arg = string(argv[1]);
@@ -28,11 +27,7 @@ int main(int argc, char* argv[]) {
     Helpers::simulationLoop();
     Helpers::close();
     
-    float end = chrono::duration_cast< chrono::milliseconds >(
-        chrono::system_clock::now().time_since_epoch()
-    ).count();
-
-    printf("Program finished. Ellapsed time (ms): %f\n", (end -start));
-
+    auto end = Clock::now();
+    std::cout << "Running time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << " milliseconds" << std::endl;
     return 0;
 }
