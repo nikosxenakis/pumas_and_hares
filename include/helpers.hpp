@@ -11,7 +11,7 @@
 
 class Helpers {
 private:
-    static float capitalT;
+    static int capitalT;
     static float deltaT;
     static void initRandomGenerator();
 
@@ -21,8 +21,8 @@ public:
     static void simulationLoop();
     static void close();
     static vector< vector<int>> initTilesVector(ifstream &landFile);
-    static void setCapitalT(float capitalT);
-    static float getCapitalT();
+    static void setCapitalT(int capitalT);
+    static int getCapitalT();
     static void setDeltaT(float deltaT);
     static float getDeltaT();
 };

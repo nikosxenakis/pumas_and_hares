@@ -1,4 +1,5 @@
 #include "../include/helpers.hpp"
+#define MAX_STEP 500
 
 void Helpers::init() {
     Helpers::initRandomGenerator();
@@ -16,15 +17,13 @@ void Helpers::close() {
 
 void Helpers::simulationLoop() {
 
-    int dt = 251;
-     
-    Landscape::print();
-
-    for (int t = 0; t <= 500; t+=dt) {
+    for (int t = 0; t <= MAX_STEP; t++) {
         Landscape::calculate();
         Landscape::update();
-        Landscape::print();
-        Output::print_output(t);
+        if(t % getCapitalT() == 0) {
+            Landscape::print();
+            Output::print_output(t);
+        }
     }
 }
 
@@ -33,11 +32,11 @@ void Helpers::initRandomGenerator() {
     srand ((unsigned int)t);
 }
 
-void Helpers::setCapitalT(float capitalT) {
+void Helpers::setCapitalT(int capitalT) {
     Helpers::capitalT = capitalT;
 }
 
-float Helpers::getCapitalT() {
+int Helpers::getCapitalT() {
     return Helpers::capitalT;
 }
 
@@ -51,4 +50,4 @@ float Helpers::getDeltaT() {
 
 // init
 float Helpers::deltaT = 0.4;
-float Helpers::capitalT = 0.0;
+int Helpers::capitalT = 200;

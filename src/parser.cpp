@@ -6,13 +6,10 @@
 
 using json = nlohmann::json;
 
-// todo: add parse to config file
 void parser::parse(const string& landFileName) {
-
-    string configFileName = "../resources/param.json";
-    //parseConfig(configFileName);
+    string configFileName = string(RESOURCES_PATH) + "/param.json";
+    parseConfig(configFileName);
     parseInput(landFileName);
-
 }
 
 void parser::split(const string& str, vector<string> &cont, char delim) {
@@ -113,12 +110,6 @@ void parser::parseInput(const string& landFileName) {
 
 void parser::parseConfig(const string& configFileName) {
 
-//    ifstream configFile;
-//    configFile.open(configFileName);
-//    json jConfig;
-   // read json file
-   // pass values to set.hares and set.pumas
-
     std::ifstream t(configFileName);
     std::stringstream buffer;
     buffer << t.rdbuf();
@@ -126,26 +117,16 @@ void parser::parseConfig(const string& configFileName) {
 
     auto jsonConfig = json::parse(jsonString);
 
-    float H_birth_rate = jsonConfig.at("r");
-    float H_predation_rate = jsonConfig.at("a");
-    float P_birth_rate = jsonConfig.at("b");
-    float P_mortality_rate = jsonConfig.at("m");
-    float H_diffusion_rate = jsonConfig.at("k");
-    float P_diffusion_rate = jsonConfig.at("l");
-    float capital_t = jsonConfig.at("T");
-    float delta_t = jsonConfig.at("delta_t");
-
-    // todo
     Helpers::setDeltaT(jsonConfig.at("delta_t"));
-    Helpers::setCapitalT(0.01);
+    Helpers::setCapitalT(jsonConfig.at("T"));
 
-    Hare::setBirthRate(0.01);
-    Hare::setDiffusionRate(0.01);
-    Hare::setPredationRate(0.01);
+    Hare::setBirthRate(jsonConfig.at("r"));
+    Hare::setDiffusionRate(jsonConfig.at("k"));
+    Hare::setPredationRate(jsonConfig.at("a"));
 
-    Puma::setBirthRate(0.01);
-    Puma::setDiffusionRate(0.01);
-    Puma::setMortalityRate(0.01);
+    Puma::setBirthRate(jsonConfig.at("b"));
+    Puma::setDiffusionRate(jsonConfig.at("l"));
+    Puma::setMortalityRate(jsonConfig.at("m"));
 
 }
 
