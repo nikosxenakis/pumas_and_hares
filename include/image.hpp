@@ -34,7 +34,7 @@ class Image {
 	public :
 		static void init(int NX, int NY);
 		static void setGrid();
-		static void write(double t);
+		static void write(string filepath, double t);
         static int getTileSizeX();
         static int getTileSizeY();
         static int getImageSizeX();

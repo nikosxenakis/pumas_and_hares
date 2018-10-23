@@ -130,11 +130,12 @@ void Image::setGrid() {
     }
 }
 
-void Image::write(double t) {
+void Image::write(string filepath, double t) {
 
     ostringstream FileName;
     ofstream ppmOut;
-    FileName << "./output/" << "Density_" << setw(3) << setfill('0') << t << ".ppm"; 
+    
+    FileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
     ppmOut.open(FileName.str());
     int ySize;
     int xSize;
@@ -153,5 +154,3 @@ void Image::write(double t) {
    }
     ppmOut.close();
 }
-
-

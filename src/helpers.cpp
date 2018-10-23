@@ -50,4 +50,4 @@ float Helpers::getDeltaT() {
 
 // init
 float Helpers::deltaT = 0.4;
-int Helpers::capitalT = 0;
+int Helpers::capitalT = 200;
