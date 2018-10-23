@@ -132,12 +132,12 @@ void parser::parseConfig(const string& configFileName) {
     float P_mortality_rate = jsonConfig.at("m");
     float H_diffusion_rate = jsonConfig.at("k");
     float P_diffusion_rate = jsonConfig.at("l");
-    float capital_t = jsonConfig.at("T");
+    int capital_t = jsonConfig.at("T");
     float delta_t = jsonConfig.at("delta_t");
 
     // todo
     Helpers::setDeltaT(jsonConfig.at("delta_t"));
-    Helpers::setCapitalT(0.01);
+    Helpers::setCapitalT(500);
 
     Hare::setBirthRate(0.01);
     Hare::setDiffusionRate(0.01);

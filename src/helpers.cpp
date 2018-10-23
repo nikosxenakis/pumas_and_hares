@@ -33,11 +33,11 @@ void Helpers::initRandomGenerator() {
     srand ((unsigned int)t);
 }
 
-void Helpers::setCapitalT(float capitalT) {
+void Helpers::setCapitalT(int capitalT) {
     Helpers::capitalT = capitalT;
 }
 
-float Helpers::getCapitalT() {
+int Helpers::getCapitalT() {
     return Helpers::capitalT;
 }
 
@@ -51,4 +51,4 @@ float Helpers::getDeltaT() {
 
 // init
 float Helpers::deltaT = 0.4;
-float Helpers::capitalT = 0.0;
+int Helpers::capitalT = 0;
