@@ -23,7 +23,8 @@ private :
     int cols;
     Density maxPumas;
     Density maxHares;
-
+    Density averagePumas;
+    Density averageHares;
 public :
     static void init(vector< vector<InputTile*> > tilesVector, int rows, int cols) ;
     static void destroy();
@@ -39,6 +40,8 @@ public :
     static Density const getMaxHares();
     static void setMaxPumas(Density pumas);
     static void setMaxHares(Density hares);
+    static Density const getAveragePumas();
+    static Density const getAverageHares();
 };
 
 #endif

@@ -1,14 +1,15 @@
 #include "../include/helpers.hpp"
 #define MAX_STEP 500
 
-void Helpers::init() {
-    Helpers::initRandomGenerator();
-    parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
-}
-
 void Helpers::init(string file) {
     Helpers::initRandomGenerator();
-    parser::parse(file);
+    if(!file.empty()) {
+        parser::parse(file);
+    }
+    else {
+        parser::parse(string(RESOURCES_PATH) + "/small10x10.dat");
+    }
+    Output::initOutputFile();
 }
 
 void Helpers::close() {
@@ -23,6 +24,7 @@ void Helpers::simulationLoop() {
         if(t % getCapitalT() == 0) {
             Landscape::print();
             Output::print_output(t);
+            Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
     }
 }

@@ -16,7 +16,6 @@ private:
     static void initRandomGenerator();
 
 public:
-    static void init();
     static void init(string file);
     static void simulationLoop();
     static void close();
