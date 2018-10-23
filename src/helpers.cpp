@@ -22,14 +22,11 @@ void Helpers::simulationLoop() {
         Landscape::calculate();
         Landscape::update();
         if(t % getCapitalT() == 0) {
-            Landscape::print();
+//            Landscape::print();
             Output::print_output(t);
             Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
     }
-    
-    InputTile it = Landscape::getRegion(0, 0, 10, 10);
-    cout << it.land;
 }
 
 void Helpers::initRandomGenerator() {

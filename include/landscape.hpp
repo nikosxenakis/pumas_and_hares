@@ -23,8 +23,6 @@ private :
     int cols;
     Density maxPumas;
     Density maxHares;
-    Density averagePumas;
-    Density averageHares;
 public :
     static void init(vector< vector<InputTile*> > tilesVector, int rows, int cols) ;
     static void destroy();

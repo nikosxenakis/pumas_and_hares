@@ -5,10 +5,6 @@ Landscape* Landscape::instance = NULL;
 Landscape::Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols):
 rows(rows), cols(cols), maxPumas(0), maxHares(0) {
     
-    int totalPumas = 0;
-    int totalHares = 0;
-    Density sumPumas = 0;
-    Density sumHares = 0;
     Tile* tile = nullptr;
 
     this->tiles = new Tile**[this->rows];
@@ -22,16 +18,8 @@ rows(rows), cols(cols), maxPumas(0), maxHares(0) {
             Density hares = tile->getOldHares();
             if(this->maxPumas < pumas) this->maxPumas = pumas;
             if(this->maxHares < hares) this->maxHares = hares;
-            if(tile->isLand()) {
-                sumPumas += pumas;
-                totalPumas ++;
-                sumHares += hares;
-                totalHares ++;
-            }
         }
     }
-    this->averagePumas = sumPumas / totalPumas;
-    this->averageHares = sumHares / totalHares;
 }
 
 void Landscape::init(vector< vector<InputTile*> > tilesVector, int rows, int cols)  {
@@ -73,11 +61,6 @@ void Landscape::calculate() {
 }
 
 void Landscape::update() {
-    int totalPumas = 0;
-    int totalHares = 0;
-    Density sumPumas = 0;
-    Density sumHares = 0;
-
     Landscape* landscape = Landscape::instance;
     Tile* tile = nullptr;
     for (int i = 0; i < landscape->rows; ++i) {
@@ -88,16 +71,8 @@ void Landscape::update() {
             Density hares = tile->getOldHares();
             if(getMaxPumas() < pumas) setMaxPumas(pumas);
             if(getMaxHares() < hares) setMaxHares(hares);
-            if(tile->isLand()) {
-                sumPumas += pumas;
-                totalPumas ++;
-                sumHares += hares;
-                totalHares ++;
-            }
         }
     }
-    landscape->averagePumas = sumPumas / totalPumas;
-    landscape->averageHares = sumHares / totalHares;
 }
 
 void Landscape::print() {
@@ -187,11 +162,11 @@ void Landscape::setMaxHares(Density hares) {
 }
 
 Density const Landscape::getAveragePumas() {
-    return Landscape::instance->averagePumas;
+    return Landscape::getRegion(0, 0, Landscape::instance->rows, Landscape::instance->cols).pumas;
 }
 
 Density const Landscape::getAverageHares() {
-    return Landscape::instance->averageHares;
+    return Landscape::getRegion(0, 0, Landscape::instance->rows, Landscape::instance->cols).hares;
 }
 
 InputTile const Landscape::getRegion(int row, int col, int m, int n) {
@@ -212,7 +187,7 @@ InputTile const Landscape::getRegion(int row, int col, int m, int n) {
         }
     }
     
-    int land = ((float(landTiles) / float(maxTiles)) > float(maxTiles) / 2 ? 1 : 0);
-    return InputTile(land, pumas, hares);
+    int land = ((float(landTiles) / float(maxTiles)) > 0.5 ? 1 : 0);
+    return InputTile(land, float(pumas)/float(landTiles), float(hares)/float(landTiles));
 
 }
