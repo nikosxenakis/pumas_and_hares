@@ -7,8 +7,8 @@
 using json = nlohmann::json;
 
 void parser::parse(const string& landFileName) {
-    string configFileName = string(RESOURCES_PATH) + "/param.json";
-    //string configFileName = "../resources/param.json";
+    string const configFileName = string(RESOURCES_PATH) + "/param.json";
+
     parseConfig(configFileName);
     parseInput(landFileName);
 }
@@ -103,6 +103,7 @@ void parser::parseInput(const string& landFileName) {
    }
    else {
      cout << "Unable to open file: "<< landFileName << endl;
+     cout << "landFile in folder /resources not open" << endl;
      exit(1);
    }
 
@@ -111,23 +112,39 @@ void parser::parseInput(const string& landFileName) {
 
 void parser::parseConfig(const string& configFileName) {
 
-    std::ifstream t(configFileName);
-    std::stringstream buffer;
-    buffer << t.rdbuf();
-    string jsonString = buffer.str();
+    try{
+        std::ifstream configFile(configFileName);
+        std::stringstream buffer;
 
-    auto jsonConfig = json::parse(jsonString);
+        configFile.exceptions ( ifstream::eofbit | ifstream::failbit | ifstream::badbit );
+        buffer << configFile.rdbuf();
+        string jsonString = buffer.str();
 
-    Helpers::setDeltaT(jsonConfig.at("delta_t"));
-    Helpers::setCapitalT(jsonConfig.at("T"));
+        try {
+            auto jsonConfig = json::parse(jsonString);
 
-    Hare::setBirthRate(jsonConfig.at("r"));
-    Hare::setDiffusionRate(jsonConfig.at("k"));
-    Hare::setPredationRate(jsonConfig.at("a"));
+            Helpers::setDeltaT(jsonConfig.at("delta_t"));
+            Helpers::setCapitalT(jsonConfig.at("T"));
 
-    Puma::setBirthRate(jsonConfig.at("b"));
-    Puma::setDiffusionRate(jsonConfig.at("l"));
-    Puma::setMortalityRate(jsonConfig.at("m"));
+            Hare::setBirthRate(jsonConfig.at("r"));
+            Hare::setDiffusionRate(jsonConfig.at("k"));
+            Hare::setPredationRate(jsonConfig.at("a"));
+
+            Puma::setBirthRate(jsonConfig.at("b"));
+            Puma::setDiffusionRate(jsonConfig.at("l"));
+            Puma::setMortalityRate(jsonConfig.at("m"));
+        }
+        catch (json::parse_error& e) {
+            std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
+                      << "exception id: " << e.id << '\n'
+                      << "byte position of error: " << e.byte << std::endl;
+            exit(1);
+        }
+    }
+    catch(std::exception const& e){
+        cout << "There was an error reading from configFile /resources/param.json: " << e.what() << endl;
+        exit(1);
+    }
 
 }
 
