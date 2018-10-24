@@ -8,6 +8,7 @@ using json = nlohmann::json;
 
 void parser::parse(const string& landFileName) {
     string configFileName = string(RESOURCES_PATH) + "/param.json";
+    //string configFileName = "../resources/param.json";
     parseConfig(configFileName);
     parseInput(landFileName);
 }

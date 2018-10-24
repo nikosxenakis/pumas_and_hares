@@ -21,25 +21,30 @@ class Image {
 		static Image* instance;
 		Image(int NX, int NY);
 		ImagePixelVector pixels;
-		static int tilePixelsX;
-        static int tilePixelsY;
         static int imageSizeX;
         static int imageSizeY;
         static int landSizeY;
         static int landSizeX;
-        static const int maxPixels = 300*300;
+        static int tileAveSizeX;
+        static int tileAveSizeY;
+        static const int maxPixels = 1000;
+        static const int tilePixels = 10;
+        static const int maxLandSize = maxPixels / tilePixels;
+        static bool largeImage;
 
 
 	public :
 		static void init(int NX, int NY);
 		static void setGrid();
 		static void write(string filepath, double t);
-        static int getTileSizeX();
-        static int getTileSizeY();
+        static int getTileSize();
         static int getImageSizeX();
         static int getImageSizeY();
         static int getLandSizeX();
         static int getLandSizeY();
+        static int getTileAveSizeX();
+        static int getTileAveSizeY();
+        static bool isLargeImage();
         static void setImageSize(int NX, int NY);
 };
 
