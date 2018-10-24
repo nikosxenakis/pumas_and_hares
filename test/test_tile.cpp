@@ -15,7 +15,7 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
     REQUIRE( 1 == 1 );
     GIVEN("A landscape of size 3x3"){
 
-       string land_file = "../resources/small3x3.dat";
+       string land_file = "./resources/small3x3.dat";
        Helpers::init(land_file);
       
        WHEN(" the Landscape is initilised and one time step occurs" ){ 

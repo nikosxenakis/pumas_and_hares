@@ -19,7 +19,7 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
     GIVEN("A landscape file of size 3x3"){
 
-       string land_file = ("../resources/small3x3.dat");
+       string land_file = ("./resources/small3x3.dat");
       
        WHEN(" the Landscape is initilised" ){ 
           Helpers::init(land_file);
