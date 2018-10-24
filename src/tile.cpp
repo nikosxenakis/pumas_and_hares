@@ -30,10 +30,8 @@ void Tile::calculate(int tile_neighbours, float hare_neighbour_sum, float puma_n
 }
 
 void Tile::update() {
-    this->oldHares = this->newHares >= 0 ? this->newHares : 0;
-    this->oldPumas = this->newPumas >= 0 ? this->newPumas : 0;
-    this->newHares = 0;
-    this->newPumas = 0;
+    this->oldHares = (this->newHares >= 0 ? this->newHares : 0);
+    this->oldPumas = (this->newPumas >= 0 ? this->newPumas : 0);
 }
 
 bool const Tile::isLand() {
