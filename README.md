@@ -17,18 +17,23 @@ A step by step series of examples that tell you how to get a development env run
 Say what the step will be
 
 ```
-$ make all
-$ make run
-$ make tests
+make all
+make run
+make tests
 ```
 
 ## Building
 
-* [C Make](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [GNU Make](https://www.gnu.org/software/make/) - The web framework used
 
 ## Platforms
 
-The simulations runs on both DICE and Cirrus supercomputers
+The simulations run on both DICE and Cirrus supercomputers
+
+## Third Party Tools
+
+* [Catch](https://catch-lib.net) for the test library
+* [JSON](https://catch-lib.net) for the json parser library
 
 ## Running the tests
 
@@ -41,11 +46,11 @@ Each test file examines the methods of its parent class
 ### Coding style
 
 ```
-	class MyClass {
-		int myFunc(int myVar) {
-		    return myVar;
-		}
+class MyClass {
+	int myFunc(int myVar) {
+	    return myVar;
 	}
+}
 ```
 
 ### Documentation
@@ -69,6 +74,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Thanks to [Catch](https://catch-lib.net) for the test library
 * Hat tip to anyone whose code was used
 * Inspiration from the lifecycle of computer games
