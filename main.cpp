@@ -1,15 +1,13 @@
 #include "include/helpers.hpp"
 #include <string>
-#include <time.h>
-#include <chrono>
-typedef std::chrono::high_resolution_clock Clock;
+#include "include/log.hpp"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
     
-    auto start = Clock::now();
-
+    Log::startLogTime("main");
+    
     // If no file specified from the command line, open small10x10 by default
     if(argc == 1){
         Helpers::init(string(RESOURCES_PATH) + "/small10x10.dat");
@@ -26,8 +24,7 @@ int main(int argc, char* argv[]) {
 
     Helpers::simulationLoop();
     Helpers::close();
-    
-    auto end = Clock::now();
-    std::cout << "Running time: " << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count() << " milliseconds" << std::endl;
+
+    Log::endLogTime("main");
     return 0;
 }
