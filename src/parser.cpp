@@ -115,12 +115,30 @@ void parser::parseConfig(const string& configFileName) {
         std::ifstream configFile(configFileName);
         std::stringstream buffer;
 
-        configFile.exceptions ( ifstream::eofbit | ifstream::failbit | ifstream::badbit );
+        configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
         buffer << configFile.rdbuf();
         string jsonString = buffer.str();
 
         try {
             auto jsonConfig = json::parse(jsonString);
+            std::vector<string> found;
+
+            for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
+            {
+                bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
+                if (key_is_req) {
+                    found.push_back(i.key());
+                }
+
+                if ((float) i.value() < 0) {
+                    throw std::invalid_argument("Parameters must be greater or equal to 0");
+                }
+            }
+
+            int found_is_unique; // todo
+            if (found.size() != 8 and (found_is_unique = 1)) {
+                throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+            }
 
             Helpers::setDeltaT(jsonConfig.at("delta_t"));
             Helpers::setCapitalT(jsonConfig.at("T"));
@@ -147,3 +165,4 @@ void parser::parseConfig(const string& configFileName) {
 
 }
 
+string parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };

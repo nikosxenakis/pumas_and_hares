@@ -25,7 +25,7 @@ class parser {
 		static void parseConfig(const string& configFile);
 	public:
 		static void parse(const string& landFileName);
-
+        static string required_params[8];
 };
 
 #endif
