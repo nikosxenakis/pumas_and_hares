@@ -2,8 +2,7 @@
 
 Image* Image::instance = NULL;
 
-int Image::tileAveSizeX;
-int Image::tileAveSizeY;
+int Image::tileAveSize;
 int Image::imageSizeX;
 int Image::imageSizeY;
 int Image::landSizeX;
@@ -65,18 +64,18 @@ void Image::setImageSize(int NX, int NY) {
     // large image with averaging
     else {
         largeImage = true;
-        tileAveSizeX = NX / maxLandSize;
-        tileAveSizeY = NY / maxLandSize;
         if (NX > NY) {
             imageSizeX = maxPixels;
             imageSizeY = (maxPixels * NY) / NX;
+            tileAveSize = NX / maxLandSize;
         }
         else {
             imageSizeY = maxPixels;
             imageSizeX = (maxPixels * NX) / NY;
+            tileAveSize = NY / maxLandSize;
 
         }
-    cout << "averaging tile size: " << tileAveSizeX << " x " << tileAveSizeY << endl;
+    cout << "averaging tile size: " << tileAveSize << " x " << tileAveSize << endl;
     }
 
 
@@ -107,11 +106,9 @@ int Image::getLandSizeX() {
 int Image::getLandSizeY() {
     return Image::landSizeY;
 }
-int Image::getTileAveSizeX() {
-    return Image::tileAveSizeX;
-}
-int Image::getTileAveSizeY() {
-    return Image::tileAveSizeY;
+
+int Image::getTileAveSize() {
+    return Image::tileAveSize;
 }       
 bool Image::isLargeImage() {
     return Image::largeImage;
@@ -124,8 +121,7 @@ void Image::setGrid() {
     int NY, NX;
     bool landVal;
     float pumaVal, hareVal;
-    int aveX = Image::getTileAveSizeX();
-    int aveY = Image::getTileAveSizeY();
+    int aveSize = Image::getTileAveSize();
 
 //    NY = Image::getLandSizeY();
 //  NX = Image::getLandSizeX();
@@ -148,7 +144,7 @@ void Image::setGrid() {
             }
             // does averaging
             else {
-                InputTile tile = Landscape::getRegion((i * aveX) + aveX/2, (j * aveY) + aveY/2, aveX, aveY);
+                InputTile tile = Landscape::getRegion((i * aveSize) + aveSize/2, (j * aveSize) + aveSize/2, aveSize, aveSize);
                 landVal = tile.land;
                 pumaVal = tile.pumas;
                 hareVal = tile.hares;

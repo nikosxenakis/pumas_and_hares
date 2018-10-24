@@ -27,8 +27,7 @@ class Image {
         static int imageSizeY;
         static int landSizeY;
         static int landSizeX;
-        static int tileAveSizeX;
-        static int tileAveSizeY;
+        static int tileAveSize;
         static const int maxPixels = 1000;
         static const int tilePixels = 10;
         static const int maxLandSize = maxPixels / tilePixels;
@@ -45,8 +44,7 @@ class Image {
         static int getImageSizeY();
         static int getLandSizeX();
         static int getLandSizeY();
-        static int getTileAveSizeX();
-        static int getTileAveSizeY();
+        static int getTileAveSize();
         static bool isLargeImage();
         static void setImageSize(int NX, int NY);
 };
