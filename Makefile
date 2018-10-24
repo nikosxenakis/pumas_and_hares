@@ -44,7 +44,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 $(BIN): $(OBJ_FILES)
 	@echo "\tLinking..."
 	@mkdir -p $(BIN_DIR)
-	@cp -r $(RESOURCES_DIR) $(BIN_DIR)
+	#@cp -r $(RESOURCES_DIR) $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
 all: $(BIN) land

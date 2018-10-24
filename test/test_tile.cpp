@@ -27,8 +27,8 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
           THEN(" Values of old hares and pumas are as expexted "){
 
                Tile* t = Landscape::getTile(2,2);
-               REQUIRE( t->getOldHares() == Approx(1.016) );
-               REQUIRE( t->getOldPumas() == Approx(0.984) );
+               REQUIRE( t->getOldHares() == Approx(0.696) );
+               REQUIRE( t->getOldPumas() == Approx(0.664) );
 
           }
        }
