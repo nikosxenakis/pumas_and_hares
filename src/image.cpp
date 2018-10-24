@@ -122,6 +122,8 @@ void Image::setGrid() {
     bool landVal;
     float pumaVal, hareVal;
     int aveSize = Image::getTileAveSize();
+    float maxPumas = Landscape::getMaxPumas();
+    float maxHares = Landscape::getMaxHares();
 
 //    NY = Image::getLandSizeY();
 //  NX = Image::getLandSizeX();
@@ -156,15 +158,15 @@ void Image::setGrid() {
             else {
                 origin_i = Image::getTileSize() * (i-1);
                 origin_j = Image::getTileSize() * (j-1);
-
+                
                 for (int it = origin_i; it < origin_i + Image::getTileSize(); it++) {
                     for (int jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
 
                         if (it-origin_i < Image::getTileSize() - (jt - origin_j)) {
-                            Image::instance->pixels[it][jt].set_colour(Color::pumas, pumaVal);
+                            Image::instance->pixels[it][jt].set_colour(Color::pumas, pumaVal, maxPumas, maxHares);
                         }
                         else {
-                            Image::instance->pixels[it][jt].set_colour(Color::hares, hareVal);
+                            Image::instance->pixels[it][jt].set_colour(Color::hares, hareVal, maxPumas, maxHares);
                         }
                     }
                 }

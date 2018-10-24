@@ -19,7 +19,7 @@ class pixel {
 		void set_rgb(Color c, float opacity);
 	public:
 		pixel();
-		void set_colour(Color c, double density);
+		void set_colour(Color c, double density, double maxPumas, double maxHares);
 		int const get_green();
 		int const get_red();
 		int const get_blue();

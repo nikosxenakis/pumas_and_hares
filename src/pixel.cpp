@@ -26,14 +26,14 @@ string pixel::read() {
     return ss.str();
 }
 
-void pixel::set_colour(Color c, double density) {
+void pixel::set_colour(Color c, double density, double maxPumas, double maxHares) {
 	float opacity = 0.0;
-
-	if (c == Color::hares) {
-		opacity = density/Landscape::getMaxHares();
+    
+    if (c == Color::hares) {
+        opacity = density/maxHares;
 	}
 	else if (c == Color::pumas) {
-		opacity = density/Landscape::getMaxPumas();
+		opacity = density/maxPumas;
 	}
 
 	this->set_rgb(c, opacity);
