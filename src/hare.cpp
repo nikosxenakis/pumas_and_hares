@@ -32,7 +32,6 @@ void Hare::setDiffusionRate(float diffusion_rate) {
     Hare::diffusion_rate = diffusion_rate;
 }
 
-// todo: interface for parameters / array
 float Hare::calculateNewDensity(float H_old, float P_old, int land_neighbours, float sum_density_neighbours) {
     float dt = Helpers::getDeltaT();
 
@@ -43,6 +42,7 @@ float Hare::calculateNewDensity(float H_old, float P_old, int land_neighbours, f
 }
 
 string Hare::name = "Hare";
+// default values as in case study
 float Hare::birth_rate = 0.08;
 float Hare::predation_rate = 0.04;
 float Hare::diffusion_rate = 0.2;
