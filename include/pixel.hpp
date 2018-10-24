@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include "landscape.hpp"
 
 enum Color { sea, pumas, hares };
@@ -22,7 +23,8 @@ class pixel {
 		int const get_green();
 		int const get_red();
 		int const get_blue();
-		void const write(ofstream &file);
+        void const write(ofstream &file);
+//        ostringstream read();
 };
 
 #endif

@@ -6,7 +6,6 @@
 #include <vector>
 #include "pixel.hpp"
 #include <string>
-#include <sstream>
 #include <cmath>
 #include <iomanip>
 #include "tile.hpp"
