@@ -102,6 +102,7 @@ void parser::parseInput(const string& landFileName) {
       Image::init(NX, NY);
    }
    else {
+     cout << "Unable to open file: "<< landFileName << endl;
      cout << "landFile in folder /resources not open" << endl;
      exit(1);
    }

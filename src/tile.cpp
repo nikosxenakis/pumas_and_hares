@@ -47,11 +47,3 @@ Density const Tile::getOldHares() {
 Density const Tile::getOldPumas() {
     return this->oldPumas;
 }
-
-Density const Tile::getDensity(string animal) {
-    if(animal == Puma::getName())
-        return getOldPumas();
-    else if(animal == Hare::getName())
-        return getOldHares();
-    return 0;
-}

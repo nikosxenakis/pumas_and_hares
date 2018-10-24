@@ -5,6 +5,8 @@
 #include <vector>
 #include "tile.hpp"
 #include "inputTile.hpp"
+#include "log.hpp"
+
 #define MAX_NEIGHBOURS 4
 
 using namespace std;
@@ -17,7 +19,9 @@ private :
     static Landscape* instance;
     Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols);
     ~Landscape();
-    static Tile** getNeighbours(int row, int col);
+    static void getNeighbours(Tile** tilesVector, int row, int col);
+
+    static InputTile* getNeighboursInfo(int row, int col);
     TilesArray tiles;
     int rows;
     int cols;
@@ -30,8 +34,6 @@ public :
     static void update();
     static void print();
     static Tile* getTile(int row, int col);
-    static int getNumberOfLandNeighbours(int row, int col);
-    static Density getSumDensityNeighbours(string animal, int row, int col);
     static int const getRows();
     static int const getCols();
     static Density const getMaxPumas();

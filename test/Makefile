@@ -36,11 +36,9 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-run: test
-	./test
 
 test: $(TEST_FILES) $(OBJ_FILES) test_main.o
-	$(CXX) $(CXXFLAGS) $(OBJ_FILES) test_main.o test_landscape.cpp test_tile.cpp test_hare.cpp -o $@
+	$(CXX) $(CXXFLAGS) $(OBJ_FILES) test_main.o test_landscape.cpp test_tile.cpp test_hare.cpp -o ../bin/test
 
 test_main.o: test_main.cpp
 	g++ -std=c++11 test_main.cpp -c

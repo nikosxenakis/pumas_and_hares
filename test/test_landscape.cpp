@@ -19,7 +19,7 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
     GIVEN("A landscape file of size 3x3"){
 
-       string land_file = ("../resources/small3x3.dat");
+       string land_file = ("./resources/small3x3.dat");
       
        WHEN(" the Landscape is initilised" ){ 
           Helpers::init(land_file);
@@ -29,19 +29,19 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
           THEN(" the landscape is an island"){
                // Check edges
-               REQUIRE( Landscape::getNumberOfLandNeighbours(0,0) == 0);
-               REQUIRE( Landscape::getNumberOfLandNeighbours(max_index,0) == 0);
-               REQUIRE( Landscape::getNumberOfLandNeighbours(0,max_index) == 0);
-               REQUIRE( Landscape::getNumberOfLandNeighbours(max_index,max_index) == 0);
-
+               REQUIRE( Landscape::getTile(0,0)->isLand() == 0 );
+               REQUIRE( Landscape::getTile(max_index,0)->isLand() == 0);
+               REQUIRE( Landscape::getTile(0,max_index)->isLand() == 0);
+               REQUIRE( Landscape::getTile(max_index,max_index)->isLand() == 0);
+    
                // Check centre
-               REQUIRE( Landscape::getNumberOfLandNeighbours(2,2) == 4 );
+               REQUIRE( Landscape::getTile(2,2)->isLand() );
           }
           
-          THEN(" the density of its neighbours is 0 "){
-               REQUIRE( Landscape::getSumDensityNeighbours(Puma::getName(), 1,1) == Approx(0.0) );
-               REQUIRE( Landscape::getSumDensityNeighbours(Hare::getName(), 1,1) == Approx(0.0) );
-          }
+     //     THEN(" the density of its neighbours is 0 "){
+     //          REQUIRE( Landscape::getSumDensityNeighbours(Puma::getName(), 1,1) == Approx(0.0) );
+     //          REQUIRE( Landscape::getSumDensityNeighbours(Hare::getName(), 1,1) == Approx(0.0) );
+     //     }
           THEN(" It is initialised with a halo"){
                REQUIRE( Landscape::getRows() == 5 );
                REQUIRE( Landscape::getCols() == 5 );

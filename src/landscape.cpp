@@ -14,10 +14,12 @@ rows(rows), cols(cols), maxPumas(0), maxHares(0) {
         for (int j = 0; j < this->cols; ++j) {
             this->tiles[i][j] = new Tile(tilesVector[i][j]);
             tile = this->tiles[i][j];
-            Density pumas = tile->getOldPumas();
-            Density hares = tile->getOldHares();
-            if(this->maxPumas < pumas) this->maxPumas = pumas;
-            if(this->maxHares < hares) this->maxHares = hares;
+            if(tile->isLand()) {
+                Density pumas = tile->getOldPumas();
+                Density hares = tile->getOldHares();
+                if(this->maxPumas < pumas) this->maxPumas = pumas;
+                if(this->maxHares < hares) this->maxHares = hares;
+            }
         }
     }
 }
@@ -45,19 +47,18 @@ Landscape::~Landscape() {
 }
 
 void Landscape::calculate() {
+    Log::startLogTime("calculate");
     Tile* tile = nullptr;
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
             tile = Landscape::instance->tiles[i][j];
             if(tile->isLand()) {
-                tile->calculate(
-                    getNumberOfLandNeighbours(i, j), 
-                    getSumDensityNeighbours(Hare::getName(), i, j), 
-                    getSumDensityNeighbours(Puma::getName(), i, j)
-                );
+                InputTile* inputTile = getNeighboursInfo(i, j);
+                tile->calculate(inputTile->land, inputTile->hares, inputTile->pumas);
             }
         }
     }
+    Log::endLogTime("calculate");
 }
 
 void Landscape::update() {
@@ -66,11 +67,13 @@ void Landscape::update() {
     for (int i = 0; i < landscape->rows; ++i) {
         for (int j = 0; j < landscape->cols; ++j) {
             tile = landscape->tiles[i][j];
-            if(tile->isLand())  tile->update();
-            Density pumas = tile->getOldPumas();
-            Density hares = tile->getOldHares();
-            if(getMaxPumas() < pumas) setMaxPumas(pumas);
-            if(getMaxHares() < hares) setMaxHares(hares);
+            if(tile->isLand()) {
+                tile->update();
+                Density pumas = tile->getOldPumas();
+                Density hares = tile->getOldHares();
+                if(getMaxPumas() < pumas) setMaxPumas(pumas);
+                if(getMaxHares() < hares) setMaxHares(hares);
+            }
         }
     }
 }
@@ -98,43 +101,27 @@ Tile* Landscape::getTile(int row, int col) {
     return nullptr;
 }
 
-Tile** Landscape::getNeighbours(int row, int col) {
-    Tile** tilesVector = new Tile*[4];
-    
+void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
     tilesVector[0] = getTile(row-1, col);
     tilesVector[1] = getTile(row+1, col);
     tilesVector[2] = getTile(row, col-1);
     tilesVector[3] = getTile(row, col+1);
-
-    return tilesVector;
 }
 
-int Landscape::getNumberOfLandNeighbours(int row, int col) {
-
-    int land_neighbours = 0;
-
-    Tile** tilesVector = Landscape::getNeighbours(row, col);
-    
+InputTile* Landscape::getNeighboursInfo(int row, int col) {
+    InputTile* inputTile = new InputTile(0, 0, 0);
+    Tile* tilesVector[4];
+    Landscape::getNeighbours(tilesVector, row, col);
     for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
-        if(tilesVector[i])
-            land_neighbours += tilesVector[i]->isLand();
+        if(tilesVector[i]) {
+            if(tilesVector[i]->isLand()) {
+                inputTile->land ++;
+                inputTile->pumas += tilesVector[i]->getOldPumas();
+                inputTile->hares += tilesVector[i]->getOldHares();
+            }
+        }
     }
-    delete[] tilesVector;
-    return land_neighbours;
-}
-
-Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
-
-    Density sum = 0;
-
-    Tile** tilesVector = Landscape::getNeighbours(row, col);
-    
-    for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
-        if(tilesVector[i])
-            sum += tilesVector[i]->getDensity(animal);
-    }
-    delete[] tilesVector;
-    return sum;
+    return inputTile;
 }
 
 int const Landscape::getRows() {

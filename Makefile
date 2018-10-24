@@ -17,6 +17,8 @@ TEST_DIR := $(BASE_DIR)/test
 
 LAND_DIR := $(BASE_DIR)/land_generator
 
+RESOURCES_DIR := $(BASE_DIR)/resources
+
 #FILES
 TARGET := pumas_and_hares
 
@@ -28,24 +30,28 @@ LAND_GEN_BIN := $(BIN_DIR)/$(LAND_TARGET)
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) $(BASE_DIR)/main.cpp
 
+TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp) 
+
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC_FILES))
+
 
 TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp 
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(BIN): $(OBJ_FILES)
 	@echo "\tLinking..."
 	@mkdir -p $(BIN_DIR)
+	#@cp -r $(RESOURCES_DIR) $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
 all: $(BIN) land
 	@echo "\t$(BIN) ready."
 
 test:
-	make -C ./test run
+	make -C test/ test
 
 land: $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
