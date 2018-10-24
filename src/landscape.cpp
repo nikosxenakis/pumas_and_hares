@@ -47,7 +47,7 @@ Landscape::~Landscape() {
 }
 
 void Landscape::calculate() {
-//    Log::startLogTime("calculate");
+    Log::startLogTime("calculate");
     Tile* tile = nullptr;
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
@@ -58,7 +58,7 @@ void Landscape::calculate() {
             }
         }
     }
-//    Log::endLogTime("calculate");
+    Log::endLogTime("calculate");
 }
 
 void Landscape::update() {
@@ -116,8 +116,8 @@ InputTile* Landscape::getNeighboursInfo(int row, int col) {
         if(tilesVector[i]) {
             if(tilesVector[i]->isLand()) {
                 inputTile->land ++;
-                inputTile->pumas += tilesVector[i]->getDensity(Puma::getName());
-                inputTile->hares += tilesVector[i]->getDensity(Hare::getName());
+                inputTile->pumas += tilesVector[i]->getOldPumas();
+                inputTile->hares += tilesVector[i]->getOldHares();
             }
         }
     }

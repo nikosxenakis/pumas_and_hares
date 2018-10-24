@@ -65,7 +65,6 @@ class Tile {
     bool const isLand();
     Density const getOldHares();
     Density const getOldPumas();
-    Density const getDensity(string animal);
 };
 
 #endif
