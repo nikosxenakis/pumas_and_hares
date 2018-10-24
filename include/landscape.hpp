@@ -19,7 +19,8 @@ private :
     static Landscape* instance;
     Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols);
     ~Landscape();
-    static Tile** getNeighbours(int row, int col);
+    static void getNeighbours(Tile** tilesVector, int row, int col);
+
     static InputTile* getNeighboursInfo(int row, int col);
     TilesArray tiles;
     int rows;
