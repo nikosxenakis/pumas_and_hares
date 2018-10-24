@@ -4,10 +4,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "pixel.hpp"
 #include <string>
 #include <cmath>
 #include <iomanip>
+
+#include "pixel.hpp"
+#include "log.hpp"
 #include "tile.hpp"
 #include "landscape.hpp"
 
@@ -36,6 +38,7 @@ class Image {
 	public :
 		static void init(int NX, int NY);
 		static void setGrid();
+        static ostringstream packData();
 		static void write(string filepath, double t);
         static int getTileSize();
         static int getImageSizeX();

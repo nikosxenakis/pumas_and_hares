@@ -177,51 +177,31 @@ void Image::setGrid() {
     }
 }
 
-
-//void Image::write(string filepath, double t) {
-//    ostringstream FileName;
-//    ofstream ppmOut;
-//    int ySize = Image::getImageSizeY();
-//    int xSize = Image::getImageSizeX();
-//
-//    FileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
-//    ppmOut.open(FileName.str());
-//
-//    ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
-//
-//    for (int i=0; i<ySize; i++) {
-//      for (int j=0; j<xSize; j++) {
-//          Image::instance->pixels[i][j].write(ppmOut);
-//          if (((ySize * i)+j+1) % 4==0) {
-//              ppmOut << endl;
-//          }
-//      }
-//   }
-//    ppmOut.close();
-//}
-
-void Image::write(string filepath, double t) {
-    ostringstream fileName;
+ostringstream Image::packData() {
+    ostringstream ppmOut(stringstream::out|stringstream::binary);
     int ySize = Image::getImageSizeY();
     int xSize = Image::getImageSizeX();
 
-    fileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
-    
-    ostringstream ppmOut(stringstream::out|stringstream::binary);
-    
+    Log::startLogTime("packData");
+
     ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
-    
     for (int i=0; i<ySize; i++) {
         for (int j=0; j<xSize; j++) {
-//            Image::instance->pixels[i][j].write(ppmOut);
-            pixel p = Image::instance->pixels[i][j];
-//            ppmOut << Image::instance->pixels[i][j].read();
-            ppmOut << std::to_string(p.get_red()) << " " << std::to_string(p.get_green()) << " " << std::to_string(p.get_blue()) << " ";
+            ppmOut << Image::instance->pixels[i][j].read();
             if (((ySize * i)+j+1) % 4==0) {
                 ppmOut << endl;
             }
         }
     }
+    Log::endLogTime("packData");
+    return ppmOut;
+}
+
+void Image::write(string filepath, double t) {
+    ostringstream fileName;
+    fileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
+  
+    ostringstream ppmOut = Image::packData();
     
     ofstream datFile;
     datFile.open(fileName.str(), ios::binary);

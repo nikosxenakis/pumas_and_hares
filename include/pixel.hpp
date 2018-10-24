@@ -24,7 +24,7 @@ class pixel {
 		int const get_red();
 		int const get_blue();
         void const write(ofstream &file);
-//        ostringstream read();
+        string read();
 };
 
 #endif
