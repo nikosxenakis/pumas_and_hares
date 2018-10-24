@@ -130,27 +130,54 @@ void Image::setGrid() {
     }
 }
 
+//void Image::write(string filepath, double t) {
+//    ostringstream FileName;
+//    ofstream ppmOut;
+//    int ySize = Image::getImageSizeY();
+//    int xSize = Image::getImageSizeX();
+//
+//    FileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
+//    ppmOut.open(FileName.str());
+//
+//    ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
+//
+//    for (int i=0; i<ySize; i++) {
+//      for (int j=0; j<xSize; j++) {
+//          Image::instance->pixels[i][j].write(ppmOut);
+//          if (((ySize * i)+j+1) % 4==0) {
+//              ppmOut << endl;
+//          }
+//      }
+//   }
+//    ppmOut.close();
+//}
+
 void Image::write(string filepath, double t) {
+    ostringstream fileName;
+    int ySize = Image::getImageSizeY();
+    int xSize = Image::getImageSizeX();
+    int i;
 
-    ostringstream FileName;
-    ofstream ppmOut;
+    fileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
     
-    FileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
-    ppmOut.open(FileName.str());
-    int ySize;
-    int xSize;
-    xSize = Image::getImageSizeX();
-    ySize = Image::getImageSizeY();
-
+    ostringstream ppmOut(stringstream::out|stringstream::binary);
+    
     ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
-
+    
     for (int i=0; i<ySize; i++) {
-      for (int j=0; j<xSize; j++) {
-          Image::instance->pixels[i][j].write(ppmOut);
-          if (((ySize * i)+j+1) % 4==0) {
-              ppmOut << endl;
-          }
-      }
-   }
-    ppmOut.close();
+        for (int j=0; j<xSize; j++) {
+//            Image::instance->pixels[i][j].write(ppmOut);
+            pixel p = Image::instance->pixels[i][j];
+//            ppmOut << Image::instance->pixels[i][j].read();
+            ppmOut << std::to_string(p.get_red()) << " " << std::to_string(p.get_green()) << " " << std::to_string(p.get_blue()) << " ";
+            if (((ySize * i)+j+1) % 4==0) {
+                ppmOut << endl;
+            }
+        }
+    }
+    
+    ofstream datFile;
+    datFile.open(fileName.str(), ios::binary);
+    datFile.write(ppmOut.str().c_str(), ppmOut.str().length());
+    datFile.close();
 }
