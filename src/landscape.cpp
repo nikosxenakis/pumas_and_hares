@@ -45,19 +45,18 @@ Landscape::~Landscape() {
 }
 
 void Landscape::calculate() {
+//    Log::startLogTime("calculate");
     Tile* tile = nullptr;
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
             tile = Landscape::instance->tiles[i][j];
             if(tile->isLand()) {
-                tile->calculate(
-                    getNumberOfLandNeighbours(i, j), 
-                    getSumDensityNeighbours(Hare::getName(), i, j), 
-                    getSumDensityNeighbours(Puma::getName(), i, j)
-                );
+                InputTile* inputTile = getNeighboursInfo(i, j);
+                tile->calculate(inputTile->land, inputTile->hares, inputTile->pumas);
             }
         }
     }
+//    Log::endLogTime("calculate");
 }
 
 void Landscape::update() {
@@ -109,32 +108,21 @@ Tile** Landscape::getNeighbours(int row, int col) {
     return tilesVector;
 }
 
-int Landscape::getNumberOfLandNeighbours(int row, int col) {
-
-    int land_neighbours = 0;
-
-    Tile** tilesVector = Landscape::getNeighbours(row, col);
+InputTile* Landscape::getNeighboursInfo(int row, int col) {
+    InputTile* inputTile = new InputTile(0, 0, 0);
     
+    Tile** tilesVector = Landscape::getNeighbours(row, col);
     for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
-        if(tilesVector[i])
-            land_neighbours += tilesVector[i]->isLand();
+        if(tilesVector[i]) {
+            if(tilesVector[i]->isLand()) {
+                inputTile->land ++;
+                inputTile->pumas += tilesVector[i]->getDensity(Puma::getName());
+                inputTile->hares += tilesVector[i]->getDensity(Hare::getName());
+            }
+        }
     }
     delete[] tilesVector;
-    return land_neighbours;
-}
-
-Density Landscape::getSumDensityNeighbours(string animal, int row, int col) {
-
-    Density sum = 0;
-
-    Tile** tilesVector = Landscape::getNeighbours(row, col);
-    
-    for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
-        if(tilesVector[i])
-            sum += tilesVector[i]->getDensity(animal);
-    }
-    delete[] tilesVector;
-    return sum;
+    return inputTile;
 }
 
 int const Landscape::getRows() {
