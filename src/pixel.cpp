@@ -20,6 +20,11 @@ void const pixel::write(ofstream &ppmFile) {
 	ppmFile << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
 }
 
+//ostringstream pixel::read() {
+//    ostringstream val = this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
+//    return val;
+//}
+
 void pixel::set_colour(Color c, double density) {
 	float opacity = 0.0;
 
