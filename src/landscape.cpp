@@ -162,7 +162,8 @@ InputTile const Landscape::getRegion(int row, int col, int m, int n) {
     int lastCol = (col + n < landscape->cols ? col + n : landscape->cols) ;
     Tile* tile = nullptr;
     int maxTiles = m*n;
-    int landTiles = 0, pumas = 0, hares = 0;
+    int landTiles = 0;
+    float pumas = 0, hares = 0;
     for (int i = row; i < lastRow; ++i) {
         for (int j = col; j < lastCol; ++j) {
             tile = landscape->tiles[i][j];
@@ -173,7 +174,6 @@ InputTile const Landscape::getRegion(int row, int col, int m, int n) {
             }
         }
     }
-    
     int land = ((float(landTiles) / float(maxTiles)) > 0.5 ? 1 : 0);
     return InputTile(land, float(pumas)/float(landTiles), float(hares)/float(landTiles));
 
