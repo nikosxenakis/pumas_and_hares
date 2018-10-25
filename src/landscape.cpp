@@ -49,6 +49,7 @@ void Landscape::calculate() {
             if(tile->isLand()) {
                 InputTile* inputTile = getNeighboursInfo(i, j);
                 tile->calculate(inputTile->land, inputTile->hares, inputTile->pumas);
+                delete inputTile;
             }
         }
     }

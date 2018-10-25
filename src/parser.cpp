@@ -39,14 +39,12 @@ void parser::parseInput(const string& landFileName) {
    ifstream landFile;
    landFile.open(landFileName);
    int NY, NX;
-
    string inputLine;
    vector <string> vInputLine;
    vector <string> vInputTile;
 
    vector< vector<InputTile*> > tilesVector;
    
-   InputTile* halo = new InputTile(0, 0.0, 0.0);
    InputTile* LandTile;
 
    if (landFile.is_open()) {
@@ -61,15 +59,17 @@ void parser::parseInput(const string& landFileName) {
          exit(1);
       }
 
-
-      vector<InputTile*> zerosLine (NX + 2);
-      fill (zerosLine.begin(), zerosLine.end(), halo);
-      tilesVector.push_back(zerosLine);
+       vector<InputTile*> zerosFirstLine (NX + 2);
+       for (int i = 0; i < zerosFirstLine.size(); ++i) {
+           zerosFirstLine[i] = new InputTile(0, 0.0, 0.0);
+       }
+       tilesVector.push_back(zerosFirstLine);
+       
       landFile.ignore();
       for (int i = 0; i < NY; ++i) {
 
          vector<InputTile*> tilesLine;
-         tilesLine.push_back(halo);
+         tilesLine.push_back(new InputTile(0, 0.0, 0.0));
 
          getline(landFile, inputLine);
          split(inputLine, vInputLine, ' ');
@@ -92,12 +92,24 @@ void parser::parseInput(const string& landFileName) {
                 }
                 tilesLine.push_back(LandTile);
           }
-          tilesLine.push_back(halo);
+          tilesLine.push_back(new InputTile(0, 0.0, 0.0));
           tilesVector.push_back(tilesLine);
       }
-      tilesVector.push_back(zerosLine);
+
+       vector<InputTile*> zerosLastLine (NX + 2);
+       for (int i = 0; i < zerosLastLine.size(); ++i) {
+           zerosLastLine[i] = new InputTile(0, 0.0, 0.0);
+       }
+       tilesVector.push_back(zerosLastLine);
+       
       Landscape::init(tilesVector, NY+2, NX+2);
 
+       //free tilesVector
+       for (int i=0; i<tilesVector.size(); ++i) {
+           for (int j=0; j<tilesVector[i].size(); ++j) {
+               delete tilesVector[i][j];
+           }
+       }
       // initalise image for ppm
       Image::init(NX, NY);
    }
@@ -106,7 +118,6 @@ void parser::parseInput(const string& landFileName) {
      cout << "landFile in folder /resources not open" << endl;
      exit(1);
    }
-
 }
 
 
