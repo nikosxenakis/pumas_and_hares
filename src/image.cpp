@@ -175,8 +175,8 @@ void Image::setGrid() {
     }
 }
 
-ostringstream Image::packData() {
-    ostringstream ppmOut(stringstream::out|stringstream::binary);
+stringstream Image::packData() {
+    stringstream ppmOut(stringstream::out|stringstream::binary);
     int ySize = Image::getImageSizeY();
     int xSize = Image::getImageSizeX();
 
@@ -185,7 +185,7 @@ ostringstream Image::packData() {
     ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
     for (int i=0; i<ySize; i++) {
         for (int j=0; j<xSize; j++) {
-            ppmOut << Image::instance->pixels[i][j].read();
+            ppmOut << Image::instance->pixels[i][j].read().rdbuf();
             if (((ySize * i)+j+1) % 4==0) {
                 ppmOut << endl;
             }
@@ -199,7 +199,7 @@ void Image::write(string filepath, double t) {
     ostringstream fileName;
     fileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
   
-    ostringstream ppmOut = Image::packData();
+    stringstream ppmOut = Image::packData();
     
     ofstream datFile;
     datFile.open(fileName.str(), ios::binary);
