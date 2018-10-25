@@ -45,8 +45,6 @@ void parser::parseInput(const string& landFileName) {
 
    vector< vector<InputTile*> > tilesVector;
    
-   InputTile* LandTile;
-
    if (landFile.is_open()) {
       landFile >> NX;
       if (0 > NX || NX > 2000) {
@@ -82,15 +80,14 @@ void parser::parseInput(const string& landFileName) {
          for (int j=0; j<NX; j++) {
                 split(vInputLine[j], vInputTile, ',');
                 if (vInputTile.size()==3) {
-                    LandTile = new InputTile(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2]));
+                    tilesLine.push_back(new InputTile(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
                 }
                 else if (vInputTile.size()==1) {
-                    LandTile = new InputTile(stoi(vInputTile[0]));
+                    tilesLine.push_back(new InputTile(stoi(vInputTile[0])));
                 }
                 else {
                     cout << "Incorrect defintion of input square in input.dat" << endl;
                 }
-                tilesLine.push_back(LandTile);
           }
           tilesLine.push_back(new InputTile(0, 0.0, 0.0));
           tilesVector.push_back(tilesLine);
@@ -110,6 +107,7 @@ void parser::parseInput(const string& landFileName) {
                delete tilesVector[i][j];
            }
        }
+
       // initalise image for ppm
       Image::init(NX, NY);
    }

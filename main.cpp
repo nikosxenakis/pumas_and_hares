@@ -10,7 +10,7 @@ int main(int argc, char* argv[]) {
     
     // If no file specified from the command line, open small10x10 by default
     if(argc == 1){
-        Helpers::init(string(RESOURCES_PATH) + "/medium500x500.dat");
+        Helpers::init(string(RESOURCES_PATH) + "/large2000x2000.dat");
     } else {
         
         std::string arg = string(argv[1]);

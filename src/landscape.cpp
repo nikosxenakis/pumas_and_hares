@@ -43,16 +43,19 @@ Landscape::~Landscape() {
 void Landscape::calculate() {
     Log::startLogTime("calculate");
     Tile* tile = nullptr;
+    InputTile* inputTile = new InputTile(0, 0, 0);
+    Tile* tilesVector[4];
+
     for (int i = 0; i < Landscape::instance->rows; ++i) {
         for (int j = 0; j < Landscape::instance->cols; ++j) {
             tile = Landscape::instance->tiles[i][j];
             if(tile->isLand()) {
-                InputTile* inputTile = getNeighboursInfo(i, j);
+                getNeighboursInfo(tilesVector, inputTile, i, j);
                 tile->calculate(inputTile->land, inputTile->hares, inputTile->pumas);
-                delete inputTile;
             }
         }
     }
+    delete inputTile;
     Log::endLogTime("calculate");
 }
 
@@ -93,15 +96,14 @@ Tile* Landscape::getTile(int row, int col) {
 }
 
 void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
+    assert(tilesVector);
     tilesVector[0] = Landscape::getTile(row-1, col);
     tilesVector[1] = Landscape::getTile(row+1, col);
     tilesVector[2] = Landscape::getTile(row, col-1);
     tilesVector[3] = Landscape::getTile(row, col+1);
 }
 
-InputTile* Landscape::getNeighboursInfo(int row, int col) {
-    InputTile* inputTile = new InputTile(0, 0, 0);
-    Tile* tilesVector[4];
+void Landscape::getNeighboursInfo(Tile** tilesVector, InputTile* inputTile, int row, int col) {
     Landscape::getNeighbours(tilesVector, row, col);
     for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
         if(tilesVector[i]) {
@@ -112,7 +114,6 @@ InputTile* Landscape::getNeighboursInfo(int row, int col) {
             }
         }
     }
-    return inputTile;
 }
 
 int const Landscape::getRows() {

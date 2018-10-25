@@ -20,7 +20,7 @@ private :
     Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols);
     ~Landscape();
     static void getNeighbours(Tile** tilesVector, int row, int col);
-    static InputTile* getNeighboursInfo(int row, int col);
+    static void getNeighboursInfo(Tile** tilesVector, InputTile* inputTile, int row, int col);
     TilesArray tiles;
     int rows;
     int cols;
