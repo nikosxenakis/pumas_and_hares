@@ -46,8 +46,8 @@ void Landscape::calculate() {
     InputTile* inputTile = new InputTile(0, 0, 0);
     Tile* tilesVector[4];
 
-    for (int i = 0; i < Landscape::instance->rows; ++i) {
-        for (int j = 0; j < Landscape::instance->cols; ++j) {
+    for (int i = 1; i < Landscape::instance->rows-1; ++i) {
+        for (int j = 1; j < Landscape::instance->cols-1; ++j) {
             tile = Landscape::instance->tiles[i][j];
             if(tile->isLand()) {
                 getNeighboursInfo(tilesVector, inputTile, i, j);
@@ -62,8 +62,8 @@ void Landscape::calculate() {
 void Landscape::update() {
     Landscape* landscape = Landscape::instance;
     Tile* tile = nullptr;
-    for (int i = 0; i < landscape->rows; ++i) {
-        for (int j = 0; j < landscape->cols; ++j) {
+    for (int i = 1; i < landscape->rows-1; ++i) {
+        for (int j = 1; j < landscape->cols-1; ++j) {
             tile = landscape->tiles[i][j];
             if(tile->isLand()) {
                 tile->update();
@@ -88,11 +88,8 @@ void Landscape::print() {
 Tile* Landscape::getTile(int row, int col) {
     int rows = Landscape::instance->rows;
     int cols = Landscape::instance->cols;
-    
-    if(row >= 0 && row < rows && col >= 0 && col < cols) {
-        return Landscape::instance->tiles[row][col];
-    }
-    return nullptr;
+    assert(row >= 0 && row < rows && col >= 0 && col < cols);
+    return Landscape::instance->tiles[row][col];
 }
 
 void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
@@ -106,12 +103,10 @@ void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
 void Landscape::getNeighboursInfo(Tile** tilesVector, InputTile* inputTile, int row, int col) {
     Landscape::getNeighbours(tilesVector, row, col);
     for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
-        if(tilesVector[i]) {
-            if(tilesVector[i]->isLand()) {
-                inputTile->land ++;
-                inputTile->pumas += tilesVector[i]->getOldPumas();
-                inputTile->hares += tilesVector[i]->getOldHares();
-            }
+        if(tilesVector[i]->isLand()) {
+            inputTile->land++;
+            inputTile->pumas += tilesVector[i]->getOldPumas();
+            inputTile->hares += tilesVector[i]->getOldHares();
         }
     }
 }
