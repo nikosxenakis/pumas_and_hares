@@ -57,9 +57,11 @@ void parser::parseInput(const string& landFileName) {
          exit(1);
       }
 
+       InputTile* haloTile = new InputTile(0, 0.0, 0.0);
+       
        vector<InputTile*> zerosFirstLine (NX + 2);
        for (int i = 0; i < zerosFirstLine.size(); ++i) {
-           zerosFirstLine[i] = new InputTile(0, 0.0, 0.0);
+           zerosFirstLine[i] = haloTile;
        }
        tilesVector.push_back(zerosFirstLine);
        
@@ -67,7 +69,7 @@ void parser::parseInput(const string& landFileName) {
       for (int i = 0; i < NY; ++i) {
 
          vector<InputTile*> tilesLine;
-         tilesLine.push_back(new InputTile(0, 0.0, 0.0));
+         tilesLine.push_back(haloTile);
 
          getline(landFile, inputLine);
          split(inputLine, vInputLine, ' ');
@@ -89,24 +91,25 @@ void parser::parseInput(const string& landFileName) {
                     cout << "Incorrect defintion of input square in input.dat" << endl;
                 }
           }
-          tilesLine.push_back(new InputTile(0, 0.0, 0.0));
+          tilesLine.push_back(haloTile);
           tilesVector.push_back(tilesLine);
       }
 
        vector<InputTile*> zerosLastLine (NX + 2);
        for (int i = 0; i < zerosLastLine.size(); ++i) {
-           zerosLastLine[i] = new InputTile(0, 0.0, 0.0);
+           zerosLastLine[i] = haloTile;
        }
        tilesVector.push_back(zerosLastLine);
        
       Landscape::init(tilesVector, NY+2, NX+2);
 
        //free tilesVector
-       for (int i=0; i<tilesVector.size(); ++i) {
-           for (int j=0; j<tilesVector[i].size(); ++j) {
+       for (int i=1; i<tilesVector.size()-1; ++i) {
+           for (int j=1; j<tilesVector[i].size()-1; ++j) {
                delete tilesVector[i][j];
            }
        }
+       delete haloTile; //removes all of the halo tiles references
 
       // initalise image for ppm
       Image::init(NX, NY);
