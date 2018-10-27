@@ -3,10 +3,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
-#include <fstream>
-#include <sstream>
 #include <string>
-// inlude json 
 #include "hare.hpp"
 #include "puma.hpp"
 #include "landscape.hpp"
