@@ -8,6 +8,9 @@ int Image::imageSizeY;
 int Image::landSizeX;
 int Image::landSizeY;
 bool Image::largeImage;
+const int Image::maxPixels = 1000;
+const int Image::tilePixels = 10;
+const int Image::maxLandSize = maxPixels / tilePixels;
 
 // create new image
 //

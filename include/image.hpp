@@ -28,17 +28,11 @@ class Image {
         static int landSizeY;
         static int landSizeX;
         static int tileAveSize;
-        static const int maxPixels = 1000;
-        static const int tilePixels = 10;
-        static const int maxLandSize = maxPixels / tilePixels;
+        static const int maxPixels;
+        static const int tilePixels;
+        static const int maxLandSize;
         static bool largeImage;
-
-
-	public :
-		static void init(int NX, int NY);
-		static void setGrid();
         static stringstream packData();
-		static void write(string filepath, double t);
         static int getTileSize();
         static int getImageSizeX();
         static int getImageSizeY();
@@ -47,6 +41,11 @@ class Image {
         static int getTileAveSize();
         static bool isLargeImage();
         static void setImageSize(int NX, int NY);
+
+	public :
+		static void init(int NX, int NY);
+		static void setGrid();
+        static void write(string filepath, double t);
 };
 
 #endif
