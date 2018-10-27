@@ -12,7 +12,7 @@
 #include <iostream>
 #include "hare.hpp"
 #include "puma.hpp"
-#include "inputTile.hpp"
+#include "tileData.hpp"
 
 /**
  * @typedef
@@ -45,9 +45,9 @@ class Tile {
 
     /**
      * @brief Creates a new object Tile initializing the land value
-     * @param inputTile is a boolean variable which indicates if this tile contains land or not
+     * @param tileData is a boolean variable which indicates if this tile contains land or not
      */
-    Tile(InputTile* inputTile);
+    Tile(TileData* tileData);
     
     /**
      * @brief Destructs the Tile and free the allocated memory

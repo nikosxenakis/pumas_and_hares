@@ -43,7 +43,7 @@ void parser::parseInput(const string& landFileName) {
    vector <string> vInputLine;
    vector <string> vInputTile;
 
-   vector< vector<InputTile*> > tilesVector;
+   vector< vector<TileData*> > tilesVector;
    
    if (landFile.is_open()) {
       landFile >> NX;
@@ -57,9 +57,9 @@ void parser::parseInput(const string& landFileName) {
          exit(1);
       }
 
-       InputTile* haloTile = new InputTile(0, 0.0, 0.0);
+       TileData* haloTile = new TileData(0, 0.0, 0.0);
        
-       vector<InputTile*> zerosFirstLine (NX + 2);
+       vector<TileData*> zerosFirstLine (NX + 2);
        for (int i = 0; i < zerosFirstLine.size(); ++i) {
            zerosFirstLine[i] = haloTile;
        }
@@ -68,7 +68,7 @@ void parser::parseInput(const string& landFileName) {
       landFile.ignore();
       for (int i = 0; i < NY; ++i) {
 
-         vector<InputTile*> tilesLine;
+         vector<TileData*> tilesLine;
          tilesLine.push_back(haloTile);
 
          getline(landFile, inputLine);
@@ -82,10 +82,10 @@ void parser::parseInput(const string& landFileName) {
          for (int j=0; j<NX; j++) {
                 split(vInputLine[j], vInputTile, ',');
                 if (vInputTile.size()==3) {
-                    tilesLine.push_back(new InputTile(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
+                    tilesLine.push_back(new TileData(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
                 }
                 else if (vInputTile.size()==1) {
-                    tilesLine.push_back(new InputTile(stoi(vInputTile[0])));
+                    tilesLine.push_back(new TileData(stoi(vInputTile[0])));
                 }
                 else {
                     cout << "Incorrect defintion of input square in input.dat" << endl;
@@ -95,7 +95,7 @@ void parser::parseInput(const string& landFileName) {
           tilesVector.push_back(tilesLine);
       }
 
-       vector<InputTile*> zerosLastLine (NX + 2);
+       vector<TileData*> zerosLastLine (NX + 2);
        for (int i = 0; i < zerosLastLine.size(); ++i) {
            zerosLastLine[i] = haloTile;
        }

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "tile.hpp"
-#include "inputTile.hpp"
+#include "tileData.hpp"
 #include "log.hpp"
 
 #define MAX_NEIGHBOURS 4
@@ -17,15 +17,15 @@ class Landscape {
     
 private :
     static Landscape* instance;
-    Landscape(vector< vector<InputTile*> > tilesVector, int rows, int cols);
+    Landscape(vector< vector<TileData*> > tilesVector, int rows, int cols);
     ~Landscape();
     static void getNeighbours(Tile** tilesVector, int row, int col);
-    static void getNeighboursInfo(Tile** tilesVector, InputTile* inputTile, int row, int col);
+    static void getNeighboursInfo(Tile** tilesVector, TileData* tileData, int row, int col);
     TilesArray tiles;
     int rows;
     int cols;
 public :
-    static void init(vector< vector<InputTile*> > tilesVector, int rows, int cols) ;
+    static void init(vector< vector<TileData*> > tilesVector, int rows, int cols) ;
     static void destroy();
     static void calculate();
     static void update();
@@ -37,7 +37,7 @@ public :
     static Density const getMaxHares();
     static Density const getAveragePumas();
     static Density const getAverageHares();
-    static InputTile const getRegion(int row, int col, int m, int n);
+    static TileData const getRegion(int row, int col, int m, int n);
 };
 
 #endif

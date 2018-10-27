@@ -9,7 +9,7 @@
 #include "landscape.hpp"
 #include "pixel.hpp"
 #include "image.hpp"
-#include "inputTile.hpp"
+#include "tileData.hpp"
 
 using namespace std;
 

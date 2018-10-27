@@ -149,7 +149,7 @@ void Image::setGrid() {
             }
             // does averaging
             else {
-                InputTile tile = Landscape::getRegion(((i-1) * aveSize) + aveSize/2, ((j-1) * aveSize) + aveSize/2, aveSize, aveSize);
+                TileData tile = Landscape::getRegion(((i-1) * aveSize) + aveSize/2, ((j-1) * aveSize) + aveSize/2, aveSize, aveSize);
                 landVal = tile.land;
                 pumaVal = tile.pumas;
                 hareVal = tile.hares;
