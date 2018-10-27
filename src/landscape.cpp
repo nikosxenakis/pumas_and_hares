@@ -86,18 +86,18 @@ void Landscape::print() {
 }
 
 Tile* Landscape::getTile(int row, int col) {
-    int rows = Landscape::instance->rows;
-    int cols = Landscape::instance->cols;
-    assert(row >= 0 && row < rows && col >= 0 && col < cols);
+    Landscape* landscape = Landscape::instance;
+    assert(row >= 0 && row < landscape->getRows() && col >= 0 && col < landscape->getCols());
     return Landscape::instance->tiles[row][col];
 }
 
 void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
-    assert(tilesVector);
-    tilesVector[0] = Landscape::getTile(row-1, col);
-    tilesVector[1] = Landscape::getTile(row+1, col);
-    tilesVector[2] = Landscape::getTile(row, col-1);
-    tilesVector[3] = Landscape::getTile(row, col+1);
+    Landscape* landscape = Landscape::instance;
+    assert(tilesVector && row > 0 && row < landscape->getRows() - 1 && col > 0 && col < landscape->getCols() - 1);
+    tilesVector[0] = landscape->getTile(row-1, col);
+    tilesVector[1] = landscape->getTile(row+1, col);
+    tilesVector[2] = landscape->getTile(row, col-1);
+    tilesVector[3] = landscape->getTile(row, col+1);
 }
 
 void Landscape::getNeighboursInfo(Tile** tilesVector, InputTile* inputTile, int row, int col) {
@@ -122,8 +122,8 @@ int const Landscape::getCols() {
 Density const Landscape::getMaxPumas() {
     Landscape* landscape = Landscape::instance;
     Density maxPumas = 0;
-    for (int i = 0; i < landscape->rows; ++i) {
-        for (int j = 0; j < landscape->cols; ++j) {
+    for (int i = 1; i < landscape->rows-1; ++i) {
+        for (int j = 1; j < landscape->cols-1; ++j) {
             Tile* tile = Landscape::getTile(i, j);
             if(tile->isLand()) {
                 Density oldPumas = tile->getOldPumas();
@@ -137,8 +137,8 @@ Density const Landscape::getMaxPumas() {
 Density const Landscape::getMaxHares() {
     Landscape* landscape = Landscape::instance;
     Density maxHares = 0;
-    for (int i = 0; i < landscape->rows; ++i) {
-        for (int j = 0; j < landscape->cols; ++j) {
+    for (int i = 1; i < landscape->rows-1; ++i) {
+        for (int j = 1; j < landscape->cols-1; ++j) {
             Tile* tile = Landscape::getTile(i, j);
             if(tile->isLand()) {
                 Density oldHares = tile->getOldHares();
