@@ -25,8 +25,8 @@ void Landscape::destroy() {
 
 Landscape::~Landscape() {
 
-    for (int i = 0; i < this->rows; ++i) {
-        for (int j = 0; j < this->cols; ++j) {
+    for (size_t i = 0; i < this->rows; ++i) {
+        for (size_t j = 0; j < this->cols; ++j) {
             delete this->tiles[i][j];
         }
         delete this->tiles[i];
@@ -42,8 +42,8 @@ void Landscape::calculate() {
     TileData* tileData = new TileData(0, 0, 0);
     Tile* tilesVector[4];
 
-    for (int i = 1; i < Landscape::instance->rows-1; ++i) {
-        for (int j = 1; j < Landscape::instance->cols-1; ++j) {
+    for (size_t i = 1; i < Landscape::instance->rows-1; ++i) {
+        for (size_t j = 1; j < Landscape::instance->cols-1; ++j) {
             tile = Landscape::instance->tiles[i][j];
             tileData->clear();
 
@@ -60,8 +60,8 @@ void Landscape::calculate() {
 void Landscape::update() {
     Landscape* landscape = Landscape::instance;
     Tile* tile = nullptr;
-    for (int i = 1; i < landscape->rows-1; ++i) {
-        for (int j = 1; j < landscape->cols-1; ++j) {
+    for (size_t i = 1; i < landscape->rows-1; ++i) {
+        for (size_t j = 1; j < landscape->cols-1; ++j) {
             tile = landscape->tiles[i][j];
             if(tile->isLand()) {
                 tile->update();
@@ -72,8 +72,8 @@ void Landscape::update() {
 
 void Landscape::print() {
     
-    for (int i = 0; i < Landscape::instance->rows; ++i) {
-        for (int j = 0; j < Landscape::instance->cols; ++j) {
+    for (size_t i = 0; i < Landscape::instance->rows; ++i) {
+        for (size_t j = 0; j < Landscape::instance->cols; ++j) {
             Tile* tile = Landscape::instance->tiles[i][j];
             tile->print();
         }
@@ -89,7 +89,7 @@ Tile* Landscape::getTile(size_t row, size_t col) {
     return Landscape::instance->tiles[row][col];
 }
 
-void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
+void Landscape::getNeighbours(Tile** tilesVector, size_t row, size_t col) {
     Landscape* landscape = Landscape::instance;
     assert(tilesVector && row > 0 && row < landscape->getRows() - 1 && col > 0 && col < landscape->getCols() - 1);
     tilesVector[0] = landscape->getTile(row-1, col);
@@ -98,7 +98,7 @@ void Landscape::getNeighbours(Tile** tilesVector, int row, int col) {
     tilesVector[3] = landscape->getTile(row, col+1);
 }
 
-void Landscape::getNeighboursInfo(Tile** tilesVector, TileData* tileData, int row, int col) {
+void Landscape::getNeighboursInfo(Tile** tilesVector, TileData* tileData, size_t row, size_t col) {
     Landscape::getNeighbours(tilesVector, row, col);
     for (int i = 0; i < MAX_NEIGHBOURS; ++i) {
         if(tilesVector[i]->isLand()) {
@@ -120,8 +120,8 @@ size_t const Landscape::getCols() {
 Density const Landscape::getMaxPumas() {
     Landscape* landscape = Landscape::instance;
     Density maxPumas = 0;
-    for (int i = 1; i < landscape->rows-1; ++i) {
-        for (int j = 1; j < landscape->cols-1; ++j) {
+    for (size_t i = 1; i < landscape->rows-1; ++i) {
+        for (size_t j = 1; j < landscape->cols-1; ++j) {
             Tile* tile = Landscape::getTile(i, j);
             if(tile->isLand()) {
                 Density oldPumas = tile->getOldPumas();
@@ -135,8 +135,8 @@ Density const Landscape::getMaxPumas() {
 Density const Landscape::getMaxHares() {
     Landscape* landscape = Landscape::instance;
     Density maxHares = 0;
-    for (int i = 1; i < landscape->rows-1; ++i) {
-        for (int j = 1; j < landscape->cols-1; ++j) {
+    for (size_t i = 1; i < landscape->rows-1; ++i) {
+        for (size_t j = 1; j < landscape->cols-1; ++j) {
             Tile* tile = Landscape::getTile(i, j);
             if(tile->isLand()) {
                 Density oldHares = tile->getOldHares();

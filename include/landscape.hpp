@@ -18,8 +18,8 @@ private :
     static Landscape* instance;
     Landscape(vector< vector<TileData*> > tilesVector, size_t rows, size_t cols);
     ~Landscape();
-    static void getNeighbours(Tile** tilesVector, int row, int col);
-    static void getNeighboursInfo(Tile** tilesVector, TileData* tileData, int row, int col);
+    static void getNeighbours(Tile** tilesVector, size_t row, size_t col);
+    static void getNeighboursInfo(Tile** tilesVector, TileData* tileData, size_t row, size_t col);
     TilesArray tiles;
     size_t rows;
     size_t cols;

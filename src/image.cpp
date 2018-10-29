@@ -182,8 +182,8 @@ string Image::packData() {
     size_t xSize = Image::getImageSizeX();
 
     ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
-    for (int i=0; i<ySize; i++) {
-        for (int j=0; j<xSize; j++) {
+    for (size_t i=0; i<ySize; i++) {
+        for (size_t j=0; j<xSize; j++) {
             ppmOut << Image::instance->pixels[i][j].read();
             if (((ySize * i)+j+1) % 4==0) {
                 ppmOut << endl;
