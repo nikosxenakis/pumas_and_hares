@@ -1,6 +1,4 @@
 #include "../include/hare.hpp"
-#include "../include/helpers.hpp"
-#include <string>
 
 using namespace std;
 
@@ -33,7 +31,7 @@ void Hare::setDiffusionRate(float diffusion_rate) {
 }
 
 float Hare::calculateNewDensity(float H_old, float P_old, int land_neighbours, float sum_density_neighbours) {
-    float dt = Helpers::getDeltaT();
+    float dt = parser::getDeltaT();
 
     return H_old
             + dt * (birth_rate * H_old

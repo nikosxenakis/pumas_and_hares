@@ -21,29 +21,29 @@ class Image {
     
 	private :
 		static Image* instance;
-		Image(int NX, int NY);
+		Image(size_t NX, size_t NY);
 		ImagePixelVector pixels;
-        static int imageSizeX;
-        static int imageSizeY;
-        static int landSizeY;
-        static int landSizeX;
-        static int tileAveSize;
+        static size_t imageSizeX;
+        static size_t imageSizeY;
+        static size_t landSizeY;
+        static size_t landSizeX;
+        static size_t tileAveSize;
         static const int maxPixels;
         static const int tilePixels;
         static const int maxLandSize;
         static bool largeImage;
         static string packData();
-        static int getTileSize();
-        static int getImageSizeX();
-        static int getImageSizeY();
-        static int getLandSizeX();
-        static int getLandSizeY();
-        static int getTileAveSize();
+        static size_t getTileSize();
+        static size_t getImageSizeX();
+        static size_t getImageSizeY();
+        static size_t getLandSizeX();
+        static size_t getLandSizeY();
+        static size_t getTileAveSize();
         static bool isLargeImage();
-        static void setImageSize(int NX, int NY);
+        static void setImageSize(size_t NX, size_t NY);
 
 	public :
-		static void init(int NX, int NY);
+		static void init(size_t NX, size_t NY);
 		static void setGrid();
         static void write(string filepath, double t);
 };

@@ -1,10 +1,4 @@
 #include "../include/parser.hpp"
-#include "../resources/json.hpp"
-#include "../include/helpers.hpp"
-#include "../include/hare.hpp"
-#include "../include/puma.hpp"
-
-using json = nlohmann::json;
 
 void parser::split(const string& str, vector<string> &cont, char delim) {
     stringstream ss(str);
@@ -31,7 +25,7 @@ void parser::parseInput(const string& landFileName) {
 
    ifstream landFile;
    landFile.open(landFileName);
-   int NY, NX;
+   size_t NY, NX;
    string inputLine;
    vector <string> vInputLine;
    vector <string> vInputTile;
@@ -53,7 +47,7 @@ void parser::parseInput(const string& landFileName) {
        TileData* haloTile = new TileData(0, 0.0, 0.0);
        
        vector<TileData*> zerosFirstLine (NX + 2);
-       for (int i = 0; i < zerosFirstLine.size(); ++i) {
+       for (size_t i = 0; i < zerosFirstLine.size(); ++i) {
            zerosFirstLine[i] = haloTile;
        }
        tilesVector.push_back(zerosFirstLine);
@@ -89,23 +83,21 @@ void parser::parseInput(const string& landFileName) {
       }
 
        vector<TileData*> zerosLastLine (NX + 2);
-       for (int i = 0; i < zerosLastLine.size(); ++i) {
+       for (size_t i = 0; i < zerosLastLine.size(); ++i) {
            zerosLastLine[i] = haloTile;
        }
        tilesVector.push_back(zerosLastLine);
        
-      Landscape::init(tilesVector, NY+2, NX+2);
+//      Landscape::init(tilesVector, NY+2, NX+2);
 
-       //free tilesVector
-       for (int i=1; i<tilesVector.size()-1; ++i) {
-           for (int j=1; j<tilesVector[i].size()-1; ++j) {
-               delete tilesVector[i][j];
-           }
-       }
-       delete haloTile; //removes all of the halo tiles references
-
-      // initalise image for ppm
-      Image::init(NX, NY);
+//       //free tilesVector
+//       for (size_t i=1; i<tilesVector.size()-1; ++i) {
+//           for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
+//               delete tilesVector[i][j];
+//           }
+//       }
+//       delete tilesVector[0][0]; //removes all of the halo tiles references
+       
    }
    else {
      cout << "Unable to open file: "<< landFileName << endl;
@@ -113,7 +105,6 @@ void parser::parseInput(const string& landFileName) {
      exit(1);
    }
 }
-
 
 void parser::parseConfig(const string& configFileName) {
 
@@ -146,8 +137,8 @@ void parser::parseConfig(const string& configFileName) {
                 throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
             }
 
-            Helpers::setDeltaT(jsonConfig.at("delta_t"));
-            Helpers::setCapitalT(jsonConfig.at("T"));
+            parser::setDeltaT(jsonConfig.at("delta_t"));
+            parser::setCapitalT(jsonConfig.at("T"));
 
             Hare::setBirthRate(jsonConfig.at("r"));
             Hare::setDiffusionRate(jsonConfig.at("k"));
@@ -172,3 +163,22 @@ void parser::parseConfig(const string& configFileName) {
 }
 
 string parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
+
+void parser::setCapitalT(int capitalT) {
+    parser::capitalT = capitalT;
+}
+
+int parser::getCapitalT() {
+    return parser::capitalT;
+}
+
+void parser::setDeltaT(float deltaT) {
+    parser::deltaT = deltaT;
+}
+
+float parser::getDeltaT() {
+    return parser::deltaT;
+}
+
+float parser::deltaT = 0.4;
+int parser::capitalT = 200;

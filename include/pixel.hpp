@@ -11,8 +11,6 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "landscape.hpp"
-
 
 enum Color { sea, pumas, hares };
 

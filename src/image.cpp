@@ -2,11 +2,11 @@
 
 Image* Image::instance = NULL;
 
-int Image::tileAveSize;
-int Image::imageSizeX;
-int Image::imageSizeY;
-int Image::landSizeX;
-int Image::landSizeY;
+size_t Image::tileAveSize;
+size_t Image::imageSizeX;
+size_t Image::imageSizeY;
+size_t Image::landSizeX;
+size_t Image::landSizeY;
 bool Image::largeImage;
 const int Image::maxPixels = 1000;
 const int Image::tilePixels = 10;
@@ -14,9 +14,9 @@ const int Image::maxLandSize = maxPixels / tilePixels;
 
 // create new image
 //
-Image::Image(int NX, int NY) {
+Image::Image(size_t NX, size_t NY) {
 
-    int SizeX, SizeY;
+    size_t SizeX, SizeY;
     
     this->setImageSize(NX, NY);
 
@@ -24,19 +24,19 @@ Image::Image(int NX, int NY) {
 	SizeY = this->getImageSizeY();
 
     pixels = new pixel* [SizeY];
-    for (int i=0; i < SizeY; i++) {
+    for (size_t i=0; i < SizeY; i++) {
         pixels[i] = new pixel[SizeX];
     }
 
 }
 
-// need deconstructor
+// need destructor
 
-void Image::init(int NX, int NY) {
+void Image::init(size_t NX, size_t NY) {
 	Image::instance = new Image(NX, NY);
 }
 
-void Image::setImageSize(int NX, int NY) {
+void Image::setImageSize(size_t NX, size_t NY) {
 
     landSizeX = NX;
     landSizeY = NY;
@@ -89,28 +89,26 @@ void Image::setImageSize(int NX, int NY) {
 
 }
 
-int Image::getTileSize() {
+size_t Image::getTileSize() {
     return Image::tilePixels;
 }
 
-int Image::getImageSizeX() {
-
+size_t Image::getImageSizeX() {
     return Image::imageSizeX;
 }
 
-int Image::getImageSizeY() {
-
+size_t Image::getImageSizeY() {
     return Image::imageSizeY;
 }
 
-int Image::getLandSizeX() {
+size_t Image::getLandSizeX() {
     return Image::landSizeX;
 }
-int Image::getLandSizeY() {
+size_t Image::getLandSizeY() {
     return Image::landSizeY;
 }
 
-int Image::getTileAveSize() {
+size_t Image::getTileAveSize() {
     return Image::tileAveSize;
 }       
 bool Image::isLargeImage() {
@@ -118,13 +116,12 @@ bool Image::isLargeImage() {
 } 
 
 void Image::setGrid() {
-
-    int origin_i;
-    int origin_j;
-    int NY, NX;
+    size_t origin_i;
+    size_t origin_j;
+    size_t NY, NX;
     bool landVal;
     float pumaVal, hareVal;
-    int aveSize = Image::getTileAveSize();
+    size_t aveSize = Image::getTileAveSize();
     float maxPumas = Landscape::getMaxPumas();
     float maxHares = Landscape::getMaxHares();
 
@@ -137,8 +134,8 @@ void Image::setGrid() {
 //    cout << NX << " " << NY << endl;
 
     // skips over halo cells
-    for (int i=1; i<NY+1; i++) {
-        for (int j=1; j< NX+1; j++) {
+    for (size_t i=1; i<NY+1; i++) {
+        for (size_t j=1; j< NX+1; j++) {
 
             // large image or not
             if (Image::isLargeImage()==false) {
@@ -163,8 +160,8 @@ void Image::setGrid() {
                 origin_i = Image::getTileSize() * (i-1);
                 origin_j = Image::getTileSize() * (j-1);
                 
-                for (int it = origin_i; it < origin_i + Image::getTileSize(); it++) {
-                    for (int jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
+                for (size_t it = origin_i; it < origin_i + Image::getTileSize(); it++) {
+                    for (size_t jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
 
                         if (it-origin_i < Image::getTileSize() - (jt - origin_j)) {
                             Image::instance->pixels[it][jt].set_colour(Color::pumas, pumaVal, maxPumas, maxHares);
@@ -181,8 +178,8 @@ void Image::setGrid() {
 
 string Image::packData() {
     stringstream ppmOut(stringstream::out|stringstream::binary);
-    int ySize = Image::getImageSizeY();
-    int xSize = Image::getImageSizeX();
+    size_t ySize = Image::getImageSizeY();
+    size_t xSize = Image::getImageSizeX();
 
     ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
     for (int i=0; i<ySize; i++) {

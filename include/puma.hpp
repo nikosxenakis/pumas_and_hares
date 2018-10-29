@@ -1,6 +1,7 @@
 #ifndef PUMA_HPP
 #define PUMA_HPP
 #include <string>
+#include "parser.hpp"
 
 using namespace std;
 

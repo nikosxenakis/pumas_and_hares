@@ -2,14 +2,19 @@
 #define PARSER_HPP
 #include <stdlib.h>
 #include <iostream>
+#include <sstream>
+#include <istream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include "hare.hpp"
 #include "puma.hpp"
-#include "landscape.hpp"
-#include "pixel.hpp"
-#include "image.hpp"
 #include "tileData.hpp"
+#include "../resources/json.hpp"
+#define RESOURCES_PATH "./resources"
+//#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
+
+using json = nlohmann::json;
 
 using namespace std;
 
@@ -34,8 +39,15 @@ class parser {
      	 * @return void
      	 */
 		static void parseConfig(const string& configFile);
-		// static void parse(const string& landFileName);
+        static int capitalT;
+        static float deltaT;
+
+// 		static void parse(const string& landFileName);
         static string required_params[8];
+        static void setCapitalT(int capitalT);
+        static int getCapitalT();
+        static void setDeltaT(float deltaT);
+        static float getDeltaT();
 };
 
 #endif

@@ -2,23 +2,20 @@
 
 Landscape* Landscape::instance = NULL;
 
-Landscape::Landscape(vector< vector<TileData*> > tilesVector, int rows, int cols):
+Landscape::Landscape(vector< vector<TileData*> > tilesVector, size_t rows, size_t cols):
 rows(rows), cols(cols) {
     
-    Tile* tile = nullptr;
-
     this->tiles = new Tile**[this->rows];
     
-    for (int i = 0; i < this->rows; ++i) {
+    for (size_t i = 0; i < this->rows; ++i) {
         this->tiles[i] = new Tile*[this->cols];
-        for (int j = 0; j < this->cols; ++j) {
+        for (size_t j = 0; j < this->cols; ++j) {
             this->tiles[i][j] = new Tile(tilesVector[i][j]);
-            tile = this->tiles[i][j];
         }
     }
 }
 
-void Landscape::init(vector< vector<TileData*> > tilesVector, int rows, int cols)  {
+void Landscape::init(vector< vector<TileData*> > tilesVector, size_t rows, size_t cols)  {
     Landscape::instance = new Landscape(tilesVector, rows, cols);
 }
 
@@ -86,7 +83,7 @@ void Landscape::print() {
     cout << endl;
 }
 
-Tile* Landscape::getTile(int row, int col) {
+Tile* Landscape::getTile(size_t row, size_t col) {
     Landscape* landscape = Landscape::instance;
     assert(row >= 0 && row < landscape->getRows() && col >= 0 && col < landscape->getCols());
     return Landscape::instance->tiles[row][col];
@@ -112,11 +109,11 @@ void Landscape::getNeighboursInfo(Tile** tilesVector, TileData* tileData, int ro
     }
 }
 
-int const Landscape::getRows() {
+size_t const Landscape::getRows() {
     return Landscape::instance->rows;
 }
 
-int const Landscape::getCols() {
+size_t const Landscape::getCols() {
     return Landscape::instance->cols;
 }
 
@@ -164,16 +161,16 @@ Density const Landscape::getAverageHares() {
     return retVal;
 }
 
-TileData* const Landscape::getRegion(int row, int col, int m, int n) {
+TileData* const Landscape::getRegion(size_t row, size_t col, size_t m, size_t n) {
     Landscape* landscape = Landscape::instance;
-    int lastRow = (row + m < landscape->rows ? row + m : landscape->rows) ;
-    int lastCol = (col + n < landscape->cols ? col + n : landscape->cols) ;
+    size_t lastRow = (row + m < landscape->rows ? row + m : landscape->rows) ;
+    size_t lastCol = (col + n < landscape->cols ? col + n : landscape->cols) ;
     Tile* tile = nullptr;
     float maxTiles = (lastRow-row)*(lastCol-col);
     float landTiles = 0.0;
     float pumas = 0, hares = 0;
-    for (int i = row; i < lastRow; ++i) {
-        for (int j = col; j < lastCol; ++j) {
+    for (size_t i = row; i < lastRow; ++i) {
+        for (size_t j = col; j < lastCol; ++j) {
             tile = landscape->tiles[i][j];
             if(tile->isLand()) {
                 landTiles+=1.0;

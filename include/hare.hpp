@@ -1,6 +1,7 @@
 #ifndef HARE_HPP
 #define HARE_HPP
 #include <string>
+#include "parser.hpp"
 
 using namespace std;
 
