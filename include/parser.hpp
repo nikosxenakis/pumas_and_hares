@@ -18,10 +18,23 @@ class parser {
 	private:
         static void split(const string& line, vector <string> &vline, char delim);
         static void errorCheck(vector <string> vtile);
-    	static void parseInput(const string& landFile);
-		static void parseConfig(const string& configFile);
+
 	public:
-		static void parse(const string& landFileName);
+
+		/**
+       	 * @brief read dat file, parse landscape
+      	 * @param string configFile
+      	 * @return void
+      	 */
+		static void parseInput(const string& landFile);
+
+		/**
+      	 * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
+     	 * @param string configFile
+     	 * @return void
+     	 */
+		static void parseConfig(const string& configFile);
+		// static void parse(const string& landFileName);
         static string required_params[8];
 };
 

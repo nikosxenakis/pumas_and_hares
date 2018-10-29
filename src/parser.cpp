@@ -6,13 +6,6 @@
 
 using json = nlohmann::json;
 
-void parser::parse(const string& landFileName) {
-    string const configFileName = string(RESOURCES_PATH) + "/param.json";
-
-    parseConfig(configFileName);
-    parseInput(landFileName);
-}
-
 void parser::split(const string& str, vector<string> &cont, char delim) {
     stringstream ss(str);
     string token;
