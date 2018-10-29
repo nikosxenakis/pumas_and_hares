@@ -15,18 +15,21 @@ BIN_DIR := $(BASE_DIR)/bin
 
 TEST_DIR := $(BASE_DIR)/test
 
+OUTPUT_DIR := $(BASE_DIR)/output
+
 LAND_DIR := $(BASE_DIR)/land_generator
 
 RESOURCES_DIR := $(BASE_DIR)/resources
 
 #FILES
 TARGET := pumas_and_hares
-
 LAND_TARGET := land_generator
+LAND_ENCHANCER := land_enhancer
 
 BIN := $(BIN_DIR)/$(TARGET)
 
 LAND_GEN_BIN := $(BIN_DIR)/$(LAND_TARGET)
+LAND_ENCHANCER_BIN := $(BIN_DIR)/$(LAND_ENCHANCER)
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) $(BASE_DIR)/main.cpp
 
@@ -57,7 +60,12 @@ land: $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $(LAND_GEN_BIN) $(LAND_DIR)/$(LAND_TARGET).cpp
 
+land_enchancer: $(LAND_DIR)/$(LAND_ENCHANCER).cpp
+	@mkdir -p $(BIN_DIR)
+	$(CXX) $(CXXFLAGS) -o $(LAND_ENCHANCER_BIN) $(LAND_DIR)/$(LAND_ENCHANCER).cpp
+
 run: $(BIN)
+	rm $(OUTPUT_DIR)/*
 	$(BIN)
 
 run_land: $(LAND_GEN_BIN)
@@ -68,4 +76,4 @@ clean:
 	rm -r $(BIN_DIR)/*
 	rm -r $(BUILD_DIR)/*
 
-.PHONY: test clean all land run run_land
+.PHONY: test clean all land run run_land land_enchancer

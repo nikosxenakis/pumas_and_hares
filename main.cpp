@@ -9,7 +9,8 @@ int main(int argc, char* argv[]) {
     
     // If no file specified from the command line, open small10x10 by default
     if(argc == 1){
-        Helpers::init(string(RESOURCES_PATH) + "/land_generator50x50_densities_in_the_corners.dat");
+//        Helpers::init(string(RESOURCES_PATH) + "/land_generator50x50_densities_in_the_corners.dat");
+        Helpers::init(string(RESOURCES_PATH) + "/land_generator2000x2000_densities_in_the_corners.dat");
     } else {
         
         std::string arg = string(argv[1]);
