@@ -11,10 +11,18 @@
 
 using namespace std;
 
-TEST_CASE( "Hare Test", "[Testing the hares]" ){
-   float a = 3.0;
-   Hare::setBirthRate(a);
-   float b = Hare::getBirthRate();
+TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
 
-   REQUIRE(b == a);
+    GIVEN("The hare class, with initialised variables"){ 
+        
+        float a = 3.0;
+        Hare::setBirthRate(a);
+        Hare::setPredationRate(a);
+        
+        THEN( "Getters should work" ){
+            REQUIRE( Hare::getBirthRate() == 3.0 );
+            REQUIRE( Hare::getPredationRate() == 3.0);
+        }
+    }           
+
 }
