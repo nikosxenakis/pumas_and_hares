@@ -1,4 +1,4 @@
-[![Build                status](https://travis-ci.com/nikosxenakis/pumas_and_hares.svg?token=5FvzyxcLtApTEz5x7oVA&branch=master)](https://travis-ci.org/nikosxenakis)]
+[![Build                status](https://travis-ci.com/nikosxenakis/pumas_and_hares.svg?token=5FvzyxcLtApTEz5x7oVA&branch=master)](https://travis-ci.org/nikosxenakis)
 
 # Pumas and Hares
 This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
@@ -9,7 +9,7 @@ practice” scientific code within a full development framework (i.e. revision c
 Compiler: g++
 Debug: gdb
 Build tool: make
-Test tool: 
+Test tool: Catch2
 ```
 
 ### Installing
@@ -20,8 +20,7 @@ Say what the step will be
 
 ```
 make all
-make run
-make tests
+make test
 ```
 
 ## Building
@@ -39,11 +38,11 @@ The simulations run on both DICE and Cirrus supercomputers
 
 ## Running the tests
 
-To build and run these tests, simply use the command `make test`
+To build and run these tests, simply use the command `make test`. Once the tests have finished compiling, you can run them using `./bin/test/`
 
-### Break down into end to end tests
+### Test style and reasoning
 
-Each test file examines the methods of its parent class
+We wrote our tests according to a behavior driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting
 
 ### Coding style
 
