@@ -20,10 +20,10 @@ void const pixel::write(ofstream &ppmFile) {
 	ppmFile << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
 }
 
-stringstream pixel::read() {
+string pixel::read() {
     stringstream ss;
     ss << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
-    return ss;
+    return ss.str();
 }
 
 void pixel::set_colour(Color c, double density, double maxPumas, double maxHares) {
