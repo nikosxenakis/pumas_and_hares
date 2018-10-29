@@ -88,15 +88,16 @@ void parser::parseInput(const string& landFileName) {
        }
        tilesVector.push_back(zerosLastLine);
        
-//      Landscape::init(tilesVector, NY+2, NX+2);
+       ConfigData::initLandscapeSize(NX+2, NY+2);
+       Landscape::init(tilesVector, NY+2, NX+2);
 
-//       //free tilesVector
-//       for (size_t i=1; i<tilesVector.size()-1; ++i) {
-//           for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
-//               delete tilesVector[i][j];
-//           }
-//       }
-//       delete tilesVector[0][0]; //removes all of the halo tiles references
+       //free tilesVector
+       for (size_t i=1; i<tilesVector.size()-1; ++i) {
+           for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
+               delete tilesVector[i][j];
+           }
+       }
+       delete tilesVector[0][0]; //removes all of the halo tiles references
        
    }
    else {
@@ -137,8 +138,8 @@ void parser::parseConfig(const string& configFileName) {
                 throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
             }
 
-            parser::setDeltaT(jsonConfig.at("delta_t"));
-            parser::setCapitalT(jsonConfig.at("T"));
+            ConfigData::setDeltaT(jsonConfig.at("delta_t"));
+            ConfigData::setCapitalT(jsonConfig.at("T"));
 
             Hare::setBirthRate(jsonConfig.at("r"));
             Hare::setDiffusionRate(jsonConfig.at("k"));
@@ -163,22 +164,3 @@ void parser::parseConfig(const string& configFileName) {
 }
 
 string parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
-
-void parser::setCapitalT(int capitalT) {
-    parser::capitalT = capitalT;
-}
-
-int parser::getCapitalT() {
-    return parser::capitalT;
-}
-
-void parser::setDeltaT(float deltaT) {
-    parser::deltaT = deltaT;
-}
-
-float parser::getDeltaT() {
-    return parser::deltaT;
-}
-
-float parser::deltaT = 0.4;
-int parser::capitalT = 200;

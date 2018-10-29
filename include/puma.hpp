@@ -1,7 +1,7 @@
 #ifndef PUMA_HPP
 #define PUMA_HPP
 #include <string>
-#include "parser.hpp"
+#include "configData.hpp"
 
 using namespace std;
 
@@ -22,7 +22,6 @@ private:
      * @description diffusion rates for pumas
      */
     static float diffusion_rate;
-
 public:
     Puma();
     static string getName();
@@ -35,10 +34,10 @@ public:
 
     /**
      * @description Calculate new Puma density
-     * @param float P_old previous number of pumas
-     * @param float H_old previous number of hares
-     * @param int land_neighbours number of adjacent tiles of type land
-     * @param float sum_density_neighbours sum of adjacent puma densities
+     * @param P_old previous number of pumas
+     * @param H_old previous number of hares
+     * @param land_neighbours number of adjacent tiles of type land
+     * @param sum_density_neighbours sum of adjacent puma densities
      *
      * @return float
      */

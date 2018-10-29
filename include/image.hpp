@@ -9,7 +9,6 @@
 #include <iomanip>
 
 #include "pixel.hpp"
-#include "log.hpp"
 #include "tile.hpp"
 #include "landscape.hpp"
 

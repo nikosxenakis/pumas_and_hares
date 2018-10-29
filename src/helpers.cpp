@@ -6,8 +6,6 @@ void Helpers::init(string file) {
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
     parser::parseConfig(configFileName);
     parser::parseInput(file);
-
-//    Image::init(NX, NY);
     Output::initOutputFile();
 }
 
@@ -18,7 +16,7 @@ void Helpers::close() {
 void Helpers::simulationLoop() {
 
     for (int t = 0; t <= MAX_STEP; t++) {
-        if(t % parser::getCapitalT() == 0) {
+        if(t % ConfigData::getCapitalT() == 0) {
 //            Landscape::print();
             Output::print_output(t);
             Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());

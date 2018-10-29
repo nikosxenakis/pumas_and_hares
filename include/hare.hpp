@@ -1,7 +1,7 @@
 #ifndef HARE_HPP
 #define HARE_HPP
 #include <string>
-#include "parser.hpp"
+#include "configData.hpp"
 
 using namespace std;
 
@@ -22,7 +22,6 @@ private:
      * @description diffusion rates for hares
      */
     static float diffusion_rate;
-
 public:
     Hare();
     static string getName();
@@ -35,10 +34,10 @@ public:
 
     /**
      * @description Calculate new hare density
-     * @param float P_old previous number of pumas
-     * @param float H_old previous number of hares
-     * @param int land_neighbours number of adjacent tiles of type land
-     * @param float sum_density_neighbours sum of adjacent hare densities
+     * @param P_old previous number of pumas
+     * @param H_old previous number of hares
+     * @param land_neighbours number of adjacent tiles of type land
+     * @param sum_density_neighbours sum of adjacent hare densities
      *
      * @return float
      */

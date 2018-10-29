@@ -4,7 +4,7 @@
 #include "output.hpp"
 #include "landscape.hpp"
 #include "parser.hpp"
-#include "image.hpp"
+#include "configData.hpp"
 
 #define MAX_STEP 500
 
@@ -16,20 +16,18 @@ public:
     static void init(string file);
 
     /**
-     * @brief
-     * @return void
+     * @brief ...
      */
     static void simulationLoop();
 
     /**
-     * @brief
-     * @return void
+     * @brief ...
      */
     static void close();
 
     /**
-     * @brief
-     * @return
+     * @brief ...
+     * @return ...
      */
     static vector< vector<int>> initTilesVector(ifstream &landFile);
 };

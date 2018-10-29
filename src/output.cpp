@@ -2,6 +2,7 @@
 
 void Output::initOutputFile() {
     std::remove(OUTPUT_FILE);
+    Image::init(ConfigData::NX, ConfigData::NY);
 }
 
 void Output::print_output(double t) {

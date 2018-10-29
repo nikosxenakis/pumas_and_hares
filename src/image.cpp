@@ -118,7 +118,7 @@ bool Image::isLargeImage() {
 void Image::setGrid() {
     size_t origin_i;
     size_t origin_j;
-    size_t NY, NX;
+//    size_t NY, NX;
     bool landVal;
     float pumaVal, hareVal;
     size_t aveSize = Image::getTileAveSize();
@@ -127,15 +127,15 @@ void Image::setGrid() {
 
 //    NY = Image::getLandSizeY();
 //  NX = Image::getLandSizeX();
-    NY = Image::getImageSizeY() / Image::getTileSize();
-    NX = Image::getImageSizeX() / Image::getTileSize();
+//    NY = Image::getImageSizeY() / Image::getTileSize();
+//    NX = Image::getImageSizeX() / Image::getTileSize();
 
-
+    
 //    cout << NX << " " << NY << endl;
 
     // skips over halo cells
-    for (size_t i=1; i<NY+1; i++) {
-        for (size_t j=1; j< NX+1; j++) {
+    for (size_t i=1; i<ConfigData::NY-1; i++) {
+        for (size_t j=1; j< ConfigData::NX-1; j++) {
 
             // large image or not
             if (Image::isLargeImage()==false) {
