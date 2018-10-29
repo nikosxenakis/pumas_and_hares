@@ -1,4 +1,4 @@
-[![Build                status](https://api.travis-ci.org/nikosxenakis/pumas_and_hares.svg?master)](https://travis-ci.org/nikosxenakis)]
+[![Build                status](https://travis-ci.com/nikosxenakis/pumas_and_hares.svg?token=5FvzyxcLtApTEz5x7oVA&branch=master)](https://travis-ci.org/nikosxenakis)]
 
 # Pumas and Hares
 This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
