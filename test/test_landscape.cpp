@@ -47,13 +47,11 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
                REQUIRE( Landscape::getCols() == 5 );
 
           }
-  /*        THEN(" We can set max pumas and hares "){
-   *           Landscape::setMaxHares(5.0);
-   *           Landscape::setMaxPumas(6.0);
-   *           REQUIRE( Landscape::getMaxPumas() == Approx(6.0) );
-   *           REQUIRE( Landscape::getMaxHares() == Approx(5.0) );
+          THEN(" We can set max pumas and hares "){
+              REQUIRE( Landscape::getMaxPumas() == Approx(1.0) );
+              REQUIRE( Landscape::getMaxHares() == Approx(1.0) );
    
           }
-   */    }
+       }
     }
 }

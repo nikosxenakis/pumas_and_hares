@@ -41,7 +41,6 @@ Landscape::~Landscape() {
 }
 
 void Landscape::calculate() {
-    Log::startLogTime("calculate");
     Tile* tile = nullptr;
     TileData* tileData = new TileData(0, 0, 0);
     Tile* tilesVector[4];
@@ -49,14 +48,16 @@ void Landscape::calculate() {
     for (int i = 1; i < Landscape::instance->rows-1; ++i) {
         for (int j = 1; j < Landscape::instance->cols-1; ++j) {
             tile = Landscape::instance->tiles[i][j];
+            tileData->clear();
+
             if(tile->isLand()) {
                 getNeighboursInfo(tilesVector, tileData, i, j);
                 tile->calculate(tileData->land, tileData->hares, tileData->pumas);
             }
         }
     }
+    
     delete tileData;
-    Log::endLogTime("calculate");
 }
 
 void Landscape::update() {
@@ -150,31 +151,41 @@ Density const Landscape::getMaxHares() {
 }
 
 Density const Landscape::getAveragePumas() {
-    return Landscape::getRegion(0, 0, Landscape::instance->rows, Landscape::instance->cols).pumas;
+    TileData* tileData = Landscape::getRegion(0, 0, Landscape::instance->rows, Landscape::instance->cols);
+    Density retVal = tileData->pumas;
+    delete tileData;
+    return retVal;
 }
 
 Density const Landscape::getAverageHares() {
-    return Landscape::getRegion(0, 0, Landscape::instance->rows, Landscape::instance->cols).hares;
+    TileData* tileData = Landscape::getRegion(0, 0, Landscape::instance->rows, Landscape::instance->cols);
+    Density retVal = tileData->hares;
+    delete tileData;
+    return retVal;
 }
 
-TileData const Landscape::getRegion(int row, int col, int m, int n) {
+TileData* const Landscape::getRegion(int row, int col, int m, int n) {
     Landscape* landscape = Landscape::instance;
     int lastRow = (row + m < landscape->rows ? row + m : landscape->rows) ;
     int lastCol = (col + n < landscape->cols ? col + n : landscape->cols) ;
     Tile* tile = nullptr;
-    int maxTiles = m*n;
-    int landTiles = 0;
+    float maxTiles = (lastRow-row)*(lastCol-col);
+    float landTiles = 0.0;
     float pumas = 0, hares = 0;
     for (int i = row; i < lastRow; ++i) {
         for (int j = col; j < lastCol; ++j) {
             tile = landscape->tiles[i][j];
             if(tile->isLand()) {
-                landTiles++;
+                landTiles+=1.0;
                 pumas+=tile->getOldPumas();
                 hares+=tile->getOldHares();
             }
         }
     }
-    int land = ((float(landTiles) / float(maxTiles)) > 0.5 ? 1 : 0);
-    return TileData(land, float(pumas)/float(landTiles), float(hares)/float(landTiles));
+    int land = (landTiles/maxTiles > 0.5 ? 1 : 0);
+    float aver_pumas = pumas/landTiles;
+    float aver_hares = hares/landTiles;
+    if(land)
+        return new TileData(land, aver_pumas, aver_hares);
+    return new TileData(0, 0, 0);
 }
