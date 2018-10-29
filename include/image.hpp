@@ -32,7 +32,7 @@ class Image {
         static const int tilePixels;
         static const int maxLandSize;
         static bool largeImage;
-        static stringstream packData();
+        static string packData();
         static int getTileSize();
         static int getImageSizeX();
         static int getImageSizeY();
