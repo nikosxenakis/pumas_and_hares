@@ -182,16 +182,16 @@ void distributeLand(vector< vector<LandFile*> > landFileVector) {
 
 float getPumas(int i, int j, int width, int height) {
     if(j<width/2 && i<height/2) {
-        return 0;
+        return 5;
     }
-    return 0;
+    return 1;
 }
 
 float getHares(int i, int j, int width, int height) {
     if(j>width/2 && i>height/2) {
-        return 0;
+        return 5;
     }
-    return 0;
+    return 1;
 }
 
 void createLandFile(vector< vector<LandFile*> > landFileVector, ofstream &landFile) {
