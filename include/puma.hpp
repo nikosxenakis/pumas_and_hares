@@ -8,7 +8,7 @@ class Puma {
 private:
     static string name;
     /**
-     * @description birth rate of pumas per one heare eaten
+     * @description birth rate of pumas per one hare eaten
      */
     static float birth_rate;
 
