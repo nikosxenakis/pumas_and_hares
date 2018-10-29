@@ -53,7 +53,7 @@ void parser::parseInput(const string& landFileName) {
        tilesVector.push_back(zerosFirstLine);
        
       landFile.ignore();
-      for (int i = 0; i < NY; ++i) {
+      for (size_t i = 0; i < NY; ++i) {
 
          vector<TileData*> tilesLine;
          tilesLine.push_back(haloTile);
@@ -66,7 +66,7 @@ void parser::parseInput(const string& landFileName) {
             exit(1);
          }
          
-         for (int j=0; j<NX; j++) {
+         for (size_t j=0; j<NX; j++) {
                 split(vInputLine[j], vInputTile, ',');
                 if (vInputTile.size()==3) {
                     tilesLine.push_back(new TileData(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
