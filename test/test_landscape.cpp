@@ -24,7 +24,7 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
        WHEN(" the Landscape is initilised" ){ 
           Helpers::init(land_file);
 
-          int max_index = Landscape::getRows(); // This works because this particular land
+          int max_index = Landscape::getRows() -1; // This works because this particular land
                                                 // file is a square
 
           THEN(" the landscape is an island"){

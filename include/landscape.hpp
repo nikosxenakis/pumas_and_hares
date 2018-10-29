@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <assert.h>
 #include "tile.hpp"
 #include "tileData.hpp"
 #include "log.hpp"
