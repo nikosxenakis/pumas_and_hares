@@ -1,6 +1,6 @@
-/* landscape_test.cpp
+/* hare_test.cpp
  *
- * Tests landscape class and its functions
+ * Tests hare class and its functions
  *
  */
 
