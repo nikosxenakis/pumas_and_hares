@@ -38,7 +38,7 @@ public :
     static Density const getMaxHares();
     static Density const getAveragePumas();
     static Density const getAverageHares();
-    static TileData const getRegion(int row, int col, int m, int n);
+    static TileData* const getRegion(int row, int col, int m, int n);
 };
 
 #endif

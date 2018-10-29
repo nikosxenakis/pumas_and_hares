@@ -11,6 +11,7 @@ public:
 
     TileData(int land, float pumas, float hares);
     TileData(int land);
+    void clear();
 };
 
 #endif

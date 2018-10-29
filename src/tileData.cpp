@@ -11,3 +11,9 @@ TileData::TileData(int land) {
     this->pumas = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5));
     this->hares = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/5));
 }
+
+void TileData::clear() {
+    this->land = 0;
+    this->pumas = 0;
+    this->hares = 0;
+}

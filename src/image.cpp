@@ -149,10 +149,11 @@ void Image::setGrid() {
             }
             // does averaging
             else {
-                TileData tile = Landscape::getRegion(((i-1) * aveSize) + aveSize/2, ((j-1) * aveSize) + aveSize/2, aveSize, aveSize);
-                landVal = tile.land;
-                pumaVal = tile.pumas;
-                hareVal = tile.hares;
+                TileData* tile = Landscape::getRegion(((i-1) * aveSize) + aveSize/2, ((j-1) * aveSize) + aveSize/2, aveSize, aveSize);
+                landVal = tile->land;
+                pumaVal = tile->pumas;
+                hareVal = tile->hares;
+                delete tile;
             }
             // skip over water cells
             if (landVal==0) {
