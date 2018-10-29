@@ -1,0 +1,23 @@
+language: generic
+
+matrix:
+    include:
+        - os: linux
+          env: COMPILER_NAME=gcc CXX=g++-4.8 CC=gcc-4.8
+          addons:
+              apt:
+                  sources: &sources
+                    - ubuntu-toolchain-r-test
+                  packages:
+                    - g++-4.8
+
+        - os: osx
+          env: COMPILER_NAME=gcc CXX=g++-4.8 CC=gcc-4.8
+          addons:
+              apt:
+                  sources: &sources
+                    - ubuntu-toolchain-r-test
+                  packages:
+                    - g++-4.8
+              
+script: make && make test && ./bin/test
