@@ -134,7 +134,7 @@ void Image::setGrid() {
     NX = Image::getImageSizeX() / Image::getTileSize();
 
 
-    cout << NX << " " << NY << endl;
+//    cout << NX << " " << NY << endl;
 
     // skips over halo cells
     for (int i=1; i<NY+1; i++) {
@@ -184,8 +184,6 @@ string Image::packData() {
     int ySize = Image::getImageSizeY();
     int xSize = Image::getImageSizeX();
 
-    Log::startLogTime("packData");
-
     ppmOut << "P3\n" << xSize << " " << ySize << "\n255\n";
     for (int i=0; i<ySize; i++) {
         for (int j=0; j<xSize; j++) {
@@ -195,7 +193,6 @@ string Image::packData() {
             }
         }
     }
-    Log::endLogTime("packData");
     return ppmOut.str();
 }
 

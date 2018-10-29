@@ -14,13 +14,13 @@ void Helpers::close() {
 void Helpers::simulationLoop() {
 
     for (int t = 0; t <= MAX_STEP; t++) {
-        Landscape::calculate();
-        Landscape::update();
         if(t % getCapitalT() == 0) {
 //            Landscape::print();
             Output::print_output(t);
             Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
+        Landscape::calculate();
+        Landscape::update();
     }
 }
 
