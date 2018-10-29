@@ -11,18 +11,63 @@
 
 class Helpers {
 private:
+    /**
+     * @brief the number of time steps between outputs
+     */
     static int capitalT;
+
+    /**
+     * @brief
+     */
     static float deltaT;
+
+    /**
+     * @brief
+     * @return void
+     */
     static void initRandomGenerator();
 
 public:
     static void init(string file);
+
+    /**
+     * @brief
+     * @return void
+     */
     static void simulationLoop();
+
+    /**
+     * @brief
+     * @return void
+     */
     static void close();
+
+    /**
+     * @brief
+     * @return
+     */
     static vector< vector<int>> initTilesVector(ifstream &landFile);
+
+    /**
+     * @brief setCapitalT
+     * @return void
+     */
     static void setCapitalT(int capitalT);
+
+    /**
+     * @return int capitalT
+     */
     static int getCapitalT();
+
+    /**
+     * @brief set deltaT
+     * @return void
+     */
     static void setDeltaT(float deltaT);
+
+    /**
+     * @return float deltaT
+     */
     static float getDeltaT();
 };
 
