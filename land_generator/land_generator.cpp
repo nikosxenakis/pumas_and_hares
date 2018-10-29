@@ -180,13 +180,46 @@ void distributeLand(vector< vector<LandFile*> > landFileVector) {
     }
 }
 
+float getPumas(int i, int j, int width, int height) {
+    if(j<width/2 && i<height/2) {
+        return 0;
+    }
+    return 0;
+}
+
+float getHares(int i, int j, int width, int height) {
+    if(j>width/2 && i>height/2) {
+        return 0;
+    }
+    return 0;
+}
+
 void createLandFile(vector< vector<LandFile*> > landFileVector, ofstream &landFile) {
-    landFile << landFileVector.size() << " " << landFileVector[0].size() << " " << endl;
+    int width = landFileVector.size();
+    int height = landFileVector[0].size();
+    int i=0,j=0;
+    float pumas=1;
+    float hares=5;
+
+    landFile << width << " " << height << endl;
 
     for(auto landFileVectorRow : landFileVector) {
+        j=0;
         for(auto landFileElement : landFileVectorRow) {
-            landFile << landFileElement->land << " ";
+            if(j!=0)
+                landFile << " ";
+
+            landFile << landFileElement->land;
+
+            if(landFileElement->land) {
+                pumas = getPumas(i,j,width,height);
+                hares = getHares(i,j,width,height);
+                landFile << "," << pumas << "," << hares;
+            }
+
+            j++;
         }
+        i++;
         landFile << endl;
     }
 }
