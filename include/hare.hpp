@@ -6,21 +6,25 @@
 
 using namespace std;
 
+/**
+ * @class Hare
+ * @details A class holding all config parameters associated with Hare and its density calculation
+ */
 class Hare {
 private:
     static string name;
     /**
-     * @description birth rate of hares
+     * @brief birth rate of hares
      */
     static float birth_rate;
 
     /**
-     * @description predation rate at which pumas eat hares
+     * @brief predation rate at which pumas eat hares
      */
     static float predation_rate;
 
     /**
-     * @description diffusion rates for hares
+     * @brief diffusion rates for hares
      */
     static float diffusion_rate;
 public:
@@ -34,13 +38,13 @@ public:
     static void setDiffusionRate(float diffusion_rate);
 
     /**
-     * @description Calculate new hare density
-     * @param P_old previous number of pumas
-     * @param H_old previous number of hares
-     * @param land_neighbours number of adjacent tiles of type land
-     * @param sum_density_neighbours sum of adjacent hare densities
+     * @brief Calculate new hare density
+     * @param[in] P_old previous number of pumas
+     * @param[in] H_old previous number of hares
+     * @param[in] land_neighbours number of adjacent tiles of type land
+     * @param[in] sum_density_neighbours sum of adjacent hare densities
      *
-     * @return float
+     * @return newly calculated Hare Density
      */
     static float calculateNewDensity(float H_old, float P_old, int land_neighbours, float sum_density_neighbours);
 };
