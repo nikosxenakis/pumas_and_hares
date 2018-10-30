@@ -124,18 +124,24 @@ void Parser::parseConfig(const string& configFileName) {
 
             for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
             {
+                // check if json key i.key() is in required_params
                 bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
                 if (key_is_req) {
+                    // if found add json key to vector<string> found
                     found.push_back(i.key());
                 }
 
-                if ((float) i.value() < 0) {
+                // compare floating point number (to something close) to zero
+                if (fabsf( (float) i.value()) < 0.0000005) {
                     throw std::invalid_argument("Parameters must be greater or equal to 0");
                 }
             }
 
-            int found_is_unique; // todo
-            if (found.size() != 8 and (found_is_unique = 1)) {
+            // check if values in vector<string> found are unique
+            auto it = std::unique( found.begin(), found.end() );
+            bool found_is_unique = (it == found.end() );
+
+            if (found.size() != 8 && found_is_unique) {
                 throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
             }
 
