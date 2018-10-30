@@ -4,6 +4,7 @@
 #include "landscape.hpp"
 #include "parser.hpp"
 #include "configData.hpp"
+#include "output.hpp"
 
 #define MAX_STEP 500
 

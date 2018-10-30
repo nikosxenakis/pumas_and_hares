@@ -1,4 +1,8 @@
 <map id="include/hare.hpp" name="include/hare.hpp">
-<area shape="rect" id="node2" href="$parser_8hpp.html" title="include/parser.hpp" alt="" coords="5,79,136,104"/>
-<area shape="rect" id="node3" href="$tile_8hpp.html" title="include/tile.hpp" alt="" coords="159,79,270,104"/>
+<area shape="rect" id="node2" href="$tile_8hpp.html" title="include/tile.hpp" alt="" coords="118,79,228,104"/>
+<area shape="rect" id="node5" href="$parser_8hpp.html" title="include/parser.hpp" alt="" coords="211,225,341,251"/>
+<area shape="rect" id="node3" href="$landscape_8hpp.html" title="include/landscape.hpp" alt="" coords="96,152,250,177"/>
+<area shape="rect" id="node6" href="$image_8hpp.html" title="include/image.hpp" alt="" coords="6,225,135,251"/>
+<area shape="rect" id="node4" href="$helpers_8hpp.html" title="include/helpers.hpp" alt="" coords="105,372,242,397"/>
+<area shape="rect" id="node7" href="$output_8hpp.html" title="include/output.hpp" alt="" coords="5,299,136,324"/>
 </map>

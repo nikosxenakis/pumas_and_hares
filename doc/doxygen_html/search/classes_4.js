@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['parser',['Parser',['../class_parser.html',1,'']]],
-  ['puma',['Puma',['../class_puma.html',1,'']]]
+  ['output',['Output',['../class_output.html',1,'']]]
 ];

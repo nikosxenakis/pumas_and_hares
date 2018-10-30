@@ -1,10 +1,3 @@
-/**
- * @file pixel.hpp
- * @author Group 9
- * @date Oct 2018
- * @brief file containing class Pixel
- * @code{.hpp}
- */
 #ifndef PIXEL_HPP
 #define PIXEL_HPP
 

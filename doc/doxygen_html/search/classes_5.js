@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tile',['Tile',['../class_tile.html',1,'']]],
-  ['tiledata',['TileData',['../class_tile_data.html',1,'']]]
+  ['parser',['Parser',['../class_parser.html',1,'']]],
+  ['pixel',['Pixel',['../class_pixel.html',1,'']]],
+  ['puma',['Puma',['../class_puma.html',1,'']]]
 ];

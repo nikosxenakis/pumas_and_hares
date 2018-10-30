@@ -1,6 +1,6 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
-#include <stdlib.h>
+
 #include <iostream>
 #include <sstream>
 #include <istream>
@@ -12,7 +12,6 @@
 #include "tileData.hpp"
 #include "configData.hpp"
 #include "landscape.hpp"
-#include "image.hpp"
 #include "../resources/json.hpp"
 
 #define OUTPUT_PATH "./output"
@@ -48,8 +47,6 @@ class Parser {
 // 		static void parse(const string& landFileName);
         static string required_params[8];
 
-        static void initOutputFile();
-        static void print_output(double t);
         static void print_average(double t, float averagePumas, float averageHares);
 };
 

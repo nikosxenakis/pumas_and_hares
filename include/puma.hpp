@@ -1,5 +1,6 @@
 #ifndef PUMA_HPP
 #define PUMA_HPP
+
 #include <string>
 #include "configData.hpp"
 

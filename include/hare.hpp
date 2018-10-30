@@ -1,5 +1,6 @@
 #ifndef HARE_HPP
 #define HARE_HPP
+
 #include <string>
 #include "configData.hpp"
 

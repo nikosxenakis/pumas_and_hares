@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['output',['Output',['../class_output.html',1,'']]]
+  ['landscape',['Landscape',['../class_landscape.html',1,'']]],
+  ['log',['Log',['../class_log.html',1,'']]]
 ];

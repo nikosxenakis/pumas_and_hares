@@ -1,10 +1,3 @@
-/**
- * @file image.hpp
- * @author Group 9
- * @date Oct 2018
- * @brief file containing class Image
- * @code{.hpp}
- */ 
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
 

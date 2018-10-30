@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['required_5fparams',['required_params',['../class_parser.html#a01b862fd7a657c1dc4145e9a5b1e95d0',1,'Parser']]]
+  ['oldhares',['oldHares',['../class_tile.html#a29cfaa8da75fc403aa484842088f8f2b',1,'Tile']]],
+  ['oldpumas',['oldPumas',['../class_tile.html#afda24b4eb6babc85cb0f680537cedb03',1,'Tile']]]
 ];

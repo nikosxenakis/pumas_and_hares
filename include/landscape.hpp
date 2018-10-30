@@ -1,10 +1,3 @@
-/**
- * @file landscape.hpp
- * @author Group 9
- * @date Oct 2018
- * @brief File containing class Landscape
- * @code{.hpp}
- */
 #ifndef LANDSCAPE_HPP
 #define LANDSCAPE_HPP
 

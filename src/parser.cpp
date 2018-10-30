@@ -165,17 +165,6 @@ void Parser::parseConfig(const string& configFileName) {
 
 string Parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
 
-
-void Parser::initOutputFile() {
-    std::remove(OUTPUT_FILE);
-    Image::init(ConfigData::NX-2, ConfigData::NY-2);
-}
-
-void Parser::print_output(double t) {
-    Image::setGrid();
-    Image::write(OUTPUT_PATH, t);
-}
-
 void Parser::print_average(double t, float averagePumas, float averageHares) {
     std::ofstream ofs;
     ofs.open (OUTPUT_FILE, std::ofstream::out | std::ofstream::app);

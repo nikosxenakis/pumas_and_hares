@@ -1,7 +1,6 @@
 #ifndef TILE_HPP
 #define TILE_HPP
 
-#include <stdlib.h>
 #include <iostream>
 #include "hare.hpp"
 #include "puma.hpp"

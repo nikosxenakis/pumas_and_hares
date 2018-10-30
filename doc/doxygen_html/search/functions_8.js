@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['update',['update',['../class_tile.html#a07ce694c5b16fc1c5e0a3711e682fa74',1,'Tile']]]
+  ['read',['read',['../class_pixel.html#a0a5a3982de06b3189c38a42ab3735e56',1,'Pixel']]]
 ];
