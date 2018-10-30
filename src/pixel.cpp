@@ -1,32 +1,32 @@
 #include "../include/pixel.hpp"
 
-pixel::pixel() {
+Pixel::Pixel() {
 	this->set_rgb(Color::sea,1);
 }
 
-int const pixel::get_red() {
+int const Pixel::get_red() {
 	return this->red;
 }
 
-int const pixel::get_blue() {
+int const Pixel::get_blue() {
 	return this->blue;
 }
 
-int const pixel::get_green() {
+int const Pixel::get_green() {
 	return this->green;
 }
 
-void const pixel::write(ofstream &ppmFile) {
+void const Pixel::write(ofstream &ppmFile) {
 	ppmFile << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
 }
 
-string pixel::read() {
+string Pixel::read() {
     stringstream ss;
     ss << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
     return ss.str();
 }
 
-void pixel::set_colour(Color c, double density, double maxPumas, double maxHares) {
+void Pixel::set_colour(Color c, double density, double maxPumas, double maxHares) {
 	float opacity = 0.0;
     
     if (c == Color::hares) {
@@ -39,7 +39,7 @@ void pixel::set_colour(Color c, double density, double maxPumas, double maxHares
 	this->set_rgb(c, opacity);
 }
 
-void pixel::set_rgb(Color c, float opacity) {
+void Pixel::set_rgb(Color c, float opacity) {
 
 	int max_color = 254;
 	int others_color = int(opacity*(1-max_color) + max_color);

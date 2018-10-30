@@ -23,9 +23,9 @@ Image::Image(size_t NX, size_t NY) {
 	SizeX = this->getImageSizeX();
 	SizeY = this->getImageSizeY();
 
-    pixels = new pixel* [SizeY];
+    pixels = new Pixel* [SizeY];
     for (size_t i=0; i < SizeY; i++) {
-        pixels[i] = new pixel[SizeX];
+        pixels[i] = new Pixel[SizeX];
     }
 
 }

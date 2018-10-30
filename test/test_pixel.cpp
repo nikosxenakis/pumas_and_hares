@@ -5,6 +5,8 @@
 
 TEST_CASE( "Pixel Test", "[Testing pixel's getters and setters]" ){
 
-    REQUIRE( 1 == 0);
+    GIVEN( " A pixel "){
+        Pixel p = Pixel();
+    }
 
 }

@@ -14,7 +14,7 @@
 
 using namespace std;
 
-typedef pixel** ImagePixelVector;
+typedef Pixel** ImagePixelVector;
 
 class Image {
     

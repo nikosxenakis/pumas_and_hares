@@ -21,7 +21,7 @@ using namespace std;
  * @brief ..
  * @details A class for setting the color of a pixel as given in r,g,b format
  */
-class pixel {
+class Pixel {
 
 	private:
 		int red; /**< value of red */
@@ -39,7 +39,7 @@ class pixel {
         /**
          * @brief creates a new pixel with sea color
          */
-		pixel();
+		Pixel();
 
         /** 
          * @brief determines the opacity based on the max values and calls set_rgb
