@@ -44,12 +44,10 @@ TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()
 
         string land_file = ("./resources/small3x3.dat");
 
-        // todo: howto chain multiple WHENs
-        WHEN("the Landscape is initilised") {
+        WHEN("the Landscape is initilised and Hare Params are set") {
             Helpers::init(land_file);
             ConfigData::setDeltaT(1.0);
 
-            // and WHEN("Hare parameters are set")
             Hare::setBirthRate(br);
             Hare::setPredationRate(pr);
             Hare::setDiffusionRate(dr);
