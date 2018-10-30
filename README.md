@@ -27,6 +27,41 @@ make test
 
 * [GNU Make](https://www.gnu.org/software/make/) - The web framework used
 
+## Input files
+
+The landscape for the model is supplied as a ASCII file which descibe which tiles are land or water.
+The format of the file is:
+
+3 3
+1 1 1
+1 1 1
+1 1 1
+
+Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively.
+Alternatively the density of Pumas and Hares at each grid point can also be specified with the format:
+
+3 3
+1,0,0 1,0,0 1,0,0
+1,0,0 1,1,1 1,0,0
+1,0,0 1,0,0 1,0,0
+
+Where the density of pumas are hares follows the landscape descriptor.
+
+Sample input files can be found in /resources
+
+## Json file input
+
+## Output
+
+The code outputs a ppm file at each T showing the density of pumas across the landscape. The colour code is as follows:
+
+Red: Pumas
+Green: Hares
+Blue: Water
+White: Land (no hares or pumas)
+
+For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest color corresponding to the maxium density.
+
 ## Platforms
 
 The simulations run on both DICE and Cirrus supercomputers
