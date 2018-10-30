@@ -45,3 +45,6 @@
 # Outputs
 *.ppm
 /output/*
+
+# Doxygen
+/doc/doxygen_latex/*
