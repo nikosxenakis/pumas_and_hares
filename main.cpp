@@ -26,5 +26,6 @@ int main(int argc, char* argv[]) {
     Helpers::close();
 
     Log::endLogTime("main");
+    printf("The program has finished. All output files have been placed in output/");
     return 0;
 }

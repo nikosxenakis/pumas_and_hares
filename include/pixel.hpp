@@ -12,7 +12,7 @@
 #include <fstream>
 #include <sstream>
 
-enum Color { sea, pumas, hares };
+enum Colour { sea, pumas, hares };
 
 using namespace std;
 
@@ -33,7 +33,7 @@ class Pixel {
          * @param[in] c type of the color (pumas, hares, or sea)
          * @param[in] opacity color opacity corresponding to density
          */
-		void setRgb(Color c, float opacity);
+		void setRgb(Colour c, float opacity);
 	public:
 
         /**
@@ -48,7 +48,7 @@ class Pixel {
          * @param[in] maxPumas maximum density of pumas from the whole grid
          * @param[in] maxHares maximum density of hares from the whole grid
          */
-		void setColour(Color c, double density, double maxPumas, double maxHares);
+		void setColour(Colour c, double density, double maxPumas, double maxHares);
 
         /**
          * @return returns the value of the g rgb value

@@ -1,7 +1,7 @@
 #include "../include/pixel.hpp"
 
 Pixel::Pixel() {
-	this->setRgb(Color::sea,1);
+	this->setRgb(Colour::sea,1);
 }
 
 int const Pixel::getRed() {
@@ -26,20 +26,20 @@ string Pixel::read() {
     return ss.str();
 }
 
-void Pixel::setColour(Color c, double density, double maxPumas, double maxHares) {
+void Pixel::setColour(Colour c, double density, double maxPumas, double maxHares) {
 	float opacity = 0.0;
     
-    if (c == Color::hares) {
+    if (c == Colour::hares) {
         opacity = density/maxHares;
 	}
-	else if (c == Color::pumas) {
+	else if (c == Colour::pumas) {
 		opacity = density/maxPumas;
 	}
 
 	this->setRgb(c, opacity);
 }
 
-void Pixel::setRgb(Color c, float opacity) {
+void Pixel::setRgb(Colour c, float opacity) {
 
 	int max_colour = 254;
 	int others_colour = int(opacity*(1-max_colour) + max_colour);
