@@ -37,5 +37,4 @@ test: $(TEST_FILES) $(OBJ_FILES) test_main.o
 test_main.o: test_main.cpp
 	g++ -std=c++11 test_main.cpp -c
 
-run test: $(TARGET)
-	$(TARGET)
+.PHONY: test

@@ -25,11 +25,13 @@ RESOURCES_DIR := $(BASE_DIR)/resources
 TARGET := pumas_and_hares
 LAND_TARGET := land_generator
 LAND_ENCHANCER := land_enhancer
+TEST := test
 
 BIN := $(BIN_DIR)/$(TARGET)
 
 LAND_GEN_BIN := $(BIN_DIR)/$(LAND_TARGET)
 LAND_ENCHANCER_BIN := $(BIN_DIR)/$(LAND_ENCHANCER)
+TEST_BIN := $(BIN_DIR)/$(TEST)
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) $(BASE_DIR)/main.cpp
 
@@ -71,9 +73,12 @@ run: $(BIN)
 run_land: $(LAND_GEN_BIN)
 	$(LAND_GEN_BIN)
 
+run_test: $(TEST_BIN)
+	$(TEST_BIN)
+
 clean:
 	@echo " Cleaning..."
 	rm -r $(BIN_DIR)/*
 	rm -r $(BUILD_DIR)/*
 
-.PHONY: test clean all land run run_land land_enchancer
+.PHONY: test clean all land run run_land land_enchancer run_test
