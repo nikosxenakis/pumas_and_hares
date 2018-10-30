@@ -33,7 +33,7 @@ class Pixel {
          * @param[in] c type of the color (pumas, hares, or sea)
          * @param[in] opacity color opacity corresponding to density
          */
-		void set_rgb(Color c, float opacity);
+		void setRgb(Color c, float opacity);
 	public:
 
         /**
@@ -48,22 +48,22 @@ class Pixel {
          * @param[in] maxPumas maximum density of pumas from the whole grid
          * @param[in] maxHares maximum density of hares from the whole grid
          */
-		void set_colour(Color c, double density, double maxPumas, double maxHares);
+		void setColour(Color c, double density, double maxPumas, double maxHares);
 
         /**
          * @return returns the value of the g rgb value
          */
-		int const get_green();
+		int const getGreen();
 
         /**
          * @return returns the value of the r rgb value
          */
-        int const get_red();
+        int const getRed();
 
         /**
          * @return returns the value of the b rgb value
          */
-		int const get_blue();
+		int const getBlue();
 
         /** 
          * @brief writes rgb value to a file

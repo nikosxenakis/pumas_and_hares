@@ -164,10 +164,10 @@ void Image::setGrid() {
                     for (size_t jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
 
                         if (it-origin_i < Image::getTileSize() - (jt - origin_j)) {
-                            Image::instance->pixels[it][jt].set_colour(Color::pumas, pumaVal, maxPumas, maxHares);
+                            Image::instance->pixels[it][jt].setColour(Color::pumas, pumaVal, maxPumas, maxHares);
                         }
                         else {
-                            Image::instance->pixels[it][jt].set_colour(Color::hares, hareVal, maxPumas, maxHares);
+                            Image::instance->pixels[it][jt].setColour(Color::hares, hareVal, maxPumas, maxHares);
                         }
                     }
                 }
