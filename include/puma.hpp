@@ -30,10 +30,13 @@ private:
 public:
     Puma();
     static string getName();
+
     static float getBirthRate();
     static void setBirthRate(float birth_rate);
+
     static float getMortalityRate();
     static void setMortalityRate(float mortality_rate);
+
     static float getDiffusionRate();
     static void setDiffusionRate(float diffusion_rate);
 

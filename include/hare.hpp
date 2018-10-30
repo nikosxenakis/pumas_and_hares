@@ -30,10 +30,13 @@ private:
 public:
     Hare();
     static string getName();
+
     static float getBirthRate();
     static void setBirthRate(float birth_rate);
+
     static float getPredationRate();
-    static void setPredationRate(float predation_rate);
+    static void setPredationRate(float predation_rate)
+    ;
     static float getDiffusionRate();
     static void setDiffusionRate(float diffusion_rate);
 
