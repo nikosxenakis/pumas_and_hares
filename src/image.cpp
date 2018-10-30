@@ -30,7 +30,6 @@ Image::Image(size_t NX, size_t NY) {
 
 }
 
-// need destructor
 
 void Image::init(size_t NX, size_t NY) {
 	Image::instance = new Image(NX, NY);
@@ -40,15 +39,7 @@ void Image::setImageSize(size_t NX, size_t NY) {
 
     landSizeX = NX;
     landSizeY = NY;
-/*
-    float tmp2 = float(landSizeY)/float(landSizeX);
-    float tmp = float(maxPixels/tmp2);
-    imageSizeX = int(sqrt(tmp));
-    imageSizeY = int(maxPixels/imageSizeX);
 
-    tilePixelsX = int(imageSizeX / NX);
-    tilePixelsY = int(imageSizeY / NY);
-*/
     // regular image
     if (NX <= maxLandSize || NY <= maxLandSize) {
 
@@ -118,33 +109,32 @@ bool Image::isLargeImage() {
 void Image::setGrid() {
     size_t origin_i;
     size_t origin_j;
-//    size_t NY, NX;
+    size_t NY, NX;
     bool landVal;
     float pumaVal, hareVal;
     size_t aveSize = Image::getTileAveSize();
     float maxPumas = Landscape::getMaxPumas();
     float maxHares = Landscape::getMaxHares();
 
-//    NY = Image::getLandSizeY();
-//  NX = Image::getLandSizeX();
-//    NY = Image::getImageSizeY() / Image::getTileSize();
-//    NX = Image::getImageSizeX() / Image::getTileSize();
+
+    // correct bounds for image loop with rescaling    
+    NY = Image::getImageSizeY() / Image::getTileSize();
+    NX = Image::getImageSizeX() / Image::getTileSize();
 
     
-//    cout << NX << " " << NY << endl;
 
     // skips over halo cells
-    for (size_t i=1; i<ConfigData::NY-1; i++) {
-        for (size_t j=1; j< ConfigData::NX-1; j++) {
+    for (size_t i=1; i<NY+1; i++) {
+        for (size_t j=1; j< NX+1; j++) {
 
-            // large image or not
+            // small image prints as is
             if (Image::isLargeImage()==false) {
                 Tile* tile = Landscape::getTile(i, j);
                 landVal = tile->isLand();
                 pumaVal = tile->getOldPumas();
                 hareVal = tile->getOldHares();
             }
-            // does averaging
+            // large image does averaging
             else {
                 TileData* tile = Landscape::getRegion(((i-1) * aveSize) + aveSize/2, ((j-1) * aveSize) + aveSize/2, aveSize, aveSize);
                 landVal = tile->land;
@@ -157,6 +147,7 @@ void Image::setGrid() {
                 continue;
             }
             else {
+                // corner for image tile
                 origin_i = Image::getTileSize() * (i-1);
                 origin_j = Image::getTileSize() * (j-1);
                 
