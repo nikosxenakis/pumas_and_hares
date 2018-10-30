@@ -12,7 +12,7 @@
 
 using namespace std;
 
-TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
+TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 
     GIVEN( "There are correct config parameters defined in a json file" ){
 
@@ -52,5 +52,41 @@ TEST_CASE( "Read json file", "[Reading json file]" ){
             }
         }
 
+    }
+}
+
+TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
+    GIVEN( "There is a valid input file that is sucessfully read" ) {
+        WHEN( "Dimensions are not greater than 2000") {
+            THEN( "Tile is populated" ) {
+
+            }
+        }
+    }
+
+    GIVEN( "A Vector") {
+        WHEN( "Vector value is smaller than 0" ) {
+            THEN( "Return error" ) {
+
+            }
+        }
+
+        WHEN( "Vector value is bigger than 1" ) {
+            THEN( "Return error" ) {
+
+            }
+        }
+
+        WHEN( "Vector value is 0" ) {
+            THEN( "Return no error" ) {
+
+            }
+        }
+
+        WHEN( "Vector value is 1" ) {
+            THEN( "Return no error" ) {
+
+            }
+        }
     }
 }

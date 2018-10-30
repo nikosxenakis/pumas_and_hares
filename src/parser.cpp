@@ -12,6 +12,7 @@ void Parser::split(const string& str, vector<string> &cont, char delim) {
 void Parser::errorCheck(vector<string> vTile) {
     if (stoi(vTile[0])!= 0 && stoi(vTile[0])!= 1) {
         cout << "Land input must be 0 or 1" << endl;
+        // todo: shouldnt do "exit()" in function
         exit(1);
     }
     if (stod(vTile[1])<0 || stod(vTile[2]) <0) {
