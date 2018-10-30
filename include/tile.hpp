@@ -1,10 +1,3 @@
-/**
- * @file tile.hpp
- * @author Group 9
- * @date Oct 2018
- * @brief File containing class Tile
- * @code{.hpp}
- */
 #ifndef TILE_HPP
 #define TILE_HPP
 
