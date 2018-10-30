@@ -29,7 +29,7 @@ All build files are placed in the build directory
 
 ## Input files
 
-The landscape for the model is supplied as a ASCII file which describe which tiles are land or water.
+The landscape for the model is supplied as a ASCII file which descibe which tiles are land or water.
 The format of the file is:
 
 3 3
@@ -51,17 +51,17 @@ Sample input files can be found in resources/
 
 ### Parameters
 
-The parameters which the program uses at run time are defined in the resources/param.json file.
+The paramaters which the program uses at run time are defined in the resources/param.json file.
 
 Key:
   *  r: birth rate of the hares
-  *  a: predation rate at which pumas eat hares
+  *  a: predeation rate at which pumas eat hares
   *  b: birth rate of pumas per one hare eaten
   *  m: puma mortality rate
   *  k: diffusion rate for hares
   *  l: diffusion rate for pumas
   *  t: time step
-  *  T: interval at which a ppm file is generated.
+  *  T: interaval at which a ppm file is generated.
 
 ## Output
 
@@ -72,7 +72,7 @@ Green: Hares
 Blue: Water
 White: Land (no hares or pumas)
 
-For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.
+For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest color corresponding to the maxium density.
 
 ## Platforms
 
@@ -89,7 +89,7 @@ To build and run these tests, simply use the command `make test`. Once the tests
 
 ### Test style and reasoning
 
-We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp
+We wrote our tests according to a behavior driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp
 
 ### Coding style
 
@@ -111,7 +111,7 @@ We use [GitHub](http://github.com/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Xenakis Nikolaos** - *Initial work-Modelling* - [nikosxenakis](https://github.com/nikosxenakis)
+* **Xenakis Nikolaos** - *Initial work-Modeling* - [nikosxenakis](https://github.com/nikosxenakis)
 * **Jim Walker** - *Building tests, CI*
 * **Holly Judge** - *I/O interface*
 * **Mark Klaisoongnoen** - *Modelling*
@@ -120,6 +120,6 @@ We use [GitHub](http://github.com/) for versioning. For the versions available, 
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgements
+## Acknowledgments
 
 * Hat tip to anyone whose code was used
