@@ -49,7 +49,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 $(BIN): $(OBJ_FILES)
 	@echo "\tLinking..."
 	@mkdir -p $(BIN_DIR)
-	@mkdir $(OUTPUT_DIR)
+	@mkdir -p $(OUTPUT_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
 all: $(BIN) land
@@ -68,7 +68,7 @@ land_enchancer: $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 
 run: $(BIN)
 	rm -r $(OUTPUT_DIR)
-	mkdir $(OUTPUT_DIR)
+	mkdir -p $(OUTPUT_DIR)
 	$(BIN)
 
 run_land: $(LAND_GEN_BIN)
