@@ -4,8 +4,8 @@ void Helpers::init(string file) {
     Helpers::initRandomGenerator();
 
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
-    parser::parseConfig(configFileName);
-    parser::parseInput(file);
+    Parser::parseConfig(configFileName);
+    Parser::parseInput(file);
     Output::initOutputFile();
 }
 

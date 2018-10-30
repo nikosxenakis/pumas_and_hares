@@ -41,8 +41,8 @@ void Pixel::set_colour(Color c, double density, double maxPumas, double maxHares
 
 void Pixel::set_rgb(Color c, float opacity) {
 
-	int max_color = 254;
-	int others_color = int(opacity*(1-max_color) + max_color);
+	int max_colour = 254;
+	int others_colour = int(opacity*(1-max_colour) + max_colour);
 
 	switch(c) {
 		case sea: {
@@ -52,15 +52,15 @@ void Pixel::set_rgb(Color c, float opacity) {
 			break;
 		}
 		case pumas: {
-			this->red = max_color;
-			this->green = others_color;
-			this->blue = others_color;
+			this->red = max_colour;
+			this->green = others_colour;
+			this->blue = others_colour;
 			break;
 		}
 		case hares: {
-			this->red = others_color;
-			this->green = max_color;
-			this->blue = others_color;
+			this->red = others_colour;
+			this->green = max_colour;
+			this->blue = others_colour;
 			break;
 		}
 	}

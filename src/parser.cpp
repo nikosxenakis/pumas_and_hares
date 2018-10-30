@@ -1,6 +1,6 @@
 #include "../include/parser.hpp"
 
-void parser::split(const string& str, vector<string> &cont, char delim) {
+void Parser::split(const string& str, vector<string> &cont, char delim) {
     stringstream ss(str);
     string token;
     cont.clear();
@@ -9,7 +9,7 @@ void parser::split(const string& str, vector<string> &cont, char delim) {
     }
 }
 
-void parser::errorCheck(vector<string> vTile) {
+void Parser::errorCheck(vector<string> vTile) {
     if (stoi(vTile[0])!= 0 && stoi(vTile[0])!= 1) {
         cout << "Land input must be 0 or 1" << endl;
         exit(1);
@@ -21,7 +21,7 @@ void parser::errorCheck(vector<string> vTile) {
 
 }
 
-void parser::parseInput(const string& landFileName) {
+void Parser::parseInput(const string& landFileName) {
 
    ifstream landFile;
    landFile.open(landFileName);
@@ -107,7 +107,7 @@ void parser::parseInput(const string& landFileName) {
    }
 }
 
-void parser::parseConfig(const string& configFileName) {
+void Parser::parseConfig(const string& configFileName) {
 
     try{
         std::ifstream configFile(configFileName);
@@ -163,4 +163,4 @@ void parser::parseConfig(const string& configFileName) {
 
 }
 
-string parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
+string Parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
