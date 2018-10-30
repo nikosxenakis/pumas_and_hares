@@ -21,7 +21,7 @@ void Tile::clear() {
 }
 
 void const Tile::print() {
-    cout << this->land << ", H" << std::fixed << setprecision(1) << this->oldHares << ", P" << this->oldPumas << "\t";
+    cout << this->land << ", P" << this->oldPumas << ", H" << std::fixed << setprecision(1) << this->oldHares <<  "\t";
 }
 
 void Tile::calculate(int tile_neighbours, float hare_neighbour_sum, float puma_neighbour_sum) {

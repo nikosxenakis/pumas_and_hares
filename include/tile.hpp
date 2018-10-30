@@ -28,9 +28,8 @@ using namespace std;
  * @details A class that contains data about the current and new densities of the tile, also whether the tile is land or not
  */
 class Tile {
-    
-    private :
 
+private :
     bool land;   /**< a boolean variable which indicates if this tile contains land or not */
     Density oldHares;   /**< number of hares */
     Density oldPumas;   /**< number of pumas */
@@ -41,8 +40,7 @@ class Tile {
      * @brief Resets the densities of the tile
      */
     void clear();
-    public :
-
+public :
     /**
      * @brief Creates a new object Tile initializing the land value
      * @param tileData is a boolean variable which indicates if this tile contains land or not
