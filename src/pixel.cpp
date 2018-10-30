@@ -1,32 +1,32 @@
 #include "../include/pixel.hpp"
 
-pixel::pixel() {
-	this->set_rgb(Color::sea,1);
+Pixel::Pixel() {
+	this->setRgb(Color::sea,1);
 }
 
-int const pixel::get_red() {
+int const Pixel::getRed() {
 	return this->red;
 }
 
-int const pixel::get_blue() {
+int const Pixel::getBlue() {
 	return this->blue;
 }
 
-int const pixel::get_green() {
+int const Pixel::getGreen() {
 	return this->green;
 }
 
-void const pixel::write(ofstream &ppmFile) {
-	ppmFile << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
+void const Pixel::write(ofstream &ppmFile) {
+	ppmFile << this->getRed() << " " << this->getGreen() << " " << this->getBlue() << " ";
 }
 
-string pixel::read() {
+string Pixel::read() {
     stringstream ss;
-    ss << this->get_red() << " " << this->get_green() << " " << this->get_blue() << " ";
+    ss << this->getRed() << " " << this->getGreen() << " " << this->getBlue() << " ";
     return ss.str();
 }
 
-void pixel::set_colour(Color c, double density, double maxPumas, double maxHares) {
+void Pixel::setColour(Color c, double density, double maxPumas, double maxHares) {
 	float opacity = 0.0;
     
     if (c == Color::hares) {
@@ -36,13 +36,13 @@ void pixel::set_colour(Color c, double density, double maxPumas, double maxHares
 		opacity = density/maxPumas;
 	}
 
-	this->set_rgb(c, opacity);
+	this->setRgb(c, opacity);
 }
 
-void pixel::set_rgb(Color c, float opacity) {
+void Pixel::setRgb(Color c, float opacity) {
 
-	int max_color = 254;
-	int others_color = int(opacity*(1-max_color) + max_color);
+	int max_colour = 254;
+	int others_colour = int(opacity*(1-max_colour) + max_colour);
 
 	switch(c) {
 		case sea: {
@@ -52,15 +52,15 @@ void pixel::set_rgb(Color c, float opacity) {
 			break;
 		}
 		case pumas: {
-			this->red = max_color;
-			this->green = others_color;
-			this->blue = others_color;
+			this->red = max_colour;
+			this->green = others_colour;
+			this->blue = others_colour;
 			break;
 		}
 		case hares: {
-			this->red = others_color;
-			this->green = max_color;
-			this->blue = others_color;
+			this->red = others_colour;
+			this->green = max_colour;
+			this->blue = others_colour;
 			break;
 		}
 	}

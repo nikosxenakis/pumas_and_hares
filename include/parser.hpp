@@ -21,7 +21,7 @@ using json = nlohmann::json;
 
 using namespace std;
 
-class parser {
+class Parser {
 
 	private:
         static void split(const string& line, vector <string> &vline, char delim);
