@@ -6,7 +6,7 @@ void Helpers::init(string file) {
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
     Parser::parseConfig(configFileName);
     Parser::parseInput(file);
-    Output::initOutputFile();
+    Parser::initOutputFile();
 }
 
 void Helpers::close() {
@@ -18,8 +18,8 @@ void Helpers::simulationLoop() {
     for (int t = 0; t <= MAX_STEP; t++) {
         if(t % ConfigData::getCapitalT() == 0) {
 //            Landscape::print();
-            Output::print_output(t);
-            Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
+            Parser::print_output(t);
+            Parser::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
         Landscape::calculate();
         Landscape::update();

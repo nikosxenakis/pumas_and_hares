@@ -12,8 +12,13 @@
 #include "tileData.hpp"
 #include "configData.hpp"
 #include "landscape.hpp"
+#include "image.hpp"
 #include "../resources/json.hpp"
 
+#define OUTPUT_PATH "./output"
+#define OUTPUT_FILE "./output/average_density.txt"
+//#define OUTPUT_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output" //Just for Nikos Xcode
+//#define OUTPUT_FILE "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output/average_density.txt" //Just for Nikos Xcode
 #define RESOURCES_PATH "./resources"
 //#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
 
@@ -42,6 +47,10 @@ class Parser {
 		static void parseConfig(const string& configFile);
 // 		static void parse(const string& landFileName);
         static string required_params[8];
+
+        static void initOutputFile();
+        static void print_output(double t);
+        static void print_average(double t, float averagePumas, float averageHares);
 };
 
 #endif
