@@ -1,5 +1,6 @@
 #include "../include/parser.hpp"
 
+// todo: better to take parameter, wrangle values, return corrected (split) vector
 void Parser::split(const string& str, vector<string> &strVect, char delim) {
     stringstream ss(str);
     string value;
@@ -9,10 +10,10 @@ void Parser::split(const string& str, vector<string> &strVect, char delim) {
     }
 }
 
+// todo: where is it used? throw exceptions instead of cout and exit()
 void Parser::errorCheck(vector<string> vTile) {
     if (stoi(vTile[0])!= 0 && stoi(vTile[0])!= 1) {
         cout << "Land input must be 0 or 1" << endl;
-        // todo: shouldnt do "exit()" in function
         exit(1);
     }
     if (stod(vTile[1])<0 || stod(vTile[2]) <0) {
@@ -116,7 +117,6 @@ void Parser::freeTilesVector() {
 
 void Parser::parseConfig(const string& configFileName) {
 
-
     std::ifstream configFile(configFileName);
     std::stringstream buffer;
 
@@ -135,7 +135,6 @@ void Parser::parseConfig(const string& configFileName) {
             // if found add json key to vector<string> found
             found.push_back(i.key());
         }
-
     }
 
     // check if values in vector<string> found are unique

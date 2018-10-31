@@ -81,26 +81,81 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
 
     GIVEN( "A Vector") {
         WHEN( "Vector value is smaller than 0" ) {
+            string inputFile = "./test/vector_smaller_than_0.dat";
             THEN( "Return error" ) {
-
+                // REQUIRE_THROWS( Parser::parseInput() );
             }
         }
 
         WHEN( "Vector value is bigger than 1" ) {
+            string inputFile = "./test/vector_bigger_than_0.dat";
             THEN( "Return error" ) {
-
+                // REQUIRE_THROWS( Parser::parseInput() );
             }
         }
 
         WHEN( "Vector value is 0" ) {
+            string inputFile = "./test/vector_equals_0.dat";
             THEN( "Return no error" ) {
-
+                // REQUIRE_NOTHROW( Parser::parseInput() );
             }
         }
 
         WHEN( "Vector value is 1" ) {
+            string inputFile = "./test/vector_equals_1.dat";
             THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
+            }
+        }
 
+        WHEN( "x elements not equal to Landscape size" ) {
+            string inputFile = "./test/input_x_elements_not_equal_lanscape_size.dat";
+            THEN( "Throw exception" ) {
+                // REQUIRE_THROWS( Parser::parseInput() );
+            }
+        }
+
+        // todo: might be the same as first WHEN
+        WHEN( "Number of columns are between 1 and 2000" ) {
+            string inputFile = "./test/cols_between_1_2000.dat";
+            THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
+            }
+        }
+
+        // todo: might be the same as first WHEN
+        WHEN( "Number of rows are between 1 and 2000") {
+            string inputFile = "./test/rows_between_1_2000.dat";
+            THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
+            }
+        }
+
+        WHEN( "Number of rows bigger than 2000") {
+            string inputFile = "./test/rows_bigger_2000.dat";
+            THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
+            }
+        }
+
+        WHEN( "Number of rows less than 1") {
+            string inputFile = "./test/rows_less_1.dat";
+            THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
+            }
+        }
+
+        WHEN( "Number of cols bigger than 2000") {
+            string inputFile = "./test/cols_bigger_2000.dat";
+            THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
+            }
+        }
+
+        WHEN( "Number of cols less than 1") {
+            string inputFile = "./test/rcols_less_1.dat";
+            THEN( "Return no error" ) {
+                // REQUIRE_NOTHROW( Parser::parseInput() );
             }
         }
     }
