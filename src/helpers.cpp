@@ -5,7 +5,7 @@ void Helpers::init(string file) {
 
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
     Parser::parseConfig(configFileName);
-    Parser::parseInput(file);
+   Parser::parseInput(file);
     Output::initOutputFile();
 }
 

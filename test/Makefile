@@ -32,7 +32,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 
 
 test: $(TEST_FILES) $(OBJ_FILES) test_main.o
-	$(CXX) $(CXXFLAGS) $(OBJ_FILES) test_main.o $(TEST_DIR)/test_landscape.cpp $(TEST_DIR)/test_tile.cpp $(TEST_DIR)/test_hare.cpp -o $(BIN_DIR)/test
+	$(CXX) $(CXXFLAGS) $(OBJ_FILES) test_main.o $(TEST_DIR)/test_landscape.cpp $(TEST_DIR)/test_tile.cpp $(TEST_DIR)/test_hare.cpp $(TEST_DIR)/test_image.cpp -o $(BIN_DIR)/test
 
 test_main.o: test_main.cpp
 	g++ -std=c++11 test_main.cpp -c
