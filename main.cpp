@@ -1,3 +1,19 @@
+/**
+ * @file main.cpp
+ *
+ * @brief ...
+ *
+ * @defgroup input
+ * @defgroup pumas_and_hares
+ * @defgroup output
+ *
+ * @author Nikolaos Xenakis http://github.com/nikosxenakis nikosxenakis94@gmail.com
+ * @author ...
+ * @author ...
+ * @author ...
+ *
+ */
+
 #include "include/helpers.hpp"
 #include "include/log.hpp"
 

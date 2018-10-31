@@ -1,3 +1,10 @@
+/**
+ * @file tile.hpp
+ * @brief Provide information about a Tile
+ * @ingroup pumas_and_hares
+ * @author Nikolaos Xenakis http://github.com/nikosxenakis nikosxenakis94@gmail.com
+ */
+
 #ifndef TILE_HPP
 #define TILE_HPP
 
