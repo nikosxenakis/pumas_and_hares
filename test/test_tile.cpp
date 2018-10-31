@@ -21,12 +21,12 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
         
         WHEN(" the Landscape is initilised" ) { 
             THEN(" Values of initial land, pumas and hares are as expected ") {
-                REQUIRE( t1->isLand() == Approx(1) );
-                REQUIRE( t1->getOldPumas() == Approx(1.0) );
-                REQUIRE( t1->getOldHares() == Approx(2.0) );
-                REQUIRE( t2->isLand() == Approx(0) );
-                REQUIRE( t2->getOldPumas() == Approx(0) );
-                REQUIRE( t2->getOldHares() == Approx(0) );
+                REQUIRE( t1->isLand() == 1 );
+                REQUIRE( t1->getPumas() == Approx(1.0) );
+                REQUIRE( t1->getHares() == Approx(2.0) );
+                REQUIRE( t2->isLand() == 0 );
+                REQUIRE( t2->getPumas() == Approx(0.0) );
+                REQUIRE( t2->getHares() == Approx(0.0) );
             }
         }
 
@@ -35,12 +35,12 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
             Landscape::update();
 
             THEN(" Values of old hares and pumas are as expected ") {
-                REQUIRE( t1->isLand() == Approx(1) );
-                REQUIRE( t1->getOldPumas() == Approx(1.632) );
-                REQUIRE( t1->getOldHares() == Approx(2.432) );
-                REQUIRE( t2->isLand() == Approx(0) );
-                REQUIRE( t2->getOldPumas() == Approx(0) );
-                REQUIRE( t2->getOldHares() == Approx(0) );
+                REQUIRE( t1->isLand() == 1 );
+                REQUIRE( t1->getPumas() == Approx(1.632) );
+                REQUIRE( t1->getHares() == Approx(2.432) );
+                REQUIRE( t2->isLand() == 0 );
+                REQUIRE( t2->getPumas() == Approx(0.0) );
+                REQUIRE( t2->getHares() == Approx(0.0) );
             }
         }
 
@@ -51,12 +51,12 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
             }
 
             THEN(" Values of old hares and pumas are as expected ") {
-                REQUIRE( t1->isLand() == Approx(1) );
-                REQUIRE( t1->getOldPumas() == Approx(2.47594) );
-                REQUIRE( t1->getOldHares() == Approx(10.03977) );
-                REQUIRE( t2->isLand() == Approx(0) );
-                REQUIRE( t2->getOldPumas() == Approx(0) );
-                REQUIRE( t2->getOldHares() == Approx(0) );
+                REQUIRE( t1->isLand() == 1 );
+                REQUIRE( t1->getPumas() == Approx(2.47594) );
+                REQUIRE( t1->getHares() == Approx(10.03977) );
+                REQUIRE( t2->isLand() == 0 );
+                REQUIRE( t2->getPumas() == Approx(0.0) );
+                REQUIRE( t2->getHares() == Approx(0.0) );
             }
         }
     }

@@ -19,7 +19,7 @@ void Helpers::simulationLoop() {
         if(t % ConfigData::getCapitalT() == 0) {
 //            Landscape::print();
             Output::print_output(t);
-            Parser::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
+            Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
         Landscape::calculate();
         Landscape::update();

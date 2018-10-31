@@ -1,3 +1,10 @@
+/**
+ * @file tile.hpp
+ * @brief Provide information about a Tile
+ * @ingroup pumas_and_hares
+ * @author Nikolaos Xenakis http://github.com/nikosxenakis nikosxenakis94@gmail.com
+ */
+
 #ifndef TILE_HPP
 #define TILE_HPP
 
@@ -23,8 +30,8 @@ class Tile {
 
 private :
     bool land;   /**< a boolean variable which indicates if this tile contains land or not */
-    Density oldHares;   /**< number of hares */
-    Density oldPumas;   /**< number of pumas */
+    Density hares;   /**< number of hares */
+    Density pumas;   /**< number of pumas */
     Density newHares;   /**< new number of hares */
     Density newPumas;   /**< new number of pumas */
     
@@ -71,12 +78,12 @@ public :
     /**
      * @return returns number of hares
      */
-    Density const getOldHares();
+    Density const getHares();
 
     /**
      * @return returns number of pumas
      */
-    Density const getOldPumas();
+    Density const getPumas();
 };
 
 #endif

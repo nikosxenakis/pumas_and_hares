@@ -131,8 +131,8 @@ void Image::setGrid() {
             if (Image::isLargeImage()==false) {
                 Tile* tile = Landscape::getTile(i, j);
                 landVal = tile->isLand();
-                pumaVal = tile->getOldPumas();
-                hareVal = tile->getOldHares();
+                pumaVal = tile->getPumas();
+                hareVal = tile->getHares();
             }
             // large image does averaging
             else {

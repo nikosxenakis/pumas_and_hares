@@ -16,42 +16,39 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 
     GIVEN( "There are correct config parameters defined in a json file" ){
 
-        string configFileName = string(RESOURCES_PATH) + "/param.json";
+        string configFileName = "./test/test_param.json";
+        Parser::parseConfig(configFileName);
 
         THEN( "Parser sets the correct config parameters to ConfigData, Hare and Puma" ){
 
-            REQUIRE(Hare::getBirthRate() == 1.0);
-            REQUIRE(Hare::getDiffusionRate() == 1.0);
-            REQUIRE(Hare::getPredationRate() == 1.0);
+            REQUIRE(Hare::getBirthRate() == Approx(0.08));
+            REQUIRE(Hare::getDiffusionRate() == Approx(0.2));
+            REQUIRE(Hare::getPredationRate() == Approx(0.04));
 
-            REQUIRE(Puma::getBirthRate() == 1.0);
-            REQUIRE(Puma::getDiffusionRate() == 1.0);
-            REQUIRE(Puma::getMortalityRate() == 1.0);
+            REQUIRE(Puma::getBirthRate() == Approx(0.02));
+            REQUIRE(Puma::getDiffusionRate() == Approx(0.2));
+            REQUIRE(Puma::getMortalityRate() == Approx(0.06));
 
-            REQUIRE(ConfigData::getCapitalT() == 1.0);
-            REQUIRE(ConfigData::getDeltaT() == 1.0);
-            REQUIRE(Hare::getMortalityRate() == 1.0);
-
-        }
-    }
-}
-
-// todo: refactor Parser to modularise reading config file, parsing json, setting configData etc
-
-TEST_CASE( "Read json file", "[Reading json file]" ){
-    GIVEN( "A file handle" ){
-        THEN( "The file can be read" ){
+            REQUIRE(ConfigData::getCapitalT() == 20);
+            REQUIRE(ConfigData::getDeltaT() == Approx(0.4));
 
         }
     }
 
-    GIVEN( "A json string" ) {
-        WHEN( "The json can be parsed" ){
-            THEN( "There are all necessary parameter keys in json") {
+    GIVEN( "A non-existing file handle" ){
+        string non_existing_configFileName = string(RESOURCES_PATH) + "/non_sense.json";
 
-            }
+        THEN( "Parser::parseConfig() throws an exception" ){
+            REQUIRE_THROWS( Parser::parseConfig(non_existing_configFileName) );
         }
+    }
 
+    GIVEN( "Non-valid json string in .json file" ) {
+        string invalid_json_configFileName = "invalid_param.json";
+
+        THEN( "Parser::parseConfig() throws an exception") {
+            REQUIRE_THROWS( Parser::parseConfig(invalid_json_configFileName) );
+        }
     }
 }
 
