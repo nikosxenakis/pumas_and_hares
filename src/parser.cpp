@@ -1,11 +1,11 @@
 #include "../include/parser.hpp"
 
-void Parser::split(const string& str, vector<string> &cont, char delim) {
+void Parser::split(const string& str, vector<string> &strVect, char delim) {
     stringstream ss(str);
-    string token;
-    cont.clear();
-    while (getline(ss, token, delim)) {
-        cont.push_back(token);
+    string value;
+    strVect.clear();
+    while (getline(ss, value, delim)) {
+        strVect.push_back(value);
     }
 }
 
@@ -24,47 +24,54 @@ void Parser::errorCheck(vector<string> vTile) {
 
 void Parser::parseInput(const string& landFileName) {
 
-   ifstream landFile;
-   landFile.open(landFileName);
-   size_t NY, NX;
-   string inputLine;
-   vector <string> vInputLine;
-   vector <string> vInputTile;
-
-   vector< vector<TileData*> > tilesVector;
+    ifstream landFile;
+    landFile.open(landFileName);
+    size_t NY, NX;
+    string inputLine;
+    vector <string> vInputLine;
+    vector <string> vInputTile;
+    vector< vector<TileData*> > tilesVector;
    
-   if (landFile.is_open()) {
-      landFile >> NX;
-      if (0 > NX || NX > 2000) {
-          throw std::invalid_argument("Number of columns must be between 1 and 2000");
-      }
-      landFile >> NY;
-      if (0 > NY || NY > 2000) {
-          throw std::invalid_argument("Number of rows must be between 1 and 2000");
-      }
+    if (landFile.is_open()) {
+        landFile >> NX;
+        if (NX > 2000) {
+            throw std::invalid_argument("Number of columns must be between 1 and 2000");
+        }
+        landFile >> NY;
+        if (NY > 2000) {
+            throw std::invalid_argument("Number of rows must be between 1 and 2000");
+        }
 
-       TileData* haloTile = new TileData(0, 0.0, 0.0);
+        // halo cell
+        TileData* haloTile = new TileData(0, 0.0, 0.0);
+
+        // creating first row or halo cells
+        vector<TileData*> zerosFirstLine (NX + 2);
+        for (size_t i = 0; i < zerosFirstLine.size(); ++i) {
+            zerosFirstLine[i] = haloTile;
+        }
+        tilesVector.push_back(zerosFirstLine);
        
-       vector<TileData*> zerosFirstLine (NX + 2);
-       for (size_t i = 0; i < zerosFirstLine.size(); ++i) {
-           zerosFirstLine[i] = haloTile;
-       }
-       tilesVector.push_back(zerosFirstLine);
-       
-      landFile.ignore();
-      for (size_t i = 0; i < NY; ++i) {
+        landFile.ignore();
 
-         vector<TileData*> tilesLine;
-         tilesLine.push_back(haloTile);
+        // reading Landscape
+        for (size_t i = 0; i < NY; ++i) {
+            
+            vector<TileData*> tilesLine;
+            tilesLine.push_back(haloTile);      // first column halos
 
-         getline(landFile, inputLine);
-         split(inputLine, vInputLine, ' ');
+            getline(landFile, inputLine);
+
+            // split by space for each square
+            split(inputLine, vInputLine, ' ');
          
-         if (vInputLine.size()!=NX) {
-             throw std::invalid_argument("Error x elements not equal to Landscape size");
-         }
+            if (vInputLine.size()!=NX) {
+                throw std::invalid_argument("Error x elements not equal to Landscape size");
+            }
          
-         for (size_t j=0; j<NX; j++) {
+            for (size_t j=0; j<NX; j++) {
+
+                // split by comma for land, pumas, hares
                 split(vInputLine[j], vInputTile, ',');
                 if (vInputTile.size()==3) {
                     tilesLine.push_back(new TileData(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
@@ -75,32 +82,33 @@ void Parser::parseInput(const string& landFileName) {
                 else {
                     cout << "Incorrect defintion of input square in input.dat" << endl;
                 }
-          }
-          tilesLine.push_back(haloTile);
-          tilesVector.push_back(tilesLine);
-      }
+            }
+            tilesLine.push_back(haloTile);      // last column halos
+            tilesVector.push_back(tilesLine);
+        }
 
-       vector<TileData*> zerosLastLine (NX + 2);
-       for (size_t i = 0; i < zerosLastLine.size(); ++i) {
-           zerosLastLine[i] = haloTile;
-       }
-       tilesVector.push_back(zerosLastLine);
+        // add last row as halos
+        vector<TileData*> zerosLastLine (NX + 2);
+        for (size_t i = 0; i < zerosLastLine.size(); ++i) {
+            zerosLastLine[i] = haloTile;
+        }
+        tilesVector.push_back(zerosLastLine);
        
-       ConfigData::initLandscapeSize(NX+2, NY+2);
-       Landscape::init(tilesVector, NY+2, NX+2);
+        ConfigData::initLandscapeSize(NX+2, NY+2);
+        Landscape::init(tilesVector, NY+2, NX+2);
 
-       //free tilesVector
-       for (size_t i=1; i<tilesVector.size()-1; ++i) {
-           for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
-               delete tilesVector[i][j];
-           }
-       }
-       delete tilesVector[0][0]; //removes all of the halo tiles references
+        //free tilesVector
+        for (size_t i=1; i<tilesVector.size()-1; ++i) {
+            for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
+                delete tilesVector[i][j];
+            }
+        }
+        delete tilesVector[0][0]; //removes all of the halo tiles references
        
-   }
-   else {
-       throw std::invalid_argument("Unable to open landFile");
-   }
+    }
+    else {
+        throw std::invalid_argument("Unable to open landFile");
+    }
 }
 
 void Parser::parseConfig(const string& configFileName) {
