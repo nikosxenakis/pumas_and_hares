@@ -34,11 +34,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 
         }
     }
-}
 
-// todo: refactor Parser to modularise reading config file, parsing json, setting configData etc
-
-TEST_CASE( "Read json file", "[Reading json file]" ){
     GIVEN( "A non-existing file handle" ){
         string non_sense_configFileName = string(RESOURCES_PATH) + "/non_sense.json";
 
