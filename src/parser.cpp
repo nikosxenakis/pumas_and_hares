@@ -73,6 +73,7 @@ void Parser::parseInput(const string& landFileName) {
 
                 // split by comma for land, pumas, hares
                 split(vInputLine[j], vInputTile, ',');
+             
                 if (vInputTile.size()==3) {
                     tilesLine.push_back(new TileData(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
                 }
@@ -94,21 +95,23 @@ void Parser::parseInput(const string& landFileName) {
         }
         tilesVector.push_back(zerosLastLine);
        
-        ConfigData::initLandscapeSize(NX+2, NY+2);
-        Landscape::init(tilesVector, NY+2, NX+2);
+       ConfigData::initLandscapeData(tilesVector, NX+2, NY+2);
+   }
+   else {
+       throw std::invalid_argument("Unable to open landFile");
+   }
+}
 
-        //free tilesVector
-        for (size_t i=1; i<tilesVector.size()-1; ++i) {
-            for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
-                delete tilesVector[i][j];
-            }
-        }
-        delete tilesVector[0][0]; //removes all of the halo tiles references
-       
-    }
-    else {
-        throw std::invalid_argument("Unable to open landFile");
-    }
+void Parser::freeTilesVector() {
+    vector< vector< TileData* > >& tilesVector = ConfigData::tilesVector;
+
+   for (size_t i=1; i<tilesVector.size()-1; ++i) {
+       for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
+           delete tilesVector[i][j];
+       }
+   }
+   
+    delete tilesVector[0][0]; //removes all of the halo tiles references
 }
 
 void Parser::parseConfig(const string& configFileName) {
