@@ -41,7 +41,7 @@ The format of the file is:
 ```
 
 Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively.
-Alternatively the density of Pumas and Hares at each grid point can also be specified with the format:
+Alternatively the density of Pumas and Hares at each grid point can be specified with the format:
 
 ```
 3 3
@@ -52,7 +52,7 @@ Alternatively the density of Pumas and Hares at each grid point can also be spec
 
 Where the density of pumas are hares follows the landscape descriptor.
 
-Sample input files can be found in resources/
+Sample input files can be found in the /resources directory
 
 ### Parameters
 
@@ -70,7 +70,9 @@ Key:
 
 ## Output
 
-The code outputs a ppm file at each T showing the density of pumas across the landscape. The colour code is as follows:
+At each T the average puma and hare density over all land tiles is written in /output/average_density.txt
+
+The code outputs a ppm file at each T showing the density of pumas across the landscape to the /output directory. The colour code in the file is as follows:
 
   * Red: Pumas
   * Green: Hares
@@ -81,7 +83,7 @@ For Pumas and Hares the intensity of the colour is proportional to the density, 
 
 For landscapes with a dimension smaller than 100 each square represents a single land square from the input.
 
-For landscapes with a dimension larger than 100 the output is averaged so that a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is given at run time.
+For landscapes with a dimension larger than 100 the output is averaged so that a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
 
 ## Platforms
 
