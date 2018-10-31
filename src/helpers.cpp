@@ -6,6 +6,8 @@ void Helpers::init(string file) {
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
     Parser::parseConfig(configFileName);
     Parser::parseInput(file);
+    Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);
+    Parser::freeTilesVector();
     Output::initOutputFile();
 }
 

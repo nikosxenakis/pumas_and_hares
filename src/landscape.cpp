@@ -2,7 +2,7 @@
 
 Landscape* Landscape::instance = NULL;
 
-Landscape::Landscape(vector< vector<TileData*> > tilesVector, size_t rows, size_t cols):
+Landscape::Landscape(vector< vector<TileData*> >& tilesVector, size_t rows, size_t cols):
 rows(rows), cols(cols) {
     
     this->tiles = new Tile**[this->rows];

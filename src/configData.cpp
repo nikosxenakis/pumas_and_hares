@@ -2,6 +2,7 @@
 
 float ConfigData::deltaT = 0.4;
 int ConfigData::capitalT = 200;
+vector< vector<TileData*> > ConfigData::tilesVector;
 size_t ConfigData::NX = 0;
 size_t ConfigData::NY = 0;
 
@@ -21,7 +22,8 @@ int ConfigData::getCapitalT() {
     return ConfigData::capitalT;
 }
 
-void ConfigData::initLandscapeSize(size_t NX, size_t NY) {
+void ConfigData::initLandscapeData(vector< vector<TileData*> > tilesVector, size_t NX, size_t NY) {
+    ConfigData::tilesVector = tilesVector;
     ConfigData::NX = NX;
     ConfigData::NY = NY;
 
