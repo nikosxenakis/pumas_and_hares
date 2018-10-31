@@ -36,10 +36,10 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     }
 
     GIVEN( "A non-existing file handle" ){
-        string non_sense_configFileName = string(RESOURCES_PATH) + "/non_sense.json";
+        string non_existing_configFileName = string(RESOURCES_PATH) + "/non_sense.json";
 
         THEN( "Parser::parseConfig() throws an exception" ){
-            REQUIRE_THROWS( Parser::parseConfig(non_sense_configFileName) );
+            REQUIRE_THROWS( Parser::parseConfig(non_existing_configFileName) );
         }
     }
 
