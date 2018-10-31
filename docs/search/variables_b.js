@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pixels',['pixels',['../class_image.html#a6b8a14a3d5c7325bfafaa5b1b80b4f4a',1,'Image']]],
-  ['predation_5frate',['predation_rate',['../class_hare.html#a801a4c5a637a083fd9f78aee35b6a82d',1,'Hare']]],
-  ['pumas',['pumas',['../class_tile_data.html#a33710eb26c13f69ee82a0f0551aa10ed',1,'TileData']]]
+  ['red',['red',['../class_pixel.html#a975b9929cee50eba61195c414b9b8420',1,'Pixel']]],
+  ['required_5fparams',['required_params',['../class_parser.html#a01b862fd7a657c1dc4145e9a5b1e95d0',1,'Parser']]],
+  ['rows',['rows',['../class_landscape.html#a01abab9087a9eae379053c0337d98ebb',1,'Landscape']]]
 ];

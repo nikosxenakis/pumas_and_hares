@@ -1,5 +1,4 @@
 <map id="include/landscape.hpp" name="include/landscape.hpp">
-<area shape="rect" id="node2" href="$helpers_8hpp.html" title="include/helpers.hpp" alt="" coords="5,152,142,177"/>
-<area shape="rect" id="node3" href="$parser_8hpp.html" title="include/parser.hpp" alt="" coords="61,79,191,104"/>
-<area shape="rect" id="node4" href="$image_8hpp.html" title="include/image.hpp" alt="" coords="214,79,344,104"/>
+<area shape="rect" id="node2" href="$helpers_8hpp.html" title="include/helpers.hpp" alt="" coords="5,79,142,104"/>
+<area shape="rect" id="node3" href="$image_8hpp.html" title="include/image.hpp" alt="" coords="166,79,296,104"/>
 </map>

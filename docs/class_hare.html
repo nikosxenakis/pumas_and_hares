@@ -103,6 +103,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac351558bf49aee6af3b5e26769758b09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#ac351558bf49aee6af3b5e26769758b09">setDiffusionRate</a> (float <a class="el" href="class_hare.html#a4f503c0137e440b428ed5ec8a6406f5d">diffusion_rate</a>)</td></tr>
 <tr class="separator:ac351558bf49aee6af3b5e26769758b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ad8d9b9e8a73df0d33ef9809d48365"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a91ad8d9b9e8a73df0d33ef9809d48365">calculateNewDensity</a> (float H_old, float P_old, int land_neighbours, float sum_density_neighbours)</td></tr>
+<tr class="memdesc:a91ad8d9b9e8a73df0d33ef9809d48365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate new hare density.  <a href="#a91ad8d9b9e8a73df0d33ef9809d48365">More...</a><br /></td></tr>
 <tr class="separator:a91ad8d9b9e8a73df0d33ef9809d48365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
@@ -110,13 +111,18 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a7d2c3750ac03b67e2232da99b44b28f3"><td class="memItemLeft" align="right" valign="top">static string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a7d2c3750ac03b67e2232da99b44b28f3">name</a></td></tr>
 <tr class="separator:a7d2c3750ac03b67e2232da99b44b28f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e2c9324ca4a2c3e1a381c5197945a6b"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a2e2c9324ca4a2c3e1a381c5197945a6b">birth_rate</a></td></tr>
+<tr class="memdesc:a2e2c9324ca4a2c3e1a381c5197945a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">birth rate of hares  <a href="#a2e2c9324ca4a2c3e1a381c5197945a6b">More...</a><br /></td></tr>
 <tr class="separator:a2e2c9324ca4a2c3e1a381c5197945a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a801a4c5a637a083fd9f78aee35b6a82d"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a801a4c5a637a083fd9f78aee35b6a82d">predation_rate</a></td></tr>
+<tr class="memdesc:a801a4c5a637a083fd9f78aee35b6a82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">predation rate at which pumas eat hares  <a href="#a801a4c5a637a083fd9f78aee35b6a82d">More...</a><br /></td></tr>
 <tr class="separator:a801a4c5a637a083fd9f78aee35b6a82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f503c0137e440b428ed5ec8a6406f5d"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a4f503c0137e440b428ed5ec8a6406f5d">diffusion_rate</a></td></tr>
+<tr class="memdesc:a4f503c0137e440b428ed5ec8a6406f5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">diffusion rates for hares  <a href="#a4f503c0137e440b428ed5ec8a6406f5d">More...</a><br /></td></tr>
 <tr class="separator:a4f503c0137e440b428ed5ec8a6406f5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class holding all config parameters associated with <a class="el" href="class_hare.html">Hare</a> and its density calculation </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a776dd4ec8896a926a1ed349bc3556d66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a776dd4ec8896a926a1ed349bc3556d66">&#9670;&nbsp;</a></span>Hare()</h2>
 
@@ -180,16 +186,18 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Calculate new hare density </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Calculate new hare density. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">P_old</td><td>previous number of pumas </td></tr>
-    <tr><td class="paramname">H_old</td><td>previous number of hares </td></tr>
-    <tr><td class="paramname">land_neighbours</td><td>number of adjacent tiles of type land </td></tr>
-    <tr><td class="paramname">sum_density_neighbours</td><td>sum of adjacent hare densities</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">P_old</td><td>previous number of pumas </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">H_old</td><td>previous number of hares </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">land_neighbours</td><td>number of adjacent tiles of type land </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sum_density_neighbours</td><td>sum of adjacent hare densities</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>newly calculated <a class="el" href="class_hare.html">Hare</a> Density </dd></dl>
 
 </div>
 </div>
@@ -391,6 +399,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>birth rate of hares </p>
 
 </div>
@@ -414,6 +423,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>diffusion rates for hares </p>
 
 </div>
@@ -459,6 +469,7 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>predation rate at which pumas eat hares </p>
 
 </div>
