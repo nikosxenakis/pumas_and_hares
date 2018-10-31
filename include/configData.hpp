@@ -2,6 +2,10 @@
 #define CONFIGDATA_HPP
 
 #include <iostream>
+#include <vector>
+#include "tileData.hpp"
+
+using namespace std;
 
 /**
  * @class ConfigData
@@ -20,6 +24,8 @@ private:
 public:
     static size_t NX;
     static size_t NY;
+    static vector< vector<TileData*> > tilesVector;
+
     /**
      * @brief set deltaT
      */
@@ -37,7 +43,7 @@ public:
      */
     static int getCapitalT();
     
-    static void initLandscapeSize(size_t NX, size_t NY);
+    static void initLandscapeData(vector< vector<TileData*> > tilesVector, size_t NX, size_t NY);
 
 };
 

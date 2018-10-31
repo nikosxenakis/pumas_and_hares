@@ -31,7 +31,7 @@ private :
     /**
      * @brief Landscape contructor
      */
-    Landscape(vector< vector<TileData*> > tilesVector, size_t rows, size_t cols);
+    Landscape(vector< vector<TileData*> >& tilesVector, size_t rows, size_t cols);
     /**
      * @brief Landscape destructor
      */
@@ -58,8 +58,8 @@ public :
      * @brief Initializes the static Lanscape
      * 
      * @param tilesVector Array of tiles
-     * @param row Target tile row
-     * @param col Target tile col
+     * @param rows Target tile row
+     * @param cols Target tile col
      */
     static void init(vector< vector<TileData*> > tilesVector, size_t rows, size_t cols) ;
     /**

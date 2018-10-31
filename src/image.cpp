@@ -69,15 +69,12 @@ void Image::setImageSize(size_t NX, size_t NY) {
             tileAveSize = NY / maxLandSize;
 
         }
-    cout << "averaging tile size: " << tileAveSize << " x " << tileAveSize << endl;
+    cout << "region size(tiles): " << tileAveSize << " x " << tileAveSize << endl;
     }
 
-
-    cout << "land size: " << landSizeX << " x " << landSizeY << endl;
+    cout << "landscape size(tiles): " << landSizeX << " x " << landSizeY << endl;
     cout << "image size(pixels): " << imageSizeX << " x " << imageSizeY << endl;
-    cout << "tile size: " << tilePixels << " x " << tilePixels << endl;
-
-
+    cout << "tile size(pixels): " << tilePixels << " x " << tilePixels << endl;
 }
 
 size_t Image::getTileSize() {
@@ -131,8 +128,8 @@ void Image::setGrid() {
             if (Image::isLargeImage()==false) {
                 Tile* tile = Landscape::getTile(i, j);
                 landVal = tile->isLand();
-                pumaVal = tile->getOldPumas();
-                hareVal = tile->getOldHares();
+                pumaVal = tile->getPumas();
+                hareVal = tile->getHares();
             }
             // large image does averaging
             else {

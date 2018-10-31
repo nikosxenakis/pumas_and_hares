@@ -5,7 +5,9 @@ void Helpers::init(string file) {
 
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
     Parser::parseConfig(configFileName);
-   Parser::parseInput(file);
+    Parser::parseInput(file);
+    Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);
+    Parser::freeTilesVector();
     Output::initOutputFile();
 }
 
@@ -19,7 +21,7 @@ void Helpers::simulationLoop() {
         if(t % ConfigData::getCapitalT() == 0) {
 //            Landscape::print();
             Output::print_output(t);
-            Parser::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
+            Output::print_average(t, Landscape::getAveragePumas(), Landscape::getAverageHares());
         }
         Landscape::calculate();
         Landscape::update();

@@ -1,7 +1,6 @@
 #ifndef PIXEL_HPP
 #define PIXEL_HPP
 
-#include <iostream>
 #include <fstream>
 #include <sstream>
 
