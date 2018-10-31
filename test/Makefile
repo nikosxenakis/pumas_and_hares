@@ -39,6 +39,7 @@ $(TEST_DIR)/test_landscape.cpp \
 $(TEST_DIR)/test_tile.cpp \
 $(TEST_DIR)/test_hare.cpp \
 $(TEST_DIR)/test_puma.cpp \
+$(TEST_DIR)/test_pixel.cpp \
 -o $(BIN_DIR)/test
 
 test_main.o: test_main.cpp
