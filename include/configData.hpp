@@ -3,10 +3,14 @@
 
 #include <iostream>
 
+/**
+ * @class ConfigData
+ * @details A class holding all config parameters associated the simulation loop, the time and map dimensions
+ */
 class ConfigData {
 private:
     /**
-     * @brief ...
+     * @brief the discrete time to run the simulation for
      */
     static float deltaT;
     /**

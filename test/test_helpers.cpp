@@ -12,17 +12,12 @@
 
 using namespace std;
 
-TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
+TEST_CASE( "SimulationLoop Test", "[Testing Helpers::simulationLoop()]" ){
 
-    GIVEN("The hare class, with initialised variables"){ 
+    GIVEN( "" ){
         
-        float a = 3.0;
-        Hare::setBirthRate(a);
-        Hare::setPredationRate(a);
-        
-        THEN( "Getters should work" ){
-            REQUIRE( Hare::getBirthRate() == 3.0 );
-            REQUIRE( Hare::getPredationRate() == 3.0);
+        THEN( "" ){
+
         }
     }
 }

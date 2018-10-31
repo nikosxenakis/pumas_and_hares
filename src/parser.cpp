@@ -12,6 +12,7 @@ void Parser::split(const string& str, vector<string> &cont, char delim) {
 void Parser::errorCheck(vector<string> vTile) {
     if (stoi(vTile[0])!= 0 && stoi(vTile[0])!= 1) {
         cout << "Land input must be 0 or 1" << endl;
+        // todo: shouldnt do "exit()" in function
         exit(1);
     }
     if (stod(vTile[1])<0 || stod(vTile[2]) <0) {
@@ -109,7 +110,7 @@ void Parser::parseInput(const string& landFileName) {
 
 void Parser::parseConfig(const string& configFileName) {
 
-    try{
+    // try{
         std::ifstream configFile(configFileName);
         std::stringstream buffer;
 
@@ -117,24 +118,30 @@ void Parser::parseConfig(const string& configFileName) {
         buffer << configFile.rdbuf();
         string jsonString = buffer.str();
 
-        try {
+        // try {
             auto jsonConfig = json::parse(jsonString);
             std::vector<string> found;
 
             for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
             {
+                // check if json key i.key() is in required_params
                 bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
                 if (key_is_req) {
+                    // if found add json key to vector<string> found
                     found.push_back(i.key());
                 }
 
-                if ((float) i.value() < 0) {
+                // compare floating point number (to something close) to zero
+                if (fabsf( (float) i.value() ) < 0.0000005) {
                     throw std::invalid_argument("Parameters must be greater or equal to 0");
                 }
             }
 
-            int found_is_unique; // todo
-            if (found.size() != 8 and (found_is_unique = 1)) {
+            // check if values in vector<string> found are unique
+            auto it = std::unique( found.begin(), found.end() );
+            bool found_is_unique = (it == found.end() );
+
+            if (found.size() != 8 && found_is_unique) {
                 throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
             }
 
@@ -148,18 +155,18 @@ void Parser::parseConfig(const string& configFileName) {
             Puma::setBirthRate(jsonConfig.at("b"));
             Puma::setDiffusionRate(jsonConfig.at("l"));
             Puma::setMortalityRate(jsonConfig.at("m"));
-        }
-        catch (json::parse_error& e) {
-            std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
-                      << "exception id: " << e.id << '\n'
-                      << "byte position of error: " << e.byte << std::endl;
-            exit(1);
-        }
-    }
-    catch(std::exception const& e){
-        cout << "There was an error reading from configFile /resources/param.json: " << e.what() << endl;
-        exit(1);
-    }
+        //}
+        //catch (json::parse_error& e) {
+        //    std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
+        //              << "exception id: " << e.id << '\n'
+        //              << "byte position of error: " << e.byte << std::endl;
+        //    exit(1);
+        //}
+    // }
+    //catch(std::exception const& e){
+    //    cout << "There was an error reading from configFile /resources/param.json: " << e.what() << endl;
+    //    exit(1);
+    //}
 
 }
 

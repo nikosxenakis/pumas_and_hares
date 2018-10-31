@@ -52,6 +52,10 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
               REQUIRE( Landscape::getMaxHares() == Approx(1.0) );
    
           }
+          THEN(" We can calculate the average puma and hare density "){
+              REQUIRE( Landscape::getAverageHares() == Approx(1.0/9.0) );
+              REQUIRE( Landscape::getAveragePumas() == Approx(1.0/9.0) );
+          }
        }
     }
 }
