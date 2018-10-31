@@ -46,8 +46,10 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     GIVEN( "negative config params set in json file" ){
         string negative_values_configFileName = "./test/test_param_negative_values.json";
 
-        THEN( "Parser throws an exception" ){
-            REQUIRE_THROWS( Parser::parseConfig(negative_values_configFileName) );
+        THEN( "Parser accepts negative values and does not throw exception" ){
+            REQUIRE_NOTHROW( Parser::parseConfig(negative_values_configFileName) );
+            REQUIRE( Hare::getBirthRate() == Approx(-0.08) );
+            REQUIRE( ConfigData::getCapitalT() == -20 );
         }
     }
 

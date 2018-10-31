@@ -136,10 +136,6 @@ void Parser::parseConfig(const string& configFileName) {
             found.push_back(i.key());
         }
 
-        // compare floating point number (to something close) to zero
-        if (fabsf( (float) i.value() ) < 0.0000005) {
-            throw std::invalid_argument("Parameters must be greater or equal to 0");
-        }
     }
 
     // check if values in vector<string> found are unique
