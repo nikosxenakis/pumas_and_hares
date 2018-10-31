@@ -4,7 +4,7 @@ map<string, Clock::time_point> Log::startTime;
 map<string, Clock::time_point> Log::endTime;
 
 void Log::startLogTime(string name) {
-    cout << "starting " << name << "..." << endl;
+    cout << "start timing " << name << "..." << endl;
     Log::startTime[name] = Clock::now();
 }
 
