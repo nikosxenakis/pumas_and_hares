@@ -35,6 +35,14 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
         }
     }
 
+    GIVEN( "Not all of the config parameters are define in a json file" ){
+        string missing_keys_configFileName = "./test/test_param_missing_keys.json";
+
+        THEN( "Parser throws an exception" ){
+            REQUIRE_THROWS( Parser::parseConfig(missing_keys_configFileName) );
+        }
+    }
+
     GIVEN( "A non-existing file handle" ){
         string non_existing_configFileName = string(RESOURCES_PATH) + "/non_sense.json";
 
