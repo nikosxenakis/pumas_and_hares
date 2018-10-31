@@ -11,7 +11,6 @@
 class Helpers {
 private:
     static void initRandomGenerator();
-
 public:
     static void init(string file);
 
@@ -24,12 +23,6 @@ public:
      * @brief ...
      */
     static void close();
-
-    /**
-     * @brief ...
-     * @return ...
-     */
-    static vector< vector<int>> initTilesVector(ifstream &landFile);
 };
 
 #endif

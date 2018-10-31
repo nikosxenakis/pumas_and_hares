@@ -46,8 +46,6 @@ class Parser {
 		static void parseConfig(const string& configFile);
 // 		static void parse(const string& landFileName);
         static string required_params[8];
-
-        static void print_average(double t, float averagePumas, float averageHares);
 };
 
 #endif
