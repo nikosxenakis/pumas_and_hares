@@ -12,11 +12,7 @@
 using namespace std;
 
 TEST_CASE( "Puma Test", "[Testing puma's getters and setters]" ){
-   float a = 3.0;
-   Puma::setBirthRate(a);
-   float b = Puma::getBirthRate();
 
-   REQUIRE(b == a);
 }
 
 

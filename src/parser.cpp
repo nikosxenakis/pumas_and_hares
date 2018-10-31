@@ -110,7 +110,7 @@ void Parser::parseInput(const string& landFileName) {
 
 void Parser::parseConfig(const string& configFileName) {
 
-    try{
+    // try{
         std::ifstream configFile(configFileName);
         std::stringstream buffer;
 
@@ -118,7 +118,7 @@ void Parser::parseConfig(const string& configFileName) {
         buffer << configFile.rdbuf();
         string jsonString = buffer.str();
 
-        try {
+        // try {
             auto jsonConfig = json::parse(jsonString);
             std::vector<string> found;
 
@@ -132,7 +132,7 @@ void Parser::parseConfig(const string& configFileName) {
                 }
 
                 // compare floating point number (to something close) to zero
-                if (fabsf( (float) i.value()) < 0.0000005) {
+                if (fabsf( (float) i.value() ) < 0.0000005) {
                     throw std::invalid_argument("Parameters must be greater or equal to 0");
                 }
             }
@@ -155,18 +155,18 @@ void Parser::parseConfig(const string& configFileName) {
             Puma::setBirthRate(jsonConfig.at("b"));
             Puma::setDiffusionRate(jsonConfig.at("l"));
             Puma::setMortalityRate(jsonConfig.at("m"));
-        }
-        catch (json::parse_error& e) {
-            std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
-                      << "exception id: " << e.id << '\n'
-                      << "byte position of error: " << e.byte << std::endl;
-            exit(1);
-        }
-    }
-    catch(std::exception const& e){
-        cout << "There was an error reading from configFile /resources/param.json: " << e.what() << endl;
-        exit(1);
-    }
+        //}
+        //catch (json::parse_error& e) {
+        //    std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
+        //              << "exception id: " << e.id << '\n'
+        //              << "byte position of error: " << e.byte << std::endl;
+        //    exit(1);
+        //}
+    // }
+    //catch(std::exception const& e){
+    //    cout << "There was an error reading from configFile /resources/param.json: " << e.what() << endl;
+    //    exit(1);
+    //}
 
 }
 
