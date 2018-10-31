@@ -36,13 +36,11 @@ void Parser::parseInput(const string& landFileName) {
    if (landFile.is_open()) {
       landFile >> NX;
       if (0 > NX || NX > 2000) {
-          cout << "Number of columns must be between 1 and 2000" << endl;
-          exit(1);
+          throw std::invalid_argument("Number of columns must be between 1 and 2000");
       }
       landFile >> NY;
       if (0 > NY || NY > 2000) {
-         cout << "Number of rows must be between 1 and 2000" << endl;
-         exit(1);
+          throw std::invalid_argument("Number of rows must be between 1 and 2000");
       }
 
        TileData* haloTile = new TileData(0, 0.0, 0.0);
@@ -63,8 +61,7 @@ void Parser::parseInput(const string& landFileName) {
          split(inputLine, vInputLine, ' ');
          
          if (vInputLine.size()!=NX) {
-            cout << "Error x elements not equal to Landscape size" << endl;
-            exit(1);
+             throw std::invalid_argument("Error x elements not equal to Landscape size");
          }
          
          for (size_t j=0; j<NX; j++) {
@@ -102,71 +99,56 @@ void Parser::parseInput(const string& landFileName) {
        
    }
    else {
-     cout << "Unable to open file: "<< landFileName << endl;
-     cout << "landFile in folder /resources not open" << endl;
-     exit(1);
+       throw std::invalid_argument("Unable to open landFile");
    }
 }
 
 void Parser::parseConfig(const string& configFileName) {
 
-    // try{
-        std::ifstream configFile(configFileName);
-        std::stringstream buffer;
 
-        configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
-        buffer << configFile.rdbuf();
-        string jsonString = buffer.str();
+    std::ifstream configFile(configFileName);
+    std::stringstream buffer;
 
-        // try {
-            auto jsonConfig = json::parse(jsonString);
-            std::vector<string> found;
+    configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
+    buffer << configFile.rdbuf();
+    string jsonString = buffer.str();
 
-            for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
-            {
-                // check if json key i.key() is in required_params
-                bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
-                if (key_is_req) {
-                    // if found add json key to vector<string> found
-                    found.push_back(i.key());
-                }
+    auto jsonConfig = json::parse(jsonString);
+    std::vector<string> found;
 
-                // compare floating point number (to something close) to zero
-                if (fabsf( (float) i.value() ) < 0.0000005) {
-                    throw std::invalid_argument("Parameters must be greater or equal to 0");
-                }
-            }
+    for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
+    {
+        // check if json key i.key() is in required_params
+        bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
+        if (key_is_req) {
+            // if found add json key to vector<string> found
+            found.push_back(i.key());
+        }
 
-            // check if values in vector<string> found are unique
-            auto it = std::unique( found.begin(), found.end() );
-            bool found_is_unique = (it == found.end() );
+        // compare floating point number (to something close) to zero
+        if (fabsf( (float) i.value() ) < 0.0000005) {
+            throw std::invalid_argument("Parameters must be greater or equal to 0");
+        }
+    }
 
-            if (found.size() != 8 && found_is_unique) {
-                throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
-            }
+    // check if values in vector<string> found are unique
+    auto it = std::unique( found.begin(), found.end() );
+    bool found_is_unique = (it == found.end() );
 
-            ConfigData::setDeltaT(jsonConfig.at("delta_t"));
-            ConfigData::setCapitalT(jsonConfig.at("T"));
+    if (found.size() != 8 && found_is_unique) {
+        throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+    }
 
-            Hare::setBirthRate(jsonConfig.at("r"));
-            Hare::setDiffusionRate(jsonConfig.at("k"));
-            Hare::setPredationRate(jsonConfig.at("a"));
+    ConfigData::setDeltaT(jsonConfig.at("delta_t"));
+    ConfigData::setCapitalT(jsonConfig.at("T"));
 
-            Puma::setBirthRate(jsonConfig.at("b"));
-            Puma::setDiffusionRate(jsonConfig.at("l"));
-            Puma::setMortalityRate(jsonConfig.at("m"));
-        //}
-        //catch (json::parse_error& e) {
-        //    std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
-        //              << "exception id: " << e.id << '\n'
-        //              << "byte position of error: " << e.byte << std::endl;
-        //    exit(1);
-        //}
-    // }
-    //catch(std::exception const& e){
-    //    cout << "There was an error reading from configFile /resources/param.json: " << e.what() << endl;
-    //    exit(1);
-    //}
+    Hare::setBirthRate(jsonConfig.at("r"));
+    Hare::setDiffusionRate(jsonConfig.at("k"));
+    Hare::setPredationRate(jsonConfig.at("a"));
+
+    Puma::setBirthRate(jsonConfig.at("b"));
+    Puma::setDiffusionRate(jsonConfig.at("l"));
+    Puma::setMortalityRate(jsonConfig.at("m"));
 
 }
 
