@@ -153,11 +153,3 @@ void Parser::parseConfig(const string& configFileName) {
 }
 
 string Parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
-
-void Parser::print_average(double t, float averagePumas, float averageHares) {
-    std::ofstream ofs;
-    ofs.open (OUTPUT_FILE, std::ofstream::out | std::ofstream::app);
-
-    ofs << "time = " << t << std::fixed << setprecision(1) << "\tpumas = " << averagePumas << "\thares = " << averageHares << endl;
-    ofs.close();
-}
