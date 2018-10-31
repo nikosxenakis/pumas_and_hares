@@ -68,5 +68,8 @@ TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()
         // test different results for calculateNewDensity
         // test negative parameters
         // test too large parameters
+
+        // we already validate input config params in Parser
+        // either reject negative values in Parser or not at all (but not here in Puma/Hare::calculateNewDensity())
     }
 }
