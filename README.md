@@ -78,6 +78,10 @@ The code outputs a ppm file at each T showing the density of pumas across the la
 
 For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.
 
+For landscapes with a dimension smaller than 100 each square represents a single land square from the input.
+
+For landscapes with a dimension larger than 100 the output is averaged so that a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is given at run time.
+
 ## Platforms
 
 The simulations run on both DICE and Cirrus supercomputers
