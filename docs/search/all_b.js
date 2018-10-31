@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['oldhares',['oldHares',['../class_tile.html#a29cfaa8da75fc403aa484842088f8f2b',1,'Tile']]],
-  ['oldpumas',['oldPumas',['../class_tile.html#afda24b4eb6babc85cb0f680537cedb03',1,'Tile']]],
-  ['output',['Output',['../class_output.html',1,'Output'],['../group__output.html',1,'(Global Namespace)']]],
-  ['output_2ehpp',['output.hpp',['../output_8hpp.html',1,'']]],
-  ['output_5ffile',['OUTPUT_FILE',['../output_8hpp.html#a61dd80c2fec5621edf38c3347b55ad42',1,'OUTPUT_FILE():&#160;output.hpp'],['../parser_8hpp.html#a61dd80c2fec5621edf38c3347b55ad42',1,'OUTPUT_FILE():&#160;parser.hpp']]],
-  ['output_5fpath',['OUTPUT_PATH',['../output_8hpp.html#a8bc8c4afa65d2ec177cfe75981090437',1,'OUTPUT_PATH():&#160;output.hpp'],['../parser_8hpp.html#a8bc8c4afa65d2ec177cfe75981090437',1,'OUTPUT_PATH():&#160;parser.hpp']]]
+  ['name',['name',['../class_hare.html#a7d2c3750ac03b67e2232da99b44b28f3',1,'Hare::name()'],['../class_puma.html#a78c9c688927b6553aee967df890fc324',1,'Puma::name()']]],
+  ['newhares',['newHares',['../class_tile.html#a2d06bf740d3e5bd99e68723d1170a35b',1,'Tile']]],
+  ['newpumas',['newPumas',['../class_tile.html#a964127197c3916c914c399f4c5337e70',1,'Tile']]],
+  ['nx',['NX',['../class_config_data.html#a8a33c2b3c026169a5304ce59126f3950',1,'ConfigData']]],
+  ['ny',['NY',['../class_config_data.html#af2ea74cb82ec84595b95ee2245b96260',1,'ConfigData']]]
 ];

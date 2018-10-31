@@ -82,7 +82,7 @@ Collaboration diagram for Landscape:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_landscape__coll__graph.png" border="0" usemap="#_landscape_coll__map" alt="Collaboration graph"/></div>
 <map name="_landscape_coll__map" id="_landscape_coll__map">
-<area shape="rect" id="node2" href="class_tile.html" title="Provide information about a Tile. " alt="" coords="20,5,142,239"/>
+<area shape="rect" id="node2" href="class_tile.html" title="Provide information about a Tile. " alt="" coords="30,5,132,239"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -124,9 +124,9 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:af4d6b96179e265948013f6543cc5d2e7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_landscape.html#af4d6b96179e265948013f6543cc5d2e7">Landscape</a> (vector&lt; vector&lt; <a class="el" href="class_tile_data.html">TileData</a> *&gt; &gt; tilesVector, size_t <a class="el" href="class_landscape.html#a01abab9087a9eae379053c0337d98ebb">rows</a>, size_t <a class="el" href="class_landscape.html#aab07f55bd1b4de0ddd589caa9e9849b7">cols</a>)</td></tr>
-<tr class="memdesc:af4d6b96179e265948013f6543cc5d2e7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a> contructor.  <a href="#af4d6b96179e265948013f6543cc5d2e7">More...</a><br /></td></tr>
-<tr class="separator:af4d6b96179e265948013f6543cc5d2e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7de16256dd02253af130354dd272dab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_landscape.html#ab7de16256dd02253af130354dd272dab">Landscape</a> (vector&lt; vector&lt; <a class="el" href="class_tile_data.html">TileData</a> *&gt; &gt; &amp;tilesVector, size_t <a class="el" href="class_landscape.html#a01abab9087a9eae379053c0337d98ebb">rows</a>, size_t <a class="el" href="class_landscape.html#aab07f55bd1b4de0ddd589caa9e9849b7">cols</a>)</td></tr>
+<tr class="memdesc:ab7de16256dd02253af130354dd272dab"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a> contructor.  <a href="#ab7de16256dd02253af130354dd272dab">More...</a><br /></td></tr>
+<tr class="separator:ab7de16256dd02253af130354dd272dab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44c62eb1b0f84a40f25b9a6445c8b130"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_landscape.html#a44c62eb1b0f84a40f25b9a6445c8b130">~Landscape</a> ()</td></tr>
 <tr class="memdesc:a44c62eb1b0f84a40f25b9a6445c8b130"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a> destructor.  <a href="#a44c62eb1b0f84a40f25b9a6445c8b130">More...</a><br /></td></tr>
 <tr class="separator:a44c62eb1b0f84a40f25b9a6445c8b130"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,8 +158,8 @@ Static Private Attributes</h2></td></tr>
 <div class="textblock"><p>Provide information about the <a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a>. </p>
 <p>A class that contains data about the <a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a> size and tiles </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af4d6b96179e265948013f6543cc5d2e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4d6b96179e265948013f6543cc5d2e7">&#9670;&nbsp;</a></span>Landscape()</h2>
+<a id="ab7de16256dd02253af130354dd272dab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7de16256dd02253af130354dd272dab">&#9670;&nbsp;</a></span>Landscape()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +170,7 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Landscape::Landscape </td>
           <td>(</td>
-          <td class="paramtype">vector&lt; vector&lt; <a class="el" href="class_tile_data.html">TileData</a> *&gt; &gt;&#160;</td>
+          <td class="paramtype">vector&lt; vector&lt; <a class="el" href="class_tile_data.html">TileData</a> *&gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>tilesVector</em>, </td>
         </tr>
         <tr>
@@ -701,8 +701,8 @@ Static Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tilesVector</td><td>Array of tiles </td></tr>
-    <tr><td class="paramname">row</td><td>Target tile row </td></tr>
-    <tr><td class="paramname">col</td><td>Target tile col </td></tr>
+    <tr><td class="paramname">rows</td><td>Target tile row </td></tr>
+    <tr><td class="paramname">cols</td><td>Target tile col </td></tr>
   </table>
   </dd>
 </dl>

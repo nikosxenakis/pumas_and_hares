@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['name',['name',['../class_hare.html#a7d2c3750ac03b67e2232da99b44b28f3',1,'Hare::name()'],['../class_puma.html#a78c9c688927b6553aee967df890fc324',1,'Puma::name()']]],
-  ['newhares',['newHares',['../class_tile.html#a2d06bf740d3e5bd99e68723d1170a35b',1,'Tile']]],
-  ['newpumas',['newPumas',['../class_tile.html#a964127197c3916c914c399f4c5337e70',1,'Tile']]],
-  ['nx',['NX',['../class_config_data.html#a8a33c2b3c026169a5304ce59126f3950',1,'ConfigData']]],
-  ['ny',['NY',['../class_config_data.html#af2ea74cb82ec84595b95ee2245b96260',1,'ConfigData']]]
+  ['main',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['max_5fneighbours',['MAX_NEIGHBOURS',['../landscape_8hpp.html#ae35694bd71aaa8aa2608ba5d24de667d',1,'landscape.hpp']]],
+  ['max_5fstep',['MAX_STEP',['../helpers_8hpp.html#a8fa4a934e7d02b3e5dabfc502cb611f7',1,'helpers.hpp']]],
+  ['maxlandsize',['maxLandSize',['../class_image.html#a2f30a61f3b491b04a73edd627ba5b4b4',1,'Image']]],
+  ['maxpixels',['maxPixels',['../class_image.html#ab8cf3ccf5df2c939b3858d3744e917f0',1,'Image']]],
+  ['mortality_5frate',['mortality_rate',['../class_puma.html#adc92020f025af8e7dbfb86e1369cb4c7',1,'Puma']]]
 ];

@@ -1,12 +1,9 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
-#include <iostream>
 #include <sstream>
-#include <istream>
 #include <fstream>
 #include <vector>
-#include <string>
 #include "hare.hpp"
 #include "puma.hpp"
 #include "tileData.hpp"

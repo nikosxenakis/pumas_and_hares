@@ -77,7 +77,7 @@ Collaboration diagram for Parser:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_parser__coll__graph.png" border="0" usemap="#_parser_coll__map" alt="Collaboration graph"/></div>
 <map name="_parser_coll__map" id="_parser_coll__map">
-<area shape="rect" id="node2" title="STL class. " alt="" coords="27,5,107,79"/>
+<area shape="rect" id="node2" title="STL class. " alt="" coords="31,5,110,79"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -86,11 +86,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ca911f567c54a4ad11f436374f79d5b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a7ca911f567c54a4ad11f436374f79d5b">parseInput</a> (const string &amp;landFile)</td></tr>
 <tr class="memdesc:a7ca911f567c54a4ad11f436374f79d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">read dat file, parse landscape  <a href="#a7ca911f567c54a4ad11f436374f79d5b">More...</a><br /></td></tr>
 <tr class="separator:a7ca911f567c54a4ad11f436374f79d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47ccffb18b01acaeb386ac29c10e40d9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a47ccffb18b01acaeb386ac29c10e40d9">freeTilesVector</a> ()</td></tr>
+<tr class="separator:a47ccffb18b01acaeb386ac29c10e40d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49118cec62f62ca559ec04bc40998153"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a49118cec62f62ca559ec04bc40998153">parseConfig</a> (const string &amp;configFile)</td></tr>
 <tr class="memdesc:a49118cec62f62ca559ec04bc40998153"><td class="mdescLeft">&#160;</td><td class="mdescRight">read json file, parse json and set parsed parameters to <a class="el" href="class_helpers.html">Helpers</a>, <a class="el" href="class_hare.html">Hare</a> and <a class="el" href="class_puma.html">Puma</a>  <a href="#a49118cec62f62ca559ec04bc40998153">More...</a><br /></td></tr>
 <tr class="separator:a49118cec62f62ca559ec04bc40998153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac230e1b93219f0cc39a03b445dfcdbf1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#ac230e1b93219f0cc39a03b445dfcdbf1">print_average</a> (double t, float averagePumas, float averageHares)</td></tr>
-<tr class="separator:ac230e1b93219f0cc39a03b445dfcdbf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -125,6 +125,31 @@ Static Private Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47ccffb18b01acaeb386ac29c10e40d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47ccffb18b01acaeb386ac29c10e40d9">&#9670;&nbsp;</a></span>freeTilesVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Parser::freeTilesVector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -196,48 +221,6 @@ Static Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="ac230e1b93219f0cc39a03b445dfcdbf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac230e1b93219f0cc39a03b445dfcdbf1">&#9670;&nbsp;</a></span>print_average()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Parser::print_average </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>averagePumas</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>averageHares</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
