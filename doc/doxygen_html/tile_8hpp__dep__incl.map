@@ -1,7 +1,0 @@
-<map id="include/tile.hpp" name="include/tile.hpp">
-<area shape="rect" id="node2" href="$landscape_8hpp.html" title="include/landscape.hpp" alt="" coords="9,79,163,104"/>
-<area shape="rect" id="node5" href="$image_8hpp.html" title="include/image.hpp" alt="" coords="136,152,265,177"/>
-<area shape="rect" id="node3" href="$helpers_8hpp.html" title="include/helpers.hpp" alt="" coords="17,299,154,324"/>
-<area shape="rect" id="node4" href="$parser_8hpp.html" title="include/parser.hpp" alt="" coords="21,225,151,251"/>
-<area shape="rect" id="node6" href="$output_8hpp.html" title="include/output.hpp" alt="" coords="175,225,306,251"/>
-</map>
