@@ -39,8 +39,15 @@ TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
-
 TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
+
+# If the first argument is "run"...
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp 
 	@mkdir -p $(BUILD_DIR)
@@ -69,7 +76,7 @@ land_enchancer: $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 run: $(BIN)
 	rm -r $(OUTPUT_DIR)
 	mkdir -p $(OUTPUT_DIR)
-	$(BIN)
+	$(BIN) $(RUN_ARGS)
 
 run_land: $(LAND_GEN_BIN)
 	$(LAND_GEN_BIN)
