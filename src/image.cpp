@@ -69,12 +69,12 @@ void Image::setImageSize(size_t NX, size_t NY) {
             tileAveSize = NY / maxLandSize;
 
         }
-    cout << "region size(tiles): " << tileAveSize << " x " << tileAveSize << endl;
+        cout << "\tregion size(tiles): " << tileAveSize << " x " << tileAveSize << endl;
     }
 
-    cout << "landscape size(tiles): " << landSizeX << " x " << landSizeY << endl;
-    cout << "image size(pixels): " << imageSizeX << " x " << imageSizeY << endl;
-    cout << "tile size(pixels): " << tilePixels << " x " << tilePixels << endl;
+    cout << "\tlandscape size(tiles): " << landSizeX << " x " << landSizeY << endl;
+    cout << "\timage size(pixels): " << imageSizeX << " x " << imageSizeY << endl;
+    cout << "\ttile size(pixels): " << tilePixels << " x " << tilePixels << endl;
 }
 
 size_t Image::getTileSize() {

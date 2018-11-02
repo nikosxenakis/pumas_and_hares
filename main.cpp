@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
     
     string inputFile = string(RESOURCES_PATH) + "/land_generator2000x2000_densities_in_the_corners.dat";
 
-    Log::startLogTime("main");
+    Log::startLogTime("simulation");
     
     if(argc == 2) {
         string arg = string(argv[1]);
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
         Helpers::close();
     }
 
-    Log::endLogTime("main");
-    printf("\nThe program has finished. All output files have been placed in output folder\n");
+    Log::endLogTime("simulation");
+    printf("The program has finished. All output files have been placed in output folder\n");
     return 0;
 }
