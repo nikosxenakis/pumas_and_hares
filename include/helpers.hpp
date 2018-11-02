@@ -6,8 +6,6 @@
 #include "configData.hpp"
 #include "output.hpp"
 
-#define MAX_STEP 500
-
 class Helpers {
 private:
     static void initRandomGenerator();

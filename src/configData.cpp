@@ -16,7 +16,7 @@ float ConfigData::getDeltaT() {
 }
 
 void ConfigData::setCapitalT(int capitalT) {
-    assert(capitalT && capitalT > 0 && capitalT <= 500);
+    assert(capitalT && capitalT > 0 && capitalT <= MAX_STEP);
     ConfigData::capitalT = capitalT;
 }
 

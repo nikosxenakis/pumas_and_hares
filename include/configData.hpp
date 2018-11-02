@@ -5,6 +5,8 @@
 #include <vector>
 #include "tileData.hpp"
 
+#define MAX_STEP 500
+
 using namespace std;
 
 /**
