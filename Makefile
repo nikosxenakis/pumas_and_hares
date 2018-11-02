@@ -24,7 +24,7 @@ RESOURCES_DIR := $(BASE_DIR)/resources
 #FILES
 TARGET := pumas_and_hares
 LAND_TARGET := land_generator
-LAND_ENCHANCER := land_enhancer
+LAND_ENCHANCER := land_enchancer
 TEST := test
 
 BIN := $(BIN_DIR)/$(TARGET)
@@ -59,13 +59,13 @@ $(BIN): $(OBJ_FILES)
 	@mkdir -p $(OUTPUT_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
-all: $(BIN) land
+all: $(BIN) $(LAND_TARGET) $(LAND_ENCHANCER)
 	@echo "\t$(BIN) ready."
 
 test:
 	make -C test/ test
 
-land: $(LAND_DIR)/$(LAND_TARGET).cpp
+land_generator: $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $(LAND_GEN_BIN) $(LAND_DIR)/$(LAND_TARGET).cpp
 
@@ -79,8 +79,11 @@ run: $(BIN)
 	@$(BIN) $(RUN_ARGS)
 	@python ./scripts/data_analyzer.py
 
-run_land: $(LAND_GEN_BIN)
+run_land_gen: $(LAND_GEN_BIN)
 	@$(LAND_GEN_BIN)
+
+run_land_enc: $(LAND_ENCHANCER_BIN)
+	@$(LAND_ENCHANCER_BIN)
 
 run_test: $(TEST_BIN)
 	@$(TEST_BIN)
@@ -90,4 +93,4 @@ clean:
 	rm -r $(BIN_DIR)/*
 	rm -r $(BUILD_DIR)/*
 
-.PHONY: test clean all land run run_land land_enchancer run_test
+.PHONY: test clean all land_generator land_enchancer run run_land_gen run_land_enc run_test
