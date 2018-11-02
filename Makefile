@@ -74,16 +74,16 @@ land_enchancer: $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 	$(CXX) $(CXXFLAGS) -o $(LAND_ENCHANCER_BIN) $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 
 run: $(BIN)
-	rm -r $(OUTPUT_DIR)
-	mkdir -p $(OUTPUT_DIR)
-	$(BIN) $(RUN_ARGS)
-	python ./scripts/data_analyzer.py
+	@rm -r $(OUTPUT_DIR)
+	@mkdir -p $(OUTPUT_DIR)
+	@$(BIN) $(RUN_ARGS)
+	@python ./scripts/data_analyzer.py
 
 run_land: $(LAND_GEN_BIN)
-	$(LAND_GEN_BIN)
+	@$(LAND_GEN_BIN)
 
 run_test: $(TEST_BIN)
-	$(TEST_BIN)
+	@$(TEST_BIN)
 
 clean:
 	@echo " Cleaning..."
