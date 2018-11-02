@@ -11,7 +11,10 @@ float Puma::getBirthRate() {
 }
 
 void Puma::setBirthRate(float birth_rate) {
-    assert(birth_rate && birth_rate > 0);
+    if(birth_rate <= 0) {
+        cout << "b configuration must be greater than 0" << endl;
+        exit(1);
+    }
     Puma::birth_rate = birth_rate;
 }
 
@@ -20,7 +23,10 @@ float Puma::getMortalityRate() {
 }
 
 void Puma::setMortalityRate(float mortality_rate) {
-    assert(mortality_rate && mortality_rate > 0);
+    if(mortality_rate <= 0) {
+        cout << "m configuration must be greater than 0" << endl;
+        exit(1);
+    }
     Puma::mortality_rate = mortality_rate;
 }
 
@@ -29,7 +35,10 @@ float Puma::getDiffusionRate() {
 }
 
 void Puma::setDiffusionRate(float diffusion_rate) {
-    assert(diffusion_rate && diffusion_rate > 0);
+    if(diffusion_rate <= 0) {
+        cout << "l configuration must be greater than 0" << endl;
+        exit(1);
+    }
     Puma::diffusion_rate = diffusion_rate;
 }
 

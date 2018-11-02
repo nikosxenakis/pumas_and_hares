@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 #include "tileData.hpp"
-#include <assert.h>
 
 #define MAX_STEP 500
 
