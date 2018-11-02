@@ -11,9 +11,16 @@ void Output::print_output(double t) {
 }
 
 void Output::print_average(double t, float averagePumas, float averageHares) {
+    static bool firstTime = true;
+    
     std::ofstream ofs;
     ofs.open (OUTPUT_FILE, std::ofstream::out | std::ofstream::app);
     
-    ofs << "time = " << t << std::fixed << setprecision(3) << "\tpumas = " << averagePumas << "\thares = " << averageHares << endl;
+    if(firstTime) {
+        ofs << "time\tpumas\thares" << endl;
+        firstTime = false;
+    }
+
+    ofs << t << "\t" << std::fixed << setprecision(3) << averagePumas << "\t" << averageHares << endl;
     ofs.close();
 }
