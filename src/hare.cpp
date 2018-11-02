@@ -11,6 +11,7 @@ float Hare::getBirthRate() {
 }
 
 void Hare::setBirthRate(float birth_rate) {
+    assert(birth_rate && birth_rate > 0);
     Hare::birth_rate = birth_rate;
 }
 
@@ -19,6 +20,7 @@ float Hare::getPredationRate() {
 }
 
 void Hare::setPredationRate(float predation_rate) {
+    assert(predation_rate && predation_rate > 0);
     Hare::predation_rate = predation_rate;
 }
 
@@ -27,6 +29,7 @@ float Hare::getDiffusionRate() {
 }
 
 void Hare::setDiffusionRate(float diffusion_rate) {
+    assert(diffusion_rate && diffusion_rate > 0);
     Hare::diffusion_rate = diffusion_rate;
 }
 

@@ -11,6 +11,7 @@ float Puma::getBirthRate() {
 }
 
 void Puma::setBirthRate(float birth_rate) {
+    assert(birth_rate && birth_rate > 0);
     Puma::birth_rate = birth_rate;
 }
 
@@ -19,6 +20,7 @@ float Puma::getMortalityRate() {
 }
 
 void Puma::setMortalityRate(float mortality_rate) {
+    assert(mortality_rate && mortality_rate > 0);
     Puma::mortality_rate = mortality_rate;
 }
 
@@ -27,6 +29,7 @@ float Puma::getDiffusionRate() {
 }
 
 void Puma::setDiffusionRate(float diffusion_rate) {
+    assert(diffusion_rate && diffusion_rate > 0);
     Puma::diffusion_rate = diffusion_rate;
 }
 

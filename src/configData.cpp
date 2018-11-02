@@ -7,6 +7,7 @@ size_t ConfigData::NX = 0;
 size_t ConfigData::NY = 0;
 
 void ConfigData::setDeltaT(float deltaT) {
+    assert(deltaT && deltaT > 0);
     ConfigData::deltaT = deltaT;
 }
 
@@ -15,6 +16,7 @@ float ConfigData::getDeltaT() {
 }
 
 void ConfigData::setCapitalT(int capitalT) {
+    assert(capitalT && capitalT > 0 && capitalT <= 500);
     ConfigData::capitalT = capitalT;
 }
 
