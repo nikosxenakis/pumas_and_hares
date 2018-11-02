@@ -44,7 +44,8 @@ int main(int argc, char* argv[]) {
         Helpers::close();
     }
 
+    cout << endl;
     Log::endLogTime("simulation");
-    printf("The program has finished. All output files have been placed in output folder\n");
+    cout << "The program has finished. All output files have been placed in output folder" << endl;
     return 0;
 }
