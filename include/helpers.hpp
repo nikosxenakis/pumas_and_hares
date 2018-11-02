@@ -9,6 +9,7 @@
 class Helpers {
 private:
     static void initRandomGenerator();
+    static void printProgress(float percentage);
 public:
     static void init(string file);
 
