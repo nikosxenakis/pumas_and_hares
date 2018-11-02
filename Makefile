@@ -77,6 +77,7 @@ run: $(BIN)
 	rm -r $(OUTPUT_DIR)
 	mkdir -p $(OUTPUT_DIR)
 	$(BIN) $(RUN_ARGS)
+	python ./scripts/data_analyzer.py
 
 run_land: $(LAND_GEN_BIN)
 	$(LAND_GEN_BIN)
