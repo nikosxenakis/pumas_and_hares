@@ -182,7 +182,5 @@ TileData* const Landscape::getRegion(size_t row, size_t col, size_t m, size_t n)
     int land = (landTiles/maxTiles > 0.5 ? 1 : 0);
     float aver_pumas = pumas/landTiles;
     float aver_hares = hares/landTiles;
-    if(land)
-        return new TileData(land, aver_pumas, aver_hares);
-    return new TileData(0, 0, 0);
+    return new TileData(land, aver_pumas, aver_hares);
 }
