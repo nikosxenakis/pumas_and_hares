@@ -1,3 +1,9 @@
+/**
+ * @file landscape.hpp
+ * @brief Provide information about Landscape
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef LANDSCAPE_HPP
 #define LANDSCAPE_HPP
 

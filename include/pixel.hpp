@@ -1,3 +1,9 @@
+/**
+ * @file pixel.hpp
+ * @brief Provide information about Pixel
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef PIXEL_HPP
 #define PIXEL_HPP
 
