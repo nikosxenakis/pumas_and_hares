@@ -1,3 +1,9 @@
+/**
+ * @file log.hpp
+ * @brief Logging time
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef LOG_HPP
 #define LOG_HPP
 

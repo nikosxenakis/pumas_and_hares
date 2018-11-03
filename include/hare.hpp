@@ -1,3 +1,9 @@
+/**
+ * @file hare.hpp
+ * @brief Information about the hare model
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef HARE_HPP
 #define HARE_HPP
 

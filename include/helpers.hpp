@@ -1,3 +1,9 @@
+/**
+ * @file helpers.hpp
+ * @brief Describes class Helpers
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef HELPERS_HPP
 #define HELPERS_HPP
 

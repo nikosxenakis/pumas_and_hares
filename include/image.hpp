@@ -1,3 +1,9 @@
+/**
+ * @file image.hpp
+ * @brief Provide information about Image
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef IMAGE_HPP
 #define IMAGE_HPP
 
