@@ -1,3 +1,8 @@
+/* test_pixel.cpp
+ *
+ * Tests pixel class and its functions
+ *
+ */
 #include "catch.hpp"
 
 #include "../include/pixel.hpp"

@@ -1,3 +1,9 @@
+/* test_image.cpp
+ *
+ * Tests image class and its functions
+ *
+ */
+
 #include <string>
 #include <sys/stat.h>
 #include <stdio.h>
