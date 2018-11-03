@@ -1,3 +1,9 @@
+/* test_image.cpp
+ *
+ * Tests image class and its functions
+ *
+ */
+
 #include <string>
 #include <sys/stat.h>
 #include <stdio.h>
@@ -15,9 +21,9 @@ TEST_CASE( "Image test", "[Testing image functions]"){
 
     const char* outFolder = "./test/out";
 
-    GIVEN( "A 3x3 land file" ){
+    GIVEN( "A 1x1 land file" ){
 
-        string land_file = ("./resources/small3x3.dat");
+        string land_file = ("./resources/small1x1.dat");
         Helpers::init(land_file);
 
         WHEN( "We write the image file"){
@@ -34,7 +40,18 @@ TEST_CASE( "Image test", "[Testing image functions]"){
                 getline(input, line);
                 REQUIRE(line == "P3");
                 getline(input, line);
-                REQUIRE(line == "30 30");
+                REQUIRE(line == "10 10");
+                input.close();
+            }
+
+            THEN( " The colour prints correctly ") {  
+                string line;
+                ifstream input("./test/out/Density_000.ppm");
+                getline(input, line);
+                getline(input, line);
+                getline(input, line);
+                getline(input, line);
+                REQUIRE(line == "254 1 1 254 1 1 254 1 1 254 1 1 ");
                 input.close();
             }
         }
