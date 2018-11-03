@@ -36,7 +36,7 @@ class Parser {
       	 * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
      	 * @param configFile ...
      	 */
-		static void parseConfig(const string& configFile);
+		static void parseConfig(const string& configFile) throw(runtime_error);
 // 		static void parse(const string& landFileName);
         static string required_params[8];
 };

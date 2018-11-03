@@ -6,10 +6,9 @@ vector< vector<TileData*> > ConfigData::tilesVector;
 size_t ConfigData::NX = 0;
 size_t ConfigData::NY = 0;
 
-void ConfigData::setDeltaT(float deltaT) {
-    if(deltaT <= 0) {
-        throw std::invalid_argument("deltaT configuration must be greater than 0");
-    }
+void ConfigData::setDeltaT(float deltaT) throw(invalid_argument) {
+    if(deltaT <= 0)
+        throw invalid_argument("deltaT configuration must be greater than 0");
     ConfigData::deltaT = deltaT;
 }
 

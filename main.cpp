@@ -39,13 +39,16 @@ int main(int argc, char* argv[]) {
     }
 
     if(!inputFile.empty()) {
-        Helpers::init(inputFile);
-        Helpers::simulationLoop();
-        Helpers::close();
+        try {
+            Helpers::init(inputFile);
+            Helpers::simulationLoop();
+            Helpers::close();
+            cout << endl;
+            Log::endLogTime("simulation");
+            cout << "The program has finished. All output files have been placed in output folder" << endl;
+        }
+        catch (...) {
+        }
     }
-
-    cout << endl;
-    Log::endLogTime("simulation");
-    cout << "The program has finished. All output files have been placed in output folder" << endl;
     return 0;
 }

@@ -11,7 +11,7 @@ private:
     static void initRandomGenerator();
     static void printProgress(float percentage);
 public:
-    static void init(string file);
+    static void init(string file)  throw(runtime_error);
 
     /**
      * @brief ...

@@ -31,7 +31,7 @@ public:
     /**
      * @brief set deltaT
      */
-    static void setDeltaT(float deltaT);
+    static void setDeltaT(float deltaT) throw(std::invalid_argument);
     /**
      * @return float deltaT
      */

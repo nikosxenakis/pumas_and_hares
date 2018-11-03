@@ -99,7 +99,7 @@ void Parser::parseInput(const string& landFileName) {
        ConfigData::initLandscapeData(tilesVector, NX+2, NY+2);
    }
    else {
-       throw std::invalid_argument("Unable to open landFile");
+       throw invalid_argument("Unable to open landFile");
    }
 }
 
@@ -115,10 +115,10 @@ void Parser::freeTilesVector() {
     delete tilesVector[0][0]; //removes all of the halo tiles references
 }
 
-void Parser::parseConfig(const string& configFileName) {
+void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
 
-    std::ifstream configFile(configFileName);
-    std::stringstream buffer;
+    ifstream configFile(configFileName);
+    stringstream buffer;
 
     configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
     buffer << configFile.rdbuf();
@@ -142,20 +142,25 @@ void Parser::parseConfig(const string& configFileName) {
     bool found_is_unique = (it == found.end() );
 
     if (found.size() != 8 && found_is_unique) {
-        throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+        throw invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
     }
 
-    ConfigData::setDeltaT(jsonConfig.at("delta_t"));
-    ConfigData::setCapitalT(jsonConfig.at("T"));
-
-    Hare::setBirthRate(jsonConfig.at("r"));
-    Hare::setDiffusionRate(jsonConfig.at("k"));
-    Hare::setPredationRate(jsonConfig.at("a"));
-
-    Puma::setBirthRate(jsonConfig.at("b"));
-    Puma::setDiffusionRate(jsonConfig.at("l"));
-    Puma::setMortalityRate(jsonConfig.at("m"));
-
+    try {
+        ConfigData::setDeltaT(jsonConfig.at("delta_t"));
+        ConfigData::setCapitalT(jsonConfig.at("T"));
+        
+        Hare::setBirthRate(jsonConfig.at("r"));
+        Hare::setDiffusionRate(jsonConfig.at("k"));
+        Hare::setPredationRate(jsonConfig.at("a"));
+        
+        Puma::setBirthRate(jsonConfig.at("b"));
+        Puma::setDiffusionRate(jsonConfig.at("l"));
+        Puma::setMortalityRate(jsonConfig.at("m"));
+    }
+    catch (const invalid_argument& ia) {
+        cerr << "Invalid configuration in parm.json: " << ia.what() << endl;
+        throw runtime_error("Exception in parseConfig");
+    }
 }
 
 string Parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
