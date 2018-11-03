@@ -39,7 +39,7 @@ class Parser {
          * @brief checks if vector only contains 0 and 1 for water and land
          * @param vtile
          */
-        static void errorCheck(vector <string> vtile);
+        static bool validTile(int land);
 
 	public:
 
