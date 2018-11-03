@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 #include "tileData.hpp"
 
 #define MAX_STEP 500
