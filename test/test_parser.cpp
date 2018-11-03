@@ -132,9 +132,9 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
         }
 
         WHEN( "Number of rows bigger than 2000") {
-            string inputFile = "./test/resources/rows_bigger_2000.dat";
+            string inputFile = "./test/resources/row_bigger_than_2000.dat";
             THEN( "Return error" ) {
-                // REQUIRE_THROWS( Parser::parseInput(inputFile) );
+                REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
@@ -142,13 +142,6 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
             string inputFile = "./test/resources/rows_less_1.dat";
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
-            }
-        }
-
-        WHEN( "Number of cols bigger than 2000") {
-            string inputFile = "./test/resources/cols_bigger_2000.dat";
-            THEN( "Return error" ) {
-                // REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
