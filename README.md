@@ -110,6 +110,7 @@ The simulations run on both DICE and Cirrus supercomputers
 
 * [Catch](https://catch-lib.net) for the test library
 * [JSON](https://github.com/nlohmann/json) for the json parser library
+* [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
 ## Running the tests
 
