@@ -13,7 +13,7 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
 
     GIVEN("A landscape of size 10x10") {
 
-        string land_file = "./resources/small10x10.dat";
+        string land_file = "./test/resources/small10x10.dat";
 
         Helpers::init(land_file);
         Tile* t1 = Landscape::getTile(3, 3);
