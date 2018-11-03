@@ -4,10 +4,10 @@
  *
  */
 #include <iostream>
-#include "../lib/catch.hpp"
-#include "../include/tile.hpp"
-#include "../include/landscape.hpp"
-#include "../include/helpers.hpp"
+#include "../../lib/catch.hpp"
+#include "../../include/tile.hpp"
+#include "../../include/landscape.hpp"
+#include "../../include/helpers.hpp"
 
 TEST_CASE( "Tile test", "[testing the tiles]"){
 

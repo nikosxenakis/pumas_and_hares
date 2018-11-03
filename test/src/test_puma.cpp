@@ -6,8 +6,8 @@
 
 #include <iostream>
 #include <fstream>
-#include "../lib/catch.hpp"
-#include "../include/hare.hpp"
+#include "../../lib/catch.hpp"
+#include "../../include/hare.hpp"
 
 using namespace std;
 

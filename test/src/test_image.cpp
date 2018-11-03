@@ -3,17 +3,16 @@
  * Tests image class and its functions
  *
  */
-
+#include "../../lib/catch.hpp"
 #include <string>
 #include <sys/stat.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <iostream>
 
-#include "../lib/catch.hpp"
-#include "../include/helpers.hpp"
-#include "../include/landscape.hpp"
-#include "../include/image.hpp"
+#include "../../include/helpers.hpp"
+#include "../../include/landscape.hpp"
+#include "../../include/image.hpp"
 
 using namespace std;
 

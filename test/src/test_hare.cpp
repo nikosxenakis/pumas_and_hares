@@ -3,12 +3,11 @@
  * Tests hare class and its functions
  *
  */
-
+#include "../../lib/catch.hpp"
 #include <iostream>
-#include "../lib/catch.hpp"
-#include "../include/hare.hpp"
-#include "../include/helpers.hpp"
-#include "../include/configData.hpp"
+#include "../../include/hare.hpp"
+#include "../../include/helpers.hpp"
+#include "../../include/configData.hpp"
 
 using namespace std;
 

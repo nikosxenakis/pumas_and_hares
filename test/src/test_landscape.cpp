@@ -3,13 +3,12 @@
  * Tests landscape class and its functions
  *
  */
-
+#include "../../lib/catch.hpp"
 #include <iostream>
 #include <fstream>
-#include "../lib/catch.hpp"
-#include "../include/landscape.hpp"
-#include "../include/helpers.hpp"
-#include "../include/tile.hpp"
+#include "../../include/landscape.hpp"
+#include "../../include/helpers.hpp"
+#include "../../include/tile.hpp"
 
 using namespace std;
 

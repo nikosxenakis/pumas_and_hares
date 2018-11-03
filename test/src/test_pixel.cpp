@@ -3,8 +3,8 @@
  * Tests pixel class and its functions
  *
  */
-#include "../lib/catch.hpp"
-#include "../include/pixel.hpp"
+#include "../../lib/catch.hpp"
+#include "../../include/pixel.hpp"
 
 
 TEST_CASE( "Pixel Test", "[Testing pixel's getters and setters]" ){
