@@ -23,7 +23,7 @@ TEST_CASE( "Image test", "[Testing image functions]"){
 
     GIVEN( "A 1x1 land file" ){
 
-        string land_file = ("./resources/small1x1.dat");
+        string land_file = ("./test/resources/small1x1.dat");
         Helpers::init(land_file);
 
         WHEN( "We write the image file"){
