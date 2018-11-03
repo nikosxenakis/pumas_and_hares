@@ -17,7 +17,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     GIVEN( "There are correct config parameters defined in a json file" ){
 
         string configFileName = "./test/test_param.json";
-        Parser::parseConfig(configFileName);
+        REQUIRE_NOTHROW( Parser::parseConfig(configFileName) );
 
         THEN( "Parser sets the correct config parameters to ConfigData, Hare and Puma" ){
 
@@ -46,10 +46,10 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     GIVEN( "negative config params set in json file" ){
         string negative_values_configFileName = "./test/test_param_negative_values.json";
 
-        THEN( "Parser accepts negative values and does not throw exception" ){
-            REQUIRE_NOTHROW( Parser::parseConfig(negative_values_configFileName) );
-            REQUIRE( Hare::getBirthRate() == Approx(-0.08) );
-            REQUIRE( ConfigData::getCapitalT() == -20 );
+        THEN( "Parser accepts negative values but Hare model throws invalid_arg exception" ){
+            REQUIRE_THROWS( Parser::parseConfig(negative_values_configFileName) );
+            // REQUIRE( Hare::getBirthRate() == Approx(-0.08) );
+            // REQUIRE( ConfigData::getCapitalT() == -20 );
         }
     }
 
