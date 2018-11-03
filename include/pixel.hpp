@@ -22,9 +22,18 @@ using namespace std;
 class Pixel {
 
 	private:
-		int red; /**< value of red */
-		int green; /**< value of green */
-		int blue; /**< value of blue */
+        /**
+         * @brief value of red
+         */
+		int red;
+        /**
+         * @brief value of green
+         */
+		int green;
+        /**
+         * @brief value of blue
+         */
+		int blue;
 
         /**
          * @brief sets the rgb color of a pixel
