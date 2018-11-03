@@ -16,7 +16,7 @@ using namespace std;
 
 /**
  * @class Pixel
- * @brief ..
+ * @brief Setting the pixels for the overall output image
  * @details A class for setting the color of a pixel as given in r,g,b format
  */
 class Pixel {

@@ -13,11 +13,14 @@
 
 #define OUTPUT_PATH "./output"
 #define OUTPUT_FILE "./output/average_density.dat"
-//#define OUTPUT_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output" //Just for Nikos Xcode
-//#define OUTPUT_FILE "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output/average_density.txt" //Just for Nikos Xcode
 
 using namespace std;
 
+/**
+ * @class Output
+ * @brief ..
+ * @details ..
+ */
 class Output {
 public:
     static void initOutputFile();

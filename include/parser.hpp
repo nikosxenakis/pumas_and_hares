@@ -22,6 +22,11 @@ using json = nlohmann::json;
 
 using namespace std;
 
+/**
+ * @class Parser
+ * @brief Parsing input data
+ * @details Parsing input data from a .json config file and reading landscape definition
+ */
 class Parser {
 
 	private:
