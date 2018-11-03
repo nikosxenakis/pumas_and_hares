@@ -20,7 +20,7 @@ matrix:
                   packages:
                     - g++-4.8
               
-script: make && make test && ./bin/test
+script: make all && ./bin/test
 
 notifications:
     slack: hpc-2018:gGSIDuFRzDnevNOjyuJtLD4k
