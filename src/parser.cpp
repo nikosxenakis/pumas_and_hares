@@ -122,35 +122,35 @@ void Parser::freeTilesVector() {
 
 void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
 
-    ifstream configFile(configFileName);
-    stringstream buffer;
-
-    configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
-    buffer << configFile.rdbuf();
-    string jsonString = buffer.str();
-
-    auto jsonConfig = json::parse(jsonString);
-    std::vector<string> found;
-
-    for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
-    {
-        // check if json key i.key() is in required_params
-        bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
-        if (key_is_req) {
-            // if found add json key to vector<string> found
-            found.push_back(i.key());
-        }
-    }
-
-    // check if values in vector<string> found are unique
-    auto it = std::unique( found.begin(), found.end() );
-    bool found_is_unique = (it == found.end() );
-
-    if (found.size() != 8 && found_is_unique) {
-        throw runtime_error("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
-    }
-
     try {
+        ifstream configFile(configFileName);
+        stringstream buffer;
+
+        configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
+        buffer << configFile.rdbuf();
+        string jsonString = buffer.str();
+
+        auto jsonConfig = json::parse(jsonString);
+        std::vector<string> found;
+
+        for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
+        {
+            // check if json key i.key() is in required_params
+            bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
+            if (key_is_req) {
+                // if found add json key to vector<string> found
+                found.push_back(i.key());
+            }
+        }
+
+        // check if values in vector<string> found are unique
+        auto it = std::unique( found.begin(), found.end() );
+        bool found_is_unique = (it == found.end() );
+
+        if (found.size() != 8 && found_is_unique) {
+            throw invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+        }
+
         ConfigData::setDeltaT(jsonConfig.at("delta_t"));
         ConfigData::setCapitalT(jsonConfig.at("T"));
         
@@ -165,6 +165,12 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     catch (const invalid_argument& ia) {
         cerr << "Invalid configuration in param.json: " << ia.what() << endl;
         throw runtime_error("Exception in set Configuration data");
+    }
+    catch (json::parse_error& e) {
+        std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
+                  << "exception id: " << e.id << '\n'
+                  << "byte position of error: " << e.byte << std::endl;
+        throw runtime_error("Exception thrown during json parsing");
     }
 }
 
