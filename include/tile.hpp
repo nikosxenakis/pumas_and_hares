@@ -29,11 +29,26 @@ using namespace std;
 class Tile {
 
 private :
-    bool land;   /**< a boolean variable which indicates if this tile contains land or not */
-    Density hares;   /**< number of hares */
-    Density pumas;   /**< number of pumas */
-    Density newHares;   /**< new number of hares */
-    Density newPumas;   /**< new number of pumas */
+    /**
+     * @brief a boolean variable which indicates if this tile contains land or not
+     */
+    bool land;
+    /**
+     * @brief number of hares
+     */
+    Density hares;
+    /**
+     * @brief number of pumas
+     */
+    Density pumas;
+    /**
+     * @brief new number of hares
+     */
+    Density newHares;
+    /**
+     * @brief new number of pumas
+     */
+    Density newPumas;
     
     /**
      * @brief Resets the densities of the tile
