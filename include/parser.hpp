@@ -16,8 +16,6 @@
 #include "configData.hpp"
 #include "../lib/json.hpp"
 
-#define RESOURCES_PATH "./resources"
-
 using json = nlohmann::json;
 
 using namespace std;

@@ -38,13 +38,13 @@ public:
     static string getName();
 
     static float getBirthRate();
-    static void setBirthRate(float birth_rate);
+    static void setBirthRate(float birth_rate) throw(invalid_argument);
 
     static float getPredationRate();
-    static void setPredationRate(float predation_rate)
-    ;
+    static void setPredationRate(float predation_rate) throw(invalid_argument);
+
     static float getDiffusionRate();
-    static void setDiffusionRate(float diffusion_rate);
+    static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**
      * @brief Calculate new hare density

@@ -38,13 +38,13 @@ public:
     static string getName();
 
     static float getBirthRate();
-    static void setBirthRate(float birth_rate);
+    static void setBirthRate(float birth_rate) throw(invalid_argument);
 
     static float getMortalityRate();
-    static void setMortalityRate(float mortality_rate);
+    static void setMortalityRate(float mortality_rate) throw(invalid_argument);
 
     static float getDiffusionRate();
-    static void setDiffusionRate(float diffusion_rate);
+    static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**
      * @brief Calculate new Puma density

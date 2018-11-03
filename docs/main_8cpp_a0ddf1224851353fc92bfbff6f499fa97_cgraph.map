@@ -1,7 +1,7 @@
 <map id="main" name="main">
-<area shape="rect" id="node2" href="$class_helpers.html#aa8a343e3e095e72476a3c37cc09e2bd2" title="... " alt="" coords="133,5,239,31"/>
+<area shape="rect" id="node2" href="$class_helpers.html#aa8a343e3e095e72476a3c37cc09e2bd2" title="Closes the landscape after simulation. " alt="" coords="133,5,239,31"/>
 <area shape="rect" id="node3" href="$class_log.html#afdd24cb5a0f07984bd90f6dc9bf39b72" title="Log::endLogTime" alt="" coords="123,55,248,80"/>
 <area shape="rect" id="node4" href="$class_helpers.html#a56483e3c7846f3a1bcc18b30f5fff271" title="Helpers::init" alt="" coords="140,104,232,129"/>
-<area shape="rect" id="node5" href="$class_helpers.html#a68e7af396a763b0f4ca5220f8000e918" title="... " alt="" coords="104,153,268,179"/>
+<area shape="rect" id="node5" href="$class_helpers.html#a68e7af396a763b0f4ca5220f8000e918" title="Iterates over time steps and calls all necessary calculations, intialising output, printing to command line. " alt="" coords="104,153,268,179"/>
 <area shape="rect" id="node6" href="$class_log.html#abf882a5f95ba823931e2af2aa7e41c95" title="Log::startLogTime" alt="" coords="122,203,250,228"/>
 </map>

@@ -7,5 +7,6 @@ var searchData=
   ['print',['print',['../class_landscape.html#afd89af8a0746cca431c1c4d903ce8b08',1,'Landscape::print()'],['../class_tile.html#a66841bc431a16727731104a55e78bf03',1,'Tile::print()']]],
   ['print_5faverage',['print_average',['../class_output.html#a52010301683b0956a427b0842561bcad',1,'Output']]],
   ['print_5foutput',['print_output',['../class_output.html#a7cec7b72aa0bc711ea5db668a6bef193',1,'Output']]],
+  ['printprogress',['printProgress',['../class_helpers.html#a6f344cee8bd4c8c6d74dda7aaae50e93',1,'Helpers']]],
   ['puma',['Puma',['../class_puma.html#aa9c66c07d2666b8c55256e779030d159',1,'Puma']]]
 ];
