@@ -10,17 +10,10 @@ void Parser::split(const string& str, vector<string> &strVect, char delim) {
     }
 }
 
-// todo: where is it used? throw exceptions instead of cout and exit()
-void Parser::errorCheck(vector<string> vTile) {
-    if (stoi(vTile[0])!= 0 && stoi(vTile[0])!= 1) {
-        cout << "Land input must be 0 or 1" << endl;
-        exit(1);
-    }
-    if (stod(vTile[1])<0 || stod(vTile[2]) <0) {
-        cout << "Density input must be positive" << endl;
-        exit(1);
-    }
-
+bool Parser::validTile(int land) {
+    if(land == 0 || land == 1)
+        return true;
+    return false;
 }
 
 void Parser::parseInput(const string& landFileName) throw(runtime_error) {
@@ -69,7 +62,7 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
             split(inputLine, vInputLine, ' ');
          
             if (vInputLine.size()!=NX) {
-                cerr << "Error in line " << i << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
+                cerr << "Error in line " << i+2 << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
                 throw runtime_error("Exception parsing the input");
             }
          
@@ -78,14 +71,16 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
                 // split by comma for land, pumas, hares
                 split(vInputLine[j], vInputTile, ',');
              
-                if (vInputTile.size()==3) {
-                    tilesLine.push_back(new TileData(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
+                int land = stoi(vInputTile[0]);
+                
+                if (vInputTile.size()==3 && Parser::validTile(land)) {
+                    tilesLine.push_back(new TileData(land, stod(vInputTile[1]), stod(vInputTile[2])));
                 }
-                else if (vInputTile.size()==1) {
-                    tilesLine.push_back(new TileData(stoi(vInputTile[0])));
+                else if (vInputTile.size()==1 && Parser::validTile(land)) {
+                    tilesLine.push_back(new TileData(land));
                 }
                 else {
-                    cerr << "Invalid input tile in position ( " << i << ", " << j << endl;
+                    cerr << "Invalid input tile in position (" << i << ", " << j << ") of the input file" << endl;
                     throw runtime_error("Exception parsing the input");
                 }
             }

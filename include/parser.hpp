@@ -29,8 +29,7 @@ class Parser {
 
 	private:
         static void split(const string& line, vector <string> &vline, char delim);
-        static void errorCheck(vector <string> vtile);
-
+        static bool validTile(int land);
 	public:
 
 		/**
