@@ -12,20 +12,28 @@
 #include "configData.hpp"
 #include "output.hpp"
 
+/**
+ * @class Helpers
+ * @brief setting up simulation
+ * @details necessary inits, printing and actual simulation wrappers
+ */
 class Helpers {
 private:
     /**
-     * @brief ...
+     * @brief uses random integer generation
      */
     static void initRandomGenerator();
 
     /**
      * @brief Prints a visualised progress to command line
-     *
      * @param simulation progress in percentage
      */
     static void printProgress(float percentage);
 public:
+    /**
+     * @brief initialising Helpers
+     * @param file handle
+     */
     static void init(string file)  throw(runtime_error);
 
     /**
