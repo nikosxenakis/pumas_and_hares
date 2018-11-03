@@ -30,7 +30,8 @@ All build files are placed in the build directory
 
 ## Input files
 
-The landscape for the model is supplied as a ASCII file which describe which tiles are land or water.
+The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the /resources directory.
+You can select which file to use as input at run time by supplying it as a command line arguemnt i.e. `./bin/pumas_and_hares ./resources/small3x3.dat`
 The format of the file is:
 
 ```
@@ -52,7 +53,6 @@ Alternatively the density of Pumas and Hares at each grid point can be specified
 
 Where the density of pumas are hares follows the landscape descriptor.
 
-Sample input files can be found in the /resources directory
 
 ### Parameters
 
