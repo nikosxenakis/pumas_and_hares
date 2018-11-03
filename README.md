@@ -86,6 +86,22 @@ For landscapes with a dimension smaller than 100 each 10 x 10 pixel square repre
 
 For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
 
+## Design Decisions
+
+We group functionalities into logic classes. Most of these classes are deployed following a `singleton pattern` or `static pattern`.
+For instance `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
+These parameters and the calculation formula for density are the same across the whole landscape and do not change after initalisation.
+Thus, we implemented both classes as static and never create a single object of them.
+
+Puma and Hare densities and the boolean whether a tile is considered land or water are specific to individual tiles.
+Following a strict object-orientation paradigm we create an object for every `tile` of the landscape.
+Slicing the landscape for output we also initialise one `tileData` object per slice.
+
+* UML diagrams
+* see more diagrams in index.html
+
+explain dependency decoupling (configData, Helpers, Parser)
+
 ## Platforms
 
 The simulations run on both DICE and Cirrus supercomputers
