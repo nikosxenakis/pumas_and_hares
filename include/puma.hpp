@@ -14,6 +14,7 @@ using namespace std;
 
 /**
  * @class Puma
+ * @brief Puma model with parameters
  * @details A class holding all config parameters associated with Puma and its density calculation
  */
 class Puma {
@@ -34,16 +35,51 @@ private:
      */
     static float diffusion_rate;
 public:
+    /**
+     * @brief Puma constructor
+     */
     Puma();
+
+    /**
+     * @brief gets the name attribute
+     * @return name
+     */
     static string getName();
 
+    /**
+     * @brief gets the birth rate
+     * @return birth_rate
+     */
     static float getBirthRate();
+
+    /**
+     * @brief sets the birth rate
+     * @param birth_rate
+     */
     static void setBirthRate(float birth_rate) throw(invalid_argument);
 
+    /**
+     * @brief gets the mortality rate
+     * @return mortality rate
+     */
     static float getMortalityRate();
+
+    /**
+     * @brief sets the mortlity rate
+     * @param mortality_rate
+     */
     static void setMortalityRate(float mortality_rate) throw(invalid_argument);
 
+    /**
+     * @brief gets diffusion rate
+     * @return diffusion rate
+     */
     static float getDiffusionRate();
+
+    /**
+     * @brief sets diffusion rate
+     * @param diffusion rate
+     */
     static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**

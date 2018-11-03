@@ -16,22 +16,29 @@
 #define PBWIDTH 60
 
 #define RESOURCES_PATH "./resources"
-//#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
 
+/**
+ * @class Helpers
+ * @brief setting up simulation
+ * @details necessary inits, printing and actual simulation wrappers
+ */
 class Helpers {
 private:
     /**
-     * @brief ...
+     * @brief uses random integer generation
      */
     static void initRandomGenerator();
 
     /**
      * @brief Prints a visualised progress to command line
-     *
      * @param simulation progress in percentage
      */
     static void printProgress(float percentage);
 public:
+    /**
+     * @brief initialising Helpers
+     * @param file handle
+     */
     static void init(string file)  throw(runtime_error);
 
     /**
