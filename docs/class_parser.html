@@ -71,6 +71,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Parsing input data.  
+ <a href="class_parser.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="parser_8hpp_source.html">parser.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Parser:</div>
@@ -83,12 +86,12 @@ Collaboration diagram for Parser:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ca911f567c54a4ad11f436374f79d5b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a7ca911f567c54a4ad11f436374f79d5b">parseInput</a> (const string &amp;landFile)</td></tr>
+<tr class="memitem:a7ca911f567c54a4ad11f436374f79d5b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a7ca911f567c54a4ad11f436374f79d5b">parseInput</a> (const string &amp;landFile)  throw (runtime_error)</td></tr>
 <tr class="memdesc:a7ca911f567c54a4ad11f436374f79d5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">read dat file, parse landscape  <a href="#a7ca911f567c54a4ad11f436374f79d5b">More...</a><br /></td></tr>
 <tr class="separator:a7ca911f567c54a4ad11f436374f79d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47ccffb18b01acaeb386ac29c10e40d9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a47ccffb18b01acaeb386ac29c10e40d9">freeTilesVector</a> ()</td></tr>
 <tr class="separator:a47ccffb18b01acaeb386ac29c10e40d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49118cec62f62ca559ec04bc40998153"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a49118cec62f62ca559ec04bc40998153">parseConfig</a> (const string &amp;configFile)</td></tr>
+<tr class="memitem:a49118cec62f62ca559ec04bc40998153"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a49118cec62f62ca559ec04bc40998153">parseConfig</a> (const string &amp;configFile)  throw (runtime_error)</td></tr>
 <tr class="memdesc:a49118cec62f62ca559ec04bc40998153"><td class="mdescLeft">&#160;</td><td class="mdescRight">read json file, parse json and set parsed parameters to <a class="el" href="class_helpers.html">Helpers</a>, <a class="el" href="class_hare.html">Hare</a> and <a class="el" href="class_puma.html">Puma</a>  <a href="#a49118cec62f62ca559ec04bc40998153">More...</a><br /></td></tr>
 <tr class="separator:a49118cec62f62ca559ec04bc40998153"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -104,7 +107,10 @@ Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a34e82f6633a58f05eb928724cd71fa58"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html#a34e82f6633a58f05eb928724cd71fa58">errorCheck</a> (vector&lt; string &gt; vtile)</td></tr>
 <tr class="separator:a34e82f6633a58f05eb928724cd71fa58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parsing input data. </p>
+<p>Parsing input data from a .json config file and reading landscape definition </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a34e82f6633a58f05eb928724cd71fa58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34e82f6633a58f05eb928724cd71fa58">&#9670;&nbsp;</a></span>errorCheck()</h2>
 
@@ -172,6 +178,12 @@ Static Private Member Functions</h2></td></tr>
           <td class="paramname"><em>configFile</em></td><td>)</td>
           <td></td>
         </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">runtime_error</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
       </table>
   </td>
   <td class="mlabels-right">
@@ -183,7 +195,7 @@ Static Private Member Functions</h2></td></tr>
 <p>read json file, parse json and set parsed parameters to <a class="el" href="class_helpers.html">Helpers</a>, <a class="el" href="class_hare.html">Hare</a> and <a class="el" href="class_puma.html">Puma</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">configFile</td><td>... </td></tr>
+    <tr><td class="paramname">handle</td><td>for configFile containing <a class="el" href="class_puma.html">Puma</a>, <a class="el" href="class_hare.html">Hare</a>, Time parameters (birth rates, deltaT, etc) </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,6 +218,12 @@ Static Private Member Functions</h2></td></tr>
           <td class="paramname"><em>landFile</em></td><td>)</td>
           <td></td>
         </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">runtime_error</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
       </table>
   </td>
   <td class="mlabels-right">
@@ -217,7 +235,7 @@ Static Private Member Functions</h2></td></tr>
 <p>read dat file, parse landscape </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">landFile</td><td>... </td></tr>
+    <tr><td class="paramname">handle</td><td>for landFile containing the landscape definition for water, land and/or <a class="el" href="class_puma.html">Puma</a> and <a class="el" href="class_hare.html">Hare</a> densities </td></tr>
   </table>
   </dd>
 </dl>

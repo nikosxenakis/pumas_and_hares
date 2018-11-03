@@ -92,15 +92,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ac1cba6785b55aa74cd9acf2b141e08af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1daf2c1b8243c702d9bdd65ea930bf31"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a1daf2c1b8243c702d9bdd65ea930bf31">getBirthRate</a> ()</td></tr>
 <tr class="separator:a1daf2c1b8243c702d9bdd65ea930bf31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a834c849f514a82f2a96cd8220329f9dd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a834c849f514a82f2a96cd8220329f9dd">setBirthRate</a> (float <a class="el" href="class_hare.html#a2e2c9324ca4a2c3e1a381c5197945a6b">birth_rate</a>)</td></tr>
+<tr class="memitem:a834c849f514a82f2a96cd8220329f9dd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a834c849f514a82f2a96cd8220329f9dd">setBirthRate</a> (float <a class="el" href="class_hare.html#a2e2c9324ca4a2c3e1a381c5197945a6b">birth_rate</a>)  throw (invalid_argument)</td></tr>
 <tr class="separator:a834c849f514a82f2a96cd8220329f9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc7e0648e484f420bd892f436bdea90"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#acfc7e0648e484f420bd892f436bdea90">getPredationRate</a> ()</td></tr>
 <tr class="separator:acfc7e0648e484f420bd892f436bdea90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60527a631424b272365927f7ff03e552"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a60527a631424b272365927f7ff03e552">setPredationRate</a> (float <a class="el" href="class_hare.html#a801a4c5a637a083fd9f78aee35b6a82d">predation_rate</a>)</td></tr>
+<tr class="memitem:a60527a631424b272365927f7ff03e552"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a60527a631424b272365927f7ff03e552">setPredationRate</a> (float <a class="el" href="class_hare.html#a801a4c5a637a083fd9f78aee35b6a82d">predation_rate</a>)  throw (invalid_argument)</td></tr>
 <tr class="separator:a60527a631424b272365927f7ff03e552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c69a998cef7bc87b6318c2a4f44d92a"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a4c69a998cef7bc87b6318c2a4f44d92a">getDiffusionRate</a> ()</td></tr>
 <tr class="separator:a4c69a998cef7bc87b6318c2a4f44d92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac351558bf49aee6af3b5e26769758b09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#ac351558bf49aee6af3b5e26769758b09">setDiffusionRate</a> (float <a class="el" href="class_hare.html#a4f503c0137e440b428ed5ec8a6406f5d">diffusion_rate</a>)</td></tr>
+<tr class="memitem:ac351558bf49aee6af3b5e26769758b09"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#ac351558bf49aee6af3b5e26769758b09">setDiffusionRate</a> (float <a class="el" href="class_hare.html#a4f503c0137e440b428ed5ec8a6406f5d">diffusion_rate</a>)  throw (invalid_argument)</td></tr>
 <tr class="separator:ac351558bf49aee6af3b5e26769758b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91ad8d9b9e8a73df0d33ef9809d48365"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hare.html#a91ad8d9b9e8a73df0d33ef9809d48365">calculateNewDensity</a> (float H_old, float P_old, int land_neighbours, float sum_density_neighbours)</td></tr>
 <tr class="memdesc:a91ad8d9b9e8a73df0d33ef9809d48365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate new hare density.  <a href="#a91ad8d9b9e8a73df0d33ef9809d48365">More...</a><br /></td></tr>
@@ -317,6 +317,12 @@ Static Private Attributes</h2></td></tr>
           <td class="paramname"><em>birth_rate</em></td><td>)</td>
           <td></td>
         </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">invalid_argument</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
       </table>
   </td>
   <td class="mlabels-right">
@@ -343,6 +349,12 @@ Static Private Attributes</h2></td></tr>
           <td class="paramname"><em>diffusion_rate</em></td><td>)</td>
           <td></td>
         </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">invalid_argument</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
       </table>
   </td>
   <td class="mlabels-right">
@@ -368,6 +380,12 @@ Static Private Attributes</h2></td></tr>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>predation_rate</em></td><td>)</td>
           <td></td>
+        </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">invalid_argument</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
         </tr>
       </table>
   </td>

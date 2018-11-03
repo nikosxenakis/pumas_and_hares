@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['resources_5fpath',['RESOURCES_PATH',['../parser_8hpp.html#ad14207791baca7b200835fff04469ca9',1,'parser.hpp']]]
+  ['pbstr',['PBSTR',['../helpers_8hpp.html#a93f03159397f25c687840129b18c972d',1,'helpers.hpp']]],
+  ['pbwidth',['PBWIDTH',['../helpers_8hpp.html#a69793e71975c25754a8236df29896e15',1,'helpers.hpp']]]
 ];

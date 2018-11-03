@@ -70,16 +70,15 @@ $(function() {
 <p>This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.).</p>
 <p>### Prerequisites </p><div class="fragment"><div class="line">Compiler: g++</div><div class="line">Debug: gdb</div><div class="line">Build tool: make</div><div class="line">Test tool: Catch2</div></div><!-- fragment --><h3>Installing</h3>
 <p>To install this repository, simply use the commands below</p>
-<div class="fragment"><div class="line">make all</div><div class="line">make run</div></div><!-- fragment --><h2>Building</h2>
+<div class="fragment"><div class="line">make clean</div><div class="line">make all</div><div class="line">make run ./resources/islands.dat</div></div><!-- fragment --><h2>Building</h2>
 <ul>
 <li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
 </ul>
 <p>All build files are placed in the build directory</p>
 <h2>Input files</h2>
-<p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. The format of the file is:</p>
-<div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively. Alternatively the density of Pumas and Hares at each grid point can also be specified with the format:</p>
+<p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the <code>/resources</code> directory. You can select which file to use as input at run time by supplying it as a command line arguement i.e. <code>./bin/pumas_and_hares ./resources/small3x3.dat</code> The format of the file is:</p>
+<div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively. Alternatively the density of Pumas and Hares at each grid point can be specified with the format:</p>
 <div class="fragment"><div class="line">3 3</div><div class="line">1,0,0 1,0,0 1,0,0</div><div class="line">1,0,0 1,1,1 1,0,0</div><div class="line">1,0,0 1,0,0 1,0,0</div></div><!-- fragment --><p>Where the density of pumas are hares follows the landscape descriptor.</p>
-<p>Sample input files can be found in resources/</p>
 <h3>Parameters</h3>
 <p>The parameters which the program uses at run time are defined in the resources/param.json file.</p>
 <p>Key:</p><ul>
@@ -92,8 +91,9 @@ $(function() {
 <li>t: time step</li>
 <li>T: interval at which a ppm file is generated.</li>
 </ul>
-<h2><a class="el" href="class_output.html">Output</a></h2>
-<p>The code outputs a ppm file at each T showing the density of pumas across the landscape. The colour code is as follows:</p>
+<h2><a class="el" href="class_output.html" title=".. ">Output</a></h2>
+<p>At each T the average puma and hare density over all land tiles is written in <code>/output/average_density.txt</code></p>
+<p>The code outputs a ppm file at each T showing the density of pumas across the landscape to the <code>/output</code> directory. The colour code in the file is as follows:</p>
 <ul>
 <li>Red: Pumas</li>
 <li>Green: Hares</li>
@@ -101,8 +101,8 @@ $(function() {
 <li>White: Land (no hares or pumas)</li>
 </ul>
 <p>For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.</p>
-<p>For landscapes with a dimension smaller than 100 each square represents a single land square from the input.</p>
-<p>For landscapes with a dimension larger than 100 the output is averaged so that a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is given at run time.</p>
+<p>For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.</p>
+<p>For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.</p>
 <h2>Platforms</h2>
 <p>The simulations run on both DICE and Cirrus supercomputers</p>
 <h2>Third Party Tools</h2>
