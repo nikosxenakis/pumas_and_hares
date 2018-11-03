@@ -3,12 +3,19 @@
 #define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 #define PBWIDTH 60
 
-void Helpers::init(string file) {
+void Helpers::init(string file) throw(runtime_error) {
+    string const configFileName = string(RESOURCES_PATH) + "/param.json";
+
     Helpers::initRandomGenerator();
 
-    string const configFileName = string(RESOURCES_PATH) + "/param.json";
-    Parser::parseConfig(configFileName);
-    Parser::parseInput(file);
+    try {
+        Parser::parseConfig(configFileName);
+        Parser::parseInput(file);
+    }
+    catch (...) {
+        throw runtime_error("Exception in Helpers::init");
+    }
+    
     Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);
     Parser::freeTilesVector();
     Output::initOutputFile();

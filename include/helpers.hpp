@@ -26,7 +26,7 @@ private:
      */
     static void printProgress(float percentage);
 public:
-    static void init(string file);
+    static void init(string file)  throw(runtime_error);
 
     /**
      * @brief Iterates over time steps and calls all necessary calculations, intialising output, printing to command line

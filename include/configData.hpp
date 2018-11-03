@@ -43,7 +43,7 @@ public:
     /**
      * @brief set deltaT
      */
-    static void setDeltaT(float deltaT);
+    static void setDeltaT(float deltaT) throw(invalid_argument);
     /**
      * @return float deltaT
      */
@@ -51,7 +51,7 @@ public:
     /**
      * @brief setCapitalT
      */
-    static void setCapitalT(int capitalT);
+    static void setCapitalT(int capitalT) throw(invalid_argument);
     /**
      * @return int capitalT
      */
