@@ -12,8 +12,7 @@ float Hare::getBirthRate() {
 
 void Hare::setBirthRate(float birth_rate) {
     if(birth_rate <= 0) {
-        cout << "r configuration must be greater than 0" << endl;
-        exit(1);
+        throw std::invalid_argument("r configuration must be greater than 0");
     }
     Hare::birth_rate = birth_rate;
 }
@@ -24,8 +23,7 @@ float Hare::getPredationRate() {
 
 void Hare::setPredationRate(float predation_rate) {
     if(predation_rate <= 0) {
-        cout << "a configuration must be greater than 0" << endl;
-        exit(1);
+        throw std::invalid_argument("a configuration must be greater than 0");
     }
     Hare::predation_rate = predation_rate;
 }
@@ -36,8 +34,7 @@ float Hare::getDiffusionRate() {
 
 void Hare::setDiffusionRate(float diffusion_rate) {
     if(diffusion_rate <= 0) {
-        cout << "k configuration must be greater than 0" << endl;
-        exit(1);
+        throw std::invalid_argument("k configuration must be greater than 0");
     }
     Hare::diffusion_rate = diffusion_rate;
 }
