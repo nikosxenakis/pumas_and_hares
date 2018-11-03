@@ -23,7 +23,7 @@ void Parser::errorCheck(vector<string> vTile) {
 
 }
 
-void Parser::parseInput(const string& landFileName) {
+void Parser::parseInput(const string& landFileName) throw(runtime_error) {
 
     ifstream landFile;
     landFile.open(landFileName);
@@ -32,15 +32,17 @@ void Parser::parseInput(const string& landFileName) {
     vector <string> vInputLine;
     vector <string> vInputTile;
     vector< vector<TileData*> > tilesVector;
-   
+
     if (landFile.is_open()) {
         landFile >> NX;
         if (NX > 2000) {
-            throw std::invalid_argument("Number of columns must be between 1 and 2000");
+            cerr << "Number of columns must be between 1 and 2000" << endl;
+            throw runtime_error("Exception parsing the input");
         }
         landFile >> NY;
         if (NY > 2000) {
-            throw std::invalid_argument("Number of rows must be between 1 and 2000");
+            cerr << "Number of rows must be between 1 and 2000" << endl;
+            throw runtime_error("Exception parsing the input");
         }
 
         // halo cell
@@ -67,7 +69,8 @@ void Parser::parseInput(const string& landFileName) {
             split(inputLine, vInputLine, ' ');
          
             if (vInputLine.size()!=NX) {
-                throw std::invalid_argument("Error x elements not equal to Landscape size");
+                cerr << "Error line " << i << " has " << vInputLine.size() << " elements but " << NX <<" was expected" << endl;
+                throw runtime_error("Exception parsing the input");
             }
          
             for (size_t j=0; j<NX; j++) {
@@ -82,7 +85,8 @@ void Parser::parseInput(const string& landFileName) {
                     tilesLine.push_back(new TileData(stoi(vInputTile[0])));
                 }
                 else {
-                    cout << "Incorrect defintion of input square in input.dat" << endl;
+                    cerr << "Invilid input tile in position ( " << i << ", " << j << endl;
+                    throw runtime_error("Exception parsing the input");
                 }
             }
             tilesLine.push_back(haloTile);      // last column halos
@@ -99,7 +103,8 @@ void Parser::parseInput(const string& landFileName) {
        ConfigData::initLandscapeData(tilesVector, NX+2, NY+2);
    }
    else {
-       throw invalid_argument("Unable to open landFile");
+       cerr << "Invalid land file name: " << landFileName << endl;
+       throw runtime_error("Exception in land file");
    }
 }
 
@@ -142,7 +147,7 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     bool found_is_unique = (it == found.end() );
 
     if (found.size() != 8 && found_is_unique) {
-        throw invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+        throw runtime_error("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
     }
 
     try {
@@ -159,7 +164,7 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     }
     catch (const invalid_argument& ia) {
         cerr << "Invalid configuration in parm.json: " << ia.what() << endl;
-        throw runtime_error("Exception in parseConfig");
+        throw runtime_error("Exception in set Configuration data");
     }
 }
 

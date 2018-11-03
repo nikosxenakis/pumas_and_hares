@@ -11,13 +11,14 @@ void Helpers::init(string file) throw(runtime_error) {
     try {
         Parser::parseConfig(configFileName);
         Parser::parseInput(file);
-        Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);
-        Parser::freeTilesVector();
-        Output::initOutputFile();
     }
     catch (...) {
         throw runtime_error("Exception in Helpers::init");
     }
+    
+    Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);
+    Parser::freeTilesVector();
+    Output::initOutputFile();
 }
 
 void Helpers::close() {

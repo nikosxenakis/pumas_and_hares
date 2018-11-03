@@ -35,7 +35,7 @@ class Parser {
        	 * @brief read dat file, parse landscape
       	 * @param landFile ...
       	 */
-		static void parseInput(const string& landFile);
+		static void parseInput(const string& landFile) throw(runtime_error);
 
         static void freeTilesVector();
 

@@ -22,15 +22,13 @@ using namespace std;
 int main(int argc, char* argv[]) {
     
     string inputFile = string(RESOURCES_PATH) + "/land_generator2000x2000_densities_in_the_corners.dat";
-
-    Log::startLogTime("simulation");
     
     if(argc == 2) {
         string arg = string(argv[1]);
-        if(arg == "--help" || arg == "-h"){
-            printf("Usage: ./pumas_and_hares path/to/file.dat\n");
-            inputFile.clear();
-        } else{
+        if(arg == "--help" || arg == "-h") {
+            cout << "Usage: ./pumas_and_hares path/to/file.dat\n" << endl;
+            return 0;
+        } else {
             inputFile = arg;
         }
     }
@@ -38,17 +36,24 @@ int main(int argc, char* argv[]) {
         inputFile.clear();
     }
 
-    if(!inputFile.empty()) {
-        try {
-            Helpers::init(inputFile);
-            Helpers::simulationLoop();
-            Helpers::close();
-            cout << endl;
-            Log::endLogTime("simulation");
-            cout << "The program has finished. All output files have been placed in output folder" << endl;
-        }
-        catch (...) {
-        }
+    if(inputFile.empty()) {
+        cerr << "Exception in main: Input File is empty" << endl;
+        return 0;
     }
+
+    try {
+        Helpers::init(inputFile);
+    }
+    catch (...) {
+        return 0;
+    }
+
+    Log::startLogTime("simulation");
+    Helpers::simulationLoop();
+    Helpers::close();
+    cout << endl;
+    Log::endLogTime("simulation");
+    cout << "The program has finished. All output files have been placed in output folder" << endl;
+    
     return 0;
 }

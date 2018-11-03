@@ -16,10 +16,9 @@ float ConfigData::getDeltaT() {
     return ConfigData::deltaT;
 }
 
-void ConfigData::setCapitalT(int capitalT) {
-    if(capitalT <= 0 || capitalT > MAX_STEP) {
-        throw std::invalid_argument("T configuration must be greater than 0 and less than 500");
-    }
+void ConfigData::setCapitalT(int capitalT) throw(invalid_argument) {
+    if(capitalT <= 0 || capitalT > MAX_STEP)
+        throw invalid_argument("T configuration must be greater than 0 and less than 500");
     ConfigData::capitalT = capitalT;
 }
 
