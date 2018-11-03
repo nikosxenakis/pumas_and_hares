@@ -16,7 +16,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 
     GIVEN( "There are correct config parameters defined in a json file" ){
 
-        string configFileName = "./test/test_param.json";
+        string configFileName = "./test/resources/test_param.json";
         REQUIRE_NOTHROW( Parser::parseConfig(configFileName) );
 
         THEN( "Parser sets the correct config parameters to ConfigData, Hare and Puma" ){

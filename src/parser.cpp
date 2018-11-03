@@ -85,7 +85,7 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
                     tilesLine.push_back(new TileData(stoi(vInputTile[0])));
                 }
                 else {
-                    cerr << "Invilid input tile in position ( " << i << ", " << j << endl;
+                    cerr << "Invalid input tile in position ( " << i << ", " << j << endl;
                     throw runtime_error("Exception parsing the input");
                 }
             }
@@ -163,7 +163,7 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
         Puma::setMortalityRate(jsonConfig.at("m"));
     }
     catch (const invalid_argument& ia) {
-        cerr << "Invalid configuration in parm.json: " << ia.what() << endl;
+        cerr << "Invalid configuration in param.json: " << ia.what() << endl;
         throw runtime_error("Exception in set Configuration data");
     }
 }
