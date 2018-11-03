@@ -31,8 +31,8 @@ All build files are placed in the build directory
 
 ## Input files
 
-The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the /resources directory.
-You can select which file to use as input at run time by supplying it as a command line arguemnt i.e. `./bin/pumas_and_hares ./resources/small3x3.dat`
+The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the `/resources` directory.
+You can select which file to use as input at run time by supplying it as a command line arguement i.e. `./bin/pumas_and_hares ./resources/small3x3.dat`
 The format of the file is:
 
 ```
@@ -71,9 +71,9 @@ Key:
 
 ## Output
 
-At each T the average puma and hare density over all land tiles is written in /output/average_density.txt
+At each T the average puma and hare density over all land tiles is written in `/output/average_density.txt`
 
-The code outputs a ppm file at each T showing the density of pumas across the landscape to the /output directory. The colour code in the file is as follows:
+The code outputs a ppm file at each T showing the density of pumas across the landscape to the `/output` directory. The colour code in the file is as follows:
 
   * Red: Pumas
   * Green: Hares
@@ -82,9 +82,9 @@ The code outputs a ppm file at each T showing the density of pumas across the la
 
 For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.
 
-For landscapes with a dimension smaller than 100 each square represents a single land square from the input.
+For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.
 
-For landscapes with a dimension larger than 100 the output is averaged so that a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
+For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
 
 ## Platforms
 
