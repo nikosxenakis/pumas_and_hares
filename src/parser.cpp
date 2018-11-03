@@ -35,13 +35,13 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
 
     if (landFile.is_open()) {
         landFile >> NX;
-        if (NX > 2000) {
-            cerr << "Number of columns must be between 1 and 2000" << endl;
+        if (NX > 2000 || NX < 1) {
+            cerr << "Number of columns must be between 1 and 2000 but instead it was " << NX << endl;
             throw runtime_error("Exception parsing the input");
         }
         landFile >> NY;
-        if (NY > 2000) {
-            cerr << "Number of rows must be between 1 and 2000" << endl;
+        if (NY > 2000 || NY < 1) {
+            cerr << "Number of rows must be between 1 and 2000 but instead it was " << NY << endl;
             throw runtime_error("Exception parsing the input");
         }
 
@@ -69,7 +69,7 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
             split(inputLine, vInputLine, ' ');
          
             if (vInputLine.size()!=NX) {
-                cerr << "Error line " << i << " has " << vInputLine.size() << " elements but " << NX <<" was expected" << endl;
+                cerr << "Error in line " << i << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
                 throw runtime_error("Exception parsing the input");
             }
          
@@ -124,12 +124,20 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
 
     ifstream configFile(configFileName);
     stringstream buffer;
+    json jsonConfig;
 
     configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
     buffer << configFile.rdbuf();
     string jsonString = buffer.str();
 
-    auto jsonConfig = json::parse(jsonString);
+    try {
+        jsonConfig = json::parse(jsonString);
+    }
+    catch (...) {
+        cerr << "Exception parsing json: Wrong format" << endl;
+        throw runtime_error("Exception in set Configuration data");
+    }
+
     std::vector<string> found;
 
     for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)

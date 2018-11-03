@@ -12,6 +12,12 @@
 #include "configData.hpp"
 #include "output.hpp"
 
+#define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+#define PBWIDTH 60
+
+#define RESOURCES_PATH "./resources"
+//#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
+
 class Helpers {
 private:
     static void initRandomGenerator();
