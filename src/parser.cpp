@@ -29,13 +29,15 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
     if (landFile.is_open()) {
         landFile >> NX;
         if (NX > 2000 || NX < 1) {
-            cerr << "Number of columns must be between 1 and 2000 but instead it was " << NX << endl;
-            throw runtime_error("Exception parsing the input");
+            stringstream ss;
+            ss << "Number of columns must be between 1 and 2000 but instead it was " << NX << endl;
+            throw runtime_error(ss.str());
         }
         landFile >> NY;
         if (NY > 2000 || NY < 1) {
-            cerr << "Number of rows must be between 1 and 2000 but instead it was " << NY << endl;
-            throw runtime_error("Exception parsing the input");
+            stringstream ss;
+            ss << "Number of rows must be between 1 and 2000 but instead it was " << NY << endl;
+            throw runtime_error(ss.str());
         }
 
         // halo cell
@@ -62,8 +64,9 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
             split(inputLine, vInputLine, ' ');
          
             if (vInputLine.size()!=NX) {
-                cerr << "Error in line " << i+2 << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
-                throw runtime_error("Exception parsing the input");
+                stringstream ss;
+                ss << "Error in line " << i+2 << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
+                throw runtime_error(ss.str());
             }
          
             for (size_t j=0; j<NX; j++) {
@@ -80,8 +83,9 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
                     tilesLine.push_back(new TileData(land));
                 }
                 else {
-                    cerr << "Invalid input tile in position (" << i << ", " << j << ") of the input file" << endl;
-                    throw runtime_error("Exception parsing the input");
+                    stringstream ss;
+                    ss << "Invalid input tile in position (" << i << ", " << j << ") of the input file" << endl;
+                    throw runtime_error(ss.str());
                 }
             }
             tilesLine.push_back(haloTile);      // last column halos
@@ -98,8 +102,9 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
        ConfigData::initLandscapeData(tilesVector, NX+2, NY+2);
    }
    else {
-       cerr << "Invalid land file name: " << landFileName << endl;
-       throw runtime_error("Exception in land file");
+       stringstream ss;
+       ss << "Invalid land file name: " << landFileName << endl;
+       throw runtime_error(ss.str());
    }
 }
 
@@ -129,8 +134,9 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
         jsonConfig = json::parse(jsonString);
     }
     catch (json::parse_error& e) {
-        cerr << "exception id: " << e.id << endl << "byte position of error: " << e.byte << endl;
-        throw runtime_error("Exception thrown during json parsing");
+        stringstream err;
+        err << "exception id: " << e.id << endl << "byte position of error: " << e.byte;
+        throw runtime_error(err.str());
     }
 
     std::vector<string> found;
@@ -150,8 +156,9 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     bool found_is_unique = (it == found.end() );
 
     if (found.size() != 8 && found_is_unique) {
-        cerr << "You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m" << endl;
-        throw runtime_error("Exception thrown in json fields");
+        stringstream ss;
+        ss << "You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m" << endl;
+        throw runtime_error(ss.str());
     }
 
     try {
@@ -167,8 +174,9 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
         Puma::setMortalityRate(jsonConfig.at("m"));
     }
     catch (const invalid_argument& ia) {
-        cerr << "Invalid configuration in param.json: " << ia.what() << endl;
-        throw runtime_error("Exception in set Configuration data");
+        stringstream err;
+        err << "Invalid configuration in param.json: " << ia.what() << endl;
+        throw runtime_error(err.str());
     }
 }
 

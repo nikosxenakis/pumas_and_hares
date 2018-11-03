@@ -9,8 +9,8 @@ void Helpers::init(string file) throw(runtime_error) {
         Parser::parseConfig(configFileName);
         Parser::parseInput(file);
     }
-    catch (...) {
-        throw runtime_error("Exception in Helpers::init");
+    catch (const runtime_error& re) {
+        throw re;
     }
     
     Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);

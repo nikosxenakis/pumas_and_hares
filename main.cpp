@@ -21,30 +21,21 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     
-    string inputFile = string(RESOURCES_PATH) + "/land_generator2000x2000_densities_in_the_corners.dat";
+    string inputFile = string(RESOURCES_PATH) + "/islands.dat";
     
     if(argc == 2) {
-        string arg = string(argv[1]);
-        if(arg == "--help" || arg == "-h") {
-            cout << "Usage: ./pumas_and_hares path/to/file.dat\n" << endl;
-            return 0;
-        } else {
-            inputFile = arg;
-        }
+        inputFile = string(argv[1]);
     }
     else if(argc > 2){
-        inputFile.clear();
-    }
-
-    if(inputFile.empty()) {
-        cerr << "Exception in main: Input File is empty" << endl;
+        cerr << "Exception in main: too many arguments" << endl;
         return 0;
     }
 
     try {
         Helpers::init(inputFile);
     }
-    catch (...) {
+    catch (const runtime_error& re) {
+        cerr << re.what() << endl;
         return 0;
     }
 
