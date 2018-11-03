@@ -17,6 +17,11 @@ using namespace std;
 
 typedef std::chrono::high_resolution_clock Clock;
 
+/**
+ * @class Log
+ * @brief Logging execution time
+ * @details Logs the execution time and exports logs
+ */
 class Log {
 private:
     static map<string, Clock::time_point> startTime;

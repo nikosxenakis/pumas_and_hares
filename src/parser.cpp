@@ -85,7 +85,7 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
                     tilesLine.push_back(new TileData(stoi(vInputTile[0])));
                 }
                 else {
-                    cerr << "Invilid input tile in position ( " << i << ", " << j << endl;
+                    cerr << "Invalid input tile in position ( " << i << ", " << j << endl;
                     throw runtime_error("Exception parsing the input");
                 }
             }
@@ -126,9 +126,9 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     stringstream buffer;
     json jsonConfig;
 
-    configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
-    buffer << configFile.rdbuf();
-    string jsonString = buffer.str();
+        configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
+        buffer << configFile.rdbuf();
+        string jsonString = buffer.str();
 
     try {
         jsonConfig = json::parse(jsonString);
@@ -140,25 +140,24 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
 
     std::vector<string> found;
 
-    for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
-    {
-        // check if json key i.key() is in required_params
-        bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
-        if (key_is_req) {
-            // if found add json key to vector<string> found
-            found.push_back(i.key());
+        for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
+        {
+            // check if json key i.key() is in required_params
+            bool key_is_req = std::find(std::begin(required_params), std::end(required_params), i.key()) != std::end(required_params);
+            if (key_is_req) {
+                // if found add json key to vector<string> found
+                found.push_back(i.key());
+            }
         }
-    }
 
-    // check if values in vector<string> found are unique
-    auto it = std::unique( found.begin(), found.end() );
-    bool found_is_unique = (it == found.end() );
+        // check if values in vector<string> found are unique
+        auto it = std::unique( found.begin(), found.end() );
+        bool found_is_unique = (it == found.end() );
 
-    if (found.size() != 8 && found_is_unique) {
-        throw runtime_error("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
-    }
+        if (found.size() != 8 && found_is_unique) {
+            throw invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+        }
 
-    try {
         ConfigData::setDeltaT(jsonConfig.at("delta_t"));
         ConfigData::setCapitalT(jsonConfig.at("T"));
         
@@ -171,8 +170,14 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
         Puma::setMortalityRate(jsonConfig.at("m"));
     }
     catch (const invalid_argument& ia) {
-        cerr << "Invalid configuration in parm.json: " << ia.what() << endl;
+        cerr << "Invalid configuration in param.json: " << ia.what() << endl;
         throw runtime_error("Exception in set Configuration data");
+    }
+    catch (json::parse_error& e) {
+        std::cout << "There is a syntax error in /resources/param.json. Message: " << e.what() << '\n'
+                  << "exception id: " << e.id << '\n'
+                  << "byte position of error: " << e.byte << std::endl;
+        throw runtime_error("Exception thrown during json parsing");
     }
 }
 

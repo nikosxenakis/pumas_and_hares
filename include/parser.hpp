@@ -20,6 +20,11 @@ using json = nlohmann::json;
 
 using namespace std;
 
+/**
+ * @class Parser
+ * @brief Parsing input data
+ * @details Parsing input data from a .json config file and reading landscape definition
+ */
 class Parser {
 
 	private:
@@ -30,7 +35,7 @@ class Parser {
 
 		/**
        	 * @brief read dat file, parse landscape
-      	 * @param landFile ...
+      	 * @param handle for landFile containing the landscape definition for water, land and/or Puma and Hare densities
       	 */
 		static void parseInput(const string& landFile) throw(runtime_error);
 
@@ -38,7 +43,7 @@ class Parser {
 
 		/**
       	 * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
-     	 * @param configFile ...
+     	 * @param handle for configFile containing Puma, Hare, Time parameters (birth rates, deltaT, etc)
      	 */
 		static void parseConfig(const string& configFile) throw(runtime_error);
 

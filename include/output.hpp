@@ -18,6 +18,11 @@
 
 using namespace std;
 
+/**
+ * @class Output
+ * @brief ..
+ * @details ..
+ */
 class Output {
 public:
     static void initOutputFile();
