@@ -1,3 +1,9 @@
+/**
+ * @file puma.hpp
+ * @brief Information about the Puma model
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef PUMA_HPP
 #define PUMA_HPP
 

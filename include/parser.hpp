@@ -1,3 +1,9 @@
+/**
+ * @file parser.hpp
+ * @brief Parses the input files
+ * @ingroup input
+ */
+
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
@@ -32,12 +38,12 @@ class Parser {
 		static void parseInput(const string& landFile);
 
         static void freeTilesVector();
+
 		/**
       	 * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
      	 * @param configFile ...
      	 */
 		static void parseConfig(const string& configFile);
-// 		static void parse(const string& landFileName);
         static string required_params[8];
 };
 

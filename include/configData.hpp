@@ -1,3 +1,9 @@
+/**
+ * @file configData.hpp
+ * @brief Information about input data (time, time steps, grid size, etc)
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef CONFIGDATA_HPP
 #define CONFIGDATA_HPP
 

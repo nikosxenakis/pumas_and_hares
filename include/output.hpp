@@ -1,3 +1,9 @@
+/**
+ * @file output.hpp
+ * @brief Provide information about a Tile
+ * @ingroup output
+ */
+
 #ifndef OUTPUT_HPP
 #define OUTPUT_HPP
 
