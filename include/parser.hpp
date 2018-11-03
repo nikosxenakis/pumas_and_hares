@@ -27,26 +27,26 @@ using namespace std;
  */
 class Parser {
 
-	private:
-        static void split(const string& line, vector <string> &vline, char delim);
-        static bool validTile(int land);
-	public:
+private:
+    static void split(const string& line, vector <string> &vline, char delim);
+    static bool validTile(int land);
+public:
 
-		/**
-       	 * @brief read dat file, parse landscape
-      	 * @param handle for landFile containing the landscape definition for water, land and/or Puma and Hare densities
-      	 */
-		static void parseInput(const string& landFile) throw(runtime_error);
+    /**
+     * @brief read dat file, parse landscape
+     * @param handle for landFile containing the landscape definition for water, land and/or Puma and Hare densities
+     */
+    static void parseInput(const string& landFile) throw(runtime_error);
 
-        static void freeTilesVector();
+    static void freeTilesVector();
 
-		/**
-      	 * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
-     	 * @param handle for configFile containing Puma, Hare, Time parameters (birth rates, deltaT, etc)
-     	 */
-		static void parseConfig(const string& configFile) throw(runtime_error);
+    /**
+     * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
+     * @param handle for configFile containing Puma, Hare, Time parameters (birth rates, deltaT, etc)
+     */
+    static void parseConfig(const string& configFile) throw(runtime_error);
 
-        static string required_params[8];
+    static string required_params[8];
 };
 
 #endif
