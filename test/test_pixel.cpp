@@ -22,12 +22,21 @@ TEST_CASE( "Pixel Test", "[Testing pixel's getters and setters]" ){
             }
 
         }
-        WHEN( "We set the pixel colour") {
+        WHEN( "We set the pixel colour for pumas ") {
             p.setColour(Colour::pumas, 1.0, 2.0, 2.0);
 
             THEN( "The pixel colour is set correctly"){
                 REQUIRE(p.getRed() == 254);
                 REQUIRE(p.getGreen() == 127);
+                REQUIRE(p.getBlue() == 127);
+            }
+        }
+        WHEN(" We set the pixel colour for hares ") {
+            p.setColour(Colour::hares, 1.0, 2.0, 2.0);
+
+            THEN( "The pixel colours is set correctly") {
+                REQUIRE(p.getRed() == 127);
+                REQUIRE(p.getGreen() == 254);
                 REQUIRE(p.getBlue() == 127);
             }
         }

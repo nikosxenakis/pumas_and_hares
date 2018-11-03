@@ -24,7 +24,7 @@ RESOURCES_DIR := $(BASE_DIR)/resources
 #FILES
 TARGET := pumas_and_hares
 LAND_TARGET := land_generator
-LAND_ENCHANCER := land_enhancer
+LAND_ENCHANCER := land_enchancer
 TEST := test
 
 BIN := $(BIN_DIR)/$(TARGET)
@@ -39,8 +39,15 @@ TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
 
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
-
 TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
+
+# If the first argument is "run"...
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(RUN_ARGS):;@:)
+endif
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp 
 	@mkdir -p $(BUILD_DIR)
@@ -52,13 +59,13 @@ $(BIN): $(OBJ_FILES)
 	@mkdir -p $(OUTPUT_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
-all: $(BIN) land
+all: $(BIN) $(LAND_TARGET) $(LAND_ENCHANCER)
 	@echo "\t$(BIN) ready."
 
 test:
 	make -C test/ test
 
-land: $(LAND_DIR)/$(LAND_TARGET).cpp
+land_generator: $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $(LAND_GEN_BIN) $(LAND_DIR)/$(LAND_TARGET).cpp
 
@@ -67,19 +74,23 @@ land_enchancer: $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 	$(CXX) $(CXXFLAGS) -o $(LAND_ENCHANCER_BIN) $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 
 run: $(BIN)
-	rm -r $(OUTPUT_DIR)
-	mkdir -p $(OUTPUT_DIR)
-	$(BIN)
+	@rm -r $(OUTPUT_DIR)
+	@mkdir -p $(OUTPUT_DIR)
+	@$(BIN) $(RUN_ARGS)
+	@python ./scripts/data_analyzer.py
 
-run_land: $(LAND_GEN_BIN)
-	$(LAND_GEN_BIN)
+run_land_gen: $(LAND_GEN_BIN)
+	@$(LAND_GEN_BIN)
+
+run_land_enc: $(LAND_ENCHANCER_BIN)
+	@$(LAND_ENCHANCER_BIN)
 
 run_test: $(TEST_BIN)
-	$(TEST_BIN)
+	@$(TEST_BIN)
 
 clean:
 	@echo " Cleaning..."
 	rm -r $(BIN_DIR)/*
 	rm -r $(BUILD_DIR)/*
 
-.PHONY: test clean all land run run_land land_enchancer run_test
+.PHONY: test clean all land_generator land_enchancer run run_land_gen run_land_enc run_test

@@ -8,7 +8,7 @@
 #include "puma.hpp"
 #include "tileData.hpp"
 #include "configData.hpp"
-#include "../resources/json.hpp"
+#include "../lib/json.hpp"
 
 #define RESOURCES_PATH "./resources"
 //#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode

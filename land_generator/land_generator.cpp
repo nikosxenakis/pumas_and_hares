@@ -6,7 +6,7 @@
 
 #define RESOURCES_PATH "./resources/"
 
-#define LANDPERCENTAGE 0.6
+#define LANDPERCENTAGE 0.8
 
 #define ROWS 50
 #define COLS 50
@@ -233,7 +233,7 @@ void land_generator(ofstream &landFile) {
 int main() {
 
     ofstream landFile;
-    landFile.open (string(RESOURCES_PATH) + "new.dat");
+    landFile.open (string(RESOURCES_PATH) + "new_50x50.dat");
 
     time_t t = time(NULL);
     srand (t);

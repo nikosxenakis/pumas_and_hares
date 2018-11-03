@@ -6,11 +6,10 @@
 #include "configData.hpp"
 #include "output.hpp"
 
-#define MAX_STEP 500
-
 class Helpers {
 private:
     static void initRandomGenerator();
+    static void printProgress(float percentage);
 public:
     static void init(string file);
 

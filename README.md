@@ -18,8 +18,9 @@ Test tool: Catch2
 To install this repository, simply use the commands below
 
 ```
+make clean
 make all
-make run
+make run ./resources/islands.dat
 ```
 
 ## Building
