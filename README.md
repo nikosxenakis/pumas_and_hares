@@ -60,14 +60,14 @@ Where the density of pumas are hares follows the landscape descriptor.
 The parameters which the program uses at run time are defined in the resources/param.json file.
 
 Key:
-  *  r: birth rate of the hares
-  *  a: predation rate at which pumas eat hares
-  *  b: birth rate of pumas per one hare eaten
-  *  m: puma mortality rate
-  *  k: diffusion rate for hares
-  *  l: diffusion rate for pumas
-  *  t: time step
-  *  T: interval at which a ppm file is generated.
+  *  `r`: birth rate of the hares
+  *  `a`: predation rate at which pumas eat hares
+  *  `b`: birth rate of pumas per one hare eaten
+  *  `m`: puma mortality rate
+  *  `k`: diffusion rate for hares
+  *  `l`: diffusion rate for pumas
+  *  `t`: time step
+  *  `T`: interval at which a ppm file is generated.
 
 ## Output
 
