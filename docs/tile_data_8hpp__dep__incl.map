@@ -1,5 +1,5 @@
 <map id="include/tileData.hpp" name="include/tileData.hpp">
-<area shape="rect" id="node2" href="$config_data_8hpp.html" title="include/configData.hpp" alt="" coords="5,79,162,104"/>
-<area shape="rect" id="node3" href="$parser_8hpp.html" title="include/parser.hpp" alt="" coords="76,152,206,177"/>
+<area shape="rect" id="node2" href="$config_data_8hpp.html" title="Information about input data (time, time steps, grid size, etc) " alt="" coords="5,79,162,104"/>
+<area shape="rect" id="node3" href="$parser_8hpp.html" title="Parses the input files. " alt="" coords="76,152,206,177"/>
 <area shape="rect" id="node4" href="$tile_8hpp.html" title="Provide information about a Tile. " alt="" coords="237,79,347,104"/>
 </map>

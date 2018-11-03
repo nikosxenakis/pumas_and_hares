@@ -56,7 +56,7 @@ public:
      * @brief sets the birth rate
      * @param birth_rate
      */
-    static void setBirthRate(float birth_rate);
+    static void setBirthRate(float birth_rate) throw(invalid_argument);
 
     /**
      * @brief gets the mortality rate
@@ -68,7 +68,7 @@ public:
      * @brief sets the mortlity rate
      * @param mortality_rate
      */
-    static void setMortalityRate(float mortality_rate);
+    static void setMortalityRate(float mortality_rate) throw(invalid_argument);
 
     /**
      * @brief gets diffusion rate
@@ -80,7 +80,7 @@ public:
      * @brief sets diffusion rate
      * @param diffusion rate
      */
-    static void setDiffusionRate(float diffusion_rate);
+    static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**
      * @brief Calculate new Puma density

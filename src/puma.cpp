@@ -10,10 +10,9 @@ float Puma::getBirthRate() {
     return Puma::birth_rate;
 }
 
-void Puma::setBirthRate(float birth_rate) {
-    if(birth_rate <= 0) {
-        throw std::invalid_argument("b configuration must be greater than 0");
-    }
+void Puma::setBirthRate(float birth_rate) throw(invalid_argument) {
+    if(birth_rate <= 0)
+        throw invalid_argument("b configuration must be greater than 0");
     Puma::birth_rate = birth_rate;
 }
 
@@ -21,10 +20,9 @@ float Puma::getMortalityRate() {
     return Puma::mortality_rate;
 }
 
-void Puma::setMortalityRate(float mortality_rate) {
-    if(mortality_rate <= 0) {
-        throw std::invalid_argument("m configuration must be greater than 0");
-    }
+void Puma::setMortalityRate(float mortality_rate) throw(invalid_argument) {
+    if(mortality_rate <= 0)
+        throw invalid_argument("m configuration must be greater than 0");
     Puma::mortality_rate = mortality_rate;
 }
 
@@ -32,10 +30,9 @@ float Puma::getDiffusionRate() {
     return Puma::diffusion_rate;
 }
 
-void Puma::setDiffusionRate(float diffusion_rate) {
-    if(diffusion_rate <= 0) {
-        throw std::invalid_argument("l configuration must be greater than 0");
-    }
+void Puma::setDiffusionRate(float diffusion_rate) throw(invalid_argument) {
+    if(diffusion_rate <= 0)
+        throw invalid_argument("l configuration must be greater than 0");
     Puma::diffusion_rate = diffusion_rate;
 }
 

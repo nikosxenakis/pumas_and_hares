@@ -1,6 +1,6 @@
 #!/usr/bin/env python2
 # data_analyzer.py
-
+import os
 import matplotlib.pyplot as plt
 
 
@@ -54,6 +54,8 @@ def analyze_data(data_file):
     )
 
 
-f = open('./output/average_density.dat', 'r')
+path = './output/average_density.dat'
 
-analyze_data(f)
+if os.path.exists(path):
+    f = open(path, 'r')
+    analyze_data(f)

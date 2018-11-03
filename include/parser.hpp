@@ -16,8 +16,6 @@
 #include "configData.hpp"
 #include "../lib/json.hpp"
 
-#define RESOURCES_PATH "./resources"
-
 using json = nlohmann::json;
 
 using namespace std;
@@ -64,6 +62,7 @@ class Parser {
        	 * @brief array containing all mandatory keys for the json file
       	 */
         static string required_params[8];
+
 };
 
 #endif

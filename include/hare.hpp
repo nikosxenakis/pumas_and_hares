@@ -55,7 +55,7 @@ public:
      * @brief sets the birth rate
      * @param birth_rate
      */
-    static void setBirthRate(float birth_rate);
+    static void setBirthRate(float birth_rate) throw(invalid_argument);
 
     /**
      * @brief gets the predation rate
@@ -67,7 +67,7 @@ public:
      * @brief sets the predation rate
      * @param predation_rate
      */
-    static void setPredationRate(float predation_rate);
+    static void setPredationRate(float predation_rate) throw(invalid_argument);
 
     /**
      * @brief gets diffusion rate
@@ -79,7 +79,7 @@ public:
      * @brief sets diffusion rate
      * @param diffusion_rate
      */
-    static void setDiffusionRate(float diffusion_rate);
+    static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**
      * @brief Calculate new hare density

@@ -1,8 +1,5 @@
 #include "../include/helpers.hpp"
 
-#define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-#define PBWIDTH 60
-
 void Helpers::init(string file) throw(runtime_error) {
     string const configFileName = string(RESOURCES_PATH) + "/param.json";
 

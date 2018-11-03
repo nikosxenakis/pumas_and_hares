@@ -12,6 +12,11 @@
 #include "configData.hpp"
 #include "output.hpp"
 
+#define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
+#define PBWIDTH 60
+
+#define RESOURCES_PATH "./resources"
+
 /**
  * @class Helpers
  * @brief setting up simulation
