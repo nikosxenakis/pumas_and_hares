@@ -83,35 +83,35 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
         WHEN( "Vector value is smaller than 0" ) {
             string inputFile = "./test/vector_smaller_than_0.dat";
             THEN( "Return error" ) {
-                REQUIRE_THROWS( Parser::parseInput() );
+                REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Vector value is bigger than 1" ) {
             string inputFile = "./test/vector_bigger_than_1.dat";
             THEN( "Return error" ) {
-                REQUIRE_THROWS( Parser::parseInput() );
+                REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Vector value is 0" ) {
             string inputFile = "./test/vector_equals_0.dat";
             THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput() );
+                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Vector value is 1" ) {
             string inputFile = "./test/vector_equals_1.dat";
             THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput() );
+                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "x elements not equal to Landscape size" ) {
             string inputFile = "./test/input_x_elements_not_equal_landscape_size.dat";
             THEN( "Throw exception" ) {
-                REQUIRE_THROWS( Parser::parseInput() );
+                REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
@@ -119,7 +119,7 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
         WHEN( "Number of columns are between 1 and 2000" ) {
             string inputFile = "./test/cols_between_1_2000.dat";
             THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput() );
+                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
@@ -127,35 +127,35 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
         WHEN( "Number of rows are between 1 and 2000") {
             string inputFile = "./test/rows_between_1_2000.dat";
             THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput() );
+                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of rows bigger than 2000") {
             string inputFile = "./test/rows_bigger_2000.dat";
             THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput() );
+                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of rows less than 1") {
             string inputFile = "./test/rows_less_1.dat";
             THEN( "Return no error" ) {
-                REQUIRE_NOTHROW( Parser::parseInput() );
+                REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of cols bigger than 2000") {
             string inputFile = "./test/cols_bigger_2000.dat";
             THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput() );
+                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of cols less than 1") {
             string inputFile = "./test/cols_less_1.dat";
             THEN( "Return no error" ) {
-                REQUIRE_NOTHROW( Parser::parseInput() );
+                REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
     }

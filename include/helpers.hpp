@@ -14,18 +14,27 @@
 
 class Helpers {
 private:
+    /**
+     * @brief ...
+     */
     static void initRandomGenerator();
+
+    /**
+     * @brief Prints a visualised progress to command line
+     *
+     * @param simulation progress in percentage
+     */
     static void printProgress(float percentage);
 public:
     static void init(string file)  throw(runtime_error);
 
     /**
-     * @brief ...
+     * @brief Iterates over time steps and calls all necessary calculations, intialising output, printing to command line
      */
     static void simulationLoop();
 
     /**
-     * @brief ...
+     * @brief Closes the landscape after simulation
      */
     static void close();
 };

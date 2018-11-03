@@ -17,7 +17,7 @@ using namespace std;
 
 /**
  * @class ConfigData
- * @details A class holding all config parameters associated the simulation loop, the time and map dimensions
+ * @details A class holding all config parameters associated with the simulation loop, the time and map dimensions
  */
 class ConfigData {
 private:
@@ -30,7 +30,13 @@ private:
      */
     static int capitalT;
 public:
+    /**
+     * @brief grid size X dimension
+     */
     static size_t NX;
+    /**
+     * @brief grid size Y dimension
+     */
     static size_t NY;
     static vector< vector<TileData*> > tilesVector;
 
