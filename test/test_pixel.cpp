@@ -3,8 +3,7 @@
  * Tests pixel class and its functions
  *
  */
-#include "catch.hpp"
-
+#include "../lib/catch.hpp"
 #include "../include/pixel.hpp"
 
 

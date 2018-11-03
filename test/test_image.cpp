@@ -10,10 +10,10 @@
 #include <unistd.h>
 #include <iostream>
 
+#include "../lib/catch.hpp"
 #include "../include/helpers.hpp"
 #include "../include/landscape.hpp"
 #include "../include/image.hpp"
-#include "catch.hpp"
 
 using namespace std;
 

@@ -5,7 +5,7 @@
  */
 
 #include <iostream>
-#include "catch.hpp"
+#include "../lib/catch.hpp"
 #include "../include/hare.hpp"
 #include "../include/helpers.hpp"
 #include "../include/configData.hpp"

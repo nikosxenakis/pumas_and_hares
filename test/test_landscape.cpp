@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <fstream>
-#include "catch.hpp"
+#include "../lib/catch.hpp"
 #include "../include/landscape.hpp"
 #include "../include/helpers.hpp"
 #include "../include/tile.hpp"

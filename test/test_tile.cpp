@@ -4,7 +4,7 @@
  *
  */
 #include <iostream>
-#include "catch.hpp"
+#include "../lib/catch.hpp"
 #include "../include/tile.hpp"
 #include "../include/landscape.hpp"
 #include "../include/helpers.hpp"
