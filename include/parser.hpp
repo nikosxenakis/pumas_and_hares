@@ -30,7 +30,17 @@ using namespace std;
 class Parser {
 
 	private:
+        /**
+       	 * @brief splits the parsed vector
+      	 * @param string line
+         * @param vector line
+         * @param delimiter
+      	 */
         static void split(const string& line, vector <string> &vline, char delim);
+        /**
+         * @brief checks if vector only contains 0 and 1 for water and land
+         * @param vtile
+         */
         static void errorCheck(vector <string> vtile);
 
 	public:
@@ -40,7 +50,9 @@ class Parser {
       	 * @param handle for landFile containing the landscape definition for water, land and/or Puma and Hare densities
       	 */
 		static void parseInput(const string& landFile) throw(runtime_error);
-
+        /**
+       	 * @brief deleting tiles vector
+      	 */
         static void freeTilesVector();
 
 		/**
@@ -48,7 +60,9 @@ class Parser {
      	 * @param handle for configFile containing Puma, Hare, Time parameters (birth rates, deltaT, etc)
      	 */
 		static void parseConfig(const string& configFile) throw(runtime_error);
-
+		/**
+       	 * @brief array containing all mandatory keys for the json file
+      	 */
         static string required_params[8];
 };
 
