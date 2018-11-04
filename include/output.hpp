@@ -18,8 +18,6 @@
 
 #define OUTPUT_PATH STR(./output)
 #define OUTPUT_FILE STR(./output/average_density.dat)
-//#define OUTPUT_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output" //Just for Nikos Xcode
-//#define OUTPUT_FILE "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output/average_density.dat" //Just for Nikos Xcode
 
 using namespace std;
 
@@ -36,14 +34,14 @@ public:
     static void initOutputFile();
     /**
      * @brief prints the output
-     * @param t
+     * @param t time
      */
     static void print_output(double t);
     /**
      * @brief prints the output
-     * @param t
-     * @param averageHares
-     * @param averagePumas
+     * @param t time
+     * @param averageHares average number of hares
+     * @param averagePumas avarage number of pumas
      */
     static void print_average(double t, float averagePumas, float averageHares);
 };

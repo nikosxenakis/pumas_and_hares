@@ -5,29 +5,53 @@
 This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
 practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.). 
 
-### Prerequisites
+## Prerequisites
+
+* Compiler: [GNU g++](https://www.gnu.org/software/gcc/)
+* Debugger: [GNU gdb](https://www.gnu.org/software/gdb/)
+* Build tool: [GNU Make](https://www.gnu.org/software/make/)
+* Test tool: [Catch](https://catch-lib.net)
+* Documentation tool: [DoxyGen](https://github.com/doxygen/doxygen)
+* JSON Pascer: [JSON](https://github.com/nlohmann/json)
+
+## Usage
+
+### Installation
+
+To install this repository
+
 ```
-Compiler: g++
-Debug: gdb
-Build tool: make
-Test tool: Catch2
+git clone https://github.com/nikosxenakis/pumas_and_hares.git
+cd pumas_and_hares
 ```
 
-### Installing
+### Building
 
-To install this repository, simply use the commands below
+To build this repository including the main project, test files and land generator
 
 ```
-make clean
-make all
-make run ./resources/islands.dat
+scripts/make.sh
 ```
 
-## Building
+### Running
 
-* [GNU Make](https://www.gnu.org/software/make/) 
+To run the project just choose one of the following commands
 
-All build files are placed in the build directory
+```
+scripts/pumas_and_hares.sh //run an example of the project that is described in the script
+make run //run an example of the project with the default values
+make run ./resources/input_files/islands.dat //run an example of the project with specific input file
+make run ./resources/input_files/islands.dat ./resources/configurations/param.json //run an example of the project with specific input and configuration file
+scripts/pumas_and_hares_all.sh //run the project with all the combinations of the input and configuration files available
+```
+
+After the execution, to create the average variation of the densities over time run
+
+```
+python scripts/data_analyzer.py
+```
+
+then display average_density.eps
 
 ## Input files
 
@@ -119,15 +143,35 @@ Catch was chosen as the test library for this project as it is a simple, header 
 * [JSON](https://github.com/nlohmann/json) for the json parser library
 * [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
-## Running the tests
+## Testing
 
-To build and run these tests, simply use the command `make run_test`
+### Running
+
+To run the tests
+
+```
+scripts/tests.sh
+```
+
+### Continuous Integration
+
+* [TRAVIS-CI](https://travis-ci.com/nikosxenakis/pumas_and_hares)
 
 ### Test style and reasoning
 
 We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp
 
-### Coding style
+## Land Generator
+
+To create a new landscape run
+
+```
+scripts/land_generator.sh
+```
+
+The new landscape can be found in ./resources/input_files/new_2000x2000.dat
+
+## Coding style
 
 ```
 class MyClass {
@@ -137,9 +181,16 @@ class MyClass {
 }
 ```
 
-### Documentation
+## Documentation
 
 C++ header files contain in line documentation
+We used [DoxyGen](https://github.com/doxygen/doxygen)
+To auto-generate a website-documentation run
+
+```
+scripts/documentation.sh
+```
+You can check by opening with your browser the docs/index.html file the project directory
 
 ## Versioning
 

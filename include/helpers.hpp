@@ -29,7 +29,7 @@ private:
 
     /**
      * @brief Prints a visualised progress to command line
-     * @param simulation progress in percentage
+     * @param percentage simulation progress in percentage
      */
     static void printProgress(float percentage);
 public:

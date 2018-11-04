@@ -23,7 +23,6 @@ def create_plots(title, x_axis_title, y_axis_title, labels, x_values, y_values, 
 
     fig.savefig('./output/' + str(title) + '.eps', format='eps', dpi=1000)
 
-
 def analyze_data(data_file):
 
     i = 0;

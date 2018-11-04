@@ -68,13 +68,24 @@ $(function() {
 <div class="textblock"><p><a href="http://opensource.org/licenses/MIT"></a> <a href="https://travis-ci.org/nikosxenakis"></a></p>
 <h1>Pumas and Hares</h1>
 <p>This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.).</p>
-<p>### Prerequisites </p><div class="fragment"><div class="line">Compiler: g++</div><div class="line">Debug: gdb</div><div class="line">Build tool: make</div><div class="line">Test tool: Catch2</div></div><!-- fragment --><h3>Installing</h3>
-<p>To install this repository, simply use the commands below</p>
-<div class="fragment"><div class="line">make clean</div><div class="line">make all</div><div class="line">make run ./resources/islands.dat</div></div><!-- fragment --><h2>Building</h2>
+<h2>Prerequisites</h2>
 <ul>
-<li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+<li>Compiler: <a href="https://www.gnu.org/software/gcc/">GNU g++</a></li>
+<li>Debugger: <a href="https://www.gnu.org/software/gdb/">GNU gdb</a></li>
+<li>Build tool: <a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+<li>Test tool: <a href="https://catch-lib.net">Catch</a></li>
+<li>Documentation tool: <a href="https://github.com/doxygen/doxygen">DoxyGen</a></li>
+<li>JSON Pascer: <a href="https://github.com/nlohmann/json">JSON</a></li>
 </ul>
-<p>All build files are placed in the build directory</p>
+<h2>Usage</h2>
+<h3>Installation</h3>
+<p>To install this repository</p>
+<div class="fragment"><div class="line">git clone https://github.com/nikosxenakis/pumas_and_hares.git</div><div class="line">cd pumas_and_hares</div></div><!-- fragment --><h3>Building</h3>
+<p>To build this repository including the main project, test files and land generator</p>
+<div class="fragment"><div class="line">scripts/make.sh</div></div><!-- fragment --><h3>Running</h3>
+<p>To run the project just choose one of the following commands</p>
+<div class="fragment"><div class="line">scripts/pumas_and_hares.sh //run an example of the project that is described in the script</div><div class="line">make run //run an example of the project with the default values</div><div class="line">make run ./resources/input_files/islands.dat //run an example of the project with specific input file</div><div class="line">make run ./resources/input_files/islands.dat ./resources/configurations/param.json //run an example of the project with specific input and configuration file</div><div class="line">scripts/pumas_and_hares_all.sh //run the project with all the combinations of the input and configuration files available</div></div><!-- fragment --><p>After the execution, to create the average variation of the densities over time run</p>
+<div class="fragment"><div class="line">python scripts/data_analyzer.py</div></div><!-- fragment --><p>then display average_density.eps</p>
 <h2>Input files</h2>
 <p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the <code>/resources</code> directory. You can select which file to use as input at run time by supplying it as a command line arguement i.e. <code>./bin/pumas_and_hares ./resources/small3x3.dat</code> The format of the file is:</p>
 <div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively. Alternatively the density of Pumas and Hares at each grid point can be specified with the format:</p>
@@ -110,22 +121,46 @@ $(function() {
 <li>UML diagrams</li>
 <li>see more diagrams in index.html</li>
 </ul>
-<p>explain dependency decoupling (configData, <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>, <a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a>)</p>
+<p>explain dependency decoupling (configData, <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>, <a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a>) [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png" alt="UML diagram of class configData"/>
+</div>
+<p>] [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png" alt="UML diagram of class Hare"/>
+</div>
+<p>] [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png" alt="UML diagram of class Landscape"/>
+</div>
+<p>] [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png" alt="UML diagram of class Tile"/>
+</div>
+<p>]</p>
 <h2>Platforms</h2>
-<p>The simulations run on both DICE and Cirrus supercomputers</p>
+<p>The simulations run on both the university's DICE network and the Cirrus supercomputer cluster.</p>
 <h2>Third Party Tools</h2>
 <ul>
 <li><a href="https://catch-lib.net">Catch</a> for the test library</li>
+</ul>
+<p>Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.</p>
+<ul>
 <li><a href="https://github.com/nlohmann/json">JSON</a> for the json parser library</li>
 <li><a href="https://github.com/doxygen/doxygen">DoxyGen</a> for generating documentation from annotated C++ sources</li>
 </ul>
-<h2>Running the tests</h2>
-<p>To build and run these tests, simply use the command <code>make test</code>. Once the tests have finished compiling, you can run them using <code>./bin/test/</code></p>
+<h2>Testing</h2>
+<h3>Running</h3>
+<p>To run the tests</p>
+<div class="fragment"><div class="line">scripts/tests.sh</div></div><!-- fragment --><h3>Continuous Integration</h3>
+<ul>
+<li><a href="https://travis-ci.com/nikosxenakis/pumas_and_hares">TRAVIS-CI</a></li>
+</ul>
 <h3>Test style and reasoning</h3>
 <p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp</p>
-<h3>Coding style</h3>
-<div class="fragment"><div class="line">class MyClass {</div><div class="line">    int myFunc(int myVar) {</div><div class="line">        return myVar;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h3>Documentation</h3>
-<p>C++ header files contain in line documentation</p>
+<h2>Land Generator</h2>
+<p>To create a new landscape run</p>
+<div class="fragment"><div class="line">scripts/land_generator.sh</div></div><!-- fragment --><p>The new landscape can be found in ./resources/input_files/new_2000x2000.dat</p>
+<h2>Coding style</h2>
+<div class="fragment"><div class="line">class MyClass {</div><div class="line">    int myFunc(int myVar) {</div><div class="line">        return myVar;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h2>Documentation</h2>
+<p>C++ header files contain in line documentation We used <a href="https://github.com/doxygen/doxygen">DoxyGen</a> To auto-generate a website-documentation run</p>
+<div class="fragment"><div class="line">scripts/documentation.sh</div></div><!-- fragment --><p> You can check by opening with your browser the docs/index.html file the project directory</p>
 <h2>Versioning</h2>
 <p>We use <a href="http://github.com/">GitHub</a> for versioning. For the versions available, see the <a href="https://github.com/nikosxenakis/pumas_and_hares">tags on this repository</a>.</p>
 <h2>Authors</h2>
@@ -139,7 +174,7 @@ $(function() {
 <p>This project is licensed under the MIT License - see the LICENSE.md file for details</p>
 <h2>Acknowledgements</h2>
 <ul>
-<li>Hat tip to anyone whose code was used </li>
+<li>Thanks to anyone whose code was used </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->

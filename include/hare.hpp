@@ -53,7 +53,7 @@ public:
 
     /**
      * @brief sets the birth rate
-     * @param birth_rate
+     * @param birth_rate birth_rate
      */
     static void setBirthRate(float birth_rate) throw(invalid_argument);
 
@@ -65,7 +65,7 @@ public:
 
     /**
      * @brief sets the predation rate
-     * @param predation_rate
+     * @param predation_rate predation_rate
      */
     static void setPredationRate(float predation_rate) throw(invalid_argument);
 
@@ -77,7 +77,7 @@ public:
 
     /**
      * @brief sets diffusion rate
-     * @param diffusion_rate
+     * @param diffusion_rate diffusion_rate
      */
     static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 

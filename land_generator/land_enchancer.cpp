@@ -50,8 +50,8 @@ void land_enchancer(ifstream &input, ofstream &output) {
 int main(int argc, char** argv) {
 
     ofstream output;
-    output.open (string(RESOURCES_PATH) + "new_2000x2000.dat");
-    ifstream input (string(RESOURCES_PATH) + "new_50x50.dat");
+    output.open (string(RESOURCES_PATH) + "input_files/new_2000x2000.dat");
+    ifstream input (string(RESOURCES_PATH) + "input_files/new_50x50.dat");
 
     if (input.is_open() && output.is_open()) {
         land_enchancer(input, output);
