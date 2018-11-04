@@ -46,8 +46,7 @@ public:
     static vector< vector<TileData*> > tilesVector;
 
     /**
-     * @brief sets deltaT
-     * @param deltaT
+     * @param deltaT deltaT
      */
     static void setDeltaT(float deltaT) throw(invalid_argument);
     /**
@@ -57,7 +56,7 @@ public:
     static float getDeltaT();
     /**
      * @brief sets CapitalT
-     * @param capitalT
+     * @param capitalT capitalT
      */
     static void setCapitalT(int capitalT) throw(invalid_argument);
     /**
@@ -69,9 +68,9 @@ public:
     /**
      * @brief initialises the landscape data
      *
-     * @param tilesVector
-     * @param x dimension NX
-     * @param y dimension NY
+     * @param tilesVector tilesVector
+     * @param NX dimension NX
+     * @param NY dimension NY
      */
     static void initLandscapeData(vector< vector<TileData*> > tilesVector, size_t NX, size_t NY);
 

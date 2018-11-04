@@ -31,16 +31,14 @@ public:
 
     /**
      * @brief constructor
-     * @param hares
-     * @param land
-     * @param pumas
+     * @param hares hares
+     * @param land land
+     * @param pumas pumas
      */
     TileData(int land, float pumas, float hares);
     /**
      * @brief constructor
-     * @param hares
-     * @param land
-     * @param pumas
+     * @param land land
      */
     TileData(int land);
 

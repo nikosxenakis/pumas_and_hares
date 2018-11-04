@@ -48,9 +48,9 @@ private :
     size_t cols;
     /**
      * @brief Landscape contructor
-     * @param cols
-     * @param rows
-     * @param tilesVector
+     * @param cols cols
+     * @param rows rows
+     * @param tilesVector tilesVector
      */
     Landscape(vector< vector<TileData*> >& tilesVector, size_t rows, size_t cols);
     /**
