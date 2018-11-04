@@ -1,3 +1,9 @@
+/**
+ * @file puma.hpp
+ * @brief Information about the Puma model
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef PUMA_HPP
 #define PUMA_HPP
 
@@ -8,6 +14,7 @@ using namespace std;
 
 /**
  * @class Puma
+ * @brief Puma model with parameters
  * @details A class holding all config parameters associated with Puma and its density calculation
  */
 class Puma {
@@ -28,17 +35,52 @@ private:
      */
     static float diffusion_rate;
 public:
+    /**
+     * @brief Puma constructor
+     */
     Puma();
+
+    /**
+     * @brief gets the name attribute
+     * @return name
+     */
     static string getName();
 
+    /**
+     * @brief gets the birth rate
+     * @return birth_rate
+     */
     static float getBirthRate();
-    static void setBirthRate(float birth_rate);
 
+    /**
+     * @brief sets the birth rate
+     * @param birth_rate
+     */
+    static void setBirthRate(float birth_rate) throw(invalid_argument);
+
+    /**
+     * @brief gets the mortality rate
+     * @return mortality rate
+     */
     static float getMortalityRate();
-    static void setMortalityRate(float mortality_rate);
 
+    /**
+     * @brief sets the mortlity rate
+     * @param mortality_rate
+     */
+    static void setMortalityRate(float mortality_rate) throw(invalid_argument);
+
+    /**
+     * @brief gets diffusion rate
+     * @return diffusion rate
+     */
     static float getDiffusionRate();
-    static void setDiffusionRate(float diffusion_rate);
+
+    /**
+     * @brief sets diffusion rate
+     * @param diffusion rate
+     */
+    static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**
      * @brief Calculate new Puma density

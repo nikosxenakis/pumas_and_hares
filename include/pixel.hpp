@@ -1,3 +1,9 @@
+/**
+ * @file pixel.hpp
+ * @brief Provide information about Pixel
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef PIXEL_HPP
 #define PIXEL_HPP
 
@@ -10,15 +16,24 @@ using namespace std;
 
 /**
  * @class Pixel
- * @brief ..
+ * @brief Setting the pixels for the overall output image
  * @details A class for setting the color of a pixel as given in r,g,b format
  */
 class Pixel {
 
 	private:
-		int red; /**< value of red */
-		int green; /**< value of green */
-		int blue; /**< value of blue */
+        /**
+         * @brief value of red
+         */
+		int red;
+        /**
+         * @brief value of green
+         */
+		int green;
+        /**
+         * @brief value of blue
+         */
+		int blue;
 
         /**
          * @brief sets the rgb color of a pixel

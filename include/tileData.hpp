@@ -1,16 +1,52 @@
+/**
+ * @file tileData.hpp
+ * @brief Provide information about tileData
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef tileData_h
 #define tileData_h
 
 #include <iomanip>
 
+/**
+ * @class TileData
+ * @brief Provide information about TileData
+ * @details A class that contains data about the current and new densities of the tile, also whether the tile is land or not
+ */
 class TileData {
 public:
+    /**
+     * @brief if land or water
+     */
     int land;
+    /**
+     * @brief puma density
+     */
     float pumas;
+    /**
+     * @brief hare density
+     */
     float hares;
 
+    /**
+     * @brief constructor
+     * @param hares
+     * @param land
+     * @param pumas
+     */
     TileData(int land, float pumas, float hares);
+    /**
+     * @brief constructor
+     * @param hares
+     * @param land
+     * @param pumas
+     */
     TileData(int land);
+
+    /**
+     * @brief clearing
+     */
     void clear();
 };
 

@@ -4,34 +4,25 @@ CXXFLAGS := -g -std=c++11 -Wall -O3
 
 #DIRECTORIES
 BASE_DIR := .
-
 SRC_DIR := $(BASE_DIR)/src
-
 HEADER_DIR := $(BASE_DIR)/include
-
 BUILD_DIR := $(BASE_DIR)/build
-
 BIN_DIR := $(BASE_DIR)/bin
-
 TEST_DIR := $(BASE_DIR)/test
-
 OUTPUT_DIR := $(BASE_DIR)/output
-
 LAND_DIR := $(BASE_DIR)/land_generator
-
 RESOURCES_DIR := $(BASE_DIR)/resources
 
 #FILES
 TARGET := pumas_and_hares
 LAND_TARGET := land_generator
 LAND_ENCHANCER := land_enchancer
-TEST := test
+TEST_TARGET := test
 
 BIN := $(BIN_DIR)/$(TARGET)
-
 LAND_GEN_BIN := $(BIN_DIR)/$(LAND_TARGET)
 LAND_ENCHANCER_BIN := $(BIN_DIR)/$(LAND_ENCHANCER)
-TEST_BIN := $(BIN_DIR)/$(TEST)
+TEST_BIN := $(BIN_DIR)/$(TEST_TARGET)
 
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) $(BASE_DIR)/main.cpp
 
@@ -46,7 +37,7 @@ ifeq (run,$(firstword $(MAKECMDGOALS)))
   # use the rest as arguments for "run"
   RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
   # ...and turn them into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
+  $(@eval $(RUN_ARGS):;@:)
 endif
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp 
@@ -54,28 +45,28 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(BIN): $(OBJ_FILES)
-	@echo "\tLinking..."
+	@echo "Linking..."
 	@mkdir -p $(BIN_DIR)
 	@mkdir -p $(OUTPUT_DIR)
 	$(CXX) $(CXXFLAGS) $(OBJ_FILES) -o $@
 
-all: $(BIN) $(LAND_TARGET) $(LAND_ENCHANCER)
-	@echo "\t$(BIN) ready."
+all: $(BIN) $(LAND_GEN_BIN) $(LAND_ENCHANCER_BIN) $(TEST_BIN)
+	@echo "executables are ready"
 
-test:
-	make -C test/ test
+$(TEST_BIN): $(BIN)
+	make -C $(TEST_DIR) .$(TEST_BIN)
 
-land_generator: $(LAND_DIR)/$(LAND_TARGET).cpp
+$(LAND_GEN_BIN): $(LAND_DIR)/$(LAND_TARGET).cpp
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $(LAND_GEN_BIN) $(LAND_DIR)/$(LAND_TARGET).cpp
 
-land_enchancer: $(LAND_DIR)/$(LAND_ENCHANCER).cpp
+$(LAND_ENCHANCER_BIN): $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 	@mkdir -p $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) -o $(LAND_ENCHANCER_BIN) $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 
 run: $(BIN)
-	@rm -r $(OUTPUT_DIR)
 	@mkdir -p $(OUTPUT_DIR)
+	@rm -rf $(OUTPUT_DIR)/*
 	@$(BIN) $(RUN_ARGS)
 	@python ./scripts/data_analyzer.py
 
@@ -89,8 +80,9 @@ run_test: $(TEST_BIN)
 	@$(TEST_BIN)
 
 clean:
-	@echo " Cleaning..."
+	@echo "Cleaning..."
 	rm -r $(BIN_DIR)/*
 	rm -r $(BUILD_DIR)/*
+	make -C $(TEST_DIR) clean
 
-.PHONY: test clean all land_generator land_enchancer run run_land_gen run_land_enc run_test
+.PHONY: all run run_land_gen run_land_enc run_test clean

@@ -1,3 +1,9 @@
+/**
+ * @file landscape.hpp
+ * @brief Provide information about Landscape
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef LANDSCAPE_HPP
 #define LANDSCAPE_HPP
 
@@ -24,12 +30,27 @@ typedef Tile*** TilesArray;
 class Landscape {
     
 private :
-    static Landscape* instance;   /**< the static variable that contains the instance of the landscape */
-    TilesArray tiles;   /**< array of the containing tiles */
-    size_t rows;   /**< number of rows in landscape */
-    size_t cols;   /**< number of cols in landscape */
+    /**
+     * @brief the static variable that contains the instance of the landscape
+     */
+    static Landscape* instance;
+    /**
+     * @brief array of the containing tiles
+     */
+    TilesArray tiles;
+    /**
+     * @brief number of rows in landscape
+     */
+    size_t rows;
+    /**
+     * @brief number of cols in landscape
+     */
+    size_t cols;
     /**
      * @brief Landscape contructor
+     * @param cols
+     * @param rows
+     * @param tilesVector
      */
     Landscape(vector< vector<TileData*> >& tilesVector, size_t rows, size_t cols);
     /**

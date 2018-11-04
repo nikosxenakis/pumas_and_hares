@@ -31,8 +31,8 @@ All build files are placed in the build directory
 
 ## Input files
 
-The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the /resources directory.
-You can select which file to use as input at run time by supplying it as a command line arguemnt i.e. `./bin/pumas_and_hares ./resources/small3x3.dat`
+The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the `/resources` directory.
+You can select which file to use as input at run time by supplying it as a command line arguement i.e. `./bin/pumas_and_hares ./resources/small3x3.dat`
 The format of the file is:
 
 ```
@@ -60,20 +60,20 @@ Where the density of pumas are hares follows the landscape descriptor.
 The parameters which the program uses at run time are defined in the resources/param.json file.
 
 Key:
-  *  r: birth rate of the hares
-  *  a: predation rate at which pumas eat hares
-  *  b: birth rate of pumas per one hare eaten
-  *  m: puma mortality rate
-  *  k: diffusion rate for hares
-  *  l: diffusion rate for pumas
-  *  t: size of time step
-  *  T: interval at which a ppm file is generated.
+  *  `r`: birth rate of the hares
+  *  `a`: predation rate at which pumas eat hares
+  *  `b`: birth rate of pumas per one hare eaten
+  *  `m`: puma mortality rate
+  *  `k`: diffusion rate for hares
+  *  `l`: diffusion rate for pumas
+  *  `t`: time step
+  *  `T`: interval at which a ppm file is generated.
 
 ## Output
 
-At each T the average puma and hare density over all land tiles is written in /output/average_density.txt
+At each T the average puma and hare density over all land tiles is written in `/output/average_density.txt`
 
-The code outputs a ppm file at each T showing the density of pumas across the landscape to the /output directory. The colour code in the file is as follows:
+The code outputs a ppm file at each T showing the density of pumas across the landscape to the `/output` directory. The colour code in the file is as follows:
 
   * Red: Pumas
   * Green: Hares
@@ -82,20 +82,42 @@ The code outputs a ppm file at each T showing the density of pumas across the la
 
 For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.
 
-For landscapes with a dimension smaller than 100 each square represents a single land square from the input.
+For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.
 
-For landscapes with a dimension larger than 100 the output is averaged so that a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
+For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
+
+## Design Decisions
+
+We group functionalities into logic classes. Most of these classes are deployed following a `singleton pattern` or `static pattern`.
+For instance `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
+These parameters and the calculation formula for density are the same across the whole landscape and do not change after initalisation.
+Thus, we implemented both classes as static and never create a single object of them.
+
+Puma and Hare densities and the boolean whether a tile is considered land or water are specific to individual tiles.
+Following a strict object-orientation paradigm we create an object for every `tile` of the landscape.
+Slicing the landscape for output we also initialise one `tileData` object per slice.
+
+* UML diagrams
+* see more diagrams in index.html
+
+explain dependency decoupling (configData, Helpers, Parser)
+[![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)]
+[![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)]
+[![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)]
+[![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)]
 
 ## Platforms
 
-The simulations run on both DICE and Cirrus supercomputers
+The simulations run on both the university's DICE network and the Cirrus supercomputer cluster.
 
 ## Third Party Tools
 
 * [Catch](https://catch-lib.net) for the test library
+
 Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.
 
 * [JSON](https://github.com/nlohmann/json) for the json parser library
+* [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
 ## Running the tests
 
@@ -136,4 +158,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgements
 
-* Hat tip to anyone whose code was used
+* Thanks to anyone whose code was used

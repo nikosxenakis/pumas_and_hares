@@ -4,46 +4,32 @@ CXXFLAGS := -g -Wall -std=c++11 -O3
 
 #DIRECTORIES
 BASE_DIR := ..
-
+BASE_TEST_DIR := .
 SRC_DIR := $(BASE_DIR)/src
-
-HEADER_DIR := $(BASE_DIR)/include
-
 BUILD_DIR := $(BASE_DIR)/build
-
 BIN_DIR := $(BASE_DIR)/bin
-
-TEST_DIR := $(BASE_DIR)/test
+SRC_TEST_DIR := $(BASE_TEST_DIR)/src
+BUILD_TEST_DIR := $(BASE_TEST_DIR)/build
 
 #FILES
-TARGET := test
+TEST_TARGET := test
+TEST_BIN := $(BIN_DIR)/$(TEST_TARGET)
 
-BIN := $(BIN_DIR)/$(TARGET)
-
-SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp) 
-
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+SRC_TEST_FILES := $(wildcard $(SRC_TEST_DIR)/*.cpp) 
+OBJ_TEST_FILES := $(patsubst $(SRC_TEST_DIR)/%.cpp, $(BUILD_TEST_DIR)/%.o, $(SRC_TEST_FILES))
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRC_FILES))
 
-TEST_FILES := $(wildcard $(TEST_DIR)/*.cpp)
-
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp
-	@mkdir -p $(BUILD_DIR)
+$(BUILD_TEST_DIR)/%.o: $(SRC_TEST_DIR)/%.cpp
+	@mkdir -p $(BUILD_TEST_DIR)
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
+$(TEST_BIN): $(OBJ_TEST_FILES) $(OBJ_FILES)
+	@echo "Linking test..."
+	$(CXX) $(CXXFLAGS) $(OBJ_TEST_FILES) $(OBJ_FILES) -o $@
 
-test: $(TEST_FILES) $(OBJ_FILES) test_main.o
-	$(CXX) $(CXXFLAGS) $(OBJ_FILES) test_main.o \
-		$(TEST_DIR)/test_helpers.cpp \
-		$(TEST_DIR)/test_parser.cpp \
-		$(TEST_DIR)/test_landscape.cpp \
-		$(TEST_DIR)/test_tile.cpp \
-		$(TEST_DIR)/test_hare.cpp \
-		$(TEST_DIR)/test_puma.cpp \
-		$(TEST_DIR)/test_pixel.cpp \
-		$(TEST_DIR)/test_image.cpp \
-		-o $(BIN_DIR)/test
+clean:
+	@echo "Cleaning tests..."
+	rm -r $(BUILD_TEST_DIR)/*
 
-test_main.o: test_main.cpp
-	g++ -std=c++11 test_main.cpp -c
-
-.PHONY: test
+.PHONY: $(BIN_DIR)/test clean

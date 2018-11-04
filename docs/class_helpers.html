@@ -70,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>setting up simulation  
+ <a href="class_helpers.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="helpers_8hpp_source.html">helpers.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Helpers:</div>
@@ -79,21 +82,29 @@ Collaboration diagram for Helpers:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a56483e3c7846f3a1bcc18b30f5fff271"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helpers.html#a56483e3c7846f3a1bcc18b30f5fff271">init</a> (string file)</td></tr>
+<tr class="memitem:a56483e3c7846f3a1bcc18b30f5fff271"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helpers.html#a56483e3c7846f3a1bcc18b30f5fff271">init</a> (string file)  throw (runtime_error)</td></tr>
+<tr class="memdesc:a56483e3c7846f3a1bcc18b30f5fff271"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialising <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>  <a href="#a56483e3c7846f3a1bcc18b30f5fff271">More...</a><br /></td></tr>
 <tr class="separator:a56483e3c7846f3a1bcc18b30f5fff271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e7af396a763b0f4ca5220f8000e918"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helpers.html#a68e7af396a763b0f4ca5220f8000e918">simulationLoop</a> ()</td></tr>
-<tr class="memdesc:a68e7af396a763b0f4ca5220f8000e918"><td class="mdescLeft">&#160;</td><td class="mdescRight">...  <a href="#a68e7af396a763b0f4ca5220f8000e918">More...</a><br /></td></tr>
+<tr class="memdesc:a68e7af396a763b0f4ca5220f8000e918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates over time steps and calls all necessary calculations, intialising output, printing to command line.  <a href="#a68e7af396a763b0f4ca5220f8000e918">More...</a><br /></td></tr>
 <tr class="separator:a68e7af396a763b0f4ca5220f8000e918"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8a343e3e095e72476a3c37cc09e2bd2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helpers.html#aa8a343e3e095e72476a3c37cc09e2bd2">close</a> ()</td></tr>
-<tr class="memdesc:aa8a343e3e095e72476a3c37cc09e2bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">...  <a href="#aa8a343e3e095e72476a3c37cc09e2bd2">More...</a><br /></td></tr>
+<tr class="memdesc:aa8a343e3e095e72476a3c37cc09e2bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the landscape after simulation.  <a href="#aa8a343e3e095e72476a3c37cc09e2bd2">More...</a><br /></td></tr>
 <tr class="separator:aa8a343e3e095e72476a3c37cc09e2bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a723b8ace95cb63cf148ae67e40730f8d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helpers.html#a723b8ace95cb63cf148ae67e40730f8d">initRandomGenerator</a> ()</td></tr>
+<tr class="memdesc:a723b8ace95cb63cf148ae67e40730f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses random integer generation  <a href="#a723b8ace95cb63cf148ae67e40730f8d">More...</a><br /></td></tr>
 <tr class="separator:a723b8ace95cb63cf148ae67e40730f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f344cee8bd4c8c6d74dda7aaae50e93"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_helpers.html#a6f344cee8bd4c8c6d74dda7aaae50e93">printProgress</a> (float percentage)</td></tr>
+<tr class="memdesc:a6f344cee8bd4c8c6d74dda7aaae50e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a visualised progress to command line.  <a href="#a6f344cee8bd4c8c6d74dda7aaae50e93">More...</a><br /></td></tr>
+<tr class="separator:a6f344cee8bd4c8c6d74dda7aaae50e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>setting up simulation </p>
+<p>necessary inits, printing and actual simulation wrappers </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa8a343e3e095e72476a3c37cc09e2bd2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8a343e3e095e72476a3c37cc09e2bd2">&#9670;&nbsp;</a></span>close()</h2>
 
@@ -117,7 +128,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>... </p>
+<p>Closes the landscape after simulation. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -145,6 +156,12 @@ Here is the caller graph for this function:</div>
           <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
+        <tr>
+          <td align="right">throw </td><td>(</td><td colspan="2">runtime_error</td>
+        </tr>
+        <tr>
+          <td align="right"></td><td>)</td><td></td><td></td>
+        </tr>
       </table>
   </td>
   <td class="mlabels-right">
@@ -152,6 +169,14 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>initialising <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>handle </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -186,6 +211,42 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>uses random integer generation </p>
+
+</div>
+</div>
+<a id="a6f344cee8bd4c8c6d74dda7aaae50e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f344cee8bd4c8c6d74dda7aaae50e93">&#9670;&nbsp;</a></span>printProgress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Helpers::printProgress </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>percentage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prints a visualised progress to command line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">simulation</td><td>progress in percentage </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a68e7af396a763b0f4ca5220f8000e918"></a>
@@ -211,7 +272,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>... </p>
+<p>Iterates over time steps and calls all necessary calculations, intialising output, printing to command line. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

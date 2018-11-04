@@ -1,6 +1,6 @@
 <map id="include/helpers.hpp" name="include/helpers.hpp">
-<area shape="rect" id="node2" href="$landscape_8hpp.html" title="landscape.hpp" alt="" coords="5,152,113,177"/>
-<area shape="rect" id="node4" href="$parser_8hpp.html" title="parser.hpp" alt="" coords="189,79,274,104"/>
-<area shape="rect" id="node5" href="$config_data_8hpp.html" title="configData.hpp" alt="" coords="252,152,363,177"/>
-<area shape="rect" id="node37" href="$output_8hpp.html" title="output.hpp" alt="" coords="3153,79,3238,104"/>
+<area shape="rect" id="node2" href="$landscape_8hpp.html" title="Provide information about Landscape. " alt="" coords="5,152,113,177"/>
+<area shape="rect" id="node4" href="$parser_8hpp.html" title="Parses the input files. " alt="" coords="189,79,274,104"/>
+<area shape="rect" id="node5" href="$config_data_8hpp.html" title="Information about input data (time, time steps, grid size, etc) " alt="" coords="284,152,395,177"/>
+<area shape="rect" id="node37" href="$output_8hpp.html" title="Provide information about a Tile. " alt="" coords="297,79,382,104"/>
 </map>

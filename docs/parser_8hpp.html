@@ -67,12 +67,14 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle">
-<div class="title">parser.hpp File Reference</div>  </div>
+<div class="title">parser.hpp File Reference<div class="ingroups"><a class="el" href="group__input.html">Input</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parses the input files.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
@@ -80,16 +82,16 @@ $(function() {
 <code>#include &quot;<a class="el" href="puma_8hpp_source.html">puma.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="tile_data_8hpp_source.html">tileData.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="config_data_8hpp_source.html">configData.hpp</a>&quot;</code><br />
-<code>#include &quot;../resources/json.hpp&quot;</code><br />
+<code>#include &quot;../lib/json.hpp&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for parser.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="parser_8hpp__incl.png" border="0" usemap="#include_2parser_8hpp" alt=""/></div>
 <map name="include_2parser_8hpp" id="include_2parser_8hpp">
-<area shape="rect" id="node5" href="hare_8hpp.html" title="hare.hpp" alt="" coords="239,79,313,104"/>
-<area shape="rect" id="node6" href="config_data_8hpp.html" title="configData.hpp" alt="" coords="295,152,406,177"/>
-<area shape="rect" id="node7" href="tile_data_8hpp.html" title="tileData.hpp" alt="" coords="353,225,446,251"/>
-<area shape="rect" id="node8" href="puma_8hpp.html" title="puma.hpp" alt="" coords="387,79,468,104"/>
+<area shape="rect" id="node5" href="hare_8hpp.html" title="Information about the hare model. " alt="" coords="239,79,313,104"/>
+<area shape="rect" id="node6" href="config_data_8hpp.html" title="Information about input data (time, time steps, grid size, etc) " alt="" coords="295,152,406,177"/>
+<area shape="rect" id="node7" href="tile_data_8hpp.html" title="Provide information about tileData. " alt="" coords="353,225,446,251"/>
+<area shape="rect" id="node8" href="puma_8hpp.html" title="Information about the Puma model. " alt="" coords="387,79,468,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -97,7 +99,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="parser_8hpp__dep__incl.png" border="0" usemap="#include_2parser_8hppdep" alt=""/></div>
 <map name="include_2parser_8hppdep" id="include_2parser_8hppdep">
-<area shape="rect" id="node2" href="helpers_8hpp.html" title="include/helpers.hpp" alt="" coords="5,79,142,104"/>
+<area shape="rect" id="node2" href="helpers_8hpp.html" title="Describes class Helpers. " alt="" coords="5,79,142,104"/>
 </map>
 </div>
 </div>
@@ -106,34 +108,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_parser.html">Parser</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsing input data.  <a href="class_parser.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ad14207791baca7b200835fff04469ca9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8hpp.html#ad14207791baca7b200835fff04469ca9">RESOURCES_PATH</a>&#160;&#160;&#160;&quot;./resources&quot;</td></tr>
-<tr class="separator:ad14207791baca7b200835fff04469ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="parser_8hpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> = nlohmann::json</td></tr>
 <tr class="separator:ab701e3ac61a85b337ec5c1abaad6742d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ad14207791baca7b200835fff04469ca9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad14207791baca7b200835fff04469ca9">&#9670;&nbsp;</a></span>RESOURCES_PATH</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RESOURCES_PATH&#160;&#160;&#160;&quot;./resources&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parses the input files. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="ab701e3ac61a85b337ec5c1abaad6742d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab701e3ac61a85b337ec5c1abaad6742d">&#9670;&nbsp;</a></span>json</h2>
 

@@ -27,8 +27,6 @@
 # Executables
 *.exe
 *.out
-*.app
-/test/test
 /bin/*
 
 # IDE Plugin files

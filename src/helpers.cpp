@@ -1,14 +1,18 @@
 #include "../include/helpers.hpp"
 
-#define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-#define PBWIDTH 60
-
-void Helpers::init(string file) {
+void Helpers::init(string file, string configFile) throw(runtime_error) {
+    cout<< "Input file: " << file << endl;
+    cout<< "Config file: " << configFile << endl;
     Helpers::initRandomGenerator();
 
-    string const configFileName = string(RESOURCES_PATH) + "/param.json";
-    Parser::parseConfig(configFileName);
-    Parser::parseInput(file);
+    try {
+        Parser::parseConfig(configFile);
+        Parser::parseInput(file);
+    }
+    catch (const runtime_error& re) {
+        throw re;
+    }
+    
     Landscape::init(ConfigData::tilesVector, ConfigData::NY, ConfigData::NX);
     Parser::freeTilesVector();
     Output::initOutputFile();

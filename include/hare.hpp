@@ -1,3 +1,9 @@
+/**
+ * @file hare.hpp
+ * @brief Information about the hare model
+ * @ingroup pumas_and_hares
+ */
+
 #ifndef HARE_HPP
 #define HARE_HPP
 
@@ -8,6 +14,7 @@ using namespace std;
 
 /**
  * @class Hare
+ * @brief Hare model with parameters
  * @details A class holding all config parameters associated with Hare and its density calculation
  */
 class Hare {
@@ -28,17 +35,51 @@ private:
      */
     static float diffusion_rate;
 public:
+    /**
+     * @brief Hare constructor
+     */
     Hare();
+    /**
+     * @brief gets the name attribute of class Hare
+     * @return name
+     */
     static string getName();
 
+    /**
+     * @brief gets the birth rate
+     * @return birth rate
+     */
     static float getBirthRate();
-    static void setBirthRate(float birth_rate);
 
+    /**
+     * @brief sets the birth rate
+     * @param birth_rate
+     */
+    static void setBirthRate(float birth_rate) throw(invalid_argument);
+
+    /**
+     * @brief gets the predation rate
+     * @return predation rate
+     */
     static float getPredationRate();
-    static void setPredationRate(float predation_rate)
-    ;
+
+    /**
+     * @brief sets the predation rate
+     * @param predation_rate
+     */
+    static void setPredationRate(float predation_rate) throw(invalid_argument);
+
+    /**
+     * @brief gets diffusion rate
+     * @return diffusion rate
+     */
     static float getDiffusionRate();
-    static void setDiffusionRate(float diffusion_rate);
+
+    /**
+     * @brief sets diffusion rate
+     * @param diffusion_rate
+     */
+    static void setDiffusionRate(float diffusion_rate) throw(invalid_argument);
 
     /**
      * @brief Calculate new hare density

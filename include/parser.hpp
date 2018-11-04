@@ -1,3 +1,9 @@
+/**
+ * @file parser.hpp
+ * @brief Parses the input files
+ * @ingroup input
+ */
+
 #ifndef PARSER_HPP
 #define PARSER_HPP
 
@@ -10,35 +16,53 @@
 #include "configData.hpp"
 #include "../lib/json.hpp"
 
-#define RESOURCES_PATH "./resources"
-//#define RESOURCES_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/resources" //Just for Nikos Xcode
-
 using json = nlohmann::json;
 
 using namespace std;
 
+/**
+ * @class Parser
+ * @brief Parsing input data
+ * @details Parsing input data from a .json config file and reading landscape definition
+ */
 class Parser {
 
 	private:
+        /**
+       	 * @brief splits the parsed vector
+      	 * @param string line
+         * @param vector line
+         * @param delimiter
+      	 */
         static void split(const string& line, vector <string> &vline, char delim);
-        static void errorCheck(vector <string> vtile);
+        /**
+         * @brief checks if vector only contains 0 and 1 for water and land
+         * @param vtile
+         */
+        static bool validTile(int land);
 
 	public:
 
 		/**
        	 * @brief read dat file, parse landscape
-      	 * @param landFile ...
+      	 * @param handle for landFile containing the landscape definition for water, land and/or Puma and Hare densities
       	 */
-		static void parseInput(const string& landFile);
-
+		static void parseInput(const string& landFile) throw(runtime_error);
+        /**
+       	 * @brief deleting tiles vector
+      	 */
         static void freeTilesVector();
+
 		/**
       	 * @brief read json file, parse json and set parsed parameters to Helpers, Hare and Puma
-     	 * @param configFile ...
+     	 * @param handle for configFile containing Puma, Hare, Time parameters (birth rates, deltaT, etc)
      	 */
-		static void parseConfig(const string& configFile);
-// 		static void parse(const string& landFileName);
+		static void parseConfig(const string& configFile) throw(runtime_error);
+		/**
+       	 * @brief array containing all mandatory keys for the json file
+      	 */
         static string required_params[8];
+
 };
 
 #endif

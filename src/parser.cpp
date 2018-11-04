@@ -10,20 +10,13 @@ void Parser::split(const string& str, vector<string> &strVect, char delim) {
     }
 }
 
-// todo: where is it used? throw exceptions instead of cout and exit()
-void Parser::errorCheck(vector<string> vTile) {
-    if (stoi(vTile[0])!= 0 && stoi(vTile[0])!= 1) {
-        cout << "Land input must be 0 or 1" << endl;
-        exit(1);
-    }
-    if (stod(vTile[1])<0 || stod(vTile[2]) <0) {
-        cout << "Density input must be positive" << endl;
-        exit(1);
-    }
-
+bool Parser::validTile(int land) {
+    if(land == 0 || land == 1)
+        return true;
+    return false;
 }
 
-void Parser::parseInput(const string& landFileName) {
+void Parser::parseInput(const string& landFileName) throw(runtime_error) {
 
     ifstream landFile;
     landFile.open(landFileName);
@@ -32,15 +25,19 @@ void Parser::parseInput(const string& landFileName) {
     vector <string> vInputLine;
     vector <string> vInputTile;
     vector< vector<TileData*> > tilesVector;
-   
+
     if (landFile.is_open()) {
         landFile >> NX;
-        if (NX > 2000) {
-            throw std::invalid_argument("Number of columns must be between 1 and 2000");
+        if (NX > 2000 || NX < 1) {
+            stringstream ss;
+            ss << "Number of columns must be between 1 and 2000 but instead it was " << NX << endl;
+            throw runtime_error(ss.str());
         }
         landFile >> NY;
-        if (NY > 2000) {
-            throw std::invalid_argument("Number of rows must be between 1 and 2000");
+        if (NY > 2000 || NY < 1) {
+            stringstream ss;
+            ss << "Number of rows must be between 1 and 2000 but instead it was " << NY << endl;
+            throw runtime_error(ss.str());
         }
 
         // halo cell
@@ -67,7 +64,9 @@ void Parser::parseInput(const string& landFileName) {
             split(inputLine, vInputLine, ' ');
          
             if (vInputLine.size()!=NX) {
-                throw std::invalid_argument("Error x elements not equal to Landscape size");
+                stringstream ss;
+                ss << "Error in line " << i+2 << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
+                throw runtime_error(ss.str());
             }
          
             for (size_t j=0; j<NX; j++) {
@@ -75,19 +74,25 @@ void Parser::parseInput(const string& landFileName) {
                 // split by comma for land, pumas, hares
                 split(vInputLine[j], vInputTile, ',');
              
-                if (vInputTile.size()==3) {
-                    tilesLine.push_back(new TileData(stoi(vInputTile[0]), stod(vInputTile[1]), stod(vInputTile[2])));
+                int land = stoi(vInputTile[0]);
+                
+                if (vInputTile.size()==3 && Parser::validTile(land)) {
+                    tilesLine.push_back(new TileData(land, stod(vInputTile[1]), stod(vInputTile[2])));
                 }
-                else if (vInputTile.size()==1) {
-                    tilesLine.push_back(new TileData(stoi(vInputTile[0])));
+                else if (vInputTile.size()==1 && Parser::validTile(land)) {
+                    tilesLine.push_back(new TileData(land));
                 }
                 else {
-                    cout << "Incorrect defintion of input square in input.dat" << endl;
+                    stringstream ss;
+                    ss << "Invalid input tile in position (" << i << ", " << j << ") of the input file" << endl;
+                    throw runtime_error(ss.str());
                 }
             }
             tilesLine.push_back(haloTile);      // last column halos
             tilesVector.push_back(tilesLine);
         }
+
+        landFile.close();
 
         // add last row as halos
         vector<TileData*> zerosLastLine (NX + 2);
@@ -99,7 +104,9 @@ void Parser::parseInput(const string& landFileName) {
        ConfigData::initLandscapeData(tilesVector, NX+2, NY+2);
    }
    else {
-       throw std::invalid_argument("Unable to open landFile");
+       stringstream ss;
+       ss << "Invalid land file name: " << landFileName << endl;
+       throw runtime_error(ss.str());
    }
 }
 
@@ -115,16 +122,32 @@ void Parser::freeTilesVector() {
     delete tilesVector[0][0]; //removes all of the halo tiles references
 }
 
-void Parser::parseConfig(const string& configFileName) {
+void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
+    ifstream configFile(configFileName);
+    stringstream buffer;
+    json jsonConfig;
 
-    std::ifstream configFile(configFileName);
-    std::stringstream buffer;
+    if (!configFile) {
+        stringstream ss;
+        ss << "The configuration file: " << configFileName << " does not exists" << endl;
+        throw runtime_error(ss.str());
+    }
 
     configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
     buffer << configFile.rdbuf();
     string jsonString = buffer.str();
 
-    auto jsonConfig = json::parse(jsonString);
+    configFile.close();
+    
+    try {
+        jsonConfig = json::parse(jsonString);
+    }
+    catch (json::parse_error& e) {
+        stringstream err;
+        err << "exception id: " << e.id << endl << "byte position of error: " << e.byte;
+        throw runtime_error(err.str());
+    }
+
     std::vector<string> found;
 
     for (auto i = jsonConfig.begin(); i != jsonConfig.end(); ++i)
@@ -142,20 +165,28 @@ void Parser::parseConfig(const string& configFileName) {
     bool found_is_unique = (it == found.end() );
 
     if (found.size() != 8 && found_is_unique) {
-        throw std::invalid_argument("You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m");
+        stringstream ss;
+        ss << "You need to define all of the following parameter keys: delta_t, T, r, k, a, b, l, m" << endl;
+        throw runtime_error(ss.str());
     }
 
-    ConfigData::setDeltaT(jsonConfig.at("delta_t"));
-    ConfigData::setCapitalT(jsonConfig.at("T"));
-
-    Hare::setBirthRate(jsonConfig.at("r"));
-    Hare::setDiffusionRate(jsonConfig.at("k"));
-    Hare::setPredationRate(jsonConfig.at("a"));
-
-    Puma::setBirthRate(jsonConfig.at("b"));
-    Puma::setDiffusionRate(jsonConfig.at("l"));
-    Puma::setMortalityRate(jsonConfig.at("m"));
-
+    try {
+        ConfigData::setDeltaT(jsonConfig.at("delta_t"));
+        ConfigData::setCapitalT(jsonConfig.at("T"));
+        
+        Hare::setBirthRate(jsonConfig.at("r"));
+        Hare::setDiffusionRate(jsonConfig.at("k"));
+        Hare::setPredationRate(jsonConfig.at("a"));
+        
+        Puma::setBirthRate(jsonConfig.at("b"));
+        Puma::setDiffusionRate(jsonConfig.at("l"));
+        Puma::setMortalityRate(jsonConfig.at("m"));
+    }
+    catch (const invalid_argument& ia) {
+        stringstream err;
+        err << "Invalid configuration in param.json: " << ia.what() << endl;
+        throw runtime_error(err.str());
+    }
 }
 
 string Parser::required_params[8] = { "delta_t", "T", "r", "k", "a", "b", "l", "m" };
