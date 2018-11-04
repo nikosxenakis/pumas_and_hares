@@ -1,7 +1,7 @@
 var searchData=
 [
   ['image',['Image',['../class_image.html#ac62ce282a813003ac87bc182e23221ed',1,'Image']]],
-  ['init',['init',['../class_helpers.html#a56483e3c7846f3a1bcc18b30f5fff271',1,'Helpers::init()'],['../class_image.html#a04d3347d7fe9b836b2d2dc6e4ee8a69b',1,'Image::init()'],['../class_landscape.html#a36defee8da6cfc26453952456155d126',1,'Landscape::init()']]],
+  ['init',['init',['../class_helpers.html#acada7e7cf1685c7f545219b40125026c',1,'Helpers::init()'],['../class_image.html#a04d3347d7fe9b836b2d2dc6e4ee8a69b',1,'Image::init()'],['../class_landscape.html#a36defee8da6cfc26453952456155d126',1,'Landscape::init()']]],
   ['initlandscapedata',['initLandscapeData',['../class_config_data.html#a0a38f9a2f702221086231b37be2ff293',1,'ConfigData']]],
   ['initoutputfile',['initOutputFile',['../class_output.html#ace726303529c85e70a2325c9229bc0f2',1,'Output']]],
   ['initrandomgenerator',['initRandomGenerator',['../class_helpers.html#a723b8ace95cb63cf148ae67e40730f8d',1,'Helpers']]],

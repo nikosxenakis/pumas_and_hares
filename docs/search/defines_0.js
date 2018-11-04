@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_5fneighbours',['MAX_NEIGHBOURS',['../landscape_8hpp.html#ae35694bd71aaa8aa2608ba5d24de667d',1,'landscape.hpp']]],
-  ['max_5fstep',['MAX_STEP',['../config_data_8hpp.html#a8fa4a934e7d02b3e5dabfc502cb611f7',1,'configData.hpp']]]
+  ['config_5fpath',['CONFIG_PATH',['../main_8cpp.html#a863ab5d791c86f9dfff4c6e90624130c',1,'main.cpp']]]
 ];

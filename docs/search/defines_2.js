@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pbstr',['PBSTR',['../helpers_8hpp.html#a93f03159397f25c687840129b18c972d',1,'helpers.hpp']]],
-  ['pbwidth',['PBWIDTH',['../helpers_8hpp.html#a69793e71975c25754a8236df29896e15',1,'helpers.hpp']]]
+  ['max_5fneighbours',['MAX_NEIGHBOURS',['../landscape_8hpp.html#ae35694bd71aaa8aa2608ba5d24de667d',1,'landscape.hpp']]],
+  ['max_5fstep',['MAX_STEP',['../config_data_8hpp.html#a8fa4a934e7d02b3e5dabfc502cb611f7',1,'configData.hpp']]]
 ];

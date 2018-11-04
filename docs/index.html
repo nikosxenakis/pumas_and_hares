@@ -110,12 +110,27 @@ $(function() {
 <li>UML diagrams</li>
 <li>see more diagrams in index.html</li>
 </ul>
-<p>explain dependency decoupling (configData, <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>, <a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a>)</p>
+<p>explain dependency decoupling (configData, <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>, <a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a>) [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png" alt="UML diagram of class configData"/>
+</div>
+<p>] [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png" alt="UML diagram of class Hare"/>
+</div>
+<p>] [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png" alt="UML diagram of class Landscape"/>
+</div>
+<p>] [</p><div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png" alt="UML diagram of class Tile"/>
+</div>
+<p>]</p>
 <h2>Platforms</h2>
-<p>The simulations run on both DICE and Cirrus supercomputers</p>
+<p>The simulations run on both the university's DICE network and the Cirrus supercomputer cluster.</p>
 <h2>Third Party Tools</h2>
 <ul>
 <li><a href="https://catch-lib.net">Catch</a> for the test library</li>
+</ul>
+<p>Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.</p>
+<ul>
 <li><a href="https://github.com/nlohmann/json">JSON</a> for the json parser library</li>
 <li><a href="https://github.com/doxygen/doxygen">DoxyGen</a> for generating documentation from annotated C++ sources</li>
 </ul>
@@ -139,7 +154,7 @@ $(function() {
 <p>This project is licensed under the MIT License - see the LICENSE.md file for details</p>
 <h2>Acknowledgements</h2>
 <ul>
-<li>Hat tip to anyone whose code was used </li>
+<li>Thanks to anyone whose code was used </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->

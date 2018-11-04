@@ -106,9 +106,13 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a8bc8c4afa65d2ec177cfe75981090437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a8bc8c4afa65d2ec177cfe75981090437">OUTPUT_PATH</a>&#160;&#160;&#160;&quot;./output&quot;</td></tr>
+<tr class="memitem:abe87b341f562fd1cf40b7672e4d759da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#abe87b341f562fd1cf40b7672e4d759da">XSTR</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr class="separator:abe87b341f562fd1cf40b7672e4d759da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d295a837ac71add5578860b55e5502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(x)&#160;&#160;&#160;<a class="el" href="output_8hpp.html#abe87b341f562fd1cf40b7672e4d759da">XSTR</a>(x)</td></tr>
+<tr class="separator:a18d295a837ac71add5578860b55e5502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bc8c4afa65d2ec177cfe75981090437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a8bc8c4afa65d2ec177cfe75981090437">OUTPUT_PATH</a>&#160;&#160;&#160;<a class="el" href="output_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(./output)</td></tr>
 <tr class="separator:a8bc8c4afa65d2ec177cfe75981090437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61dd80c2fec5621edf38c3347b55ad42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a61dd80c2fec5621edf38c3347b55ad42">OUTPUT_FILE</a>&#160;&#160;&#160;&quot;./output/average_density.dat&quot;</td></tr>
+<tr class="memitem:a61dd80c2fec5621edf38c3347b55ad42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="output_8hpp.html#a61dd80c2fec5621edf38c3347b55ad42">OUTPUT_FILE</a>&#160;&#160;&#160;<a class="el" href="output_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(./output/average_density.dat)</td></tr>
 <tr class="separator:a61dd80c2fec5621edf38c3347b55ad42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -121,7 +125,7 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define OUTPUT_FILE&#160;&#160;&#160;&quot;./output/average_density.dat&quot;</td>
+          <td class="memname">#define OUTPUT_FILE&#160;&#160;&#160;<a class="el" href="output_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(./output/average_density.dat)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -135,7 +139,43 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define OUTPUT_PATH&#160;&#160;&#160;&quot;./output&quot;</td>
+          <td class="memname">#define OUTPUT_PATH&#160;&#160;&#160;<a class="el" href="output_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(./output)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18d295a837ac71add5578860b55e5502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d295a837ac71add5578860b55e5502">&#9670;&nbsp;</a></span>STR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="output_8hpp.html#abe87b341f562fd1cf40b7672e4d759da">XSTR</a>(x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe87b341f562fd1cf40b7672e4d759da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe87b341f562fd1cf40b7672e4d759da">&#9670;&nbsp;</a></span>XSTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XSTR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;#x</td>
         </tr>
       </table>
 </div><div class="memdoc">
