@@ -60,10 +60,10 @@ TEST_CASE( "Image test", "[Testing image functions]"){
     }
 
 }
-
 TEST_CASE( "Clean up Image Test", "[cleaning]"){
 
-    int rmSuccess = system("rm -rf /home/jim/Documents/masters/prog_skills/pumas_and_hares/test/out/");
+    int rmSuccess = system("rm -rf test/out/");
     REQUIRE( 0 == rmSuccess);
             
 }
+

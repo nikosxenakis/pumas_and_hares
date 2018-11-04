@@ -31,8 +31,8 @@ All build files are placed in the build directory
 
 ## Input files
 
-The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the `/resources` directory.
-You can select which file to use as input at run time by supplying it as a command line arguement i.e. `./bin/pumas_and_hares ./resources/small3x3.dat`
+The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the `./resources/input_files` directory.
+You can select which file to use as input at run time by supplying it as a command line arguement i.e. `./bin/pumas_and_hares ./resources/input_files/small3x3.dat`
 The format of the file is:
 
 ```
@@ -121,7 +121,7 @@ Catch was chosen as the test library for this project as it is a simple, header 
 
 ## Running the tests
 
-To build and run these tests, simply use the command `make test`. Once the tests have finished compiling, you can run them using `./bin/test/`
+To build and run these tests, simply use the command `make run_test`
 
 ### Test style and reasoning
 
