@@ -27,7 +27,7 @@ using namespace std;
 
 class LandFile {
 public:
-    int weight;
+    unsigned int weight;
     bool land;
     LandFile() {
         this->weight = 1;
@@ -37,13 +37,13 @@ public:
 
 class Position {
 public:
-    int row;
-    int col;
+    unsigned int row;
+    unsigned int col;
     Position() {
         this->row = rand() % ROWS;
         this->col = rand() % COLS;
     }
-    Position(int i, int j) {
+    Position(unsigned int i, unsigned int j) {
         this->row = i;
         this->col = j;
     }
@@ -52,9 +52,9 @@ public:
 vector< vector<LandFile*> > createLandVector() {
     vector< vector<LandFile*> > landFileVector;
 
-    for (int i = 0; i < ROWS; ++i) {
+    for (unsigned int i = 0; i < ROWS; ++i) {
         vector<LandFile*> landFileVectorRow;
-        for (int j = 0; j < COLS; ++j) {
+        for (unsigned int j = 0; j < COLS; ++j) {
             landFileVectorRow.push_back(new LandFile());
         }
         landFileVector.push_back(landFileVectorRow);
@@ -62,7 +62,7 @@ vector< vector<LandFile*> > createLandVector() {
     return landFileVector;
 }
 
-int fillNeighbour(vector< vector<LandFile*> > landFileVector, int row, int col) {
+unsigned int fillNeighbour(vector< vector<LandFile*> > landFileVector, unsigned int row, unsigned int col) {
     if(row >= 0 && row < landFileVector.size() && col > 0 && col < landFileVector[row].size() && landFileVector[row][col]->land == 0) {
         landFileVector[row][col]-> land = 1;
         return 1;
@@ -70,27 +70,27 @@ int fillNeighbour(vector< vector<LandFile*> > landFileVector, int row, int col) 
     return 0;
 }
 
-void increaseNeighbourWeight(vector< vector<LandFile*> > landFileVector, int row, int col) {
+void increaseNeighbourWeight(vector< vector<LandFile*> > landFileVector, unsigned int row, unsigned int col) {
     landFileVector[row][col]->weight += INC_WEIGHT;
 
     if(landFileVector[row][col]->weight > MAX_WEIGHT)
         landFileVector[row][col]->weight = MAX_WEIGHT;
 }
 
-void reduceNeighbourWeight(vector< vector<LandFile*> > landFileVector, int row, int col) {
+void reduceNeighbourWeight(vector< vector<LandFile*> > landFileVector, unsigned int row, unsigned int col) {
     landFileVector[row][col]->weight -= DEC_WEIGHT;
 
     if(landFileVector[row][col]->weight < 1)
         landFileVector[row][col]->weight = 1;
 }
 
-void adjustNeighboursWeight(vector< vector<LandFile*> > landFileVector, int row, int col) {
+void adjustNeighboursWeight(vector< vector<LandFile*> > landFileVector, unsigned int row, unsigned int col) {
 
-    for (int i = 0; i < ROWS; ++i) {
-        for (int j = 0; j < COLS; ++j) {
+    for (unsigned int i = 0; i < ROWS; ++i) {
+        for (unsigned int j = 0; j < COLS; ++j) {
             
             if(!landFileVector[row][col]->land) {
-                int macro_area = i > row - MACRO_RANGE && i < row + MACRO_RANGE && j > col - MACRO_RANGE && j < col + MACRO_RANGE;
+                unsigned int macro_area = i > row - MACRO_RANGE && i < row + MACRO_RANGE && j > col - MACRO_RANGE && j < col + MACRO_RANGE;
                 if(macro_area)
                     increaseNeighbourWeight(landFileVector, i, j);
                 else
@@ -101,21 +101,21 @@ void adjustNeighboursWeight(vector< vector<LandFile*> > landFileVector, int row,
     }
 }
 
-int fillNeighbours(vector< vector<LandFile*> > landFileVector, Position* pos) {
+unsigned int fillNeighbours(vector< vector<LandFile*> > landFileVector, Position* pos) {
 
-    static int must_adjust = ADJUST_FREQUENCY;
+    static unsigned int must_adjust = ADJUST_FREQUENCY;
 
-    int sum = 0;
-    int row = pos->row;
-    int col = pos->col;
+    unsigned int sum = 0;
+    unsigned int row = pos->row;
+    unsigned int col = pos->col;
 
-    for (int i = -MICRO_RANGE; i < MICRO_RANGE; ++i) {
+    for (unsigned int i = -MICRO_RANGE; i < MICRO_RANGE; ++i) {
         if(i<=0)
-            for (int j = -i - MICRO_RANGE; j < i + MICRO_RANGE; ++j) {
+            for (unsigned int j = -i - MICRO_RANGE; j < i + MICRO_RANGE; ++j) {
                 sum += fillNeighbour(landFileVector, row+i, col+j);
             }
        if(i>0)
-            for (int j = i - MICRO_RANGE; j < - i + MICRO_RANGE; ++j) {
+            for (unsigned int j = i - MICRO_RANGE; j < - i + MICRO_RANGE; ++j) {
                 sum += fillNeighbour(landFileVector, row+i, col+j);
             }
     }
@@ -130,17 +130,17 @@ int fillNeighbours(vector< vector<LandFile*> > landFileVector, Position* pos) {
 }
 
 Position* getNextPosition(vector< vector<LandFile*> > landFileVector) {
-    int row = 0;
-    int col = 0;
-    int pos;
-    vector<int> positionVector;
+    unsigned int row = 0;
+    unsigned int col = 0;
+    unsigned int pos;
+    vector<unsigned int> positionVector;
 
     for(auto landFileVectorRow : landFileVector) {
         col = 0;
         for(auto landFileElement : landFileVectorRow) {
             if(!landFileElement->land) {
                 pos = row*ROWS+col;
-                for (int i = 0; i < landFileElement->weight; ++i) {
+                for (unsigned int i = 0; i < landFileElement->weight; ++i) {
                     positionVector.push_back(pos);
                 }
             }
@@ -156,9 +156,9 @@ Position* getNextPosition(vector< vector<LandFile*> > landFileVector) {
 
 void distributeLand(vector< vector<LandFile*> > landFileVector) {
 
-    int i=0;
-    static int perc = 0;
-    static int first_time = 1;
+    unsigned int i=0;
+    static unsigned int perc = 0;
+    static unsigned int first_time = 1;
 
     while(i < LANDPERCENTAGE*ROWS*COLS) {
         if(perc > 90)
@@ -180,14 +180,14 @@ void distributeLand(vector< vector<LandFile*> > landFileVector) {
     }
 }
 
-float getPumas(int i, int j, int width, int height) {
+float getPumas(unsigned int i, unsigned int j, unsigned int width, unsigned int height) {
     if(j<width/2 && i<height/2) {
         return 5;
     }
     return 1;
 }
 
-float getHares(int i, int j, int width, int height) {
+float getHares(unsigned int i, unsigned int j, unsigned int width, unsigned int height) {
     if(j>width/2 && i>height/2) {
         return 5;
     }
@@ -195,9 +195,9 @@ float getHares(int i, int j, int width, int height) {
 }
 
 void createLandFile(vector< vector<LandFile*> > landFileVector, ofstream &landFile) {
-    int width = landFileVector.size();
-    int height = landFileVector[0].size();
-    int i=0,j=0;
+    unsigned int width = landFileVector.size();
+    unsigned int height = landFileVector[0].size();
+    unsigned int i=0,j=0;
     float pumas=1;
     float hares=5;
 

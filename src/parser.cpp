@@ -121,15 +121,22 @@ void Parser::freeTilesVector() {
 }
 
 void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
-
     ifstream configFile(configFileName);
     stringstream buffer;
     json jsonConfig;
 
-        configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
-        buffer << configFile.rdbuf();
-        string jsonString = buffer.str();
+    if (!configFile) {
+        stringstream ss;
+        ss << "The configuration file: " << configFileName << " does not exists" << endl;
+        throw runtime_error(ss.str());
+    }
 
+    configFile.exceptions(ifstream::eofbit | ifstream::failbit | ifstream::badbit);
+    buffer << configFile.rdbuf();
+    string jsonString = buffer.str();
+
+    configFile.close();
+    
     try {
         jsonConfig = json::parse(jsonString);
     }
