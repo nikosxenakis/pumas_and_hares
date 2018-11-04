@@ -66,7 +66,7 @@ Key:
   *  m: puma mortality rate
   *  k: diffusion rate for hares
   *  l: diffusion rate for pumas
-  *  t: time step
+  *  t: size of time step
   *  T: interval at which a ppm file is generated.
 
 ## Output
@@ -93,6 +93,8 @@ The simulations run on both DICE and Cirrus supercomputers
 ## Third Party Tools
 
 * [Catch](https://catch-lib.net) for the test library
+Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.
+
 * [JSON](https://github.com/nlohmann/json) for the json parser library
 
 ## Running the tests
