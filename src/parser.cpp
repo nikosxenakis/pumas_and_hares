@@ -92,6 +92,8 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
             tilesVector.push_back(tilesLine);
         }
 
+        landFile.close();
+
         // add last row as halos
         vector<TileData*> zerosLastLine (NX + 2);
         for (size_t i = 0; i < zerosLastLine.size(); ++i) {

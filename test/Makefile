@@ -25,10 +25,11 @@ $(BUILD_TEST_DIR)/%.o: $(SRC_TEST_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
 $(TEST_BIN): $(OBJ_TEST_FILES) $(OBJ_FILES)
+	@echo "Linking test..."
 	$(CXX) $(CXXFLAGS) $(OBJ_TEST_FILES) $(OBJ_FILES) -o $@
 
 clean:
 	@echo "Cleaning tests..."
 	rm -r $(BUILD_TEST_DIR)/*
 
-.PHONY: test clean
+.PHONY: $(BIN_DIR)/test clean
