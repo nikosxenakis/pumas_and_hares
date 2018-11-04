@@ -67,7 +67,6 @@ $(LAND_ENCHANCER_BIN): $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 run: $(BIN)
 	@mkdir -p $(OUTPUT_DIR)
 	@rm -rf $(OUTPUT_DIR)/*
-	# @mkdir -p $(OUTPUT_DIR)/$(RUN_ARGS)[0]
 	@$(BIN) $(RUN_ARGS)
 	@python ./scripts/data_analyzer.py
 
