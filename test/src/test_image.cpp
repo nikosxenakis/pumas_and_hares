@@ -24,8 +24,9 @@ TEST_CASE( "Image test", "[Testing image functions]"){
 
     GIVEN( "A 1x1 land file" ){
 
-        string land_file = STR(RESOURCES_PATH/small1x1.dat);
-        Helpers::init(land_file);
+        string land_file = STR(INPUT_FILES_PATH/small1x1.dat);
+        string config_file = STR(CONFIG_PATH/param.json);
+        Helpers::init(land_file, config_file);
 
         WHEN( "We write the image file"){
             

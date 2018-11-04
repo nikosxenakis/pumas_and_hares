@@ -1,12 +1,12 @@
 #include "../include/helpers.hpp"
 
-void Helpers::init(string file) throw(runtime_error) {
-    string const configFileName = STR(RESOURCES_PATH/param.json);
-
+void Helpers::init(string file, string configFile) throw(runtime_error) {
+    cout<< "Input file: " << file << endl;
+    cout<< "Config file: " << configFile << endl;
     Helpers::initRandomGenerator();
 
     try {
-        Parser::parseConfig(configFileName);
+        Parser::parseConfig(configFile);
         Parser::parseInput(file);
     }
     catch (const runtime_error& re) {

@@ -41,10 +41,11 @@ TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()
         float pr = 1.0;
         float dr = 1.0;
 
-        string land_file = STR(RESOURCES_PATH/small3x3.dat);
+        string land_file = STR(INPUT_FILES_PATH/small3x3.dat);
+        string config_file = STR(CONFIG_PATH/param.json);
 
         WHEN("the Landscape is initilised and Hare Params are set") {
-            Helpers::init(land_file);
+            Helpers::init(land_file, config_file);
             ConfigData::setDeltaT(1.0);
 
             Hare::setBirthRate(br);
