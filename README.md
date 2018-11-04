@@ -106,14 +106,16 @@ explain dependency decoupling (configData, Helpers, Parser)
 [![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)]
 [![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)]
 
-
 ## Platforms
 
-The simulations run on both DICE and Cirrus supercomputers
+The simulations run on both the university's DICE network and the Cirrus supercomputer cluster.
 
 ## Third Party Tools
 
 * [Catch](https://catch-lib.net) for the test library
+
+Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.
+
 * [JSON](https://github.com/nlohmann/json) for the json parser library
 * [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
@@ -156,4 +158,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgements
 
-* Hat tip to anyone whose code was used
+* Thanks to anyone whose code was used
