@@ -37,7 +37,7 @@ ifeq (run,$(firstword $(MAKECMDGOALS)))
   # use the rest as arguments for "run"
   RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
   # ...and turn them into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
+  $(@eval $(RUN_ARGS):;@:)
 endif
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp 
@@ -65,8 +65,8 @@ $(LAND_ENCHANCER_BIN): $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 	$(CXX) $(CXXFLAGS) -o $(LAND_ENCHANCER_BIN) $(LAND_DIR)/$(LAND_ENCHANCER).cpp
 
 run: $(BIN)
-	@rm -r $(OUTPUT_DIR)
 	@mkdir -p $(OUTPUT_DIR)
+	@rm -rf $(OUTPUT_DIR)/*
 	@$(BIN) $(RUN_ARGS)
 	@python ./scripts/data_analyzer.py
 
