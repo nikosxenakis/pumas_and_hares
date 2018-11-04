@@ -15,7 +15,12 @@
 #define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 #define PBWIDTH 60
 
-#define RESOURCES_PATH "./resources"
+#ifndef STR
+#define XSTR(x) #x
+#define STR(x) XSTR(x)
+#endif
+
+#define RESOURCES_PATH ./resources
 
 /**
  * @class Helpers

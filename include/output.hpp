@@ -11,8 +11,13 @@
 #include "image.hpp"
 #include "configData.hpp"
 
-#define OUTPUT_PATH "./output"
-#define OUTPUT_FILE "./output/average_density.dat"
+#ifndef STR
+#define XSTR(x) #x
+#define STR(x) XSTR(x)
+#endif
+
+#define OUTPUT_PATH STR(./output)
+#define OUTPUT_FILE STR(OUTPUT_PATH/average_density.dat)
 //#define OUTPUT_PATH "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output" //Just for Nikos Xcode
 //#define OUTPUT_FILE "/Users/xenis656/Desktop/PS/pumas_and_hares/pumas_and_hares/output/average_density.dat" //Just for Nikos Xcode
 

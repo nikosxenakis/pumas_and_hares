@@ -1,7 +1,7 @@
 #include "../include/helpers.hpp"
 
 void Helpers::init(string file) throw(runtime_error) {
-    string const configFileName = string(RESOURCES_PATH) + "/param.json";
+    string const configFileName = STR(RESOURCES_PATH/param.json);
 
     Helpers::initRandomGenerator();
 
