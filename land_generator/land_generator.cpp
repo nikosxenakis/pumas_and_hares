@@ -157,7 +157,7 @@ Position* getNextPosition(vector< vector<LandFile*> > landFileVector) {
 void distributeLand(vector< vector<LandFile*> > landFileVector) {
 
     unsigned int i=0;
-    static unsigned int perc = 0;
+    static int perc = 0;
     static unsigned int first_time = 1;
 
     while(i < LANDPERCENTAGE*ROWS*COLS) {
