@@ -1,6 +1,6 @@
-/* test_pixel.cpp
+/* @file test_pixel.cpp
  *
- * Tests pixel class and its functions
+ * @brief Tests pixel class and its functions
  *
  */
 #include "../test_declarations.hpp"

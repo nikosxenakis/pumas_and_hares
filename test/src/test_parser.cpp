@@ -1,6 +1,6 @@
-/* parser_test.cpp
+/* @file parser_test.cpp
  *
- * Tests parser class and its functions
+ * @brief Tests parser class and its functions
  *
  */
 #include "../test_declarations.hpp"

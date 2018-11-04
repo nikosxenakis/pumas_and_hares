@@ -1,7 +1,8 @@
-/* test_image.cpp
+/* @file test_image.cpp
  *
- * Tests image class and its functions
+ * @brief Tests image class and its functions
  *
+ * @ingroup test
  */
 #include "../test_declarations.hpp"
 

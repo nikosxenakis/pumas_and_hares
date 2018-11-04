@@ -1,6 +1,7 @@
-/* hare_test.cpp
+/* @file hare_test.cpp
  *
- * Tests hare class and its functions
+ * @brief Tests hare class and its functions
+ * @ingroup test
  *
  */
 #include "../test_declarations.hpp"
