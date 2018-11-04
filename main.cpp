@@ -13,7 +13,6 @@
  * @author ...
  *
  */
-
 #include "include/helpers.hpp"
 #include "include/log.hpp"
 
@@ -21,7 +20,7 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     
-    string inputFile = string(RESOURCES_PATH) + "/islands.dat";
+    string inputFile = STR(RESOURCES_PATH/islands.dat);
     
     if(argc == 2) {
         inputFile = string(argv[1]);
