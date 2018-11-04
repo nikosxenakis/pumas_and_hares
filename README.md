@@ -7,8 +7,8 @@ practice” scientific code within a full development framework (i.e. revision c
 
 ## Prerequisites
 
-* Compiler: g++ [GNU g++](https://www.gnu.org/software/gcc/)
-* Debugger: g++ [GNU gdb](https://www.gnu.org/software/gdb/)
+* Compiler: [GNU g++](https://www.gnu.org/software/gcc/)
+* Debugger: [GNU gdb](https://www.gnu.org/software/gdb/)
 * Build tool: [GNU Make](https://www.gnu.org/software/make/)
 * Test tool: [Catch](https://catch-lib.net)
 * Documentation tool: [DoxyGen](https://github.com/doxygen/doxygen)
@@ -38,11 +38,20 @@ scripts/make.sh
 To run the project just choose one of the following commands
 
 ```
-scripts/pumas_and_hares.sh
-make run
-make run ./resources/input_files/islands.dat
-make run ./resources/input_files/islands.dat ./resources/configurations/param.json
+scripts/pumas_and_hares.sh //run an example of the project that is described in the script
+make run //run an example of the project with the default values
+make run ./resources/input_files/islands.dat //run an example of the project with specific input file
+make run ./resources/input_files/islands.dat ./resources/configurations/param.json //run an example of the project with specific input and configuration file
+scripts/pumas_and_hares_all.sh //run the project with all the combinations of the input and configuration files available
 ```
+
+After the execution, to create the average variation of the densities over time run
+
+```
+python scripts/data_analyzer.py
+```
+
+then display average_density.eps
 
 ## Input files
 
@@ -134,19 +143,35 @@ Catch was chosen as the test library for this project as it is a simple, header 
 * [JSON](https://github.com/nlohmann/json) for the json parser library
 * [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
-## Running the tests
+## Testing
 
-To build and run these tests, simply use the command `make test`. Once the tests have finished compiling, you can run them using `./bin/test/`
+### Running
 
-## Travis
+To run the tests
 
-Say about TRAVIS
+```
+scripts/tests.sh
+```
+
+### Continuous Integration
+
+* [TRAVIS-CI](https://travis-ci.com/nikosxenakis/pumas_and_hares)
 
 ### Test style and reasoning
 
 We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp
 
-### Coding style
+## Land Generator
+
+To create a new landscape run
+
+```
+scripts/land_generator.sh
+```
+
+The new landscape can be found in ./resources/input_files/new_2000x2000.dat
+
+## Coding style
 
 ```
 class MyClass {
@@ -156,9 +181,16 @@ class MyClass {
 }
 ```
 
-### Documentation
+## Documentation
 
 C++ header files contain in line documentation
+We used [DoxyGen](https://github.com/doxygen/doxygen)
+To auto-generate a website-documentation run
+
+```
+scripts/documentation.sh
+```
+You can check by opening with your browser the docs/index.html file the project directory
 
 ## Versioning
 

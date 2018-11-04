@@ -70,8 +70,8 @@ $(function() {
 <p>This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.).</p>
 <h2>Prerequisites</h2>
 <ul>
-<li>Compiler: g++ <a href="https://www.gnu.org/software/gcc/">GNU g++</a></li>
-<li>Debugger: g++ <a href="https://www.gnu.org/software/gdb/">GNU gdb</a></li>
+<li>Compiler: <a href="https://www.gnu.org/software/gcc/">GNU g++</a></li>
+<li>Debugger: <a href="https://www.gnu.org/software/gdb/">GNU gdb</a></li>
 <li>Build tool: <a href="https://www.gnu.org/software/make/">GNU Make</a></li>
 <li>Test tool: <a href="https://catch-lib.net">Catch</a></li>
 <li>Documentation tool: <a href="https://github.com/doxygen/doxygen">DoxyGen</a></li>
@@ -84,7 +84,9 @@ $(function() {
 <p>To build this repository including the main project, test files and land generator</p>
 <div class="fragment"><div class="line">scripts/make.sh</div></div><!-- fragment --><h3>Running</h3>
 <p>To run the project just choose one of the following commands</p>
-<div class="fragment"><div class="line">scripts/pumas_and_hares.sh</div><div class="line">make run</div><div class="line">make run ./resources/input_files/islands.dat</div><div class="line">make run ./resources/input_files/islands.dat ./resources/configurations/param.json</div></div><!-- fragment --><h2>Input files</h2>
+<div class="fragment"><div class="line">scripts/pumas_and_hares.sh //run an example of the project that is described in the script</div><div class="line">make run //run an example of the project with the default values</div><div class="line">make run ./resources/input_files/islands.dat //run an example of the project with specific input file</div><div class="line">make run ./resources/input_files/islands.dat ./resources/configurations/param.json //run an example of the project with specific input and configuration file</div><div class="line">scripts/pumas_and_hares_all.sh //run the project with all the combinations of the input and configuration files available</div></div><!-- fragment --><p>After the execution, to create the average variation of the densities over time run</p>
+<div class="fragment"><div class="line">python scripts/data_analyzer.py</div></div><!-- fragment --><p>then display average_density.eps</p>
+<h2>Input files</h2>
 <p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the <code>/resources</code> directory. You can select which file to use as input at run time by supplying it as a command line arguement i.e. <code>./bin/pumas_and_hares ./resources/small3x3.dat</code> The format of the file is:</p>
 <div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively. Alternatively the density of Pumas and Hares at each grid point can be specified with the format:</p>
 <div class="fragment"><div class="line">3 3</div><div class="line">1,0,0 1,0,0 1,0,0</div><div class="line">1,0,0 1,1,1 1,0,0</div><div class="line">1,0,0 1,0,0 1,0,0</div></div><!-- fragment --><p>Where the density of pumas are hares follows the landscape descriptor.</p>
@@ -143,15 +145,22 @@ $(function() {
 <li><a href="https://github.com/nlohmann/json">JSON</a> for the json parser library</li>
 <li><a href="https://github.com/doxygen/doxygen">DoxyGen</a> for generating documentation from annotated C++ sources</li>
 </ul>
-<h2>Running the tests</h2>
-<p>To build and run these tests, simply use the command <code>make test</code>. Once the tests have finished compiling, you can run them using <code>./bin/test/</code></p>
-<h2>Travis</h2>
-<p>Say about TRAVIS</p>
+<h2>Testing</h2>
+<h3>Running</h3>
+<p>To run the tests</p>
+<div class="fragment"><div class="line">scripts/tests.sh</div></div><!-- fragment --><h3>Continuous Integration</h3>
+<ul>
+<li><a href="https://travis-ci.com/nikosxenakis/pumas_and_hares">TRAVIS-CI</a></li>
+</ul>
 <h3>Test style and reasoning</h3>
 <p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp</p>
-<h3>Coding style</h3>
-<div class="fragment"><div class="line">class MyClass {</div><div class="line">    int myFunc(int myVar) {</div><div class="line">        return myVar;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h3>Documentation</h3>
-<p>C++ header files contain in line documentation</p>
+<h2>Land Generator</h2>
+<p>To create a new landscape run</p>
+<div class="fragment"><div class="line">scripts/land_generator.sh</div></div><!-- fragment --><p>The new landscape can be found in ./resources/input_files/new_2000x2000.dat</p>
+<h2>Coding style</h2>
+<div class="fragment"><div class="line">class MyClass {</div><div class="line">    int myFunc(int myVar) {</div><div class="line">        return myVar;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h2>Documentation</h2>
+<p>C++ header files contain in line documentation We used <a href="https://github.com/doxygen/doxygen">DoxyGen</a> To auto-generate a website-documentation run</p>
+<div class="fragment"><div class="line">scripts/documentation.sh</div></div><!-- fragment --><p> You can check by opening with your browser the docs/index.html file the project directory</p>
 <h2>Versioning</h2>
 <p>We use <a href="http://github.com/">GitHub</a> for versioning. For the versions available, see the <a href="https://github.com/nikosxenakis/pumas_and_hares">tags on this repository</a>.</p>
 <h2>Authors</h2>
