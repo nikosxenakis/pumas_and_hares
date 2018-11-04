@@ -5,6 +5,8 @@
 
 #ifndef RESOURCES_PATH
 #define RESOURCES_PATH ./resources
+#define INPUT_FILES_PATH ./resources/input_files
+#define CONFIG_PATH ./resources/configurations
 #endif
 
 #ifndef TEST_DECLARATIONS

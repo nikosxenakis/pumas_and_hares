@@ -18,10 +18,11 @@ TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
     GIVEN("A landscape file of size 3x3"){
 
-       string land_file = STR(RESOURCES_PATH/small3x3.dat);
-      
+       string land_file = STR(INPUT_FILES_PATH/small3x3.dat);
+       string config_file = STR(CONFIG_PATH/param.json);
+
        WHEN(" the Landscape is initilised" ){ 
-          Helpers::init(land_file);
+          Helpers::init(land_file, config_file);
 
           int max_index = Landscape::getRows() -1; // This works because this particular land
                                                 // file is a square

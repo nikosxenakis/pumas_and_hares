@@ -15,15 +15,6 @@
 #define PBSTR "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 #define PBWIDTH 60
 
-#ifndef STR
-#define XSTR(x) #x
-#define STR(x) XSTR(x)
-#endif
-
-#ifndef RESOURCES_PATH
-#define RESOURCES_PATH ./resources
-#endif
-
 /**
  * @class Helpers
  * @brief setting up simulation
@@ -46,7 +37,7 @@ public:
      * @brief initialising Helpers
      * @param file handle
      */
-    static void init(string file)  throw(runtime_error);
+    static void init(string file, string configFile)  throw(runtime_error);
 
     /**
      * @brief Iterates over time steps and calls all necessary calculations, intialising output, printing to command line

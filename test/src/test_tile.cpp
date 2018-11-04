@@ -13,9 +13,10 @@ TEST_CASE( "Tile test", "[testing the tiles]"){
 
     GIVEN("A landscape of size 10x10") {
 
-        string land_file = STR(RESOURCES_PATH/small10x10.dat);
+        string land_file = STR(INPUT_FILES_PATH/small10x10.dat);
+        string config_file = STR(CONFIG_PATH/param.json);
 
-        Helpers::init(land_file);
+        Helpers::init(land_file, config_file);
         Tile* t1 = Landscape::getTile(3, 3);
         Tile* t2 = Landscape::getTile(1, 1);
         
