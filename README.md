@@ -5,29 +5,44 @@
 This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
 practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.). 
 
-### Prerequisites
+## Prerequisites
+
+* Compiler: g++ [GNU g++](https://www.gnu.org/software/gcc/)
+* Debugger: g++ [GNU gdb](https://www.gnu.org/software/gdb/)
+* Build tool: [GNU Make](https://www.gnu.org/software/make/)
+* Test tool: [Catch](https://catch-lib.net)
+* Documentation tool: [DoxyGen](https://github.com/doxygen/doxygen)
+* JSON Pascer: [JSON](https://github.com/nlohmann/json)
+
+## Usage
+
+### Installation
+
+To install this repository
+
 ```
-Compiler: g++
-Debug: gdb
-Build tool: make
-Test tool: Catch2
+git clone https://github.com/nikosxenakis/pumas_and_hares.git
+cd pumas_and_hares
 ```
 
-### Installing
+### Building
 
-To install this repository, simply use the commands below
+To build this repository including the main project, test files and land generator
 
 ```
-make clean
-make all
-make run ./resources/islands.dat
+scripts/make.sh
 ```
 
-## Building
+### Running
 
-* [GNU Make](https://www.gnu.org/software/make/) 
+To run the project just choose one of the following commands
 
-All build files are placed in the build directory
+```
+scripts/pumas_and_hares.sh
+make run
+make run ./resources/input_files/islands.dat
+make run ./resources/input_files/islands.dat ./resources/configurations/param.json
+```
 
 ## Input files
 
@@ -122,6 +137,10 @@ Catch was chosen as the test library for this project as it is a simple, header 
 ## Running the tests
 
 To build and run these tests, simply use the command `make test`. Once the tests have finished compiling, you can run them using `./bin/test/`
+
+## Travis
+
+Say about TRAVIS
 
 ### Test style and reasoning
 

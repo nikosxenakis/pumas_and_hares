@@ -68,14 +68,23 @@ $(function() {
 <div class="textblock"><p><a href="http://opensource.org/licenses/MIT"></a> <a href="https://travis-ci.org/nikosxenakis"></a></p>
 <h1>Pumas and Hares</h1>
 <p>This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.).</p>
-<p>### Prerequisites </p><div class="fragment"><div class="line">Compiler: g++</div><div class="line">Debug: gdb</div><div class="line">Build tool: make</div><div class="line">Test tool: Catch2</div></div><!-- fragment --><h3>Installing</h3>
-<p>To install this repository, simply use the commands below</p>
-<div class="fragment"><div class="line">make clean</div><div class="line">make all</div><div class="line">make run ./resources/islands.dat</div></div><!-- fragment --><h2>Building</h2>
+<h2>Prerequisites</h2>
 <ul>
-<li><a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+<li>Compiler: g++ <a href="https://www.gnu.org/software/gcc/">GNU g++</a></li>
+<li>Debugger: g++ <a href="https://www.gnu.org/software/gdb/">GNU gdb</a></li>
+<li>Build tool: <a href="https://www.gnu.org/software/make/">GNU Make</a></li>
+<li>Test tool: <a href="https://catch-lib.net">Catch</a></li>
+<li>Documentation tool: <a href="https://github.com/doxygen/doxygen">DoxyGen</a></li>
+<li>JSON Pascer: <a href="https://github.com/nlohmann/json">JSON</a></li>
 </ul>
-<p>All build files are placed in the build directory</p>
-<h2>Input files</h2>
+<h2>Usage</h2>
+<h3>Installation</h3>
+<p>To install this repository</p>
+<div class="fragment"><div class="line">git clone https://github.com/nikosxenakis/pumas_and_hares.git</div><div class="line">cd pumas_and_hares</div></div><!-- fragment --><h3>Building</h3>
+<p>To build this repository including the main project, test files and land generator</p>
+<div class="fragment"><div class="line">scripts/make.sh</div></div><!-- fragment --><h3>Running</h3>
+<p>To run the project just choose one of the following commands</p>
+<div class="fragment"><div class="line">scripts/pumas_and_hares.sh</div><div class="line">make run</div><div class="line">make run ./resources/input_files/islands.dat</div><div class="line">make run ./resources/input_files/islands.dat ./resources/configurations/param.json</div></div><!-- fragment --><h2>Input files</h2>
 <p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the <code>/resources</code> directory. You can select which file to use as input at run time by supplying it as a command line arguement i.e. <code>./bin/pumas_and_hares ./resources/small3x3.dat</code> The format of the file is:</p>
 <div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively. Alternatively the density of Pumas and Hares at each grid point can be specified with the format:</p>
 <div class="fragment"><div class="line">3 3</div><div class="line">1,0,0 1,0,0 1,0,0</div><div class="line">1,0,0 1,1,1 1,0,0</div><div class="line">1,0,0 1,0,0 1,0,0</div></div><!-- fragment --><p>Where the density of pumas are hares follows the landscape descriptor.</p>
@@ -136,6 +145,8 @@ $(function() {
 </ul>
 <h2>Running the tests</h2>
 <p>To build and run these tests, simply use the command <code>make test</code>. Once the tests have finished compiling, you can run them using <code>./bin/test/</code></p>
+<h2>Travis</h2>
+<p>Say about TRAVIS</p>
 <h3>Test style and reasoning</h3>
 <p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp</p>
 <h3>Coding style</h3>
