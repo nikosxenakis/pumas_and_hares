@@ -102,10 +102,11 @@ Slicing the landscape for output we also initialise one `tileData` object per sl
 
 explain dependency decoupling (configData, Helpers, Parser)
 [![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)]
-[![UML diagram of class Hare](https://raw.githubusercontent.com/nikosxenakis/pumas_and_hares/master/docs/class_hare__coll__graph.png)]
-[[https://github.com/nikosxenakis/pumas_and_hares/docs/class_tile__coll__graph.png|alt=UML of class tile]]
+[![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)]
+[![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)]
+[![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)]
 
-[![JSON for Modern C++](https://raw.githubusercontent.com/nlohmann/json/master/doc/json.gif)]
+
 ## Platforms
 
 The simulations run on both DICE and Cirrus supercomputers
