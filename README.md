@@ -101,7 +101,7 @@ Slicing the landscape for output we also initialise one `tileData` object per sl
 * see more diagrams in index.html
 
 explain dependency decoupling (configData, Helpers, Parser)
-![alt text](https://github.com/nikosxenakis/pumas_and_hares/tree/master/docs/class_config_data__coll__graph.png)
+![alt text](https://raw.githubusercontent.com/nikosxenakis/pumas_and_hares/master/docs/class_config_data__coll__graph.png)
 
 
 ## Platforms
