@@ -3,11 +3,12 @@
  * Tests landscape class and its functions
  *
  */
+#include "../test_declarations.hpp"
 
 #include <iostream>
 #include <fstream>
-#include "../../lib/catch.hpp"
-#include "../../include/hare.hpp"
+
+#include STR(HEADERS_PATH/hare.hpp)
 
 using namespace std;
 

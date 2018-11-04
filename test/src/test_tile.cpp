@@ -3,17 +3,17 @@
  * Tests tile class and its functions
  *
  */
-#include <iostream>
-#include "../../lib/catch.hpp"
-#include "../../include/tile.hpp"
-#include "../../include/landscape.hpp"
-#include "../../include/helpers.hpp"
+#include "../test_declarations.hpp"
+
+#include STR(HEADERS_PATH/tile.hpp)
+#include STR(HEADERS_PATH/landscape.hpp)
+#include STR(HEADERS_PATH/helpers.hpp)
 
 TEST_CASE( "Tile test", "[testing the tiles]"){
 
     GIVEN("A landscape of size 10x10") {
 
-        string land_file = "./test/resources/small10x10.dat";
+        string land_file = STR(RESOURCES_PATH/small10x10.dat);
 
         Helpers::init(land_file);
         Tile* t1 = Landscape::getTile(3, 3);

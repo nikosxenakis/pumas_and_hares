@@ -3,16 +3,18 @@
  * Tests image class and its functions
  *
  */
-#include "../../lib/catch.hpp"
+#include "../test_declarations.hpp"
+
 #include <string>
 #include <sys/stat.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <iostream>
 
-#include "../../include/helpers.hpp"
-#include "../../include/landscape.hpp"
-#include "../../include/image.hpp"
+#include STR(HEADERS_PATH/landscape.hpp)
+#include STR(HEADERS_PATH/image.hpp)
+#include STR(HEADERS_PATH/helpers.hpp)
+
 
 using namespace std;
 
@@ -22,7 +24,7 @@ TEST_CASE( "Image test", "[Testing image functions]"){
 
     GIVEN( "A 1x1 land file" ){
 
-        string land_file = ("./test/resources/small1x1.dat");
+        string land_file = STR(RESOURCES_PATH/small1x1.dat);
         Helpers::init(land_file);
 
         WHEN( "We write the image file"){

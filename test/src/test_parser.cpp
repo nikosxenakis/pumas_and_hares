@@ -3,11 +3,13 @@
  * Tests parser class and its functions
  *
  */
-#include "../../lib/catch.hpp"
+#include "../test_declarations.hpp"
+
 #include <iostream>
 #include <fstream>
-#include "../../include/helpers.hpp"
-#include "../../include/configData.hpp"
+
+#include STR(HEADERS_PATH/configData.hpp)
+#include STR(HEADERS_PATH/helpers.hpp)
 
 using namespace std;
 
@@ -15,7 +17,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 
     GIVEN( "There are correct config parameters defined in a json file" ){
 
-        string configFileName = "./test/resources/test_param.json";
+        string configFileName = STR(RESOURCES_PATH/test_param.json);
         REQUIRE_NOTHROW( Parser::parseConfig(configFileName) );
 
         THEN( "Parser sets the correct config parameters to ConfigData, Hare and Puma" ){
@@ -35,7 +37,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     }
 
     GIVEN( "Not all of the config parameters are define in a json file" ){
-        string missing_keys_configFileName = "./test/resources/test_param_missing_keys.json";
+        string missing_keys_configFileName = STR(RESOURCES_PATH/test_param_missing_keys.json);
 
         THEN( "Parser throws an exception" ){
             REQUIRE_THROWS( Parser::parseConfig(missing_keys_configFileName) );
@@ -43,7 +45,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     }
 
     GIVEN( "negative config params set in json file" ){
-        string negative_values_configFileName = "./test/resources/test_param_negative_values.json";
+        string negative_values_configFileName = STR(RESOURCES_PATH/test_param_negative_values.json);
 
         THEN( "Parser accepts negative values but Hare model throws invalid_arg exception" ){
             REQUIRE_THROWS( Parser::parseConfig(negative_values_configFileName) );
@@ -53,7 +55,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     }
 
     GIVEN( "A non-existing file handle" ){
-        string non_existing_configFileName = string(RESOURCES_PATH) + "/non_sense.json";
+        string non_existing_configFileName = STR(RESOURCES_PATH/non_sense.json);
 
         THEN( "Parser::parseConfig() throws an exception" ){
             REQUIRE_THROWS( Parser::parseConfig(non_existing_configFileName) );
@@ -61,7 +63,7 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
     }
 
     GIVEN( "Non-valid json string in .json file" ) {
-        string invalid_json_configFileName = "./test/resources/invalid_param.json";
+        string invalid_json_configFileName = STR(RESOURCES_PATH/invalid_param.json);
 
         THEN( "Parser::parseConfig() throws an exception") {
             REQUIRE_THROWS( Parser::parseConfig(invalid_json_configFileName) );
@@ -80,35 +82,35 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
 
     GIVEN( "A Vector") {
         WHEN( "Vector value is smaller than 0" ) {
-            string inputFile = "./test/resources/vector_smaller_than_0.dat";
+            string inputFile = STR(RESOURCES_PATH/vector_smaller_than_0.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Vector value is bigger than 1" ) {
-            string inputFile = "./test/resources/vector_bigger_than_1.dat";
+            string inputFile = STR(RESOURCES_PATH/vector_bigger_than_1.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Vector value is 0" ) {
-            string inputFile = "./test/resources/vector_equals_0.dat";
+            string inputFile = STR(RESOURCES_PATH/vector_equals_0.dat);
             THEN( "Return no error" ) {
                 // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Vector value is 1" ) {
-            string inputFile = "./test/resources/vector_equals_1.dat";
+            string inputFile = STR(RESOURCES_PATH/vector_equals_1.dat);
             THEN( "Return no error" ) {
                 // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "x elements not equal to Landscape size" ) {
-            string inputFile = "./test/resources/input_x_elements_not_equal_landscape_size.dat";
+            string inputFile = STR(RESOURCES_PATH/input_x_elements_not_equal_landscape_size.dat);
             THEN( "Throw exception" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
@@ -116,7 +118,7 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
 
         // todo: might be the same as first WHEN
         WHEN( "Number of columns are between 1 and 2000" ) {
-            string inputFile = "./test/resources/cols_between_1_2000.dat";
+            string inputFile = STR(RESOURCES_PATH/cols_between_1_2000.dat);
             THEN( "Return no error" ) {
                 // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
@@ -124,28 +126,28 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
 
         // todo: might be the same as first WHEN
         WHEN( "Number of rows are between 1 and 2000") {
-            string inputFile = "./test/resources/rows_between_1_2000.dat";
+            string inputFile = STR(RESOURCES_PATH/rows_between_1_2000.dat);
             THEN( "Return no error" ) {
                 // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of rows bigger than 2000") {
-            string inputFile = "./test/resources/row_bigger_than_2000.dat";
+            string inputFile = STR(RESOURCES_PATH/row_bigger_than_2000.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of rows less than 1") {
-            string inputFile = "./test/resources/rows_less_1.dat";
+            string inputFile = STR(RESOURCES_PATH/rows_less_1.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
         WHEN( "Number of cols less than 1") {
-            string inputFile = "./test/resources/cols_less_1.dat";
+            string inputFile = STR(RESOURCES_PATH/cols_less_1.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }

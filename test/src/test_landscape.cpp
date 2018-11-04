@@ -3,22 +3,22 @@
  * Tests landscape class and its functions
  *
  */
-#include "../../lib/catch.hpp"
+#include "../test_declarations.hpp"
+
 #include <iostream>
 #include <fstream>
-#include "../../include/landscape.hpp"
-#include "../../include/helpers.hpp"
-#include "../../include/tile.hpp"
+
+#include STR(HEADERS_PATH/landscape.hpp)
+#include STR(HEADERS_PATH/tile.hpp)
+#include STR(HEADERS_PATH/helpers.hpp)
 
 using namespace std;
-
-
 
 TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
     GIVEN("A landscape file of size 3x3"){
 
-       string land_file = ("./test/resources/small3x3.dat");
+       string land_file = STR(RESOURCES_PATH/small3x3.dat);
       
        WHEN(" the Landscape is initilised" ){ 
           Helpers::init(land_file);

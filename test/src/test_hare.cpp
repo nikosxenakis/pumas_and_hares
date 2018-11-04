@@ -3,11 +3,12 @@
  * Tests hare class and its functions
  *
  */
-#include "../../lib/catch.hpp"
-#include <iostream>
-#include "../../include/hare.hpp"
-#include "../../include/helpers.hpp"
-#include "../../include/configData.hpp"
+#include "../test_declarations.hpp"
+
+#include STR(HEADERS_PATH/hare.hpp)
+#include STR(HEADERS_PATH/landscape.hpp)
+#include STR(HEADERS_PATH/configData.hpp)
+#include STR(HEADERS_PATH/helpers.hpp)
 
 using namespace std;
 
@@ -40,7 +41,7 @@ TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()
         float pr = 1.0;
         float dr = 1.0;
 
-        string land_file = ("./resources/small3x3.dat");
+        string land_file = STR(RESOURCES_PATH/small3x3.dat);
 
         WHEN("the Landscape is initilised and Hare Params are set") {
             Helpers::init(land_file);

@@ -20,7 +20,9 @@
 #define STR(x) XSTR(x)
 #endif
 
+#ifndef RESOURCES_PATH
 #define RESOURCES_PATH ./resources
+#endif
 
 /**
  * @class Helpers

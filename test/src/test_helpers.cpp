@@ -3,11 +3,10 @@
  * Tests helpers class and its functions
  *
  */
-#include "../../lib/catch.hpp"
-#include <iostream>
-#include <fstream>
-#include "../../include/helpers.hpp"
-#include "../../include/configData.hpp"
+#include "../test_declarations.hpp"
+
+#include STR(HEADERS_PATH/configData.hpp)
+#include STR(HEADERS_PATH/helpers.hpp)
 
 using namespace std;
 
