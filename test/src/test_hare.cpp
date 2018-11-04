@@ -19,10 +19,22 @@ TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
         float a = 3.0;
         Hare::setBirthRate(a);
         Hare::setPredationRate(a);
+        Hare::setDiffusionRate(a);
         
         THEN( "Getters should work" ){
             REQUIRE( Hare::getBirthRate() == 3.0 );
             REQUIRE( Hare::getPredationRate() == 3.0);
+            REQUIRE( Hare::getDiffusionRate() == 3.0);
+        }
+
+        WHEN("trying to set negative float to birth_rate and mortality_rate") {
+
+            float b = -3.0;
+            THEN("setters throw exceptions") {
+                REQUIRE_THROWS(Hare::setBirthRate(b));
+                REQUIRE_THROWS(Hare::setPredationRate(b));
+                REQUIRE_THROWS(Hare::setDiffusionRate(b));
+            }
         }
     }           
 
