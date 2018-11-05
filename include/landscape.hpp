@@ -98,10 +98,6 @@ public :
     /**
      * @brief Prints the lanscape
      */
-    static void print();
-    /**
-     * @return Returns the number of Rows
-     */
     static size_t const getRows();
     /**
      * @return Returns the number of Cols

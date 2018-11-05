@@ -70,19 +70,6 @@ void Landscape::update() {
     }
 }
 
-void Landscape::print() {
-    
-    for (size_t i = 0; i < Landscape::instance->rows; ++i) {
-        for (size_t j = 0; j < Landscape::instance->cols; ++j) {
-            Tile* tile = Landscape::instance->tiles[i][j];
-            tile->print();
-        }
-        cout << endl;
-    }
-
-    cout << endl;
-}
-
 Tile* Landscape::getTile(size_t row, size_t col) {
     Landscape* landscape = Landscape::instance;
     assert(row >= 0 && row < landscape->getRows() && col >= 0 && col < landscape->getCols());

@@ -20,10 +20,6 @@ void Tile::clear() {
     this->newPumas = 0;
 }
 
-void const Tile::print() {
-    cout << this->land << ", P" << this->pumas << ", H" << std::fixed << setprecision(1) << this->hares <<  "\t";
-}
-
 void Tile::calculate(int tile_neighbours, float hare_neighbour_sum, float puma_neighbour_sum) {
     this->newHares = Hare::calculateNewDensity(this->hares, this->pumas, tile_neighbours, hare_neighbour_sum);
     this->newPumas = Puma::calculateNewDensity(this->pumas, this->hares, tile_neighbours, puma_neighbour_sum);

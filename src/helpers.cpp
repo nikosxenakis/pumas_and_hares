@@ -26,7 +26,6 @@ void Helpers::simulationLoop() {
 
     for (int t = 0; t <= MAX_STEP; t++) {
         if(t % ConfigData::getCapitalT() == 0) {
-//            Landscape::print();
             Output::print_output(t);
             Helpers::printProgress(t/float(MAX_STEP));
         }
