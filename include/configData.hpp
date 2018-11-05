@@ -1,7 +1,7 @@
 /**
  * @file configData.hpp
  * @brief Information about input data (time, time steps, grid size, etc)
- * @ingroup pumas_and_hares
+ * @ingroup data_structures
  */
 
 #ifndef CONFIGDATA_HPP

@@ -1,3 +1,10 @@
+/*
+ * @file test_declarations.hpp
+ * @brief holds paths to resources for test/src files to use
+ * @ingroup test
+ */
+
+// Preproccesor concat strings
 #ifndef STR
 #define XSTR(x) #x
 #define STR(x) XSTR(x)

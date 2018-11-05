@@ -67,11 +67,6 @@ public :
     ~Tile();
 
     /**
-     * @brief prints information for tile
-     */
-    void const print();
-
-    /**
      * @brief calculates the new densities of pumas and hares
      * @param[in] tile_neighbours number of neighbour tiles with land
      * @param[in] hare_neighbour_sum number of hares in the neighbour tiles
