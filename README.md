@@ -1,4 +1,4 @@
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT) 
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Build                status](https://travis-ci.com/nikosxenakis/pumas_and_hares.svg?token=5FvzyxcLtApTEz5x7oVA&branch=master)](https://travis-ci.org/nikosxenakis)
 
 # Pumas and Hares
@@ -66,7 +66,7 @@ The format of the file is:
 1 1 1
 ```
 
-Where the first line gives the size of the landscape in x, y and each square of the landscape is described with either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5. 
+Where the first line gives the size of the landscape in x, y and each square of the landscape is described with either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5.
 
 Alternatively the initial density of pumas and hares on each land square can be specified with the format:
 
@@ -123,27 +123,47 @@ For landscapes with a dimension larger than 100 squares the output is averaged s
 
 ## Design Decisions
 
-We group functionalists into logic classes. Our classes are deployed as `singleton`, `static` and following `object-orientation`.
+### Input
 
-![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)
-![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
+The main class responsible for simulation's input is `Parser`. This class is `static` providing a set of methods to parse the input files (inputFile and configurationFile).
+`Parser` stores the input data to the data structure classes
 
-For instance `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
+### Data Structures
+
+The classes categorised as Data Structures are:
+* `ConfigData`: `static` class which contains basic configuration data for the simulation
+* `Puma`: `static` class which contains basic configuration characteristics for the pumas
+* `Hare`: `static` class which contains basic configuration characteristics for the hares
+* `TileData`: class is data structure that can hold information for a specific tile or region
+
+For instance, `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
 These parameters and the calculation formula for density `Hare::calculateNewDensity()` are the same across the whole
 landscape and do not change after initialisation. The same explanation applies to `Helpers` and `ConfigData`.
-Thus, we implemented both classes as static and never create a single object of them.
+Thus, we implemented both classes as `static` and never create a single object of them.
+
+![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
+
+### Model
+
+* `Helpers` is a `static` class that contains all of the methods for the simulation cycle. This class is responsible to call the appropriate methods of the class `Landscape`.
+* `Landscape` is a `singleton` class which contains vital information for the terrain such as `Tile`s.
+* `Tile` represents a single data point in the grid.
 
 ![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)
 ![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)
 
-With `Landscape` we create a single object that carries all `Tile`s. `Tile` represents a single data point in the grid.
-For output, we use `TileData` to group multiple `Tile`s together in grid slices. For both classes we follow `object-orientation`.
-Puma and Hare densities and the Boolean - whether a `Tile is considered land or water - are specific to individual tiles.
+### Output
 
-* UML diagrams
-* see more diagrams in index.html
+* `Output` is a `static` class that contains all of the methods for create the output files. This class is responsible to call the appropriate methods of the class `Image`.
+* `Image` is the `static` class that create the output images of the simulation and the graph with the average densities of pumas and hares. Also, it uses `Pixel` class to store information for each pixel in the image. In addition, for Performance reasons we use data structure `TileData` to group multiple `Tile`s together in grid slices.
+* `Log` is a class that keeps track of the time measurements of the simulation.
 
-explain dependency decoupling (configData, Helpers, Parser)
+## Optimisations
+
+The simulation has been optimised to run efficiently on single core machines. Some of these tactics are:
+* Avoiding redundant function calls when possible
+* Caching data if they ident to be reused in order to avoid unnecessary calculations
+* Memory reuse in frequently called methods or for different object instances that contain the same data (avoiding reallocating memory)
 
 ## Platforms
 
@@ -214,7 +234,7 @@ You can check by opening with your browser the docs/index.html file the project 
 
 ## Version Control
 
-We use [GitHub](http://github.com/) for Version Control. For the versions available, see the [tags on this repository](https://github.com/nikosxenakis/pumas_and_hares). 
+We use [GitHub](http://github.com/) for Version Control. For the versions available, see the [tags on this repository](https://github.com/nikosxenakis/pumas_and_hares).
 
 ## Authors
 

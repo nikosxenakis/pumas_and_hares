@@ -175,7 +175,7 @@ Static Private Member Functions</h2></td></tr>
 <p>read json file, parse json and set parsed parameters to <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>, <a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a> and <a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>for configFile containing <a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a>, <a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a>, Time parameters (birth rates, deltaT, etc) </td></tr>
+    <tr><td class="paramname">configFile</td><td>for configFile containing <a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a>, <a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a>, Time parameters (birth rates, deltaT, etc) </td></tr>
   </table>
   </dd>
 </dl>
@@ -215,7 +215,7 @@ Static Private Member Functions</h2></td></tr>
 <p>read dat file, parse landscape </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>for landFile containing the landscape definition for water, land and/or <a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a> and <a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a> densities </td></tr>
+    <tr><td class="paramname">landFile</td><td>for landFile containing the landscape definition for water, land and/or <a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a> and <a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a> densities </td></tr>
   </table>
   </dd>
 </dl>
@@ -265,9 +265,9 @@ Static Private Member Functions</h2></td></tr>
 <p>splits the parsed vector </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">string</td><td>line </td></tr>
-    <tr><td class="paramname">vector</td><td>line </td></tr>
-    <tr><td class="paramname">delimiter</td><td></td></tr>
+    <tr><td class="paramname">line</td><td>input line </td></tr>
+    <tr><td class="paramname">vline</td><td>input vline </td></tr>
+    <tr><td class="paramname">delim</td><td>delimeter </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,7 +301,7 @@ Static Private Member Functions</h2></td></tr>
 <p>checks if vector only contains 0 and 1 for water and land </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vtile</td><td></td></tr>
+    <tr><td class="paramname">land</td><td>land </td></tr>
   </table>
   </dd>
 </dl>

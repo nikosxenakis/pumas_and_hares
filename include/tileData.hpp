@@ -2,6 +2,7 @@
  * @file tileData.hpp
  * @brief Provide information about tileData
  * @ingroup pumas_and_hares
+ * @ingroup data_structures
  */
 
 #ifndef tileData_h
