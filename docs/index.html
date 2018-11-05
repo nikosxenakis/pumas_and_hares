@@ -67,7 +67,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><p><a href="http://opensource.org/licenses/MIT"></a> <a href="https://travis-ci.org/nikosxenakis"></a></p>
 <h1>Pumas and Hares</h1>
-<p>This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.).</p>
+<p>This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held in this repository is a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.).</p>
 <h2>Prerequisites</h2>
 <ul>
 <li>Compiler: <a href="https://www.gnu.org/software/gcc/">GNU g++</a></li>
@@ -100,7 +100,7 @@ $(function() {
 <li><code>m</code>: puma mortality rate</li>
 <li><code>k</code>: diffusion rate for hares</li>
 <li><code>l</code>: diffusion rate for pumas</li>
-<li><code>t</code>: time step</li>
+<li><code>t</code>: time step (also known as delta t)</li>
 <li><code>T</code>: interval at which a ppm file is generated.</li>
 </ul>
 <h2><a class="el" href="class_output.html" title="contains necessary output functions ">Output</a></h2>
@@ -132,7 +132,7 @@ $(function() {
 <li><code><a class="el" href="class_tile_data.html" title="Provide information about TileData. ">TileData</a></code>: class is data structure that can hold information for a specific tile or region</li>
 </ul>
 <p>For instance, <code><a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a></code> and <code>Model</code> classes carry <code>birth_rate</code>, <code>predation_rate</code>, <code>mortality_rate</code> and <code>diffusion_rate</code>. These parameters and the calculation formula for density <code><a class="el" href="class_hare.html#a91ad8d9b9e8a73df0d33ef9809d48365" title="Calculate new hare density. ">Hare::calculateNewDensity()</a></code> are the same across the whole landscape and do not change after initialisation. The same explanation applies to <code><a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a></code> and <code><a class="el" href="class_config_data.html" title="holding input parameters ">ConfigData</a></code>. Thus, we implemented both classes as <code>static</code> and never create a single object of them.</p>
-<p>UML diagram of class configData </p><div class="image">
+<div class="image">
 <img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png" alt="UML diagram of class configData"/>
 </div>
 <h3>Model</h3>
@@ -178,9 +178,9 @@ $(function() {
 <ul>
 <li><a href="https://travis-ci.com/nikosxenakis/pumas_and_hares">TRAVIS-CI</a></li>
 </ul>
-<p>Travis was used because of its built in support of github. We were able to replicate the cirrus, dice and dev enviroments on Travis, which helped us to make sure that the repositories HEAD was always in a working state.</p>
+<p>Travis was used because of its built in support of github. We were able to replicate the cirrus, dice and dev environments on Travis, which helped us to make sure that the repositories HEAD was always in a working state.</p>
 <h3>Test style and reasoning</h3>
-<p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp. To accomodate for floating point inaccuracies, the Approx() function was used when comparing floating point values.</p>
+<p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp. To accommodate for floating point inaccuracies, the Approx() function was used when comparing floating point values.</p>
 <p>Some classes, like the output class, do not have a shadowing test file. This because the class either lacks public variables, or the class's public functions only return void. In addition to this, output.cpp is simply a wrapper class which groups, rather than adds functionality.</p>
 <h2>Land Generator</h2>
 <p>To create a new landscape run</p>
@@ -194,8 +194,8 @@ $(function() {
 <h2>Authors</h2>
 <ul>
 <li><b>Xenakis Nikolaos</b> - <em>Initial work-Modelling</em> - <a href="https://github.com/nikosxenakis">nikosxenakis</a></li>
-<li><b>Jim Walker</b> - <em>Building tests, CI</em></li>
-<li><b>Holly Judge (Tetlow)</b> - <em>I/O interface</em></li>
+<li><b>Jim Walker</b> - <em>Building tests, CI</em> - <a href="https://github.com/andrewpsuedonym">andrewpsuedonym</a></li>
+<li><b>Holly Judge (Tetlow)</b> - <em>I/O interface</em> - <a href="https://github.com/holly-t">holly-t</a></li>
 <li><b>Mark Klaisoongnoen</b> - <em>Modelling</em></li>
 </ul>
 <h2>License</h2>
