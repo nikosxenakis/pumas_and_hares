@@ -99,10 +99,12 @@ At each T the average puma and hare density over all land tiles is written in `/
 
 The code outputs a ppm file at each T showing the density of pumas across the landscape to the `/output` directory. The colour code in the file is as follows:
 
-  * Red: Pumas
-  * Green: Hares
-  * Blue: Water
-  * White: Land (no hares or pumas)
+![Landscape example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/Density_000.ppm)
+
+  * `Red`: Pumas
+  * `Green`: Hares
+  * `Blue`: Water
+  * `White`: Land (no hares or pumas)
 
 For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.
 
@@ -125,10 +127,10 @@ Slicing the landscape for output we also initialise one `tileData` object per sl
 * see more diagrams in index.html
 
 explain dependency decoupling (configData, Helpers, Parser)
-[![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)]
-[![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)]
-[![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)]
-[![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)]
+![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
+![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)
+![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)
+![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)
 
 ## Platforms
 
@@ -140,7 +142,7 @@ The simulations run on both the university's DICE network and the Cirrus superco
 
 Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.
 
-* [JSON](https://github.com/nlohmann/json) for the json parser library
+* [JSON](https://github.com/nlohmann/json) for convenient JSON-parsing our parameters from a config file
 * [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
 ## Testing
