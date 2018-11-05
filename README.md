@@ -99,7 +99,7 @@ At each T the average puma and hare density over all land tiles is written in `/
 
 The code outputs a ppm file at each T showing the density of pumas across the landscape to the `/output` directory. The colour code in the file is as follows:
 
-![Landscape example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/Density_000.ppm)
+![Landscape example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/landscape_output.png)
 
   * `Red`: Pumas
   * `Green`: Hares
