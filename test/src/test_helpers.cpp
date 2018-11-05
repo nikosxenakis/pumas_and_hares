@@ -1,7 +1,8 @@
-/* helpers_test.cpp
+/* @file helpers_test.cpp
  *
- * Tests helpers class and its functions
- *
+ * @brief Tests helpers class and its functions
+ * 
+ * @ingroup Test
  */
 #include "../test_declarations.hpp"
 

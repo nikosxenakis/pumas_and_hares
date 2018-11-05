@@ -161,14 +161,18 @@ To run the tests
 ```
 scripts/tests.sh
 ```
+Tests can alternatively be ran using `./bin/test -s` to show test successes.
 
 ### Continuous Integration
 
 * [TRAVIS-CI](https://travis-ci.com/nikosxenakis/pumas_and_hares)
+Travis was used because of its built in support of github. We were able to replicate the cirrus, dice and dev enviroments on Travis, which helped us to make sure that the repositories HEAD was always in a working state.
 
 ### Test style and reasoning
 
 We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp
+
+Some classes, like the helper class, do not have a shadowing test file. This because the helper class has no public variables, and its only public methods return void.
 
 ## Land Generator
 
