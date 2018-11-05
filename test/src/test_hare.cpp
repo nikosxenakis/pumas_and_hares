@@ -28,7 +28,7 @@ TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
             REQUIRE( Hare::getDiffusionRate() == 3.0);
         }
 
-        WHEN("trying to set negative float to birth_rate and mortality_rate") {
+        WHEN("trying to set negative float to birth_rate and predation_rate") {
 
             float b = -3.0;
             THEN("setters throw exceptions") {
