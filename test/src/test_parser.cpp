@@ -74,41 +74,29 @@ TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 
 TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
     GIVEN( "There is a valid input file that is sucessfully read" ) {
+        string inputFile = STR(INPUT_FILES_PATH/medium409x613.dat);
         WHEN( "Dimensions are not greater than 2000") {
-            THEN( "Tile is populated" ) {
-
+            THEN( "Return no error" ) {
+                 REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
             }
         }
     }
 
     GIVEN( "A Vector") {
-        WHEN( "Vector value is smaller than 0" ) {
+        WHEN( "Matrix element is invalid (smaller than 0)" ) {
             string inputFile = STR(CONFIG_PATH/vector_smaller_than_0.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
-        WHEN( "Vector value is bigger than 1" ) {
+        WHEN( "Matrix element is invalid (bigger than 1)" ) {
             string inputFile = STR(CONFIG_PATH/vector_bigger_than_1.dat);
             THEN( "Return error" ) {
                 REQUIRE_THROWS( Parser::parseInput(inputFile) );
             }
         }
 
-        WHEN( "Vector value is 0" ) {
-            string inputFile = STR(CONFIG_PATH/vector_equals_0.dat);
-            THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
-            }
-        }
-
-        WHEN( "Vector value is 1" ) {
-            string inputFile = STR(CONFIG_PATH/vector_equals_1.dat);
-            THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
-            }
-        }
 
         WHEN( "x elements not equal to Landscape size" ) {
             string inputFile = STR(CONFIG_PATH/input_x_elements_not_equal_landscape_size.dat);
@@ -117,21 +105,6 @@ TEST_CASE( "ParseInput Test", "[Testing ParseInput]" ){
             }
         }
 
-        // todo: might be the same as first WHEN
-        WHEN( "Number of columns are between 1 and 2000" ) {
-            string inputFile = STR(INPUT_FILES_PATH/cols_between_1_2000.dat);
-            THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
-            }
-        }
-
-        // todo: might be the same as first WHEN
-        WHEN( "Number of rows are between 1 and 2000") {
-            string inputFile = STR(INPUT_FILES_PATH/rows_between_1_2000.dat);
-            THEN( "Return no error" ) {
-                // REQUIRE_NOTHROW( Parser::parseInput(inputFile) );
-            }
-        }
 
         WHEN( "Number of rows bigger than 2000") {
             string inputFile = STR(INPUT_FILES_PATH/row_bigger_than_2000.dat);
