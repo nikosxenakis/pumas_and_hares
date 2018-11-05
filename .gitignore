@@ -44,6 +44,7 @@
 # Outputs
 *.ppm
 /output/*
+/scripts/logs/
 
 # Doxygen
 /doc/doxygen_latex/*

@@ -144,7 +144,7 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     }
     catch (json::parse_error& e) {
         stringstream err;
-        err << "exception id: " << e.id << endl << "byte position of error: " << e.byte;
+        err << "exception parsing config, syntax error in config file, id: " << e.id << endl << "byte position of error: " << e.byte;
         throw runtime_error(err.str());
     }
 
