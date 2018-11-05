@@ -7,15 +7,16 @@
  * @defgroup pumas_and_hares
  * @defgroup output
  *
- * @author Nikolaos Xenakis http://github.com/nikosxenakis nikosxenakis94@gmail.com
+ * @author Nikolaos Xenakis | http://github.com/nikosxenakis        | nikosxenakis94@gmail.com
  * @author Holly Judge
- * @author Jim Walker j.m.walker@live.co.uk
+ * @author Jim Walker       | https://github.com/andrewpsuedonym    | j.m.walker@live.co.uk
  * @author Mark Klaisoongnoen
  *
  */
 #include "include/helpers.hpp"
 #include "include/log.hpp"
 
+// Define preprocessor string concatination
 #ifndef STR
 #define XSTR(x) #x
 #define STR(x) XSTR(x)
