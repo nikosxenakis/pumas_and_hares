@@ -1,6 +1,6 @@
-/* @file landscape_test.cpp
+/* @file test_puma.cpp
  *
- * @brief Tests landscape class and its functions
+ * @brief Tests puma class and its functions
  * @ingroup test
  */
 #include "../test_declarations.hpp"

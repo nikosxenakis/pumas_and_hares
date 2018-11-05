@@ -1,6 +1,7 @@
-/* hare_test.cpp
+/* @file configdata.cpp
  *
- * Tests hare class and its functions
+ * @brief Checks getters and setters. Also ensures exceptions are thrown where appropriate
+ * @ingroup test
  *
  */
 #include "../test_declarations.hpp"
