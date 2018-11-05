@@ -75,7 +75,7 @@ $(function() {
 <li>Build tool: <a href="https://www.gnu.org/software/make/">GNU Make</a></li>
 <li>Test tool: <a href="https://catch-lib.net">Catch</a></li>
 <li>Documentation tool: <a href="https://github.com/doxygen/doxygen">DoxyGen</a></li>
-<li>JSON Pascer: <a href="https://github.com/nlohmann/json">JSON</a></li>
+<li>JSON <a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a>: <a href="https://github.com/nlohmann/json">JSON</a></li>
 </ul>
 <h2>Usage</h2>
 <h3>Installation</h3>
@@ -87,11 +87,12 @@ $(function() {
 <div class="fragment"><div class="line">scripts/pumas_and_hares.sh //run an example of the project that is described in the script</div><div class="line">make run //run an example of the project with the default values</div><div class="line">make run ./resources/input_files/islands.dat //run an example of the project with specific input file</div><div class="line">make run ./resources/input_files/islands.dat ./resources/configurations/param.json //run an example of the project with specific input and configuration file</div><div class="line">scripts/pumas_and_hares_all.sh //run the project with all the combinations of the input and configuration files available</div></div><!-- fragment --><p>After the execution, to create the average variation of the densities over time run</p>
 <div class="fragment"><div class="line">python scripts/data_analyzer.py</div></div><!-- fragment --><p>then display average_density.eps</p>
 <h2>Input files</h2>
-<p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the <code>/resources</code> directory. You can select which file to use as input at run time by supplying it as a command line arguement i.e. <code>./bin/pumas_and_hares ./resources/small3x3.dat</code> The format of the file is:</p>
-<div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively. Alternatively the density of Pumas and Hares at each grid point can be specified with the format:</p>
-<div class="fragment"><div class="line">3 3</div><div class="line">1,0,0 1,0,0 1,0,0</div><div class="line">1,0,0 1,1,1 1,0,0</div><div class="line">1,0,0 1,0,0 1,0,0</div></div><!-- fragment --><p>Where the density of pumas are hares follows the landscape descriptor.</p>
+<p>The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the <code>./resources/input_files</code> directory. You can select which file to use as input at run time by supplying it as a command line argument i.e. <code>./bin/pumas_and_hares ./resources/input_files/small3x3.dat</code> The format of the file is:</p>
+<div class="fragment"><div class="line">3 3</div><div class="line">1 1 1</div><div class="line">1 1 1</div><div class="line">1 1 1</div></div><!-- fragment --><p>Where the first line gives the size of the landscape in x, y and each square of the landscape is described with either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5.</p>
+<p>Alternatively the initial density of pumas and hares on each land square can be specified with the format:</p>
+<div class="fragment"><div class="line">3 3</div><div class="line">1,0,0 1,0,0 1,0,0</div><div class="line">1,0,0 1,1,1 1,0,0</div><div class="line">1,0,0 1,0,0 1,0,0</div></div><!-- fragment --><p>Where the density of pumas and hares follows the landscape descriptor e.g. <code>land, puma_density, hare_density</code>. If a density is assigned to a non land square then it will be ignored and the square will be set to water. If there is an error in the input file the program will terminate.</p>
 <h3>Parameters</h3>
-<p>The parameters which the program uses at run time are defined in the resources/param.json file.</p>
+<p>The parameters which the program uses at run time are defined in the <code>resources/configurations/param.json</code> file.</p>
 <p>Key:</p><ul>
 <li><code>r</code>: birth rate of the hares</li>
 <li><code>a</code>: predation rate at which pumas eat hares</li>
@@ -104,56 +105,83 @@ $(function() {
 </ul>
 <h2><a class="el" href="class_output.html" title="contains necessary output functions ">Output</a></h2>
 <p>At each T the average puma and hare density over all land tiles is written in <code>/output/average_density.txt</code></p>
-<p>The code outputs a ppm file at each T showing the density of pumas across the landscape to the <code>/output</code> directory. The colour code in the file is as follows:</p>
+<p>The code outputs a ppm file to the <code>/output</code> directory at each T showing the density of pumas across the landscape. These can be viewed using the <code>display</code> command:</p>
+<div class="fragment"><div class="line">display Density_000.ppm</div></div><!-- fragment --><p>The colour code in the file is as follows:</p>
+<div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/landscape_output.png" alt="Landscape example"/>
+</div>
 <ul>
-<li>Red: Pumas</li>
-<li>Green: Hares</li>
-<li>Blue: Water</li>
-<li>White: Land (no hares or pumas)</li>
+<li><code>Red</code>: Pumas</li>
+<li><code>Green</code>: Hares</li>
+<li><code>Blue</code>: Water * <code>White</code>: Land (no hares or pumas)</li>
 </ul>
-<p>For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.</p>
-<p>For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.</p>
-<p>For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.</p>
+<p>For pumas and hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density. The colour scale is shown below.</p>
+<div class="image">
+<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/scale.png" alt="scale example"/>
+</div>
+<p>For landscapes with a dimension smaller than 100 squares each 10 x 10 pixel square represents a single land square from the input.</p>
+<p>For landscapes with a dimension larger than 100 squares the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file when using large landscapes. Information about the number of input squares averaged into an output square is printed to the screen at run time.</p>
 <h2>Design Decisions</h2>
-<p>We group functionalities into logic classes. Most of these classes are deployed following a <code>singleton pattern</code> or <code>static pattern</code>. For instance <code><a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a></code> and <code>Model</code> classes carry <code>birth_rate</code>, <code>predation_rate</code>, <code>mortality_rate</code> and <code>diffusion_rate</code>. These parameters and the calculation formula for density are the same across the whole landscape and do not change after initalisation. Thus, we implemented both classes as static and never create a single object of them.</p>
-<p><a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a> and <a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a> densities and the boolean whether a tile is considered land or water are specific to individual tiles. Following a strict object-orientation paradigm we create an object for every <code>tile</code> of the landscape. Slicing the landscape for output we also initialise one <code>tileData</code> object per slice.</p>
-<ul>
-<li>UML diagrams</li>
-<li>see more diagrams in index.html</li>
+<h3>Input</h3>
+<p>The main class responsible for simulation's input is <code><a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a></code>. This class is <code>static</code> providing a set of methods to parse the input files (inputFile and configurationFile). <code><a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a></code> stores the input data to the data structure classes</p>
+<h3>Data Structures</h3>
+<p>The classes categorised as Data Structures are:</p><ul>
+<li><code><a class="el" href="class_config_data.html" title="holding input parameters ">ConfigData</a></code>: <code>static</code> class which contains basic configuration data for the simulation</li>
+<li><code><a class="el" href="class_puma.html" title="Puma model with parameters. ">Puma</a></code>: <code>static</code> class which contains basic configuration characteristics for the pumas</li>
+<li><code><a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a></code>: <code>static</code> class which contains basic configuration characteristics for the hares</li>
+<li><code><a class="el" href="class_tile_data.html" title="Provide information about TileData. ">TileData</a></code>: class is data structure that can hold information for a specific tile or region</li>
 </ul>
-<p>explain dependency decoupling (configData, <a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a>, <a class="el" href="class_parser.html" title="Parsing input data. ">Parser</a>) [</p><div class="image">
+<p>For instance, <code><a class="el" href="class_hare.html" title="Hare model with parameters. ">Hare</a></code> and <code>Model</code> classes carry <code>birth_rate</code>, <code>predation_rate</code>, <code>mortality_rate</code> and <code>diffusion_rate</code>. These parameters and the calculation formula for density <code><a class="el" href="class_hare.html#a91ad8d9b9e8a73df0d33ef9809d48365" title="Calculate new hare density. ">Hare::calculateNewDensity()</a></code> are the same across the whole landscape and do not change after initialisation. The same explanation applies to <code><a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a></code> and <code><a class="el" href="class_config_data.html" title="holding input parameters ">ConfigData</a></code>. Thus, we implemented both classes as <code>static</code> and never create a single object of them.</p>
+<p>UML diagram of class configData </p><div class="image">
 <img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png" alt="UML diagram of class configData"/>
 </div>
-<p>] [</p><div class="image">
-<img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png" alt="UML diagram of class Hare"/>
-</div>
-<p>] [</p><div class="image">
+<h3>Model</h3>
+<ul>
+<li><code><a class="el" href="class_helpers.html" title="setting up simulation ">Helpers</a></code> is a <code>static</code> class that contains all of the methods for the simulation cycle. This class is responsible to call the appropriate methods of the class <code><a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a></code>.</li>
+<li><code><a class="el" href="class_landscape.html" title="Provide information about the Landscape. ">Landscape</a></code> is a <code>singleton</code> class which contains vital information for the terrain such as <code><a class="el" href="class_tile.html" title="Provide information about a Tile. ">Tile</a></code>s.</li>
+<li><code><a class="el" href="class_tile.html" title="Provide information about a Tile. ">Tile</a></code> represents a single data point in the grid.</li>
+</ul>
+<div class="image">
 <img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png" alt="UML diagram of class Landscape"/>
 </div>
-<p>] [</p><div class="image">
+ <div class="image">
 <img src="https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png" alt="UML diagram of class Tile"/>
 </div>
-<p>]</p>
+<h3><a class="el" href="class_output.html" title="contains necessary output functions ">Output</a></h3>
+<ul>
+<li><code><a class="el" href="class_output.html" title="contains necessary output functions ">Output</a></code> is a <code>static</code> class that contains all of the methods for create the output files. This class is responsible to call the appropriate methods of the class <code><a class="el" href="class_image.html" title="A class for creating a ppm image. ">Image</a></code>.</li>
+<li><code><a class="el" href="class_image.html" title="A class for creating a ppm image. ">Image</a></code> is the <code>static</code> class that create the output images of the simulation and the graph with the average densities of pumas and hares. Also, it uses <code><a class="el" href="class_pixel.html" title="Setting the pixels for the overall output image. ">Pixel</a></code> class to store information for each pixel in the image. In addition, for Performance reasons we use data structure <code><a class="el" href="class_tile_data.html" title="Provide information about TileData. ">TileData</a></code> to group multiple <code><a class="el" href="class_tile.html" title="Provide information about a Tile. ">Tile</a></code>s together in grid slices.</li>
+<li><code><a class="el" href="class_log.html" title="Logging execution time. ">Log</a></code> is a class that keeps track of the time measurements of the simulation.</li>
+</ul>
+<h2>Optimisations</h2>
+<p>The simulation has been optimised to run efficiently on single core machines. Some of these tactics are:</p><ul>
+<li>Avoiding redundant function calls when possible</li>
+<li>Caching data if they ident to be reused in order to avoid unnecessary calculations</li>
+<li>Memory reuse in frequently called methods or for different object instances that contain the same data (avoiding reallocating memory)</li>
+</ul>
 <h2>Platforms</h2>
 <p>The simulations run on both the university's DICE network and the Cirrus supercomputer cluster.</p>
 <h2>Third Party Tools</h2>
 <ul>
 <li><a href="https://catch-lib.net">Catch</a> for the test library</li>
 </ul>
-<p>Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.</p>
+<p>Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behaviour driven development. As it has no external dependencies, Catch was easy to install start developing with.</p>
 <ul>
-<li><a href="https://github.com/nlohmann/json">JSON</a> for the json parser library</li>
+<li><a href="https://github.com/nlohmann/json">JSON</a> for convenient JSON-parsing our parameters from a configuration file</li>
 <li><a href="https://github.com/doxygen/doxygen">DoxyGen</a> for generating documentation from annotated C++ sources</li>
 </ul>
 <h2>Testing</h2>
 <h3>Running</h3>
 <p>To run the tests</p>
-<div class="fragment"><div class="line">scripts/tests.sh</div></div><!-- fragment --><h3>Continuous Integration</h3>
+<div class="fragment"><div class="line">scripts/tests.sh</div></div><!-- fragment --><p> Tests can alternatively be ran using <code>./bin/test -s</code> to show test successes.</p>
+<h3>Continuous Integration</h3>
 <ul>
 <li><a href="https://travis-ci.com/nikosxenakis/pumas_and_hares">TRAVIS-CI</a></li>
 </ul>
+<p>Travis was used because of its built in support of github. We were able to replicate the cirrus, dice and dev enviroments on Travis, which helped us to make sure that the repositories HEAD was always in a working state.</p>
 <h3>Test style and reasoning</h3>
-<p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp</p>
+<p>We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test_$shadowed_class.cpp. To accomodate for floating point inaccuracies, the Approx() function was used when comparing floating point values.</p>
+<p>Some classes, like the output class, do not have a shadowing test file. This because the class either lacks public variables, or the class's public functions only return void. In addition to this, output.cpp is simply a wrapper class which groups, rather than adds functionality.</p>
 <h2>Land Generator</h2>
 <p>To create a new landscape run</p>
 <div class="fragment"><div class="line">scripts/land_generator.sh</div></div><!-- fragment --><p>The new landscape can be found in ./resources/input_files/new_2000x2000.dat</p>
@@ -161,20 +189,20 @@ $(function() {
 <div class="fragment"><div class="line">class MyClass {</div><div class="line">    int myFunc(int myVar) {</div><div class="line">        return myVar;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h2>Documentation</h2>
 <p>C++ header files contain in line documentation We used <a href="https://github.com/doxygen/doxygen">DoxyGen</a> To auto-generate a website-documentation run</p>
 <div class="fragment"><div class="line">scripts/documentation.sh</div></div><!-- fragment --><p> You can check by opening with your browser the docs/index.html file the project directory</p>
-<h2>Versioning</h2>
-<p>We use <a href="http://github.com/">GitHub</a> for versioning. For the versions available, see the <a href="https://github.com/nikosxenakis/pumas_and_hares">tags on this repository</a>.</p>
+<h2>Version Control</h2>
+<p>We use <a href="http://github.com/">GitHub</a> for Version Control. For the versions available, see the <a href="https://github.com/nikosxenakis/pumas_and_hares">tags on this repository</a>.</p>
 <h2>Authors</h2>
 <ul>
 <li><b>Xenakis Nikolaos</b> - <em>Initial work-Modelling</em> - <a href="https://github.com/nikosxenakis">nikosxenakis</a></li>
 <li><b>Jim Walker</b> - <em>Building tests, CI</em></li>
-<li><b>Holly Judge</b> - <em>I/O interface</em></li>
+<li><b>Holly Judge (Tetlow)</b> - <em>I/O interface</em></li>
 <li><b>Mark Klaisoongnoen</b> - <em>Modelling</em></li>
 </ul>
 <h2>License</h2>
 <p>This project is licensed under the MIT License - see the LICENSE.md file for details</p>
 <h2>Acknowledgements</h2>
 <ul>
-<li>Thanks to anyone whose code was used </li>
+<li>Thanks to anyone whose code was used, and to EPCC </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
