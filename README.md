@@ -66,8 +66,9 @@ The format of the file is:
 1 1 1
 ```
 
-Where the first line gives the size of the landscape in x, y and the landscape is described as either 0 or 1 for water or land respectively.
-Alternatively the density of Pumas and Hares at each grid point can be specified with the format:
+Where the first line gives the size of the landscape in x, y and each square of the landscape is described as either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5. 
+
+Alternatively the initial density of pumas and hares on each land square can be specified with the format:
 
 ```
 3 3
@@ -76,7 +77,7 @@ Alternatively the density of Pumas and Hares at each grid point can be specified
 1,0,0 1,0,0 1,0,0
 ```
 
-Where the density of pumas are hares follows the landscape descriptor.
+Where the density of pumas and hares follows the landscape descriptor e.g. land, puma_density, hare_density. If a density is assigned to a non land square then it will be ignored and the square will be set to water.
 
 
 ### Parameters
@@ -110,7 +111,7 @@ For Pumas and Hares the intensity of the colour is proportional to the density, 
 
 For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.
 
-For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares per output square is printed to the screen at run time.
+For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares averaged into an output square is printed to the screen at run time.
 
 ## Design Decisions
 
