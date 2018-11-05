@@ -103,9 +103,9 @@ The code outputs a ppm file at each T showing the density of pumas across the la
 
   * `Red`: Pumas
   * `Green`: Hares
-  * `Blue`: Water
-  * `White`: Land (no hares or pumas)
+  * `Blue`: Water  * `White`: Land (no hares or pumas)
 
+// todo: could we add a colour sclae for illustration?
 For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density.
 
 For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.
@@ -114,23 +114,27 @@ For landscapes with a dimension larger than 100 the output is averaged so that 1
 
 ## Design Decisions
 
-We group functionalities into logic classes. Most of these classes are deployed following a `singleton pattern` or `static pattern`.
+We group functionalities into logic classes. Our classes are deployed as `singleton`, `static` and following `object-orientation`.
+
+![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)
+![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
+
 For instance `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
-These parameters and the calculation formula for density are the same across the whole landscape and do not change after initalisation.
+These parameters and the calculation formula for density `Hare::calculateNewDensity()` are the same across the whole
+landscape and do not change after initalisation. The same explanation applies to `Helpers` and `ConfigData`.
 Thus, we implemented both classes as static and never create a single object of them.
 
-Puma and Hare densities and the boolean whether a tile is considered land or water are specific to individual tiles.
-Following a strict object-orientation paradigm we create an object for every `tile` of the landscape.
-Slicing the landscape for output we also initialise one `tileData` object per slice.
+![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)
+![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)
+
+With `Landscape` we create a single object that carries all `Tile`s. `Tile` represents a single data point in the grid.
+For output, we use `TileData` to group multiple `Tile`s together in grid slices. For both classes we follow `object-orientation`.
+Puma and Hare densities and the boolean - whether a `Tile is considered land or water - are specific to individual tiles.
 
 * UML diagrams
 * see more diagrams in index.html
 
 explain dependency decoupling (configData, Helpers, Parser)
-![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
-![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)
-![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)
-![UML diagram of class Tile](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_tile__coll__graph.png)
 
 ## Platforms
 
