@@ -7,63 +7,50 @@
 #include "../test_declarations.hpp"
 
 #include STR(HEADERS_PATH/hare.hpp)
-#include STR(HEADERS_PATH/landscape.hpp)
 #include STR(HEADERS_PATH/configData.hpp)
-#include STR(HEADERS_PATH/helpers.hpp)
-
-using namespace std;
 
 TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
 
-    GIVEN("The hare class, with initialised variables"){ 
-        
-        float a = 3.0;
-        Hare::setBirthRate(a);
-        Hare::setPredationRate(a);
-        Hare::setDiffusionRate(a);
-        
-        THEN( "Getters should work" ){
-            REQUIRE( Hare::getBirthRate() == 3.0 );
-            REQUIRE( Hare::getPredationRate() == 3.0);
-            REQUIRE( Hare::getDiffusionRate() == 3.0);
-        }
+    GIVEN("The static Hare class"){
 
-        WHEN("trying to set negative float to birth_rate and predation_rate") {
+        WHEN("initilize the variables") {
+            Hare::setBirthRate(3.0);
+            Hare::setPredationRate(3.0);
+            Hare::setDiffusionRate(3.0);
 
-            float b = -3.0;
             THEN("setters throw exceptions") {
-                REQUIRE_THROWS(Hare::setBirthRate(b));
-                REQUIRE_THROWS(Hare::setPredationRate(b));
-                REQUIRE_THROWS(Hare::setDiffusionRate(b));
+              REQUIRE( Hare::getBirthRate() == 3.0 );
+              REQUIRE( Hare::getPredationRate() == 3.0);
+              REQUIRE( Hare::getDiffusionRate() == 3.0);
             }
         }
-    }           
+
+        WHEN("trying to initilize with wrong values") {
+
+            THEN("setters throw exceptions") {
+              REQUIRE_THROWS(Hare::setBirthRate(-3.0));
+              REQUIRE_THROWS(Hare::setPredationRate(-3.0));
+              REQUIRE_THROWS(Hare::setDiffusionRate(-3.0));
+            }
+        }
+    }
 
 }
 
 TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()]" ){
 
-    GIVEN("P_old = 1.0, H_old = 1.0, land_neighbours = 1, sum_density_neighbours = 1.0") {
+    GIVEN("H_old = 1.0, P_old = 1.0, land_neighbours = 1, sum_density_neighbours = 1.0") {
 
-        float P_old = 1.0;
         float H_old = 1.0;
+        float P_old = 1.0;
         int land_neighbours = 1;
         float sum_density_neighbours = 1.0;
 
-        float br = 1.0;
-        float pr = 1.0;
-        float dr = 1.0;
-
-        string land_file = STR(INPUT_FILES_PATH/small3x3.dat);
-        string config_file = STR(CONFIG_PATH/param.json);
-
-        WHEN("the Landscape is initilised and Hare Params are set") {
-            Helpers::init(land_file, config_file);
+        WHEN("the ConfigData and Hare class parameters are set") {
             ConfigData::setDeltaT(1.0);
-
-            Hare::setBirthRate(br);
-            Hare::setPredationRate(pr);
-            Hare::setDiffusionRate(dr);
+            Hare::setBirthRate(1.0);
+            Hare::setPredationRate(1.0);
+            Hare::setDiffusionRate(1.0);
 
             THEN("calculateNewDensity() returns") {
                 /**
@@ -74,7 +61,7 @@ TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()
 
                     1 + 1 * (1 * 1 - 1 * 1 * 1 + 1 * (1 - 1*1) == 1
                  */
-                REQUIRE(Hare::calculateNewDensity(P_old, H_old, land_neighbours, sum_density_neighbours) == 1.0);
+                REQUIRE(Hare::calculateNewDensity(H_old, P_old, land_neighbours, sum_density_neighbours) == 1.0);
             }
         }
     }

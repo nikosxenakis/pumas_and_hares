@@ -66,7 +66,7 @@ The format of the file is:
 1 1 1
 ```
 
-Where the first line gives the size of the landscape in x, y and each square of the landscape is described as either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5. 
+Where the first line gives the size of the landscape in x, y and each square of the landscape is described with either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5. 
 
 Alternatively the initial density of pumas and hares on each land square can be specified with the format:
 
@@ -77,12 +77,12 @@ Alternatively the initial density of pumas and hares on each land square can be 
 1,0,0 1,0,0 1,0,0
 ```
 
-Where the density of pumas and hares follows the landscape descriptor e.g. land, puma_density, hare_density. If a density is assigned to a non land square then it will be ignored and the square will be set to water.
+Where the density of pumas and hares follows the landscape descriptor e.g. `land, puma_density, hare_density`. If a density is assigned to a non land square then it will be ignored and the square will be set to water. If there is an error in the input file the program will terminate.
 
 
 ### Parameters
 
-The parameters which the program uses at run time are defined in the resources/param.json file.
+The parameters which the program uses at run time are defined in the `resources/configurations/param.json` file.
 
 Key:
   *  `r`: birth rate of the hares
@@ -98,7 +98,13 @@ Key:
 
 At each T the average puma and hare density over all land tiles is written in `/output/average_density.txt`
 
-The code outputs a ppm file at each T showing the density of pumas across the landscape to the `/output` directory. The colour code in the file is as follows:
+The code outputs a ppm file to the `/output` directory at each T showing the density of pumas across the landscape. These can be viewed using the `display` command:
+
+```
+display Density_000.ppm
+```
+
+The colour code in the file is as follows:
 
 ![Landscape example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/landscape_output.png)
 
@@ -111,9 +117,9 @@ For pumas and hares the intensity of the colour is proportional to the density, 
 ![scale example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/scale.png)
 
 
-For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.
+For landscapes with a dimension smaller than 100 squares each 10 x 10 pixel square represents a single land square from the input.
 
-For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares averaged into an output square is printed to the screen at run time.
+For landscapes with a dimension larger than 100 squares the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file when using large landscapes. Information about the number of input squares averaged into an output square is printed to the screen at run time.
 
 ## Design Decisions
 
@@ -214,7 +220,7 @@ We use [GitHub](http://github.com/) for Version Control. For the versions availa
 
 * **Xenakis Nikolaos** - *Initial work-Modelling* - [nikosxenakis](https://github.com/nikosxenakis)
 * **Jim Walker** - *Building tests, CI*
-* **Holly Judge** - *I/O interface*
+* **Holly Judge (Tetlow)** - *I/O interface*
 * **Mark Klaisoongnoen** - *Modelling*
 
 ## License

@@ -11,8 +11,8 @@
 
 #include STR(HEADERS_PATH/configData.hpp)
 #include STR(HEADERS_PATH/helpers.hpp)
-
-using namespace std;
+#include STR(HEADERS_PATH/hare.hpp)
+#include STR(HEADERS_PATH/puma.hpp)
 
 TEST_CASE( "ParseConfig Test", "[Testing parseConfig()]" ){
 

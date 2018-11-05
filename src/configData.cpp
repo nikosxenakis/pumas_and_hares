@@ -30,5 +30,4 @@ void ConfigData::initLandscapeData(vector< vector<TileData*> > tilesVector, size
     ConfigData::tilesVector = tilesVector;
     ConfigData::NX = NX;
     ConfigData::NY = NY;
-
 }
