@@ -8,8 +8,6 @@
 
 #include STR(HEADERS_PATH/helpers.hpp)
 
-using namespace std;
-
 TEST_CASE( "SimulationLoop Test", "[Testing Helpers::simulationLoop()]" ){
 
     GIVEN( "configFile and landFile inputs" ){

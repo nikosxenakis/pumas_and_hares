@@ -11,8 +11,6 @@
 #include STR(HEADERS_PATH/landscape.hpp)
 #include STR(HEADERS_PATH/helpers.hpp)
 
-using namespace std;
-
 TEST_CASE( "Landscape Test", "[Landscape is generated and functions used]" ){
 
     GIVEN("A landscape file of size 3x3"){

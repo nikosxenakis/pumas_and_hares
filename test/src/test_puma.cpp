@@ -5,13 +5,8 @@
  */
 #include "../test_declarations.hpp"
 
-#include <iostream>
-#include <fstream>
-
 #include STR(HEADERS_PATH/puma.hpp)
 #include STR(HEADERS_PATH/configData.hpp)
-
-using namespace std;
 
 TEST_CASE( "Puma Test", "[Testing puma getters and setters]" ){
 

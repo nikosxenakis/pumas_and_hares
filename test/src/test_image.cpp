@@ -16,9 +16,6 @@
 #include STR(HEADERS_PATH/image.hpp)
 #include STR(HEADERS_PATH/helpers.hpp)
 
-
-using namespace std;
-
 TEST_CASE( "Image test", "[Testing image functions]"){
 
     const char* outFolder = "./test/out";
@@ -30,14 +27,14 @@ TEST_CASE( "Image test", "[Testing image functions]"){
         Helpers::init(land_file, config_file);
 
         WHEN( "We write the image file"){
-            
+
             Image::init(ConfigData::NX-2,ConfigData::NY-2);
             Image::setGrid();
             mkdir(outFolder, 0777);
             Image::write(outFolder, 0);
 
             THEN( "The image is the expected size"){
-                
+
                 string line;
                 ifstream input("./test/out/Density_000.ppm");
                 getline(input, line);
@@ -47,7 +44,7 @@ TEST_CASE( "Image test", "[Testing image functions]"){
                 input.close();
             }
 
-            THEN( " The colour prints correctly ") {  
+            THEN( " The colour prints correctly ") {
                 string line;
                 ifstream input("./test/out/Density_000.ppm");
                 getline(input, line);
@@ -65,6 +62,5 @@ TEST_CASE( "Clean up Image Test", "[cleaning]"){
 
     int rmSuccess = system("rm -rf test/out/");
     REQUIRE( 0 == rmSuccess);
-            
-}
 
+}

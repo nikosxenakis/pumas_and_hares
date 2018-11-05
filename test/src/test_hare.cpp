@@ -9,8 +9,6 @@
 #include STR(HEADERS_PATH/hare.hpp)
 #include STR(HEADERS_PATH/configData.hpp)
 
-using namespace std;
-
 TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
 
     GIVEN("The static Hare class"){
