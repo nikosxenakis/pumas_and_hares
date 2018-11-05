@@ -41,10 +41,10 @@ TEST_CASE( "Hare Test", "[Testing hare getters and setters]" ){
 
 TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()]" ){
 
-    GIVEN("P_old = 1.0, H_old = 1.0, land_neighbours = 1, sum_density_neighbours = 1.0") {
+    GIVEN("H_old = 1.0, P_old = 1.0, land_neighbours = 1, sum_density_neighbours = 1.0") {
 
-        float P_old = 1.0;
         float H_old = 1.0;
+        float P_old = 1.0;
         int land_neighbours = 1;
         float sum_density_neighbours = 1.0;
 
@@ -63,7 +63,7 @@ TEST_CASE( "Calculating new Hare Density", "[Testing Hare::CalculateNewDensity()
 
                     1 + 1 * (1 * 1 - 1 * 1 * 1 + 1 * (1 - 1*1) == 1
                  */
-                REQUIRE(Hare::calculateNewDensity(P_old, H_old, land_neighbours, sum_density_neighbours) == 1.0);
+                REQUIRE(Hare::calculateNewDensity(H_old, P_old, land_neighbours, sum_density_neighbours) == 1.0);
             }
         }
     }
