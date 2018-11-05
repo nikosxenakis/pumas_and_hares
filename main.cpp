@@ -1,16 +1,16 @@
 /**
  * @file main.cpp
  *
- * @brief ...
+ * @brief We initialise and call the simulation loop, initialise execution time logging, specify config files and handle exceptions
  *
  * @defgroup input
  * @defgroup pumas_and_hares
  * @defgroup output
  *
  * @author Nikolaos Xenakis http://github.com/nikosxenakis nikosxenakis94@gmail.com
- * @author ...
- * @author ...
- * @author ...
+ * @author Holly Judge
+ * @author Jim Walker
+ * @author Mark Klaisoongnoen
  *
  */
 #include "include/helpers.hpp"
