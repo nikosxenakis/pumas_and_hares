@@ -219,7 +219,7 @@ We use [GitHub](http://github.com/) for Version Control. For the versions availa
 ## Authors
 
 * **Xenakis Nikolaos** - *Initial work-Modelling* - [nikosxenakis](https://github.com/nikosxenakis)
-* **Jim Walker** - *Building tests, CI*
+* **Jim Walker** - *Building tests, CI* - [andrewpsuedonym](https://github.com/andrewpsuedonym)
 * **Holly Judge (Tetlow)** - *I/O interface*
 * **Mark Klaisoongnoen** - *Modelling*
 
