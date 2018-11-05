@@ -1,4 +1,4 @@
-/* @file parser_test.cpp
+/* @file test_parser.cpp
  *
  * @brief Tests parser class and its functions
  * @ingroup test

@@ -1,6 +1,7 @@
 /* @file landscape_test.cpp
  *
  * @brief Tests landscape class and its functions
+ * @ingroup test
  *
  */
 #include "../test_declarations.hpp"

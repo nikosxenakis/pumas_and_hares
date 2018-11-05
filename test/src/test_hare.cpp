@@ -1,4 +1,4 @@
-/* @file hare_test.cpp
+/* @file test_hare.cpp
  *
  * @brief Tests hare class and its functions
  * @ingroup test

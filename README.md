@@ -91,7 +91,7 @@ Key:
   *  `m`: puma mortality rate
   *  `k`: diffusion rate for hares
   *  `l`: diffusion rate for pumas
-  *  `t`: time step
+  *  `t`: time step (also known as delta t)
   *  `T`: interval at which a ppm file is generated.
 
 ## Output

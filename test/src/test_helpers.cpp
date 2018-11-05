@@ -1,4 +1,4 @@
-/* @file helpers_test.cpp
+/* @file test_helpers.cpp
  *
  * @brief Tests helpers class and its functions
  *
