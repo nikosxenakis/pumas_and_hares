@@ -141,7 +141,6 @@ These parameters and the calculation formula for density `Hare::calculateNewDens
 landscape and do not change after initialisation. The same explanation applies to `Helpers` and `ConfigData`.
 Thus, we implemented both classes as `static` and never create a single object of them.
 
-UML diagram of class configData
 ![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
 
 ### Model
