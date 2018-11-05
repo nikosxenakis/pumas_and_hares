@@ -2,6 +2,7 @@
  * @file puma.hpp
  * @brief Information about the Puma model
  * @ingroup pumas_and_hares
+ * @ingroup data_structures
  */
 
 #ifndef PUMA_HPP

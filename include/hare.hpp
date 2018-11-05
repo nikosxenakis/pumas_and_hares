@@ -2,6 +2,7 @@
  * @file hare.hpp
  * @brief Information about the hare model
  * @ingroup pumas_and_hares
+ * @ingroup data_structures
  */
 
 #ifndef HARE_HPP
