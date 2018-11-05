@@ -1,7 +1,7 @@
 /**
  * @file image.hpp
  * @brief Provide information about Image
- * @ingroup pumas_and_hares
+ * @ingroup output
  */
 
 #ifndef IMAGE_HPP

@@ -1,7 +1,7 @@
 /**
  * @file log.hpp
  * @brief Logging time
- * @ingroup pumas_and_hares
+ * @ingroup output
  */
 
 #ifndef LOG_HPP

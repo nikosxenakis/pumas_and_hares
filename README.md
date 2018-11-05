@@ -2,7 +2,7 @@
 [![Build                status](https://travis-ci.com/nikosxenakis/pumas_and_hares.svg?token=5FvzyxcLtApTEz5x7oVA&branch=master)](https://travis-ci.org/nikosxenakis)
 
 # Pumas and Hares
-This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held is this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
+This repository is the outcome of a group project for the Programming Skills class in the 2018 High Performance Computing Masters at Edinburgh University. The program held in this repository is  a two-dimensional predator-prey model with spatial diffusion using C++. The aim was to produce a “best 
 practice” scientific code within a full development framework (i.e. revision control, build tools, unit test, framework etc.). 
 
 ## Prerequisites
@@ -220,7 +220,7 @@ We use [GitHub](http://github.com/) for Version Control. For the versions availa
 
 * **Xenakis Nikolaos** - *Initial work-Modelling* - [nikosxenakis](https://github.com/nikosxenakis)
 * **Jim Walker** - *Building tests, CI* - [andrewpsuedonym](https://github.com/andrewpsuedonym)
-* **Holly Judge (Tetlow)** - *I/O interface*
+* **Holly Judge (Tetlow)** - *I/O interface* - [holly-t](https://github.com/holly-t)
 * **Mark Klaisoongnoen** - *Modelling*
 
 ## License
