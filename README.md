@@ -106,8 +106,7 @@ The code outputs a ppm file at each T showing the density of pumas across the la
   * `Green`: Hares
   * `Blue`: Water  * `White`: Land (no hares or pumas)
 
-// todo: could we add a colour sclae for illustration?
-For Pumas and Hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density as shown below.
+For pumas and hares the intensity of the colour is proportional to the density, with the brightest colour corresponding to the maximum density. The colour scale is shown below.
 
 ![scale example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/scale.png)
 
