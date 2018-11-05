@@ -18,7 +18,7 @@ TEST_CASE( "ConfigData Test", "[Testing ConfigData getters and setters]" ){
 
             THEN( "Getters should work" ){
                 REQUIRE( ConfigData::getDeltaT() == Approx(0.4) );
-                REQUIRE( ConfigData::getCapitalT() == 20);
+                REQUIRE( ConfigData::getCapitalT() == 30);
             }
         }
 
