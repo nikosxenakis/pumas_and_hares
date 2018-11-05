@@ -1,7 +1,7 @@
 /* @file test_pixel.cpp
  *
  * @brief Tests pixel class and its functions
- *
+ * @ingroup test
  */
 #include "../test_declarations.hpp"
 

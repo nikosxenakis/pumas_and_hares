@@ -542,3 +542,19 @@ Config file: resources/configurations/test_param.json
 	tile size(pixels): 10 x 10
 start timing simulation...
   0% [                                                            ]  4% [||                                                          ]  8% [||||                                                        ] 12% [|||||||                                                     ] 16% [|||||||||                                                   ] 20% [||||||||||||                                                ] 24% [||||||||||||||                                              ] 28% [||||||||||||||||                                            ] 32% [|||||||||||||||||||                                         ] 36% [|||||||||||||||||||||                                       ] 40% [||||||||||||||||||||||||                                    ] 44% [||||||||||||||||||||||||||                                  ] 48% [||||||||||||||||||||||||||||                                ] 52% [|||||||||||||||||||||||||||||||                             ] 56% [|||||||||||||||||||||||||||||||||                           ] 60% [||||||||||||||||||||||||||||||||||||                        ] 64% [||||||||||||||||||||||||||||||||||||||                      ] 68% [||||||||||||||||||||||||||||||||||||||||                    ] 72% [|||||||||||||||||||||||||||||||||||||||||||                 ] 76% [|||||||||||||||||||||||||||||||||||||||||||||               ] 80% [||||||||||||||||||||||||||||||||||||||||||||||||            ] 84% [||||||||||||||||||||||||||||||||||||||||||||||||||          ] 88% [||||||||||||||||||||||||||||||||||||||||||||||||||||        ]Makefile:68: recipe for target 'run' failed
+make run ./resources/input_files/col_bigger_than_2000.dat ./resources/configurations/invalid_param.json
+Linking...
+g++ -g -std=c++11 -Wall -O3  ./build/image.o  ./build/landscape.o  ./build/hare.o  ./build/helpers.o  ./build/tile.o  ./build/output.o  ./build/log.o  ./build/configData.o  ./build/parser.o  ./build/puma.o  ./build/tileData.o  ./build/pixel.o ./main.cpp -o bin/pumas_and_hares
+Input file: resources/input_files/col_bigger_than_2000.dat
+Config file: resources/configurations/invalid_param.json
+make: Nothing to be done for 'resources/input_files/col_bigger_than_2000.dat'.
+make: Nothing to be done for 'resources/configurations/invalid_param.json'.
+make run ./resources/input_files/col_bigger_than_2000.dat ./resources/configurations/param2.json
+Input file: resources/input_files/col_bigger_than_2000.dat
+Config file: resources/configurations/param2.json
+	region size(tiles): 20 x 20
+	landscape size(tiles): 2000 x 2000
+	image size(pixels): 1000 x 1000
+	tile size(pixels): 10 x 10
+start timing simulation...
+  0% [                                                            ]Makefile:68: recipe for target 'run' failed

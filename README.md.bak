@@ -12,7 +12,7 @@ practice” scientific code within a full development framework (i.e. revision c
 * Build tool: [GNU Make](https://www.gnu.org/software/make/)
 * Test tool: [Catch](https://catch-lib.net)
 * Documentation tool: [DoxyGen](https://github.com/doxygen/doxygen)
-* JSON Parser: [JSON](https://github.com/nlohmann/json)
+* JSON Pascer: [JSON](https://github.com/nlohmann/json)
 
 ## Usage
 
@@ -56,7 +56,7 @@ then display average_density.eps
 ## Input files
 
 The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the `./resources/input_files` directory.
-You can select which file to use as input at run time by supplying it as a command line argument i.e. `./bin/pumas_and_hares ./resources/input_files/small3x3.dat`
+You can select which file to use as input at run time by supplying it as a command line arguement i.e. `./bin/pumas_and_hares ./resources/input_files/small3x3.dat`
 The format of the file is:
 
 ```
@@ -66,7 +66,7 @@ The format of the file is:
 1 1 1
 ```
 
-Where the first line gives the size of the landscape in x, y and each square of the landscape is described with either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5. 
+Where the first line gives the size of the landscape in x, y and each square of the landscape is described as either 0 or 1, for water or land respectively. In this case the initial density of hares and pumas in each land square will be assigned randomly with a density between 0 and 5. 
 
 Alternatively the initial density of pumas and hares on each land square can be specified with the format:
 
@@ -77,12 +77,12 @@ Alternatively the initial density of pumas and hares on each land square can be 
 1,0,0 1,0,0 1,0,0
 ```
 
-Where the density of pumas and hares follows the landscape descriptor e.g. `land, puma_density, hare_density`. If a density is assigned to a non land square then it will be ignored and the square will be set to water. If there is an error in the input file the program will terminate.
+Where the density of pumas and hares follows the landscape descriptor e.g. land, puma_density, hare_density. If a density is assigned to a non land square then it will be ignored and the square will be set to water.
 
 
 ### Parameters
 
-The parameters which the program uses at run time are defined in the `resources/configurations/param.json` file.
+The parameters which the program uses at run time are defined in the resources/param.json file.
 
 Key:
   *  `r`: birth rate of the hares
@@ -98,13 +98,7 @@ Key:
 
 At each T the average puma and hare density over all land tiles is written in `/output/average_density.txt`
 
-The code outputs a ppm file to the `/output` directory at each T showing the density of pumas across the landscape. These can be viewed using the `display` command:
-
-```
-display Density_000.ppm
-```
-
-The colour code in the file is as follows:
+The code outputs a ppm file at each T showing the density of pumas across the landscape to the `/output` directory. The colour code in the file is as follows:
 
 ![Landscape example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/landscape_output.png)
 
@@ -117,20 +111,20 @@ For pumas and hares the intensity of the colour is proportional to the density, 
 ![scale example](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/img/scale.png)
 
 
-For landscapes with a dimension smaller than 100 squares each 10 x 10 pixel square represents a single land square from the input.
+For landscapes with a dimension smaller than 100 each 10 x 10 pixel square represents a single land square from the input.
 
-For landscapes with a dimension larger than 100 squares the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file when using large landscapes. Information about the number of input squares averaged into an output square is printed to the screen at run time.
+For landscapes with a dimension larger than 100 the output is averaged so that 10 x 10 pixel a square represents the average of multiple input land squares. This is to reduce the file size of the ppm file. Information about the number of input squares averaged into an output square is printed to the screen at run time.
 
 ## Design Decisions
 
-We group functionalists into logic classes. Our classes are deployed as `singleton`, `static` and following `object-orientation`.
+We group functionalities into logic classes. Our classes are deployed as `singleton`, `static` and following `object-orientation`.
 
 ![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)
 ![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
 
 For instance `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
 These parameters and the calculation formula for density `Hare::calculateNewDensity()` are the same across the whole
-landscape and do not change after initialisation. The same explanation applies to `Helpers` and `ConfigData`.
+landscape and do not change after initalisation. The same explanation applies to `Helpers` and `ConfigData`.
 Thus, we implemented both classes as static and never create a single object of them.
 
 ![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)
@@ -138,7 +132,7 @@ Thus, we implemented both classes as static and never create a single object of 
 
 With `Landscape` we create a single object that carries all `Tile`s. `Tile` represents a single data point in the grid.
 For output, we use `TileData` to group multiple `Tile`s together in grid slices. For both classes we follow `object-orientation`.
-Puma and Hare densities and the Boolean - whether a `Tile is considered land or water - are specific to individual tiles.
+Puma and Hare densities and the boolean - whether a `Tile is considered land or water - are specific to individual tiles.
 
 * UML diagrams
 * see more diagrams in index.html
@@ -153,9 +147,9 @@ The simulations run on both the university's DICE network and the Cirrus superco
 
 * [Catch](https://catch-lib.net) for the test library
 
-Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behaviour driven development. As it has no external dependencies, Catch was easy to install start developing with.
+Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.
 
-* [JSON](https://github.com/nlohmann/json) for convenient JSON-parsing our parameters from a configuration file
+* [JSON](https://github.com/nlohmann/json) for convenient JSON-parsing our parameters from a config file
 * [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
 ## Testing
@@ -167,19 +161,14 @@ To run the tests
 ```
 scripts/tests.sh
 ```
-Tests can alternatively be ran using `./bin/test -s` to show test successes.
 
 ### Continuous Integration
 
 * [TRAVIS-CI](https://travis-ci.com/nikosxenakis/pumas_and_hares)
 
-Travis was used because of its built in support of github. We were able to replicate the cirrus, dice and dev enviroments on Travis, which helped us to make sure that the repositories HEAD was always in a working state.
-
 ### Test style and reasoning
 
-We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp. To accomodate for floating point inaccuracies, the Approx() function was used when comparing floating point values.
-
-Some classes, like the output class, do not have a shadowing test file. This because the class either lacks public variables, or the class's public functions only return void. In addition to this, output.cpp is simply a wrapper class which groups, rather than adds functionality.
+We wrote our tests according to a behaviour driven development style. Whilst tests were not always written before their corresponding classes, we found this style of testing to be expressive and self-documenting. Tests follow the naming convention test\_$shadowed\_class.cpp
 
 ## Land Generator
 
@@ -212,15 +201,15 @@ scripts/documentation.sh
 ```
 You can check by opening with your browser the docs/index.html file the project directory
 
-## Version Control
+## Versioning
 
-We use [GitHub](http://github.com/) for Version Control. For the versions available, see the [tags on this repository](https://github.com/nikosxenakis/pumas_and_hares). 
+We use [GitHub](http://github.com/) for versioning. For the versions available, see the [tags on this repository](https://github.com/nikosxenakis/pumas_and_hares). 
 
 ## Authors
 
 * **Xenakis Nikolaos** - *Initial work-Modelling* - [nikosxenakis](https://github.com/nikosxenakis)
 * **Jim Walker** - *Building tests, CI*
-* **Holly Judge (Tetlow)** - *I/O interface*
+* **Holly Judge** - *I/O interface*
 * **Mark Klaisoongnoen** - *Modelling*
 
 ## License
@@ -229,4 +218,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgements
 
-* Thanks to anyone whose code was used, and to EPCC
+* Thanks to anyone whose code was used

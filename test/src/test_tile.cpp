@@ -1,6 +1,7 @@
-/* test_tile.cpp
+/* @file test_tile.cpp
  *
- * Tests tile class and its functions
+ * @brief Tests tile class and its functions
+ * @ingroup test
  *
  */
 #include "../test_declarations.hpp"

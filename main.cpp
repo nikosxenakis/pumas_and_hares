@@ -9,7 +9,7 @@
  *
  * @author Nikolaos Xenakis http://github.com/nikosxenakis nikosxenakis94@gmail.com
  * @author Holly Judge
- * @author Jim Walker
+ * @author Jim Walker j.m.walker@live.co.uk
  * @author Mark Klaisoongnoen
  *
  */
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
         inputFile = string(argv[1]);
     }
     else if(argc > 3) {
-        cerr << "Exception in main: wrong arguments" << endl;
+        cerr << "Exception in main: invalid number of arguments" << endl;
         return 0;
     }
 
