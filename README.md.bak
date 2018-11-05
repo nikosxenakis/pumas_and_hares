@@ -12,7 +12,7 @@ practice” scientific code within a full development framework (i.e. revision c
 * Build tool: [GNU Make](https://www.gnu.org/software/make/)
 * Test tool: [Catch](https://catch-lib.net)
 * Documentation tool: [DoxyGen](https://github.com/doxygen/doxygen)
-* JSON Parser: [JSON](https://github.com/nlohmann/json)
+* JSON Pascer: [JSON](https://github.com/nlohmann/json)
 
 ## Usage
 
@@ -56,7 +56,7 @@ then display average_density.eps
 ## Input files
 
 The landscape for the model is supplied as a ASCII file which describe which tiles are land or water. Sample input files can be found in the `./resources/input_files` directory.
-You can select which file to use as input at run time by supplying it as a command line argument i.e. `./bin/pumas_and_hares ./resources/input_files/small3x3.dat`
+You can select which file to use as input at run time by supplying it as a command line arguement i.e. `./bin/pumas_and_hares ./resources/input_files/small3x3.dat`
 The format of the file is:
 
 ```
@@ -117,14 +117,14 @@ For landscapes with a dimension larger than 100 the output is averaged so that 1
 
 ## Design Decisions
 
-We group functionalists into logic classes. Our classes are deployed as `singleton`, `static` and following `object-orientation`.
+We group functionalities into logic classes. Our classes are deployed as `singleton`, `static` and following `object-orientation`.
 
 ![UML diagram of class Hare](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_hare__coll__graph.png)
 ![UML diagram of class configData](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_config_data__coll__graph.png)
 
 For instance `Hare` and `Model` classes carry `birth_rate`, `predation_rate`, `mortality_rate` and `diffusion_rate`.
 These parameters and the calculation formula for density `Hare::calculateNewDensity()` are the same across the whole
-landscape and do not change after initialisation. The same explanation applies to `Helpers` and `ConfigData`.
+landscape and do not change after initalisation. The same explanation applies to `Helpers` and `ConfigData`.
 Thus, we implemented both classes as static and never create a single object of them.
 
 ![UML diagram of class Landscape](https://github.com/nikosxenakis/pumas_and_hares/raw/master/docs/class_landscape__coll__graph.png)
@@ -132,7 +132,7 @@ Thus, we implemented both classes as static and never create a single object of 
 
 With `Landscape` we create a single object that carries all `Tile`s. `Tile` represents a single data point in the grid.
 For output, we use `TileData` to group multiple `Tile`s together in grid slices. For both classes we follow `object-orientation`.
-Puma and Hare densities and the Boolean - whether a `Tile is considered land or water - are specific to individual tiles.
+Puma and Hare densities and the boolean - whether a `Tile is considered land or water - are specific to individual tiles.
 
 * UML diagrams
 * see more diagrams in index.html
@@ -147,9 +147,9 @@ The simulations run on both the university's DICE network and the Cirrus superco
 
 * [Catch](https://catch-lib.net) for the test library
 
-Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behaviour driven development. As it has no external dependencies, Catch was easy to install start developing with.
+Catch was chosen as the test library for this project as it is a simple, header only test framework with support for behavior driven development. As it has no external dependencies, Catch was easy to install start deveoping with.
 
-* [JSON](https://github.com/nlohmann/json) for convenient JSON-parsing our parameters from a configuration file
+* [JSON](https://github.com/nlohmann/json) for convenient JSON-parsing our parameters from a config file
 * [DoxyGen](https://github.com/doxygen/doxygen) for generating documentation from annotated C++ sources
 
 ## Testing
@@ -201,9 +201,9 @@ scripts/documentation.sh
 ```
 You can check by opening with your browser the docs/index.html file the project directory
 
-## Version Control
+## Versioning
 
-We use [GitHub](http://github.com/) for Version Control. For the versions available, see the [tags on this repository](https://github.com/nikosxenakis/pumas_and_hares). 
+We use [GitHub](http://github.com/) for versioning. For the versions available, see the [tags on this repository](https://github.com/nikosxenakis/pumas_and_hares). 
 
 ## Authors
 
