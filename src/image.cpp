@@ -17,7 +17,7 @@ const int Image::maxLandSize = maxPixels / tilePixels;
 Image::Image(size_t NX, size_t NY) {
 
     size_t SizeX, SizeY;
-    
+
     this->setImageSize(NX, NY);
 
 	SizeX = this->getImageSizeX();
@@ -69,12 +69,12 @@ void Image::setImageSize(size_t NX, size_t NY) {
             tileAveSize = NY / maxLandSize;
 
         }
-        cout << "\tregion size(tiles): " << tileAveSize << " x " << tileAveSize << endl;
+        // cout << "\tregion size(tiles): " << tileAveSize << " x " << tileAveSize << endl;
     }
 
-    cout << "\tlandscape size(tiles): " << landSizeX << " x " << landSizeY << endl;
-    cout << "\timage size(pixels): " << imageSizeX << " x " << imageSizeY << endl;
-    cout << "\ttile size(pixels): " << tilePixels << " x " << tilePixels << endl;
+    // cout << "\tlandscape size(tiles): " << landSizeX << " x " << landSizeY << endl;
+    // cout << "\timage size(pixels): " << imageSizeX << " x " << imageSizeY << endl;
+    // cout << "\ttile size(pixels): " << tilePixels << " x " << tilePixels << endl;
 }
 
 size_t Image::getTileSize() {
@@ -98,10 +98,10 @@ size_t Image::getLandSizeY() {
 
 size_t Image::getTileAveSize() {
     return Image::tileAveSize;
-}       
+}
 bool Image::isLargeImage() {
     return Image::largeImage;
-} 
+}
 
 void Image::setGrid() {
     size_t origin_i;
@@ -114,11 +114,11 @@ void Image::setGrid() {
     float maxHares = Landscape::getMaxHares();
 
 
-    // correct bounds for image loop with rescaling    
+    // correct bounds for image loop with rescaling
     NY = Image::getImageSizeY() / Image::getTileSize();
     NX = Image::getImageSizeX() / Image::getTileSize();
 
-    
+
 
     // skips over halo cells
     for (size_t i=1; i<NY+1; i++) {
@@ -147,7 +147,7 @@ void Image::setGrid() {
                 // corner for image tile
                 origin_i = Image::getTileSize() * (i-1);
                 origin_j = Image::getTileSize() * (j-1);
-                
+
                 for (size_t it = origin_i; it < origin_i + Image::getTileSize(); it++) {
                     for (size_t jt = origin_j; jt < origin_j + Image::getTileSize(); jt++) {
 
@@ -184,9 +184,9 @@ string Image::packData() {
 void Image::write(string filepath, double t) {
     ostringstream fileName;
     fileName << filepath << "/Density_" << setw(3) << setfill('0') << t << ".ppm";
-  
+
     string ppmOut = Image::packData();
-    
+
     ofstream datFile;
     datFile.open(fileName.str(), ios::binary);
     datFile.write(ppmOut.c_str(), ppmOut.length());

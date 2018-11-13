@@ -31,7 +31,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    
+
     string inputFile = STR(INPUT_FILES_PATH/islands.dat);
     string configFile = STR(CONFIG_PATH/param.json);
 
@@ -58,8 +58,8 @@ int main(int argc, char* argv[]) {
     Log::startLogTime("simulation");
     Helpers::simulationLoop();
     Helpers::close();
-    cout << endl;
+    // cout << endl;
     Log::endLogTime("simulation");
-    cout << "The program has finished. All output files have been placed in output folder" << endl << endl;
+    // cout << "The program has finished. All output files have been placed in output folder" << endl << endl;
     return 0;
 }
