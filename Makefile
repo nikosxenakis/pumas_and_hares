@@ -1,6 +1,6 @@
 #COMPILER OPTIONS
 CXX := g++
-CXXFLAGS := -pg -std=c++11 -Wall -O3
+CXXFLAGS := -std=c++11 -Wall -O3
 
 #DIRECTORIES
 BASE_DIR := .
@@ -42,7 +42,7 @@ endif
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp $(HEADER_DIR)/%.hpp 
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -c -o $@ $<
+	$(CXX) $(CXXFLAGS) -pg -c -o $@ $<
 
 $(BIN): $(OBJ_FILES)
 	@echo "Linking..."

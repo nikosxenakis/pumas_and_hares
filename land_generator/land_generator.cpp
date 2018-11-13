@@ -6,7 +6,12 @@
 
 #define RESOURCES_PATH "./resources/"
 
-#define LANDPERCENTAGE 0.8
+// #define LANDPERCENTAGE 0.05
+// #define LANDPERCENTAGE 0.10
+// #define LANDPERCENTAGE 0.25
+#define LANDPERCENTAGE 0.50
+// #define LANDPERCENTAGE 0.75
+// #define LANDPERCENTAGE 1.00
 
 #define ROWS 50
 #define COLS 50
@@ -18,7 +23,7 @@
 
 #define MAX_WEIGHT 10
 
-#define INC_WEIGHT 5
+#define INC_WEIGHT 20
 #define DEC_WEIGHT 5
 
 #define ADJUST_FREQUENCY 7
