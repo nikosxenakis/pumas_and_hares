@@ -15,5 +15,4 @@ void Log::endLogTime(string name) {
 
 void Log::exportLog(string name) {
     // cout << "Running time for " << name <<": " << chrono::duration_cast<chrono::milliseconds>(Log::endTime[name] - Log::startTime[name]).count() << " milliseconds" << endl;
-    cout << "0\t" << chrono::duration_cast<chrono::seconds>(Log::endTime[name] - Log::startTime[name]).count() << "\t0" << endl;
 }
