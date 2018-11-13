@@ -4,7 +4,7 @@ map<string, Clock::time_point> Log::startTime;
 map<string, Clock::time_point> Log::endTime;
 
 void Log::startLogTime(string name) {
-    cout << "start timing " << name << "..." << endl;
+    // cout << "start timing " << name << "..." << endl;
     Log::startTime[name] = Clock::now();
 }
 
@@ -14,5 +14,5 @@ void Log::endLogTime(string name) {
 }
 
 void Log::exportLog(string name) {
-    cout << "Running time for " << name <<": " << chrono::duration_cast<chrono::milliseconds>(Log::endTime[name] - Log::startTime[name]).count() << " milliseconds" << endl;
+    // cout << "Running time for " << name <<": " << chrono::duration_cast<chrono::milliseconds>(Log::endTime[name] - Log::startTime[name]).count() << " milliseconds" << endl;
 }
