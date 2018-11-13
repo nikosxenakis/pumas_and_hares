@@ -1,0 +1,16 @@
+#!/bin/bash --login
+
+# PBS job options (name, compute nodes, job time)
+#PBS -N job
+#PBS -l select=1
+#PBS -l walltime=00:10:00
+#PBS -A d167-s1886165
+
+# Change to the directory that the job was submitted from
+# (remember this should be on the /work filesystem)
+cd $PBS_O_WORKDIR
+
+
+# Launch the serial job, i.e. run on one process
+
+./../../bin/pumas_and_hares ../../resources/input_files/large2000x2000.dat ../../resources/configurations/param.json > large2000x2000.out
