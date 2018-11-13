@@ -49,12 +49,12 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
             zerosFirstLine[i] = haloTile;
         }
         tilesVector.push_back(zerosFirstLine);
-       
+
         landFile.ignore();
 
         // reading Landscape
         for (size_t i = 0; i < NY; ++i) {
-            
+
             vector<TileData*> tilesLine;
             tilesLine.push_back(haloTile);      // first column halos
 
@@ -62,31 +62,38 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
 
             // split by space for each square
             split(inputLine, vInputLine, ' ');
-         
+
             if (vInputLine.size()!=NX) {
                 stringstream ss;
                 ss << "Error in line " << i+2 << " declared " << NX << " columns but " << vInputLine.size()  <<" was found" << endl;
                 throw runtime_error(ss.str());
             }
-         
+
             for (size_t j=0; j<NX; j++) {
 
                 // split by comma for land, pumas, hares
                 split(vInputLine[j], vInputTile, ',');
-             
+
                 int land = stoi(vInputTile[0]);
-                
-                if (vInputTile.size()==3 && Parser::validTile(land)) {
-                    tilesLine.push_back(new TileData(land, stod(vInputTile[1]), stod(vInputTile[2])));
-                }
-                else if (vInputTile.size()==1 && Parser::validTile(land)) {
-                    tilesLine.push_back(new TileData(land));
+
+                if(Parser::validTile(land)) {
+                  if(land == 0)
+                    tilesLine.push_back(haloTile);
+                  else {
+                    if (vInputTile.size()==3) {
+                        tilesLine.push_back(new TileData(land, stod(vInputTile[1]), stod(vInputTile[2])));
+                    }
+                    else if (vInputTile.size()==1) {
+                        tilesLine.push_back(new TileData(land));
+                    }
+                  }
                 }
                 else {
                     stringstream ss;
                     ss << "Invalid input tile in position (" << i << ", " << j << ") of the input file" << endl;
                     throw runtime_error(ss.str());
                 }
+
             }
             tilesLine.push_back(haloTile);      // last column halos
             tilesVector.push_back(tilesLine);
@@ -100,7 +107,7 @@ void Parser::parseInput(const string& landFileName) throw(runtime_error) {
             zerosLastLine[i] = haloTile;
         }
         tilesVector.push_back(zerosLastLine);
-       
+
        ConfigData::initLandscapeData(tilesVector, NX+2, NY+2);
    }
    else {
@@ -115,11 +122,12 @@ void Parser::freeTilesVector() {
 
    for (size_t i=1; i<tilesVector.size()-1; ++i) {
        for (size_t j=1; j<tilesVector[i].size()-1; ++j) {
+         if(tilesVector[i][j]->land)
            delete tilesVector[i][j];
        }
    }
-   
-    delete tilesVector[0][0]; //removes all of the halo tiles references
+
+    delete tilesVector[0][0]; //removes all of the halo and water tiles references
 }
 
 void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
@@ -138,7 +146,7 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     string jsonString = buffer.str();
 
     configFile.close();
-    
+
     try {
         jsonConfig = json::parse(jsonString);
     }
@@ -173,11 +181,11 @@ void Parser::parseConfig(const string& configFileName) throw(runtime_error) {
     try {
         ConfigData::setDeltaT(jsonConfig.at("delta_t"));
         ConfigData::setCapitalT(jsonConfig.at("T"));
-        
+
         Hare::setBirthRate(jsonConfig.at("r"));
         Hare::setDiffusionRate(jsonConfig.at("k"));
         Hare::setPredationRate(jsonConfig.at("a"));
-        
+
         Puma::setBirthRate(jsonConfig.at("b"));
         Puma::setDiffusionRate(jsonConfig.at("l"));
         Puma::setMortalityRate(jsonConfig.at("m"));
