@@ -1,6 +1,6 @@
 #COMPILER OPTIONS
 CXX := g++
-CXXFLAGS := -g -std=c++11 -Wall -O3
+CXXFLAGS := -pg -std=c++11 -Wall -O3
 
 #DIRECTORIES
 BASE_DIR := .
