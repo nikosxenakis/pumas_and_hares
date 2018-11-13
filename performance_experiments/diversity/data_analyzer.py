@@ -21,41 +21,37 @@ def create_plots(title, x_axis_title, y_axis_title, labels, x_values, y_values, 
 
     plt.legend(loc=legent_pos)
 
-    fig.savefig('./graphs/' + str(title) + '.eps', format='eps', dpi=1000)
+    fig.savefig('./' + str(title) + '.eps', format='eps', dpi=1000)
 
 def analyze_data(data_file):
 
     i = 0;
 
     titles = ()
-    processes = ()
-    speedup = ()
-    time1 = 0
+    ratio = ()
+    time = ()
+    memory = ()
 
     for line in data_file:
         data = line.split('\t')
 
         if i == 0:
             titles = data
-
-        if i > 0 and int(data[1]) == 1 and data[0] == str("./resources/" + image):
-            time1 = float(data[2])
-
-        if i > 0 and data[0] == str("./resources/" + image):
-                processes = processes + (float(data[1]),)
-                curr_speedup = time1 / float(data[2])
-                speedup = speedup + ( float("%.2f" % curr_speedup ) ,)
+        else:
+            ratio = ratio + ( float("%.2f" % float(data[0]) ) ,)
+            time = time + ( float("%.2f" % float(data[1]) ) ,)
+            memory = memory + ( float("%.2f" % float(data[2]) ) ,)
         i = i + 1
 
     create_plots(
-        str(image + "_speedup"),
+        str("time"),
         titles[0],
-        str(image + "_speedup"),
-        [titles[1], titles[2]],
-        processes,
-        [speedup],
+        str("time"),
+        [titles[1]],
+        ratio,
+        [time],
         0.4,
-        "upper right"
+        "lower right"
     )
 
 

@@ -7,12 +7,12 @@ config_file=./resources/configurations/param.json;
 data_file=./performance_experiments/diversity/data.tsv;
 
 declare -a input_files=(
-	'./resources/input_files/small4x3.dat'
-	'./resources/input_files/small4x3.dat'
-	'./resources/input_files/small4x3.dat'
-	'./resources/input_files/small4x3.dat'
-	'./resources/input_files/small4x3.dat'
-	'./resources/input_files/small4x3.dat'
+	'./resources/input_files/diversity_0.05.dat'
+	'./resources/input_files/diversity_0.10.dat'
+	'./resources/input_files/diversity_0.25.dat'
+	'./resources/input_files/diversity_0.50.dat'
+	'./resources/input_files/diversity_0.75.dat'
+	'./resources/input_files/diversity_1.00.dat'
 );
 
 declare -a ratio=(
@@ -34,7 +34,7 @@ input_files_no=${#input_files[@]}
 for (( i=0; i<${input_files_no}; i++ ));
 do
 	echo ${input_files[$i]};
-	echo -e "${ratio[$i]}\t" > $data_file;
+	# echo -e "${ratio[$i]}\t" > $data_file;
 	./bin/pumas_and_hares ${input_files[$i]} $config_file >> $data_file;
 done
 
