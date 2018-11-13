@@ -54,6 +54,16 @@ def analyze_data(data_file):
         "lower right"
     )
 
+    create_plots(
+        str("memory"),
+        titles[0],
+        str("memory"),
+        [titles[1]],
+        ratio,
+        [memory],
+        0.4,
+        "lower right"
+    )
 
 path = './data.tsv'
 

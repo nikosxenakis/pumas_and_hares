@@ -1,6 +1,7 @@
 Land ratio	Running Time	Memory Usage
-Running time for simulation: 36347 milliseconds
-Running time for simulation: 42899 milliseconds
-Running time for simulation: 61738 milliseconds
-Running time for simulation: 90208 milliseconds
-Running time for simulation: 121939 milliseconds
+0.05	36347	1
+0.10	42899	1
+0.25	61738	1
+0.50	90208	1
+0.75	121939	1
+1.00	151939	1
