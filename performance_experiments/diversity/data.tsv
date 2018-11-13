@@ -1,7 +1,7 @@
-Land ratio	Running Time	Memory Usage
-0.05	36347	1
-0.10	42899	1
-0.25	61738	1
-0.50	90208	1
-0.75	121939	1
-1.00	151939	1
+Land ratio	Running Time (sec)	Memory Usage
+0.05	8.91	1
+0.10	8.81	1
+0.25	12.79	1
+0.50	19.33	1
+0.75	25.77	1
+1.00	34.00	1
