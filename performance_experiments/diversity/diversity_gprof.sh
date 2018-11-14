@@ -23,9 +23,7 @@ declare -a ratio=(
 	'1.00'
 );
 
-module load valgrind
-
-# make -C ../../ clean; make -C ../../ ./bin/pumas_and_hares;
+make -C ../../ clean; make -C ../../ ./bin/pumas_and_hares;
 
 # echo "Land ratio\tRunning Time (sec)\tMemory Usage" > $data_file;
 
@@ -35,8 +33,5 @@ for (( i=0; i<${input_files_no}; i++ ));
 do
 	echo ${input_files[$i]};
 	$bin ${input_files[$i]} $config_file;
-	gprof $bin >> gprof_${ratio[$i]}.txt
-	valgrind --leak-check=yes --log-file="valgrind_${ratio[$i]}.txt" $bin ${input_files[$i]} $config_file;
+	gprof $bin >> gprof_${ratio[$i]}.txt;
 done
-
-python data_analyzer.py

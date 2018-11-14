@@ -10,16 +10,14 @@ def create_plots(title, x_axis_title, y_axis_title, labels, x_values, y_values, 
     ax.set_xlabel(x_axis_title)
     ax.set_ylabel(y_axis_title)
 
-    colors = ['#35d20a', '#d3390a']
+    colors = ['#22A7F0', '#d3390a', '#35d20a']
 
     lines = []
 
     i = 0
     for y_list in y_values:
-        lines.append(plt.plot(x_values, y_list, label=labels[i], linewidth=2, color=colors[i]))
+        lines.append(plt.plot(x_values, y_list, linewidth=2, color=colors[i]))
         i = i + 1
-
-    plt.legend(loc=legent_pos)
 
     fig.savefig('./' + str(title) + '.eps', format='eps', dpi=1000)
 
@@ -46,7 +44,7 @@ def analyze_data(data_file):
     create_plots(
         str("time"),
         titles[0],
-        str("time"),
+        str("running time (sec)"),
         [titles[1]],
         ratio,
         [time],
@@ -57,7 +55,7 @@ def analyze_data(data_file):
     create_plots(
         str("memory"),
         titles[0],
-        str("memory"),
+        str("memory usage (MB)"),
         [titles[1]],
         ratio,
         [memory],
