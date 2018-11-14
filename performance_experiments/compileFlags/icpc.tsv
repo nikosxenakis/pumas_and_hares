@@ -1,0 +1,6 @@
+Compilation Flag	Speed up
+O0	1
+O1	2.0289017341
+O2	3
+O3	3.052173913
+Ofast	3.1061946903
