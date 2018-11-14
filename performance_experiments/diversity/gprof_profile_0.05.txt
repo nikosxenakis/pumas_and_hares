@@ -1,0 +1,784 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 30.37      2.39     2.39 2114937696     0.00     0.00  Tile::isLand()
+ 21.98      4.12     1.73      501     3.45     7.42  Landscape::calculate()
+ 11.44      5.02     0.90    61002     0.01     0.03  Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long)
+  9.66      5.78     0.76      501     1.52     3.49  Landscape::update()
+  5.34      6.20     0.42 23246400     0.00     0.00  Tile::update()
+  5.21      6.61     0.41 501000000     0.00     0.00  TileData::clear()
+  3.37      6.88     0.27 23246400     0.00     0.00  Landscape::getNeighbours(Tile**, unsigned long, unsigned long)
+  1.97      7.03     0.16 23246400     0.00     0.00  Puma::calculateNewDensity(float, float, int, float)
+  1.72      7.17     0.14 23246400     0.00     0.00  Hare::calculateNewDensity(float, float, int, float)
+  1.65      7.30     0.13 23246400     0.00     0.00  Tile::calculate(int, float, float)
+  1.40      7.41     0.11 138151440     0.00     0.00  Tile::getHares()
+  1.27      7.51     0.10  6000000     0.00     0.00  Pixel::read()
+  1.21      7.60     0.10 46492800     0.00     0.00  ConfigData::getDeltaT()
+  1.02      7.68     0.08 138151440     0.00     0.00  Tile::getPumas()
+  0.76      7.74     0.06        6    10.00    26.67  Image::packData()
+  0.51      7.78     0.04        6     6.67     7.82  Landscape::getMaxPumas()
+  0.25      7.80     0.02        1    20.00    20.00  Parser::parseInput(std::string const&)
+  0.25      7.82     0.02                             Tile::clear()
+  0.13      7.83     0.01  1000000     0.00     0.00  Pixel::Pixel()
+  0.13      7.84     0.01                             TileData::TileData(int)
+  0.13      7.85     0.01                             Landscape::destroy()
+  0.06      7.86     0.01        1     5.00     5.00  ConfigData::setDeltaT(float)
+  0.06      7.86     0.01        1     5.00     5.00  Hare::setDiffusionRate(float)
+  0.06      7.87     0.01        1     5.00     5.00  Puma::setDiffusionRate(float)
+  0.06      7.87     0.01                             Landscape::getTile(unsigned long, unsigned long)
+  0.00      7.87     0.00  1004004     0.00     0.00  Tile::Tile(TileData*)
+  0.00      7.87     0.00  1004004     0.00     0.00  Tile::~Tile()
+  0.00      7.87     0.00   271800     0.00     0.00  Pixel::setColour(Colour, double, double, double)
+  0.00      7.87     0.00   107904     0.00     0.00  TileData::TileData(int, float, float)
+  0.00      7.87     0.00    92800     0.00     0.00  double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*) [clone .constprop.365]
+  0.00      7.87     0.00    46400     0.00     0.00  void std::vector<TileData*, std::allocator<TileData*> >::emplace_back<TileData*>(TileData*&&)
+  0.00      7.87     0.00    10460     0.00     0.00  void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData* const&>(TileData* const&)
+  0.00      7.87     0.00      540     0.00     0.00  void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData*>(TileData*&&)
+  0.00      7.87     0.00      501     0.00     0.00  ConfigData::getCapitalT()
+  0.00      7.87     0.00      501     0.00     0.00  Output::print_average(double, float, float)
+  0.00      7.87     0.00      501     0.00     0.03  Landscape::getAverageHares()
+  0.00      7.87     0.00      501     0.00     0.03  Landscape::getAveragePumas()
+  0.00      7.87     0.00      119     0.00     0.00  nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get()
+  0.00      7.87     0.00      110     0.00     0.00  nlohmann::detail::input_buffer_adapter::get_character()
+  0.00      7.87     0.00       34     0.00     0.00  nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan()
+  0.00      7.87     0.00       19     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json()
+  0.00      7.87     0.00       19     0.00     0.00  __tcf_0
+  0.00      7.87     0.00       18     0.00     0.00  void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&)
+  0.00      7.87     0.00       11     0.00     0.00  void std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::_M_emplace_back_aux<std::vector<TileData*, std::allocator<TileData*> > const&>(std::vector<TileData*, std::allocator<TileData*> > const&)
+  0.00      7.87     0.00       10     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::operator=(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>)
+  0.00      7.87     0.00        9     0.00     0.00  nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::operator==(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > const&) const
+  0.00      7.87     0.00        8     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::at(std::string const&)
+  0.00      7.87     0.00        8     0.00     0.00  nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_number()
+  0.00      7.87     0.00        8     0.00     0.00  nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_string()
+  0.00      7.87     0.00        8     0.00     0.00  nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::key() const
+  0.00      7.87     0.00        8     0.00     0.00  std::map<std::string, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::operator[](std::string const&)
+  0.00      7.87     0.00        8     0.00     0.00  void std::vector<char, std::allocator<char> >::emplace_back<char>(char&&)
+  0.00      7.87     0.00        8     0.00     0.00  std::_Rb_tree_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&)
+  0.00      7.87     0.00        8     0.00     0.00  std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::string const&)
+  0.00      7.87     0.00        7     0.00     0.00  void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, float, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, float&)
+  0.00      7.87     0.00        6     0.00    26.67  Image::write(std::string, double)
+  0.00      7.87     0.00        6     0.00   353.83  Image::setGrid()
+  0.00      7.87     0.00        6     0.00   380.50  Output::print_output(double)
+  0.00      7.87     0.00        6     0.00     1.17  Landscape::getMaxHares()
+  0.00      7.87     0.00        3     0.00     0.00  std::vector<std::string, std::allocator<std::string> >::~vector()
+  0.00      7.87     0.00        2     0.00     0.00  std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release()
+  0.00      7.87     0.00        2     0.00     0.00  std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::push_back(std::vector<TileData*, std::allocator<TileData*> > const&)
+  0.00      7.87     0.00        2     0.00     0.00  std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::~vector()
+  0.00      7.87     0.00        2     0.00     0.00  std::_Rb_tree_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&)
+  0.00      7.87     0.00        2     0.00     0.00  std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_get_insert_unique_pos(std::string const&)
+  0.00      7.87     0.00        2     0.00     0.00  std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >*)
+  0.00      7.87     0.00        2     0.00     0.00  std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>::function(std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)> const&)
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN10ConfigData6deltaTE
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN3Log9startTimeE
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN4Hare7getNameEv
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN4Puma7getNameEv
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN4TileC2EP8TileData
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN5Image8instanceE
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN6Output14initOutputFileEv
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN6Parser5splitERKSsRSt6vectorISsSaISsEEc
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN7Helpers4initESsSs
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I__ZN9Landscape8instanceE
+  0.00      7.87     0.00        1     0.00     0.00  _GLOBAL__sub_I_main
+  0.00      7.87     0.00        1     0.00     0.00  ConfigData::setCapitalT(int)
+  0.00      7.87     0.00        1     0.00     0.00  ConfigData::initLandscapeData(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long)
+  0.00      7.87     0.00        1     0.00     0.00  Hare::setBirthRate(float)
+  0.00      7.87     0.00        1     0.00     0.00  Hare::setPredationRate(float)
+  0.00      7.87     0.00        1     0.00     0.00  Puma::setBirthRate(float)
+  0.00      7.87     0.00        1     0.00     0.00  Puma::setMortalityRate(float)
+  0.00      7.87     0.00        1     0.00    10.00  Image::init(unsigned long, unsigned long)
+  0.00      7.87     0.00        1     0.00     0.00  Output::initOutputFile()
+  0.00      7.87     0.00        1     0.00    15.00  Parser::parseConfig(std::string const&)
+  0.00      7.87     0.00        1     0.00     0.00  Parser::freeTilesVector()
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool)
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(decltype(nullptr)) [clone .constprop.358]
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(nlohmann::detail::value_t)
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::detail::input_adapter::input_adapter<__gnu_cxx::__normal_iterator<char const*, std::string>, 0>(__gnu_cxx::__normal_iterator<char const*, std::string>, __gnu_cxx::__normal_iterator<char const*, std::string>)
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&)
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::detail::input_buffer_adapter::~input_buffer_adapter()
+  0.00      7.87     0.00        1     0.00     0.00  bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*)
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)
+  0.00      7.87     0.00        1     0.00     0.00  void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, int, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, int&)
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::set_begin()
+  0.00      7.87     0.00        1     0.00     0.00  nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::iter_impl(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*)
+  0.00      7.87     0.00        1     0.00     0.00  Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long)
+  0.00      7.87     0.00        1     0.00     0.00  Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long)
+  0.00      7.87     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  0.00      7.87     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+  0.00      7.87     0.00        1     0.00     0.00  std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&)
+  0.00      7.87     0.00        1     0.00     0.00  void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::emplace_back<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&)
+  0.00      7.87     0.00        1     0.00     0.00  void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::_M_emplace_back_aux<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&)
+  0.00      7.87     0.00        1     0.00     0.00  std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::operator=(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > > const&)
+  0.00      7.87     0.00        1     0.00     0.00  std::vector<bool, std::allocator<bool> >::_M_insert_aux(std::_Bit_iterator, bool)
+  0.00      7.87     0.00        1     0.00     0.00  std::vector<bool, std::allocator<bool> >::push_back(bool)
+  0.00      7.87     0.00        1     0.00     0.00  std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_unique_pos(std::string const&)
+  0.00      7.87     0.00        1     0.00     0.00  std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*)
+  0.00      7.87     0.00        1     0.00     0.00  __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > std::unique<__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2014 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.13% of 7.87 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     98.9    0.00    7.78                 Helpers::simulationLoop() [1]
+                1.73    1.99     501/501         Landscape::calculate() [2]
+                0.00    2.28       6/6           Output::print_output(double) [4]
+                0.76    0.99     501/501         Landscape::update() [7]
+                0.00    0.02     501/501         Landscape::getAverageHares() [24]
+                0.00    0.02     501/501         Landscape::getAveragePumas() [25]
+                0.00    0.00     501/501         Output::print_average(double, float, float) [53]
+                0.00    0.00     501/501         ConfigData::getCapitalT() [52]
+-----------------------------------------------
+                1.73    1.99     501/501         Helpers::simulationLoop() [1]
+[2]     47.2    1.73    1.99     501         Landscape::calculate() [2]
+                0.67    0.00 593985600/2114937696     Tile::isLand() [3]
+                0.13    0.39 23246400/23246400     Tile::calculate(int, float, float) [8]
+                0.41    0.00 501000000/501000000     TileData::clear() [10]
+                0.27    0.00 23246400/23246400     Landscape::getNeighbours(Tile**, unsigned long, unsigned long) [11]
+                0.07    0.00 91101840/138151440     Tile::getHares() [16]
+                0.05    0.00 91101840/138151440     Tile::getPumas() [19]
+                0.00    0.00     501/107904      TileData::TileData(int, float, float) [47]
+-----------------------------------------------
+                0.01    0.00 6000000/2114937696     Landscape::getMaxPumas() [20]
+                0.01    0.00 6000000/2114937696     Landscape::getMaxHares() [31]
+                0.57    0.00 501000000/2114937696     Landscape::update() [7]
+                0.67    0.00 593985600/2114937696     Landscape::calculate() [2]
+                1.14    0.00 1007952096/2114937696     Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+[3]     30.4    2.39    0.00 2114937696         Tile::isLand() [3]
+-----------------------------------------------
+                0.00    2.28       6/6           Helpers::simulationLoop() [1]
+[4]     29.0    0.00    2.28       6         Output::print_output(double) [4]
+                0.00    2.12       6/6           Image::setGrid() [5]
+                0.00    0.16       6/6           Image::write(std::string, double) [14]
+-----------------------------------------------
+                0.00    2.12       6/6           Output::print_output(double) [4]
+[5]     27.0    0.00    2.12       6         Image::setGrid() [5]
+                0.89    1.18   60000/61002       Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+                0.04    0.01       6/6           Landscape::getMaxPumas() [20]
+                0.00    0.01       6/6           Landscape::getMaxHares() [31]
+                0.00    0.00  271800/271800      Pixel::setColour(Colour, double, double, double) [46]
+-----------------------------------------------
+                0.01    0.01     501/61002       Landscape::getAveragePumas() [25]
+                0.01    0.01     501/61002       Landscape::getAverageHares() [24]
+                0.89    1.18   60000/61002       Image::setGrid() [5]
+[6]     26.7    0.90    1.20   61002         Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+                1.14    0.00 1007952096/2114937696     Tile::isLand() [3]
+                0.04    0.00 46771200/138151440     Tile::getHares() [16]
+                0.03    0.00 46771200/138151440     Tile::getPumas() [19]
+                0.00    0.00   61002/107904      TileData::TileData(int, float, float) [47]
+-----------------------------------------------
+                0.76    0.99     501/501         Helpers::simulationLoop() [1]
+[7]     22.2    0.76    0.99     501         Landscape::update() [7]
+                0.57    0.00 501000000/2114937696     Tile::isLand() [3]
+                0.42    0.00 23246400/23246400     Tile::update() [9]
+-----------------------------------------------
+                0.13    0.39 23246400/23246400     Landscape::calculate() [2]
+[8]      6.5    0.13    0.39 23246400         Tile::calculate(int, float, float) [8]
+                0.16    0.05 23246400/23246400     Puma::calculateNewDensity(float, float, int, float) [12]
+                0.14    0.05 23246400/23246400     Hare::calculateNewDensity(float, float, int, float) [13]
+-----------------------------------------------
+                0.42    0.00 23246400/23246400     Landscape::update() [7]
+[9]      5.3    0.42    0.00 23246400         Tile::update() [9]
+-----------------------------------------------
+                0.41    0.00 501000000/501000000     Landscape::calculate() [2]
+[10]     5.2    0.41    0.00 501000000         TileData::clear() [10]
+-----------------------------------------------
+                0.27    0.00 23246400/23246400     Landscape::calculate() [2]
+[11]     3.4    0.27    0.00 23246400         Landscape::getNeighbours(Tile**, unsigned long, unsigned long) [11]
+-----------------------------------------------
+                0.16    0.05 23246400/23246400     Tile::calculate(int, float, float) [8]
+[12]     2.6    0.16    0.05 23246400         Puma::calculateNewDensity(float, float, int, float) [12]
+                0.05    0.00 23246400/46492800     ConfigData::getDeltaT() [18]
+-----------------------------------------------
+                0.14    0.05 23246400/23246400     Tile::calculate(int, float, float) [8]
+[13]     2.3    0.14    0.05 23246400         Hare::calculateNewDensity(float, float, int, float) [13]
+                0.05    0.00 23246400/46492800     ConfigData::getDeltaT() [18]
+-----------------------------------------------
+                0.00    0.16       6/6           Output::print_output(double) [4]
+[14]     2.0    0.00    0.16       6         Image::write(std::string, double) [14]
+                0.06    0.10       6/6           Image::packData() [15]
+-----------------------------------------------
+                0.06    0.10       6/6           Image::write(std::string, double) [14]
+[15]     2.0    0.06    0.10       6         Image::packData() [15]
+                0.10    0.00 6000000/6000000     Pixel::read() [17]
+-----------------------------------------------
+                0.00    0.00  278400/138151440     Landscape::getMaxHares() [31]
+                0.04    0.00 46771200/138151440     Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+                0.07    0.00 91101840/138151440     Landscape::calculate() [2]
+[16]     1.4    0.11    0.00 138151440         Tile::getHares() [16]
+-----------------------------------------------
+                0.10    0.00 6000000/6000000     Image::packData() [15]
+[17]     1.3    0.10    0.00 6000000         Pixel::read() [17]
+-----------------------------------------------
+                0.05    0.00 23246400/46492800     Puma::calculateNewDensity(float, float, int, float) [12]
+                0.05    0.00 23246400/46492800     Hare::calculateNewDensity(float, float, int, float) [13]
+[18]     1.2    0.10    0.00 46492800         ConfigData::getDeltaT() [18]
+-----------------------------------------------
+                0.00    0.00  278400/138151440     Landscape::getMaxPumas() [20]
+                0.03    0.00 46771200/138151440     Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+                0.05    0.00 91101840/138151440     Landscape::calculate() [2]
+[19]     1.0    0.08    0.00 138151440         Tile::getPumas() [19]
+-----------------------------------------------
+                0.04    0.01       6/6           Image::setGrid() [5]
+[20]     0.6    0.04    0.01       6         Landscape::getMaxPumas() [20]
+                0.01    0.00 6000000/2114937696     Tile::isLand() [3]
+                0.00    0.00  278400/138151440     Tile::getPumas() [19]
+-----------------------------------------------
+                                                 <spontaneous>
+[21]     0.6    0.00    0.05                 Helpers::init(std::string, std::string) [21]
+                0.02    0.00       1/1           Parser::parseInput(std::string const&) [22]
+                0.00    0.02       1/1           Parser::parseConfig(std::string const&) [26]
+                0.00    0.01       1/1           Image::init(unsigned long, unsigned long) [28]
+                0.00    0.00       1/1           Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [110]
+                0.00    0.00       1/1           Output::initOutputFile() [97]
+                0.00    0.00       1/1           Parser::freeTilesVector() [98]
+-----------------------------------------------
+                0.02    0.00       1/1           Helpers::init(std::string, std::string) [21]
+[22]     0.3    0.02    0.00       1         Parser::parseInput(std::string const&) [22]
+                0.00    0.00   92800/92800       double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*) [clone .constprop.365] [48]
+                0.00    0.00   46401/107904      TileData::TileData(int, float, float) [47]
+                0.00    0.00   46400/46400       void std::vector<TileData*, std::allocator<TileData*> >::emplace_back<TileData*>(TileData*&&) [49]
+                0.00    0.00   10460/10460       void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData* const&>(TileData* const&) [50]
+                0.00    0.00     540/540         void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData*>(TileData*&&) [51]
+                0.00    0.00      14/18          void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [59]
+                0.00    0.00      11/11          void std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::_M_emplace_back_aux<std::vector<TileData*, std::allocator<TileData*> > const&>(std::vector<TileData*, std::allocator<TileData*> > const&) [60]
+                0.00    0.00       2/2           std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::push_back(std::vector<TileData*, std::allocator<TileData*> > const&) [74]
+                0.00    0.00       2/2           std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::~vector() [75]
+                0.00    0.00       2/3           std::vector<std::string, std::allocator<std::string> >::~vector() [72]
+                0.00    0.00       1/1           ConfigData::initLandscapeData(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [92]
+-----------------------------------------------
+                                                 <spontaneous>
+[23]     0.3    0.02    0.00                 Tile::clear() [23]
+-----------------------------------------------
+                0.00    0.02     501/501         Helpers::simulationLoop() [1]
+[24]     0.2    0.00    0.02     501         Landscape::getAverageHares() [24]
+                0.01    0.01     501/61002       Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+-----------------------------------------------
+                0.00    0.02     501/501         Helpers::simulationLoop() [1]
+[25]     0.2    0.00    0.02     501         Landscape::getAveragePumas() [25]
+                0.01    0.01     501/61002       Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+-----------------------------------------------
+                0.00    0.02       1/1           Helpers::init(std::string, std::string) [21]
+[26]     0.2    0.00    0.02       1         Parser::parseConfig(std::string const&) [26]
+                0.01    0.00       1/1           ConfigData::setDeltaT(float) [32]
+                0.01    0.00       1/1           Hare::setDiffusionRate(float) [33]
+                0.01    0.00       1/1           Puma::setDiffusionRate(float) [34]
+                0.00    0.00       9/9           nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::operator==(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > const&) const [62]
+                0.00    0.00       8/8           nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::key() const [66]
+                0.00    0.00       8/8           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::at(std::string const&) [63]
+                0.00    0.00       7/7           void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, float, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, float&) [71]
+                0.00    0.00       4/18          void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [59]
+                0.00    0.00       2/11          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+                0.00    0.00       1/1           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(decltype(nullptr)) [clone .constprop.358] [100]
+                0.00    0.00       1/1           nlohmann::detail::input_adapter::input_adapter<__gnu_cxx::__normal_iterator<char const*, std::string>, 0>(__gnu_cxx::__normal_iterator<char const*, std::string>, __gnu_cxx::__normal_iterator<char const*, std::string>) [102]
+                0.00    0.00       1/1           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+                0.00    0.00       1/10          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::operator=(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>) [61]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [112]
+                0.00    0.00       1/2           std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release() [73]
+                0.00    0.00       1/1           nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::iter_impl(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*) [109]
+                0.00    0.00       1/1           nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::set_begin() [108]
+                0.00    0.00       1/1           __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > std::unique<__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >) [122]
+                0.00    0.00       1/1           ConfigData::setCapitalT(int) [91]
+                0.00    0.00       1/1           void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, int, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, int&) [107]
+                0.00    0.00       1/1           Hare::setBirthRate(float) [93]
+                0.00    0.00       1/1           Hare::setPredationRate(float) [94]
+                0.00    0.00       1/1           Puma::setBirthRate(float) [95]
+                0.00    0.00       1/1           Puma::setMortalityRate(float) [96]
+                0.00    0.00       1/3           std::vector<std::string, std::allocator<std::string> >::~vector() [72]
+-----------------------------------------------
+                0.01    0.00 1000000/1000000     Image::init(unsigned long, unsigned long) [28]
+[27]     0.1    0.01    0.00 1000000         Pixel::Pixel() [27]
+-----------------------------------------------
+                0.00    0.01       1/1           Helpers::init(std::string, std::string) [21]
+[28]     0.1    0.00    0.01       1         Image::init(unsigned long, unsigned long) [28]
+                0.01    0.00 1000000/1000000     Pixel::Pixel() [27]
+-----------------------------------------------
+                                                 <spontaneous>
+[29]     0.1    0.01    0.00                 TileData::TileData(int) [29]
+-----------------------------------------------
+                                                 <spontaneous>
+[30]     0.1    0.01    0.00                 Landscape::destroy() [30]
+                0.00    0.00 1004004/1004004     Tile::~Tile() [45]
+-----------------------------------------------
+                0.00    0.01       6/6           Image::setGrid() [5]
+[31]     0.1    0.00    0.01       6         Landscape::getMaxHares() [31]
+                0.01    0.00 6000000/2114937696     Tile::isLand() [3]
+                0.00    0.00  278400/138151440     Tile::getHares() [16]
+-----------------------------------------------
+                0.01    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[32]     0.1    0.01    0.00       1         ConfigData::setDeltaT(float) [32]
+-----------------------------------------------
+                0.01    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[33]     0.1    0.01    0.00       1         Hare::setDiffusionRate(float) [33]
+-----------------------------------------------
+                0.01    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[34]     0.1    0.01    0.00       1         Puma::setDiffusionRate(float) [34]
+-----------------------------------------------
+                                                 <spontaneous>
+[35]     0.1    0.01    0.00                 Landscape::getTile(unsigned long, unsigned long) [35]
+-----------------------------------------------
+[36]     0.0    0.00    0.00      11+9       <cycle 1 as a whole> [36]
+                0.00    0.00      19             nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+                0.00    0.00       1+8           std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*) <cycle 1> [121]
+-----------------------------------------------
+                0.00    0.00 1004004/1004004     Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) [111]
+[44]     0.0    0.00    0.00 1004004         Tile::Tile(TileData*) [44]
+-----------------------------------------------
+                0.00    0.00 1004004/1004004     Landscape::destroy() [30]
+[45]     0.0    0.00    0.00 1004004         Tile::~Tile() [45]
+-----------------------------------------------
+                0.00    0.00  271800/271800      Image::setGrid() [5]
+[46]     0.0    0.00    0.00  271800         Pixel::setColour(Colour, double, double, double) [46]
+-----------------------------------------------
+                0.00    0.00     501/107904      Landscape::calculate() [2]
+                0.00    0.00   46401/107904      Parser::parseInput(std::string const&) [22]
+                0.00    0.00   61002/107904      Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long) [6]
+[47]     0.0    0.00    0.00  107904         TileData::TileData(int, float, float) [47]
+-----------------------------------------------
+                0.00    0.00   92800/92800       Parser::parseInput(std::string const&) [22]
+[48]     0.0    0.00    0.00   92800         double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*) [clone .constprop.365] [48]
+-----------------------------------------------
+                0.00    0.00   46400/46400       Parser::parseInput(std::string const&) [22]
+[49]     0.0    0.00    0.00   46400         void std::vector<TileData*, std::allocator<TileData*> >::emplace_back<TileData*>(TileData*&&) [49]
+-----------------------------------------------
+                0.00    0.00   10460/10460       Parser::parseInput(std::string const&) [22]
+[50]     0.0    0.00    0.00   10460         void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData* const&>(TileData* const&) [50]
+-----------------------------------------------
+                0.00    0.00     540/540         Parser::parseInput(std::string const&) [22]
+[51]     0.0    0.00    0.00     540         void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData*>(TileData*&&) [51]
+-----------------------------------------------
+                0.00    0.00     501/501         Helpers::simulationLoop() [1]
+[52]     0.0    0.00    0.00     501         ConfigData::getCapitalT() [52]
+-----------------------------------------------
+                0.00    0.00     501/501         Helpers::simulationLoop() [1]
+[53]     0.0    0.00    0.00     501         Output::print_average(double, float, float) [53]
+-----------------------------------------------
+                0.00    0.00      22/119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_string() [65]
+                0.00    0.00      28/119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_number() [64]
+                0.00    0.00      69/119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan() [56]
+[54]     0.0    0.00    0.00     119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get() [54]
+                0.00    0.00     110/110         nlohmann::detail::input_buffer_adapter::get_character() [55]
+-----------------------------------------------
+                0.00    0.00     110/110         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get() [54]
+[55]     0.0    0.00    0.00     110         nlohmann::detail::input_buffer_adapter::get_character() [55]
+-----------------------------------------------
+                0.00    0.00       1/34          nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&) [106]
+                0.00    0.00       1/34          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+                0.00    0.00      32/34          bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[56]     0.0    0.00    0.00      34         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan() [56]
+                0.00    0.00      69/119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get() [54]
+-----------------------------------------------
+                                   8             std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*) <cycle 1> [121]
+                0.00    0.00       1/11          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&) [103]
+                0.00    0.00       2/11          Parser::parseConfig(std::string const&) [26]
+                0.00    0.00       8/11          bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[57]     0.0    0.00    0.00      19         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+                                   1             std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*) <cycle 1> [121]
+-----------------------------------------------
+                0.00    0.00       1/19          nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&) [106]
+                0.00    0.00       2/19          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+                0.00    0.00      16/19          std::_Rb_tree_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) [69]
+[58]     0.0    0.00    0.00      19         __tcf_0 [58]
+-----------------------------------------------
+                0.00    0.00       4/18          Parser::parseConfig(std::string const&) [26]
+                0.00    0.00      14/18          Parser::parseInput(std::string const&) [22]
+[59]     0.0    0.00    0.00      18         void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&) [59]
+-----------------------------------------------
+                0.00    0.00      11/11          Parser::parseInput(std::string const&) [22]
+[60]     0.0    0.00    0.00      11         void std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::_M_emplace_back_aux<std::vector<TileData*, std::allocator<TileData*> > const&>(std::vector<TileData*, std::allocator<TileData*> > const&) [60]
+-----------------------------------------------
+                0.00    0.00       1/10          Parser::parseConfig(std::string const&) [26]
+                0.00    0.00       1/10          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&) [103]
+                0.00    0.00       8/10          bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[61]     0.0    0.00    0.00      10         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::operator=(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>) [61]
+-----------------------------------------------
+                0.00    0.00       9/9           Parser::parseConfig(std::string const&) [26]
+[62]     0.0    0.00    0.00       9         nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::operator==(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > const&) const [62]
+-----------------------------------------------
+                0.00    0.00       8/8           Parser::parseConfig(std::string const&) [26]
+[63]     0.0    0.00    0.00       8         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::at(std::string const&) [63]
+-----------------------------------------------
+                0.00    0.00       8/8           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[64]     0.0    0.00    0.00       8         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_number() [64]
+                0.00    0.00      28/119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get() [54]
+                0.00    0.00       8/8           void std::vector<char, std::allocator<char> >::emplace_back<char>(char&&) [68]
+-----------------------------------------------
+                0.00    0.00       8/8           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[65]     0.0    0.00    0.00       8         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_string() [65]
+                0.00    0.00      22/119         nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get() [54]
+-----------------------------------------------
+                0.00    0.00       8/8           Parser::parseConfig(std::string const&) [26]
+[66]     0.0    0.00    0.00       8         nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::key() const [66]
+-----------------------------------------------
+                0.00    0.00       8/8           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[67]     0.0    0.00    0.00       8         std::map<std::string, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::operator[](std::string const&) [67]
+                0.00    0.00       8/8           std::_Rb_tree_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) [69]
+-----------------------------------------------
+                0.00    0.00       8/8           nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_number() [64]
+[68]     0.0    0.00    0.00       8         void std::vector<char, std::allocator<char> >::emplace_back<char>(char&&) [68]
+-----------------------------------------------
+                0.00    0.00       8/8           std::map<std::string, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::operator[](std::string const&) [67]
+[69]     0.0    0.00    0.00       8         std::_Rb_tree_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) [69]
+                0.00    0.00      16/19          __tcf_0 [58]
+                0.00    0.00       8/8           std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::string const&) [70]
+-----------------------------------------------
+                0.00    0.00       8/8           std::_Rb_tree_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) [69]
+[70]     0.0    0.00    0.00       8         std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::string const&) [70]
+                0.00    0.00       1/1           std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_unique_pos(std::string const&) [120]
+-----------------------------------------------
+                0.00    0.00       7/7           Parser::parseConfig(std::string const&) [26]
+[71]     0.0    0.00    0.00       7         void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, float, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, float&) [71]
+-----------------------------------------------
+                0.00    0.00       1/3           Parser::parseConfig(std::string const&) [26]
+                0.00    0.00       2/3           Parser::parseInput(std::string const&) [22]
+[72]     0.0    0.00    0.00       3         std::vector<std::string, std::allocator<std::string> >::~vector() [72]
+-----------------------------------------------
+                0.00    0.00       1/2           Parser::parseConfig(std::string const&) [26]
+                0.00    0.00       1/2           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+[73]     0.0    0.00    0.00       2         std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release() [73]
+                0.00    0.00       1/1           nlohmann::detail::input_buffer_adapter::~input_buffer_adapter() [104]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [113]
+-----------------------------------------------
+                0.00    0.00       2/2           Parser::parseInput(std::string const&) [22]
+[74]     0.0    0.00    0.00       2         std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::push_back(std::vector<TileData*, std::allocator<TileData*> > const&) [74]
+-----------------------------------------------
+                0.00    0.00       2/2           Parser::parseInput(std::string const&) [22]
+[75]     0.0    0.00    0.00       2         std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::~vector() [75]
+-----------------------------------------------
+                0.00    0.00       1/2           Log::endLogTime(std::string) [123]
+                0.00    0.00       1/2           Log::startLogTime(std::string) [124]
+[76]     0.0    0.00    0.00       2         std::_Rb_tree_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) [76]
+                0.00    0.00       2/2           std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_get_insert_unique_pos(std::string const&) [77]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Rb_tree_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&) [76]
+[77]     0.0    0.00    0.00       2         std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_get_insert_unique_pos(std::string const&) [77]
+-----------------------------------------------
+                0.00    0.00       2/2           std::map<std::string, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::~map() [217]
+[78]     0.0    0.00    0.00       2         std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >*) [78]
+-----------------------------------------------
+                0.00    0.00       2/2           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+[79]     0.0    0.00    0.00       2         std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>::function(std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)> const&) [79]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[80]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN10ConfigData6deltaTE [80]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[81]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN3Log9startTimeE [81]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[82]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN4Hare7getNameEv [82]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[83]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN4Puma7getNameEv [83]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[84]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN4TileC2EP8TileData [84]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[85]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN5Image8instanceE [85]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[86]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN6Output14initOutputFileEv [86]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[87]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN6Parser5splitERKSsRSt6vectorISsSaISsEEc [87]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[88]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN7Helpers4initESsSs [88]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[89]     0.0    0.00    0.00       1         _GLOBAL__sub_I__ZN9Landscape8instanceE [89]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [238]
+[90]     0.0    0.00    0.00       1         _GLOBAL__sub_I_main [90]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[91]     0.0    0.00    0.00       1         ConfigData::setCapitalT(int) [91]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseInput(std::string const&) [22]
+[92]     0.0    0.00    0.00       1         ConfigData::initLandscapeData(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [92]
+                0.00    0.00       1/1           std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::operator=(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > > const&) [117]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[93]     0.0    0.00    0.00       1         Hare::setBirthRate(float) [93]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[94]     0.0    0.00    0.00       1         Hare::setPredationRate(float) [94]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[95]     0.0    0.00    0.00       1         Puma::setBirthRate(float) [95]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[96]     0.0    0.00    0.00       1         Puma::setMortalityRate(float) [96]
+-----------------------------------------------
+                0.00    0.00       1/1           Helpers::init(std::string, std::string) [21]
+[97]     0.0    0.00    0.00       1         Output::initOutputFile() [97]
+-----------------------------------------------
+                0.00    0.00       1/1           Helpers::init(std::string, std::string) [21]
+[98]     0.0    0.00    0.00       1         Parser::freeTilesVector() [98]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[99]     0.0    0.00    0.00       1         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+                0.00    0.00       2/19          __tcf_0 [58]
+                0.00    0.00       2/2           std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>::function(std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)> const&) [79]
+                0.00    0.00       1/34          nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan() [56]
+                0.00    0.00       1/1           nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&) [106]
+                0.00    0.00       1/2           std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release() [73]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[100]    0.0    0.00    0.00       1         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(decltype(nullptr)) [clone .constprop.358] [100]
+-----------------------------------------------
+                0.00    0.00       1/1           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&) [103]
+[101]    0.0    0.00    0.00       1         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(nlohmann::detail::value_t) [101]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[102]    0.0    0.00    0.00       1         nlohmann::detail::input_adapter::input_adapter<__gnu_cxx::__normal_iterator<char const*, std::string>, 0>(__gnu_cxx::__normal_iterator<char const*, std::string>, __gnu_cxx::__normal_iterator<char const*, std::string>) [102]
+                0.00    0.00       1/1           std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&) [114]
+-----------------------------------------------
+                0.00    0.00       1/1           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[103]    0.0    0.00    0.00       1         nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&) [103]
+                0.00    0.00       1/1           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(nlohmann::detail::value_t) [101]
+                0.00    0.00       1/10          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::operator=(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>) [61]
+                0.00    0.00       1/11          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release() [73]
+[104]    0.0    0.00    0.00       1         nlohmann::detail::input_buffer_adapter::~input_buffer_adapter() [104]
+-----------------------------------------------
+                0.00    0.00       1/1           nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&) [106]
+[105]    0.0    0.00    0.00       1         bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+                0.00    0.00      32/34          nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan() [56]
+                0.00    0.00       8/8           nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_string() [65]
+                0.00    0.00       8/8           std::map<std::string, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::operator[](std::string const&) [67]
+                0.00    0.00       8/8           nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_number() [64]
+                0.00    0.00       8/10          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::operator=(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>) [61]
+                0.00    0.00       8/11          nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+                0.00    0.00       1/1           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&) [103]
+                0.00    0.00       1/1           void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::_M_emplace_back_aux<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&) [116]
+                0.00    0.00       1/1           void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::emplace_back<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&) [115]
+                0.00    0.00       1/1           std::vector<bool, std::allocator<bool> >::push_back(bool) [119]
+-----------------------------------------------
+                0.00    0.00       1/1           nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [99]
+[106]    0.0    0.00    0.00       1         nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&) [106]
+                0.00    0.00       1/1           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+                0.00    0.00       1/19          __tcf_0 [58]
+                0.00    0.00       1/34          nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan() [56]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[107]    0.0    0.00    0.00       1         void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, int, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, int&) [107]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[108]    0.0    0.00    0.00       1         nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::set_begin() [108]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[109]    0.0    0.00    0.00       1         nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::iter_impl(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*) [109]
+-----------------------------------------------
+                0.00    0.00       1/1           Helpers::init(std::string, std::string) [21]
+[110]    0.0    0.00    0.00       1         Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [110]
+                0.00    0.00       1/1           Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) [111]
+-----------------------------------------------
+                0.00    0.00       1/1           Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [110]
+[111]    0.0    0.00    0.00       1         Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) [111]
+                0.00    0.00 1004004/1004004     Tile::Tile(TileData*) [44]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[112]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_destroy() [112]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release() [73]
+[113]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_dispose() [113]
+-----------------------------------------------
+                0.00    0.00       1/1           nlohmann::detail::input_adapter::input_adapter<__gnu_cxx::__normal_iterator<char const*, std::string>, 0>(__gnu_cxx::__normal_iterator<char const*, std::string>, __gnu_cxx::__normal_iterator<char const*, std::string>) [102]
+[114]    0.0    0.00    0.00       1         std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&) [114]
+-----------------------------------------------
+                0.00    0.00       1/1           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[115]    0.0    0.00    0.00       1         void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::emplace_back<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&) [115]
+-----------------------------------------------
+                0.00    0.00       1/1           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[116]    0.0    0.00    0.00       1         void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::_M_emplace_back_aux<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&) [116]
+-----------------------------------------------
+                0.00    0.00       1/1           ConfigData::initLandscapeData(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [92]
+[117]    0.0    0.00    0.00       1         std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::operator=(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > > const&) [117]
+-----------------------------------------------
+                0.00    0.00       1/1           std::vector<bool, std::allocator<bool> >::push_back(bool) [119]
+[118]    0.0    0.00    0.00       1         std::vector<bool, std::allocator<bool> >::_M_insert_aux(std::_Bit_iterator, bool) [118]
+-----------------------------------------------
+                0.00    0.00       1/1           bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [105]
+[119]    0.0    0.00    0.00       1         std::vector<bool, std::allocator<bool> >::push_back(bool) [119]
+                0.00    0.00       1/1           std::vector<bool, std::allocator<bool> >::_M_insert_aux(std::_Bit_iterator, bool) [118]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::string const&) [70]
+[120]    0.0    0.00    0.00       1         std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_unique_pos(std::string const&) [120]
+-----------------------------------------------
+                                   8             std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*) <cycle 1> [121]
+                                   1             nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+[121]    0.0    0.00    0.00       1+8       std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*) <cycle 1> [121]
+                                   8             nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() <cycle 1> [57]
+                                   8             std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*) <cycle 1> [121]
+-----------------------------------------------
+                0.00    0.00       1/1           Parser::parseConfig(std::string const&) [26]
+[122]    0.0    0.00    0.00       1         __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > std::unique<__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >) [122]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2014 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [80] _GLOBAL__sub_I__ZN10ConfigData6deltaTE [27] Pixel::Pixel() [35] Landscape::getTile(unsigned long, unsigned long)
+  [81] _GLOBAL__sub_I__ZN3Log9startTimeE [4] Output::print_output(double) [2] Landscape::calculate()
+  [82] _GLOBAL__sub_I__ZN4Hare7getNameEv [53] Output::print_average(double, float, float) [6] Landscape::getRegion(unsigned long, unsigned long, unsigned long, unsigned long)
+  [83] _GLOBAL__sub_I__ZN4Puma7getNameEv [97] Output::initOutputFile() [111] Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long)
+  [84] _GLOBAL__sub_I__ZN4TileC2EP8TileData [22] Parser::parseInput(std::string const&) [48] double __gnu_cxx::__stoa<double, double, char>(double (*)(char const*, char**), char const*, char const*, unsigned long*) [clone .constprop.365]
+  [85] _GLOBAL__sub_I__ZN5Image8instanceE [26] Parser::parseConfig(std::string const&) [66] nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::key() const
+  [86] _GLOBAL__sub_I__ZN6Output14initOutputFileEv [98] Parser::freeTilesVector() [62] nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::operator==(nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > const&) const
+  [87] _GLOBAL__sub_I__ZN6Parser5splitERKSsRSt6vectorISsSaISsEEc [10] TileData::clear() [73] std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_release()
+  [88] _GLOBAL__sub_I__ZN7Helpers4initESsSs [29] TileData::TileData(int) [112] std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_destroy()
+  [89] _GLOBAL__sub_I__ZN9Landscape8instanceE [47] TileData::TileData(int, float, float) [113] std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_dispose()
+  [90] _GLOBAL__sub_I_main    [63] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::at(std::string const&) [114] std::_Sp_counted_ptr_inplace<nlohmann::detail::input_buffer_adapter, std::allocator<nlohmann::detail::input_buffer_adapter>, (__gnu_cxx::_Lock_policy)2>::_M_get_deleter(std::type_info const&)
+  [52] ConfigData::getCapitalT() [99] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::parse(nlohmann::detail::input_adapter&&, std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>, bool) [67] std::map<std::string, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::operator[](std::string const&)
+  [91] ConfigData::setCapitalT(int) [100] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(decltype(nullptr)) [clone .constprop.358] [49] void std::vector<TileData*, std::allocator<TileData*> >::emplace_back<TileData*>(TileData*&&)
+  [92] ConfigData::initLandscapeData(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [101] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::basic_json(nlohmann::detail::value_t) [50] void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData* const&>(TileData* const&)
+  [18] ConfigData::getDeltaT() [57] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::~basic_json() [51] void std::vector<TileData*, std::allocator<TileData*> >::_M_emplace_back_aux<TileData*>(TileData*&&)
+  [32] ConfigData::setDeltaT(float) [61] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>::operator=(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>) [115] void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::emplace_back<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&)
+  [93] Hare::setBirthRate(float) [102] nlohmann::detail::input_adapter::input_adapter<__gnu_cxx::__normal_iterator<char const*, std::string>, 0>(__gnu_cxx::__normal_iterator<char const*, std::string>, __gnu_cxx::__normal_iterator<char const*, std::string>) [116] void std::vector<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*, std::allocator<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*> >::_M_emplace_back_aux<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*&&)
+  [33] Hare::setDiffusionRate(float) [103] nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>* nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::handle_value<nlohmann::detail::value_t>(nlohmann::detail::value_t&&) [60] void std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::_M_emplace_back_aux<std::vector<TileData*, std::allocator<TileData*> > const&>(std::vector<TileData*, std::allocator<TileData*> > const&)
+  [94] Hare::setPredationRate(float) [55] nlohmann::detail::input_buffer_adapter::get_character() [74] std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::push_back(std::vector<TileData*, std::allocator<TileData*> > const&)
+  [13] Hare::calculateNewDensity(float, float, int, float) [104] nlohmann::detail::input_buffer_adapter::~input_buffer_adapter() [75] std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::~vector()
+  [95] Puma::setBirthRate(float) [64] nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_number() [117] std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >::operator=(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > > const&)
+  [34] Puma::setDiffusionRate(float) [65] nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan_string() [59] void std::vector<std::string, std::allocator<std::string> >::_M_emplace_back_aux<std::string const&>(std::string const&)
+  [96] Puma::setMortalityRate(float) [54] nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::get() [72] std::vector<std::string, std::allocator<std::string> >::~vector()
+  [12] Puma::calculateNewDensity(float, float, int, float) [56] nlohmann::detail::lexer<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::scan() [118] std::vector<bool, std::allocator<bool> >::_M_insert_aux(std::_Bit_iterator, bool)
+  [23] Tile::clear()         [105] bool nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::sax_parse_internal<nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >(nlohmann::detail::json_sax_dom_parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >*) [119] std::vector<bool, std::allocator<bool> >::push_back(bool)
+   [3] Tile::isLand()        [106] nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse(bool, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&) [68] void std::vector<char, std::allocator<char> >::emplace_back<char>(char&&)
+   [9] Tile::update()         [71] void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, float, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, float&) [69] std::_Rb_tree_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&)
+  [16] Tile::getHares()      [107] void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, int, 0>(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, int&) [120] std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_unique_pos(std::string const&)
+  [19] Tile::getPumas()      [108] nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::set_begin() [70] std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_get_insert_hint_unique_pos(std::_Rb_tree_const_iterator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::string const&)
+   [8] Tile::calculate(int, float, float) [109] nlohmann::detail::iter_impl<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::iter_impl(nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>*) [121] std::_Rb_tree<std::string, std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >, std::_Select1st<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >, std::less<std::string>, std::allocator<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> > >*)
+  [44] Tile::Tile(TileData*)  [31] Landscape::getMaxHares() [76] std::_Rb_tree_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_emplace_hint_unique<std::piecewise_construct_t const&, std::tuple<std::string const&>, std::tuple<> >(std::_Rb_tree_const_iterator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::piecewise_construct_t const&, std::tuple<std::string const&>&&, std::tuple<>&&)
+  [45] Tile::~Tile()          [20] Landscape::getMaxPumas() [77] std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_get_insert_unique_pos(std::string const&)
+  [28] Image::init(unsigned long, unsigned long) [11] Landscape::getNeighbours(Tile**, unsigned long, unsigned long) [78] std::_Rb_tree<std::string, std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > >, std::_Select1st<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >, std::less<std::string>, std::allocator<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > > >::_M_erase(std::_Rb_tree_node<std::pair<std::string const, std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > > >*)
+  [14] Image::write(std::string, double) [24] Landscape::getAverageHares() [79] std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)>::function(std::function<bool (int, nlohmann::detail::parser<nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> >::parse_event_t, nlohmann::basic_json<std::map, std::vector, std::string, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>&)> const&)
+   [5] Image::setGrid()       [25] Landscape::getAveragePumas() [122] __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > std::unique<__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > > >(__gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >, __gnu_cxx::__normal_iterator<std::string*, std::vector<std::string, std::allocator<std::string> > >)
+  [15] Image::packData()     [110] Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) [58] __tcf_0
+  [17] Pixel::read()           [7] Landscape::update()    [36] <cycle 1>
+  [46] Pixel::setColour(Colour, double, double, double) [30] Landscape::destroy()

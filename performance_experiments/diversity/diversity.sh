@@ -3,14 +3,15 @@ BASE_FOLDER=../../;
 
 config_file=../../resources/configurations/param.json;
 data_file=./data.tsv;
+bin=../../bin/pumas_and_hares;
 
 declare -a input_files=(
-	'../../resources/input_files/diversity_0.05.dat'
-	'../../resources/input_files/diversity_0.10.dat'
-	'../../resources/input_files/diversity_0.25.dat'
-	'../../resources/input_files/diversity_0.50.dat'
-	'../../resources/input_files/diversity_0.75.dat'
-	'../../resources/input_files/diversity_1.00.dat'
+	'./input/diversity_0.05.dat'
+	'./input/diversity_0.10.dat'
+	'./input/diversity_0.25.dat'
+	'./input/diversity_0.50.dat'
+	'./input/diversity_0.75.dat'
+	'./input/diversity_1.00.dat'
 );
 
 declare -a ratio=(
@@ -22,6 +23,8 @@ declare -a ratio=(
 	'1.00'
 );
 
+module load valgrind
+
 # make -C ../../ clean; make -C ../../ ./bin/pumas_and_hares;
 
 # echo "Land ratio\tRunning Time (sec)\tMemory Usage" > $data_file;
@@ -31,8 +34,9 @@ input_files_no=${#input_files[@]}
 for (( i=0; i<${input_files_no}; i++ ));
 do
 	echo ${input_files[$i]};
-	../../bin/pumas_and_hares ${input_files[$i]} $config_file;
-	gprof ../../bin/pumas_and_hares >> gprof_profile.txt
+	$bin ${input_files[$i]} $config_file;
+	gprof $bin >> gprof_${ratio[$i]}.txt
+	valgrind --leak-check=yes --log-file="valgrind_${ratio[$i]}.txt" $bin ${input_files[$i]} $config_file;
 done
 
 python data_analyzer.py
