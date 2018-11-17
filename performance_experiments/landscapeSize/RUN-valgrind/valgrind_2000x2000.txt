@@ -1,0 +1,6 @@
+==29275== Memcheck, a memory error detector
+==29275== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==29275== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==29275== Command: ../../../bin/pumas_and_hares ../inputs/new_2000x2000.dat ../../../resources/configurations/param.json
+==29275== Parent PID: 29170
+==29275== 

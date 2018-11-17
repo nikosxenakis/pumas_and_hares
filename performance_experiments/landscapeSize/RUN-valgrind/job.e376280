@@ -1,0 +1,19 @@
+rm: cannot remove ‘./build/*’: No such file or directory
+make[1]: *** [clean] Error 1
+make: *** [clean] Error 2
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_10x10.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60: 59206 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_20x20.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60: 59232 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_50x50.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60: 59437 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_100x100.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60: 59980 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_200x200.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60: 62842 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_500x500.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60: 66202 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_1000x1000.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 60:  3832 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376280.indy2-login0.SC: line 58: ../inputs/new_1500x1500.dat: Permission denied
+=>> PBS: job killed: walltime 18023 exceeded limit 18000

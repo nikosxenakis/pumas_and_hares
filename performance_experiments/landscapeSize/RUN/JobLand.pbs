@@ -1,0 +1,66 @@
+#!/bin/bash --login
+
+# PBS job options (name, compute nodes, job time)
+#PBS -N job
+#PBS -l select=1
+#PBS -l walltime=02:00:00
+#PBS -A d167-s1886165
+
+# Change to the directory that the job was submitted from
+# (remember this should be on the /work filesystem)
+cd $PBS_O_WORKDIR
+
+
+
+BASE_FOLDER=../../../;
+
+config_file=../../../resources/configurations/param.json;
+data_file=./data.tsv;
+
+declare -a input_files=(
+        '../inputs/new_10x10.dat'
+        '../inputs/new_20x20.dat'
+        '../inputs/new_50x50.dat'
+        '../inputs/new_100x100.dat'
+        '../inputs/new_200x200.dat'
+        '../inputs/new_500x500.dat'
+        '../inputs/new_1000x1000.dat'
+        '../inputs/new_1500x1500.dat'
+        '../inputs/new_2000x2000.dat'
+);
+
+
+declare -a ratio=(
+	'10x10'
+	'20x20'
+	'50x50'
+	'100x100'
+	'200x200'
+	'500x500'
+        '1000x1000'
+        '1500x1500'
+        '2000x2000'
+);
+
+# make -C ../../../ clean; make -C ../../../ ./bin/pumas_and_hares;
+
+# echo "Land ratio\tRunning Time (sec)\tMemory Usage" > $data_file;
+
+input_files_no=${#input_files[@]}
+
+for (( i=0; i<${input_files_no}; i++ ));
+do
+	echo ${input_files[$i]};
+        echo ${input_files[$i]} >> timing.txt;
+        counter=1
+        while [ $counter -le 5 ]
+        do
+        	../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt;
+	        gprof ../../../bin/pumas_and_hares >> gprof_${ratio[$i]}.txt;
+                ((counter++))
+        done
+done
+
+module load anaconda/python2
+
+##python data_analyzer.py

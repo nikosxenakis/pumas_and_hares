@@ -1,0 +1,54 @@
+../inputs/new_10x10.dat
+Running time for simulation: 101
+Running time for simulation: 112
+Running time for simulation: 118
+Running time for simulation: 101
+Running time for simulation: 100
+../inputs/new_20x20.dat
+Running time for simulation: 282
+Running time for simulation: 283
+Running time for simulation: 282
+Running time for simulation: 281
+Running time for simulation: 281
+../inputs/new_50x50.dat
+Running time for simulation: 1520
+Running time for simulation: 1526
+Running time for simulation: 1537
+Running time for simulation: 1522
+Running time for simulation: 1528
+../inputs/new_100x100.dat
+Running time for simulation: 5927
+Running time for simulation: 5988
+Running time for simulation: 5932
+Running time for simulation: 5961
+Running time for simulation: 5966
+../inputs/new_200x200.dat
+Running time for simulation: 9936
+Running time for simulation: 9933
+Running time for simulation: 9915
+Running time for simulation: 9958
+Running time for simulation: 9929
+../inputs/new_500x500.dat
+Running time for simulation: 37651
+Running time for simulation: 37692
+Running time for simulation: 37663
+Running time for simulation: 37644
+Running time for simulation: 37702
+../inputs/new_1000x1000.dat
+Running time for simulation: 137046
+Running time for simulation: 137066
+Running time for simulation: 137108
+Running time for simulation: 137098
+Running time for simulation: 137072
+../inputs/new_1500x1500.dat
+Running time for simulation: 304326
+Running time for simulation: 304383
+Running time for simulation: 304317
+Running time for simulation: 304082
+Running time for simulation: 304230
+../inputs/new_2000x2000.dat
+Running time for simulation: 536684
+Running time for simulation: 536804
+Running time for simulation: 536729
+Running time for simulation: 536695
+Running time for simulation: 536754

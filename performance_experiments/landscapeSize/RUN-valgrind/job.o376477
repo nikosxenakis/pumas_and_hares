@@ -1,0 +1,28 @@
+make: Entering directory `/lustre/home/d167/s1886165/ProgrammingSkills/CODE/pumas_and_hares'
+Cleaning...
+rm -r ./bin/*
+rm -r ./build/*
+make -C ./test clean
+make[1]: Entering directory `/lustre/home/d167/s1886165/ProgrammingSkills/CODE/pumas_and_hares/test'
+Cleaning tests...
+rm -r ./build/*
+make[1]: Leaving directory `/lustre/home/d167/s1886165/ProgrammingSkills/CODE/pumas_and_hares/test'
+make: Leaving directory `/lustre/home/d167/s1886165/ProgrammingSkills/CODE/pumas_and_hares'
+make: Entering directory `/lustre/home/d167/s1886165/ProgrammingSkills/CODE/pumas_and_hares'
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/image.o src/image.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/landscape.o src/landscape.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/hare.o src/hare.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/helpers.o src/helpers.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/log.o src/log.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/output.o src/output.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/configData.o src/configData.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/tile.o src/tile.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/parser.o src/parser.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/puma.o src/puma.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/tileData.o src/tileData.cpp
+g++ -pg -std=c++11 -Wall -O3 -pg -c -o build/pixel.o src/pixel.cpp
+Linking...
+g++ -pg -std=c++11 -Wall -O3  ./build/image.o  ./build/landscape.o  ./build/hare.o  ./build/helpers.o  ./build/log.o  ./build/output.o  ./build/configData.o  ./build/tile.o  ./build/parser.o  ./build/puma.o  ./build/tileData.o  ./build/pixel.o ./main.cpp -o bin/pumas_and_hares
+make: Leaving directory `/lustre/home/d167/s1886165/ProgrammingSkills/CODE/pumas_and_hares'
+../inputs/new_1500x1500.dat
+../inputs/new_2000x2000.dat

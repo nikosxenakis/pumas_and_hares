@@ -1,0 +1,8 @@
+Running time for simulation: 3667
+Running time for simulation: 14136
+Running time for simulation: 85872
+Running time for simulation: 454664
+Running time for simulation: 527468
+Running time for simulation: 1663827
+Running time for simulation: 5805410
+Running time for simulation: 12608585

@@ -1,0 +1,29 @@
+==59232== Memcheck, a memory error detector
+==59232== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==59232== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==59232== Command: ../../../bin/pumas_and_hares ../inputs/new_20x20.dat ../../../resources/configurations/param.json
+==59232== Parent PID: 58817
+==59232== 
+==59232== 
+==59232== Process terminating with default action of signal 27 (SIGPROF)
+==59232==    at 0x57B77DE: __open_nocancel (in /usr/lib64/libc-2.17.so)
+==59232==    by 0x57C7BE0: write_gmon (in /usr/lib64/libc-2.17.so)
+==59232==    by 0x57C82E9: _mcleanup (in /usr/lib64/libc-2.17.so)
+==59232==    by 0x5708E68: __run_exit_handlers (in /usr/lib64/libc-2.17.so)
+==59232==    by 0x5708EB4: exit (in /usr/lib64/libc-2.17.so)
+==59232==    by 0x56F1B1B: (below main) (in /usr/lib64/libc-2.17.so)
+==59232== 
+==59232== HEAP SUMMARY:
+==59232==     in use at exit: 712,524 bytes in 204 blocks
+==59232==   total heap usage: 243,491 allocs, 243,287 frees, 132,482,404 bytes allocated
+==59232== 
+==59232== LEAK SUMMARY:
+==59232==    definitely lost: 0 bytes in 0 blocks
+==59232==    indirectly lost: 0 bytes in 0 blocks
+==59232==      possibly lost: 0 bytes in 0 blocks
+==59232==    still reachable: 712,524 bytes in 204 blocks
+==59232==         suppressed: 0 bytes in 0 blocks
+==59232== Rerun with --leak-check=full to see details of leaked memory
+==59232== 
+==59232== For counts of detected and suppressed errors, rerun with: -v
+==59232== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)

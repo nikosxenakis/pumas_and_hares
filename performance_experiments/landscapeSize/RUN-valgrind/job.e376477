@@ -1,0 +1,7 @@
+rm: cannot remove ‘./build/*’: No such file or directory
+make[1]: *** [clean] Error 1
+make: *** [clean] Error 2
+/var/spool/PBS/mom_priv/jobs/376477.indy2-login0.SC: line 67: ../inputs/new_1500x1500.dat: Permission denied
+/var/spool/PBS/mom_priv/jobs/376477.indy2-login0.SC: line 69: 10062 Profiling timer expired valgrind --log-file="valgrind_${ratio[$i]}.txt" ../../../bin/pumas_and_hares ${input_files[$i]} $config_file >> timing.txt
+/var/spool/PBS/mom_priv/jobs/376477.indy2-login0.SC: line 67: ../inputs/new_2000x2000.dat: Permission denied
+=>> PBS: job killed: walltime 18088 exceeded limit 18000
