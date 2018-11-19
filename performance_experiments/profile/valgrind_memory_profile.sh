@@ -16,4 +16,4 @@ module load valgrind
 
 #make -C ../../ clean; make -C ../../ ./bin/pumas_and_hares;
 
-valgrind --tool=massif ./bin/pumas_and_hares
+valgrind --tool=massif --max-snapshots=500 ./bin/pumas_and_hares
