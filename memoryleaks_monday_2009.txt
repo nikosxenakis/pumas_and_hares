@@ -1,0 +1,69 @@
+# this file was created: Monday, 19 Nov 2018 - 20:09
+###
+# Watch out: 	dont use -pg flag for Valgrind (leads to invalid errors), only -g
+#		use -pg flag for gprof
+#		twist plot: Valgrind and gprof dont work together!
+#
+# this file was generated with "valgrind ./bin/pumas_and_hares"
+# hardcode a landfile e.g. "small10x10.dat" in main.cpp as no arguments can be passed to Valgrind
+# use optimisation flag -O1 with Valgrind! Optimsation flags -O2 and above are not supported (give weird errors)
+###
+# create memory overhead profile with "valgrind --tool=massif ./bin/pumas_and_hares"
+# massif creates a file massif.out.<pid> for output
+
+==27075== Memcheck, a memory error detector
+==27075== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==27075== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==27075== Command: ./bin/pumas_and_hares
+==27075== 
+==27075== Mismatched free() / delete / delete []
+==27075==    at 0x4C2B171: operator delete(void*) (vg_replace_malloc.c:575)
+==27075==    by 0x405583: Landscape::~Landscape() (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x4055D9: Landscape::destroy() (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x4060E1: Helpers::close() (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x418BDE: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==  Address 0x5ad1f50 is 0 bytes inside a block of size 96 alloc'd
+==27075==    at 0x4C2A7EA: operator new[](unsigned long) (vg_replace_malloc.c:422)
+==27075==    by 0x405468: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x4054F8: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x406389: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x418B6B: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075== 
+==27075== Mismatched free() / delete / delete []
+==27075==    at 0x4C2B171: operator delete(void*) (vg_replace_malloc.c:575)
+==27075==    by 0x4055A8: Landscape::~Landscape() (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x4055D9: Landscape::destroy() (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x4060E1: Helpers::close() (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x418BDE: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==  Address 0x5ad1eb0 is 0 bytes inside a block of size 96 alloc'd
+==27075==    at 0x4C2A7EA: operator new[](unsigned long) (vg_replace_malloc.c:422)
+==27075==    by 0x4053A9: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x4054F8: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x406389: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075==    by 0x418B6B: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+==27075== 
+==27075== 
+==27075== Process terminating with default action of signal 27 (SIGPROF)
+==27075==    at 0x57B77DE: __open_nocancel (in /usr/lib64/libc-2.17.so)
+==27075==    by 0x57C7BE0: write_gmon (in /usr/lib64/libc-2.17.so)
+==27075==    by 0x57C82E9: _mcleanup (in /usr/lib64/libc-2.17.so)
+==27075==    by 0x5708E68: __run_exit_handlers (in /usr/lib64/libc-2.17.so)
+==27075==    by 0x5708EB4: exit (in /usr/lib64/libc-2.17.so)
+==27075==    by 0x56F1B1B: (below main) (in /usr/lib64/libc-2.17.so)
+==27075== 
+==27075== HEAP SUMMARY:
+==27075==     in use at exit: 342,876 bytes in 104 blocks
+==27075==   total heap usage: 63,049 allocs, 62,945 frees, 37,803,454 bytes allocated
+==27075== 
+==27075== LEAK SUMMARY:
+==27075==    definitely lost: 0 bytes in 0 blocks
+==27075==    indirectly lost: 0 bytes in 0 blocks
+==27075==      possibly lost: 0 bytes in 0 blocks
+==27075==    still reachable: 342,876 bytes in 104 blocks
+==27075==         suppressed: 0 bytes in 0 blocks
+==27075== Reachable blocks (those to which a pointer was found) are not shown.
+==27075== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==27075== 
+==27075== For counts of detected and suppressed errors, rerun with: -v
+==27075== ERROR SUMMARY: 13 errors from 2 contexts (suppressed: 1 from 1)
+./performance_experiments/profile/diversity_valgrind.sh: line 31: 27075 Profiling timer expired valgrind --leak-check=yes ./bin/pumas_and_hares

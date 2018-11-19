@@ -1,0 +1,592 @@
+desc: (none)
+cmd: ./bin/pumas_and_hares
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=6966065
+mem_heap_B=207959
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=13621786
+mem_heap_B=233048
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=19168536
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=22932256
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=29689286
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=34940480
+mem_heap_B=396376
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=detailed
+n4: 396376 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 197123 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+  n1: 197123 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+   n2: 197123 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+    n2: 197123 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+     n1: 196610 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+      n1: 196610 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+       n1: 196610 0x406B33: Output::print_output(double) (output.cpp:10)
+        n1: 196610 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+         n0: 196610 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+     n0: 513 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 120000 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+  n1: 120000 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+   n1: 120000 0x406AE7: Output::initOutputFile() (output.cpp:5)
+    n1: 120000 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+     n0: 120000 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+ n1: 72704 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+  n1: 72704 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+   n0: 72704 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+ n0: 6549 in 36 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=7
+#-----------
+time=39284550
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=46324629
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=51890335
+mem_heap_B=433765
+mem_heap_extra_B=4043
+mem_stacks_B=0
+heap_tree=peak
+n5: 433765 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 131586 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+  n1: 131586 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+   n2: 131586 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+    n2: 131586 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+     n1: 131073 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+      n1: 131073 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+       n1: 131073 0x406B33: Output::print_output(double) (output.cpp:10)
+        n1: 131073 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+         n0: 131073 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+     n0: 513 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 120000 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+  n1: 120000 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+   n1: 120000 0x406AE7: Output::initOutputFile() (output.cpp:5)
+    n1: 120000 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+     n0: 120000 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+ n2: 102926 0x4051A8: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (basic_string.tcc:219)
+  n1: 102926 0x4044AB: Image::packData[abi:cxx11]() (basic_string.h:196)
+   n1: 102926 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+    n1: 102926 0x406B33: Output::print_output(double) (output.cpp:10)
+     n1: 102926 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+      n0: 102926 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+  n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n1: 72704 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+  n1: 72704 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+   n0: 72704 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+ n0: 6549 in 35 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=10
+#-----------
+time=54504418
+mem_heap_B=199253
+mem_heap_extra_B=3987
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=60727617
+mem_heap_B=216664
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=65391957
+mem_heap_B=233048
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=72337539
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=80160033
+mem_heap_B=265303
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=87983121
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=93197719
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=detailed
+n4: 331352 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 132099 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+  n1: 132099 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+   n2: 132099 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+    n2: 131586 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+     n1: 131073 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+      n1: 131073 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+       n1: 131073 0x406B33: Output::print_output(double) (output.cpp:10)
+        n1: 131073 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+         n0: 131073 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+     n0: 513 in 2 places, all below massif's threshold (1.00%)
+    n0: 513 in 2 places, all below massif's threshold (1.00%)
+ n1: 120000 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+  n1: 120000 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+   n1: 120000 0x406AE7: Output::initOutputFile() (output.cpp:5)
+    n1: 120000 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+     n0: 120000 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+ n1: 72704 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+  n1: 72704 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+   n0: 72704 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+ n0: 6549 in 38 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=17
+#-----------
+time=101010864
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=108849262
+mem_heap_B=208472
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=112892401
+mem_heap_B=233048
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=118635907
+mem_heap_B=233048
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=122942406
+mem_heap_B=265303
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=127250064
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=132996627
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=137304293
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=143050838
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=148794709
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=155980236
+mem_heap_B=199253
+mem_heap_extra_B=3987
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=160287459
+mem_heap_B=216151
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=166031565
+mem_heap_B=232535
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=171773281
+mem_heap_B=265303
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=178957621
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=183266807
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=191656204
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=197950261
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=202147041
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=detailed
+n4: 331352 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 132099 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+  n1: 132099 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+   n2: 132099 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+    n2: 131586 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+     n1: 131073 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+      n1: 131073 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+       n1: 131073 0x406B33: Output::print_output(double) (output.cpp:10)
+        n1: 131073 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+         n0: 131073 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+     n0: 513 in 2 places, all below massif's threshold (1.00%)
+    n0: 513 in 2 places, all below massif's threshold (1.00%)
+ n1: 120000 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+  n1: 120000 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+   n1: 120000 0x406AE7: Output::initOutputFile() (output.cpp:5)
+    n1: 120000 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+     n0: 120000 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+ n1: 72704 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+  n1: 72704 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+   n0: 72704 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+ n0: 6549 in 38 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=36
+#-----------
+time=210538166
+mem_heap_B=208472
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=218930315
+mem_heap_B=233048
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=223127220
+mem_heap_B=265303
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=detailed
+n5: 265303 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 120000 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+  n1: 120000 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+   n1: 120000 0x406AE7: Output::initOutputFile() (output.cpp:5)
+    n1: 120000 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+     n0: 120000 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+ n1: 72704 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+  n1: 72704 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+   n0: 72704 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+ n1: 66050 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+  n1: 66050 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+   n2: 66050 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+    n2: 66050 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+     n1: 65537 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+      n1: 65537 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+       n1: 65537 0x406B33: Output::print_output(double) (output.cpp:10)
+        n1: 65537 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+         n0: 65537 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+     n0: 513 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 3669 in 37 places, all below massif's threshold (1.00%)
+ n1: 2880 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  n1: 2880 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+   n1: 2880 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+    n0: 2880 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+#-----------
+snapshot=39
+#-----------
+time=231518610
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=235713439
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=242007657
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=248301286
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=252498049
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=258793425
+mem_heap_B=201304
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=265086641
+mem_heap_B=216151
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=detailed
+n5: 216151 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 120000 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+  n1: 120000 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+   n1: 120000 0x406AE7: Output::initOutputFile() (output.cpp:5)
+    n1: 120000 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+     n0: 120000 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+ n1: 72704 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+  n1: 72704 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+   n0: 72704 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+ n1: 16898 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+  n1: 16898 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+   n2: 16898 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+    n2: 16898 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+     n1: 16385 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+      n1: 16385 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+       n1: 16385 0x406B33: Output::print_output(double) (output.cpp:10)
+        n1: 16385 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+         n0: 16385 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+     n0: 513 in 2 places, all below massif's threshold (1.00%)
+    n0: 0 in 2 places, all below massif's threshold (1.00%)
+ n0: 3669 in 37 places, all below massif's threshold (1.00%)
+ n1: 2880 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  n1: 2880 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+   n1: 2880 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+    n0: 2880 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+#-----------
+snapshot=46
+#-----------
+time=269282773
+mem_heap_B=233048
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=275578129
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=281871499
+mem_heap_B=265816
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=288163976
+mem_heap_B=265303
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=290779341
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=293394028
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=296008287
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=53
+#-----------
+time=298624641
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=301240049
+mem_heap_B=330839
+mem_heap_extra_B=4033
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=303857404
+mem_heap_B=331352
+mem_heap_extra_B=4056
+mem_stacks_B=0
+heap_tree=empty
