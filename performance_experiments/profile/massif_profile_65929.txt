@@ -1,0 +1,322 @@
+--------------------------------------------------------------------------------
+Command:            ./bin/pumas_and_hares
+Massif arguments:   --time-unit=ms
+ms_print arguments: --x=60 massif.out.65929
+--------------------------------------------------------------------------------
+
+
+    KB
+427.5^                   ##                                       
+     |                   #                                        
+     |                   #                                        
+     |                   #                                        
+     |                   #                                        
+     |                 ::#      :::     ::      @::     :@       :
+     |                 : #      :::     ::      @::     :@       :
+     |                 : #      :::     ::      @::     :@       :
+     |               :@: #    :::::  :::::    ::@::   :::@    @@::
+     |               :@: #    :::::  :::::    ::@::   :::@    @ ::
+     |              ::@: #  ::::::: ::::::  ::::@::  @:::@  ::@ ::
+     |            ::::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |            : ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |            : ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |            : ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |            : ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |            : ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |       :::::: ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |       :: ::: ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+     |       :: ::: ::@: # ::::::::::::::::@::::@::::@:::@::::@ ::
+   0 +----------------------------------------------------------->s
+     0                                                       2.013
+
+Number of snapshots: 52
+ Detailed snapshots: [8, 10 (peak), 28, 33, 38, 43, 48]
+
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1            250           72,712           72,704             8            0
+  2            298           72,768           72,743            25            0
+  3            336           73,864           73,673           191            0
+  4            382           83,944           83,411           533            0
+  5            430          208,432          204,376         4,056            0
+  6            472          236,568          232,535         4,033            0
+  7            526          269,872          265,816         4,056            0
+  8            558          269,872          265,816         4,056            0
+98.50% (265,816B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->44.47% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->44.47% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->44.47% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->44.47% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->44.47% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->26.94% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->26.94% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->26.94% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->24.66% (66,563B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->24.66% (66,563B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->24.66% (66,563B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->24.47% (66,050B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->24.28% (65,537B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->24.28% (65,537B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->24.28% (65,537B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->24.28% (65,537B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->24.28% (65,537B) 0x4183C7: main (main.cpp:60)
+|     | |         
+|     | ->00.19% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.19% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->01.36% (3,669B) in 35 places, all below massif's threshold (1.00%)
+| 
+->01.07% (2,880B) 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  ->01.07% (2,880B) 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+    ->01.07% (2,880B) 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+      ->01.07% (2,880B) 0x418359: main (main.cpp:52)
+        
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  9            590          335,408          331,352         4,056            0
+ 10            653          437,808          433,765         4,043            0
+99.08% (433,765B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->30.06% (131,586B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->30.06% (131,586B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->30.06% (131,586B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->30.06% (131,586B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->29.94% (131,073B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->29.94% (131,073B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->29.94% (131,073B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->29.94% (131,073B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->29.94% (131,073B) 0x4183C7: main (main.cpp:60)
+|     | |         
+|     | ->00.12% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->27.41% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->27.41% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->27.41% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->27.41% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->27.41% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->23.51% (102,926B) 0x4051A8: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (basic_string.tcc:219)
+| ->23.51% (102,926B) 0x4044AB: Image::packData[abi:cxx11]() (basic_string.h:196)
+| | ->23.51% (102,926B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+| |   ->23.51% (102,926B) 0x406B33: Output::print_output(double) (output.cpp:10)
+| |     ->23.51% (102,926B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+| |       ->23.51% (102,926B) 0x4183C7: main (main.cpp:60)
+| |         
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->16.61% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->16.61% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->16.61% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.50% (6,549B) in 35 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 11            713          203,824          199,821         4,003            0
+ 12            749          220,720          216,664         4,056            0
+ 13            781          237,104          233,048         4,056            0
+ 14            813          269,872          265,816         4,056            0
+ 15            845          269,872          265,816         4,056            0
+ 16            877          335,408          331,352         4,056            0
+ 17            909          335,408          331,352         4,056            0
+ 18            941          335,408          331,352         4,056            0
+ 19            973          212,024          208,013         4,011            0
+ 20          1,005          212,528          208,472         4,056            0
+ 21          1,037          237,104          233,048         4,056            0
+ 22          1,069          269,872          265,816         4,056            0
+ 23          1,101          269,336          265,303         4,033            0
+ 24          1,133          269,336          265,303         4,033            0
+ 25          1,165          335,408          331,352         4,056            0
+ 26          1,197          335,408          331,352         4,056            0
+ 27          1,229          203,240          199,253         3,987            0
+ 28          1,261          212,024          208,013         4,011            0
+98.11% (208,013B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->56.60% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->56.60% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->56.60% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->56.60% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->56.60% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->34.29% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->34.29% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->34.29% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->03.86% (8,192B) 0x4F17E56: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (fstream.tcc:55)
+| ->03.86% (8,192B) 0x4F1BE60: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (fstream.tcc:187)
+|   ->03.86% (8,192B) 0x406CB4: Output::print_average(double, float, float) (fstream:802)
+|   | ->03.86% (8,192B) 0x405E5C: Helpers::simulationLoop() (helpers.cpp:32)
+|   |   ->03.86% (8,192B) 0x4183C7: main (main.cpp:60)
+|   |     
+|   ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|   
+->02.00% (4,237B) in 37 places, all below massif's threshold (1.00%)
+| 
+->01.36% (2,880B) 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  ->01.36% (2,880B) 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+    ->01.36% (2,880B) 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+      ->01.36% (2,880B) 0x418359: main (main.cpp:52)
+        
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 29          1,293          220,184          216,151         4,033            0
+ 30          1,325          237,104          233,048         4,056            0
+ 31          1,357          269,872          265,816         4,056            0
+ 32          1,389          269,872          265,816         4,056            0
+ 33          1,421          335,408          331,352         4,056            0
+98.79% (331,352B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->39.38% (132,099B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->39.38% (132,099B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->39.38% (132,099B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->39.23% (131,586B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->39.08% (131,073B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->39.08% (131,073B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->39.08% (131,073B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->39.08% (131,073B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->39.08% (131,073B) 0x4183C7: main (main.cpp:60)
+|     | |         
+|     | ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->35.78% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->35.78% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->35.78% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->35.78% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->35.78% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->21.68% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->21.68% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->21.68% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.95% (6,549B) in 38 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 34          1,453          335,408          331,352         4,056            0
+ 35          1,485          335,408          331,352         4,056            0
+ 36          1,517          203,264          199,265         3,999            0
+ 37          1,549          208,432          204,376         4,056            0
+ 38          1,581          237,104          233,048         4,056            0
+98.29% (233,048B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->50.61% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->50.61% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->50.61% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->50.61% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->50.61% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->30.66% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->30.66% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->30.66% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->14.25% (33,795B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->14.25% (33,795B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->14.25% (33,795B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->14.04% (33,282B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->13.82% (32,769B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->13.82% (32,769B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->13.82% (32,769B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->13.82% (32,769B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->13.82% (32,769B) 0x4183C7: main (main.cpp:60)
+|     | |         
+|     | ->00.22% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.22% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->01.55% (3,669B) in 37 places, all below massif's threshold (1.00%)
+| 
+->01.21% (2,880B) 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  ->01.21% (2,880B) 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+    ->01.21% (2,880B) 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+      ->01.21% (2,880B) 0x418359: main (main.cpp:52)
+        
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 39          1,613          269,872          265,816         4,056            0
+ 40          1,645          269,872          265,816         4,056            0
+ 41          1,677          269,872          265,816         4,056            0
+ 42          1,709          335,408          331,352         4,056            0
+ 43          1,741          335,408          331,352         4,056            0
+98.79% (331,352B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->39.38% (132,099B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->39.38% (132,099B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->39.38% (132,099B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->39.23% (131,586B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->39.08% (131,073B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->39.08% (131,073B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->39.08% (131,073B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->39.08% (131,073B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->39.08% (131,073B) 0x4183C7: main (main.cpp:60)
+|     | |         
+|     | ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->35.78% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->35.78% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->35.78% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->35.78% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->35.78% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->21.68% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->21.68% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->21.68% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.95% (6,549B) in 38 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 44          1,773          203,824          199,821         4,003            0
+ 45          1,805          203,264          199,265         3,999            0
+ 46          1,837          220,184          216,151         4,033            0
+ 47          1,869          237,104          233,048         4,056            0
+ 48          1,901          269,336          265,303         4,033            0
+98.50% (265,303B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->44.55% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->44.55% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->44.55% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->44.55% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->44.55% (120,000B) 0x418359: main (main.cpp:52)
+|         
+->26.99% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->26.99% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->26.99% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->24.52% (66,050B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->24.52% (66,050B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->24.52% (66,050B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->24.52% (66,050B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->24.33% (65,537B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->24.33% (65,537B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->24.33% (65,537B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->24.33% (65,537B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->24.33% (65,537B) 0x4183C7: main (main.cpp:60)
+|     | |         
+|     | ->00.19% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->01.36% (3,669B) in 37 places, all below massif's threshold (1.00%)
+| 
+->01.07% (2,880B) 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  ->01.07% (2,880B) 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+    ->01.07% (2,880B) 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+      ->01.07% (2,880B) 0x418359: main (main.cpp:52)
+        
+--------------------------------------------------------------------------------
+  n       time(ms)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 49          1,949          269,872          265,816         4,056            0
+ 50          1,981          334,872          330,839         4,033            0
+ 51          2,013          335,408          331,352         4,056            0
