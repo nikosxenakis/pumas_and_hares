@@ -1,0 +1,292 @@
+--------------------------------------------------------------------------------
+Command:            ./bin/pumas_and_hares
+Massif arguments:   (none)
+ms_print arguments: massif.out.35142
+--------------------------------------------------------------------------------
+
+
+    KB
+427.5^            #                                                           
+     |            #                                                           
+     |        @   #                                                           
+     |        @   #                                                           
+     |        @   #                                                           
+     |        @:::#       ::@::       ::::         ::@@        ::::       ::::
+     |        @:: #       : @:        :: :         ::@         :::        ::::
+     |        @:: #       : @:        :: :         ::@         :::        ::::
+     |    ::::@:: #    :::: @:     ::::: :    :::::::@    @@::::::     :::::::
+     |    :: :@:: #    :: : @:     ::::: :    : :: ::@    @ :: :::     :: ::::
+     |   ::: :@:: # ::::: : @:  :::::::: : :::: :: ::@   :@ :: :::  @:::: ::::
+     | ::::: :@:: #::: :: : @: :: :::::: ::: :: :: ::@ :::@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+     | : ::: :@:: # :: :: : @: :: :::::: ::: :: :: ::@ : :@ :: ::: :@: :: ::::
+   0 +----------------------------------------------------------------------->Mi
+     0                                                                   289.8
+
+Number of snapshots: 56
+ Detailed snapshots: [6, 9 (peak), 16, 35, 38, 45]
+
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  0              0                0                0             0            0
+  1      6,966,065          211,992          207,959         4,033            0
+  2     13,621,786          237,104          233,048         4,056            0
+  3     19,168,536          269,872          265,816         4,056            0
+  4     22,932,256          269,872          265,816         4,056            0
+  5     29,689,286          269,872          265,816         4,056            0
+  6     34,940,480          400,432          396,376         4,056            0
+98.99% (396,376B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->49.23% (197,123B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->49.23% (197,123B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->49.23% (197,123B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->49.23% (197,123B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->49.10% (196,610B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->49.10% (196,610B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->49.10% (196,610B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->49.10% (196,610B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->49.10% (196,610B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|     | |         
+|     | ->00.13% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->29.97% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->29.97% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->29.97% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->29.97% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->29.97% (120,000B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|         
+->18.16% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->18.16% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->18.16% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.64% (6,549B) in 36 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+  7     39,284,550          335,408          331,352         4,056            0
+  8     46,324,629          335,408          331,352         4,056            0
+  9     51,890,335          437,808          433,765         4,043            0
+99.08% (433,765B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->30.06% (131,586B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->30.06% (131,586B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->30.06% (131,586B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->30.06% (131,586B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->29.94% (131,073B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->29.94% (131,073B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->29.94% (131,073B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->29.94% (131,073B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->29.94% (131,073B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|     | |         
+|     | ->00.12% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->27.41% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->27.41% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->27.41% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->27.41% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->27.41% (120,000B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|         
+->23.51% (102,926B) 0x4051A8: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (basic_string.tcc:219)
+| ->23.51% (102,926B) 0x4044AB: Image::packData[abi:cxx11]() (basic_string.h:196)
+| | ->23.51% (102,926B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+| |   ->23.51% (102,926B) 0x406B33: Output::print_output(double) (output.cpp:10)
+| |     ->23.51% (102,926B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+| |       ->23.51% (102,926B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+| |         
+| ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+| 
+->16.61% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->16.61% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->16.61% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.50% (6,549B) in 35 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 10     54,504,418          203,240          199,253         3,987            0
+ 11     60,727,617          220,720          216,664         4,056            0
+ 12     65,391,957          237,104          233,048         4,056            0
+ 13     72,337,539          269,872          265,816         4,056            0
+ 14     80,160,033          269,336          265,303         4,033            0
+ 15     87,983,121          334,872          330,839         4,033            0
+ 16     93,197,719          335,408          331,352         4,056            0
+98.79% (331,352B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->39.38% (132,099B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->39.38% (132,099B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->39.38% (132,099B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->39.23% (131,586B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->39.08% (131,073B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->39.08% (131,073B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->39.08% (131,073B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->39.08% (131,073B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->39.08% (131,073B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|     | |         
+|     | ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->35.78% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->35.78% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->35.78% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->35.78% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->35.78% (120,000B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|         
+->21.68% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->21.68% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->21.68% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.95% (6,549B) in 38 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 17    101,010,864          335,408          331,352         4,056            0
+ 18    108,849,262          212,528          208,472         4,056            0
+ 19    112,892,401          237,104          233,048         4,056            0
+ 20    118,635,907          237,104          233,048         4,056            0
+ 21    122,942,406          269,336          265,303         4,033            0
+ 22    127,250,064          269,872          265,816         4,056            0
+ 23    132,996,627          269,872          265,816         4,056            0
+ 24    137,304,293          335,408          331,352         4,056            0
+ 25    143,050,838          335,408          331,352         4,056            0
+ 26    148,794,709          334,872          330,839         4,033            0
+ 27    155,980,236          203,240          199,253         3,987            0
+ 28    160,287,459          220,184          216,151         4,033            0
+ 29    166,031,565          236,568          232,535         4,033            0
+ 30    171,773,281          269,336          265,303         4,033            0
+ 31    178,957,621          269,872          265,816         4,056            0
+ 32    183,266,807          269,872          265,816         4,056            0
+ 33    191,656,204          334,872          330,839         4,033            0
+ 34    197,950,261          335,408          331,352         4,056            0
+ 35    202,147,041          335,408          331,352         4,056            0
+98.79% (331,352B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->39.38% (132,099B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->39.38% (132,099B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->39.38% (132,099B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->39.23% (131,586B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->39.08% (131,073B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->39.08% (131,073B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->39.08% (131,073B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->39.08% (131,073B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->39.08% (131,073B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|     | |         
+|     | ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.15% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->35.78% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->35.78% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->35.78% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->35.78% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->35.78% (120,000B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|         
+->21.68% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->21.68% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->21.68% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->01.95% (6,549B) in 38 places, all below massif's threshold (1.00%)
+  
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 36    210,538,166          212,528          208,472         4,056            0
+ 37    218,930,315          237,104          233,048         4,056            0
+ 38    223,127,220          269,336          265,303         4,033            0
+98.50% (265,303B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->44.55% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->44.55% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->44.55% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->44.55% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->44.55% (120,000B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|         
+->26.99% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->26.99% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->26.99% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->24.52% (66,050B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->24.52% (66,050B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->24.52% (66,050B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->24.52% (66,050B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->24.33% (65,537B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->24.33% (65,537B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->24.33% (65,537B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->24.33% (65,537B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->24.33% (65,537B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|     | |         
+|     | ->00.19% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->01.36% (3,669B) in 37 places, all below massif's threshold (1.00%)
+| 
+->01.07% (2,880B) 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  ->01.07% (2,880B) 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+    ->01.07% (2,880B) 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+      ->01.07% (2,880B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+        
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 39    231,518,610          269,872          265,816         4,056            0
+ 40    235,713,439          269,872          265,816         4,056            0
+ 41    242,007,657          335,408          331,352         4,056            0
+ 42    248,301,286          334,872          330,839         4,033            0
+ 43    252,498,049          334,872          330,839         4,033            0
+ 44    258,793,425          205,360          201,304         4,056            0
+ 45    265,086,641          220,184          216,151         4,033            0
+98.17% (216,151B) (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+->54.50% (120,000B) 0x403CD2: Image::Image(unsigned long, unsigned long) (image.cpp:28)
+| ->54.50% (120,000B) 0x403D29: Image::init(unsigned long, unsigned long) (image.cpp:35)
+|   ->54.50% (120,000B) 0x406AE7: Output::initOutputFile() (output.cpp:5)
+|     ->54.50% (120,000B) 0x406111: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:18)
+|       ->54.50% (120,000B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|         
+->33.02% (72,704B) 0x4EB7D5E: _GLOBAL__sub_I_eh_alloc.cc (eh_alloc.cc:123)
+| ->33.02% (72,704B) 0x400F3A1: _dl_init (in /usr/lib64/ld-2.17.so)
+|   ->33.02% (72,704B) 0x4001468: ??? (in /usr/lib64/ld-2.17.so)
+|     
+->07.67% (16,898B) 0x4F4A3F3: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::reserve(unsigned long) (basic_string.tcc:293)
+| ->07.67% (16,898B) 0x4F3E4BC: std::__cxx11::basic_stringbuf<char, std::char_traits<char>, std::allocator<char> >::overflow(int) (sstream.tcc:114)
+|   ->07.67% (16,898B) 0x4F48967: std::basic_streambuf<char, std::char_traits<char> >::xsputn(char const*, long) (streambuf.tcc:98)
+|     ->07.67% (16,898B) 0x4F3992C: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (streambuf:451)
+|     | ->07.44% (16,385B) 0x40432F: Image::packData[abi:cxx11]() (basic_string.h:5330)
+|     | | ->07.44% (16,385B) 0x404A5C: Image::write(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double) (image.cpp:188)
+|     | |   ->07.44% (16,385B) 0x406B33: Output::print_output(double) (output.cpp:10)
+|     | |     ->07.44% (16,385B) 0x405E8E: Helpers::simulationLoop() (helpers.cpp:29)
+|     | |       ->07.44% (16,385B) 0x4183C7: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+|     | |         
+|     | ->00.23% (513B) in 1+ places, all below ms_print's threshold (01.00%)
+|     | 
+|     ->00.00% (0B) in 1+ places, all below ms_print's threshold (01.00%)
+|     
+->01.67% (3,669B) in 37 places, all below massif's threshold (1.00%)
+| 
+->01.31% (2,880B) 0x40527B: Landscape::Landscape(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >&, unsigned long, unsigned long) (landscape.cpp:13)
+  ->01.31% (2,880B) 0x405351: Landscape::init(std::vector<std::vector<TileData*, std::allocator<TileData*> >, std::allocator<std::vector<TileData*, std::allocator<TileData*> > > >, unsigned long, unsigned long) (landscape.cpp:19)
+    ->01.31% (2,880B) 0x4060CF: Helpers::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (helpers.cpp:16)
+      ->01.31% (2,880B) 0x418359: main (in /lustre/home/d167/s1895258/pumas_and_hares/bin/pumas_and_hares)
+        
+--------------------------------------------------------------------------------
+  n        time(i)         total(B)   useful-heap(B) extra-heap(B)    stacks(B)
+--------------------------------------------------------------------------------
+ 46    269,282,773          237,104          233,048         4,056            0
+ 47    275,578,129          269,872          265,816         4,056            0
+ 48    281,871,499          269,872          265,816         4,056            0
+ 49    288,163,976          269,336          265,303         4,033            0
+ 50    290,779,341          335,408          331,352         4,056            0
+ 51    293,394,028          335,408          331,352         4,056            0
+ 52    296,008,287          334,872          330,839         4,033            0
+ 53    298,624,641          335,408          331,352         4,056            0
+ 54    301,240,049          334,872          330,839         4,033            0
+ 55    303,857,404          335,408          331,352         4,056            0
