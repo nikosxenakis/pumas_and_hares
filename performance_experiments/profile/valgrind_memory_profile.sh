@@ -16,4 +16,5 @@ module load valgrind
 
 #make -C ../../ clean; make -C ../../ ./bin/pumas_and_hares;
 
-valgrind --tool=massif --max-snapshots=500 ./bin/pumas_and_hares
+#valgrind --tool=massif --xtree-memory=full ./bin/pumas_and_hares
+valgrind --tool=massif --time-unit=ms ./bin/pumas_and_hares
