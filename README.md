@@ -1,5 +1,6 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 [![Build                status](https://travis-ci.com/nikosxenakis/pumas_and_hares.svg?token=5FvzyxcLtApTEz5x7oVA&branch=master)](https://travis-ci.org/nikosxenakis)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/nikosxenakis/pumas_and_hares.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/nikosxenakis/pumas_and_hares/context:javascript)
 
 #Members
 Group 9 (C++)
